@@ -1,0 +1,20 @@
+Jogo 2D com uma pegada de rpg, focada interações e objetivos para concluir o jogo!
+Haverá uma cidade onde o personagem habitara contendo algumas interações com npc's.
+
+Lista de personagens:
+
+NPC Quest;
+NPC Mercante;
+NPC Monstro;
+Personagem principal: 3 classes;
+
+Lista de Itens:
+
+Gold;
+Potion;
+Armadura;
+Arma;
+Portas;
+Itens de Quest;
+
+Novidades em breve!
