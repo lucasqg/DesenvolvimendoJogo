@@ -1,0 +1,34 @@
+* RODE A CENA LOADER PARA FUNCIONAR CORRETAMENTE*
+
+~~ 3 CLASSES IMPLEMENTADAS~~
+-GUERREIRO
+-BOMBER
+-PISTOLEIRO
+
+~~ JÁ VEM HABILITADO O GUERREIRO POR PADRÃO ~~ 
+- ainda não foi implementado um método para selecionar 
+  as demais classes, somente atraves de código.
+
+~~ A BOLINHA VERMELHA É REFERENTE A VIDA DO PERSONAGEM~~
+
+~~ BOLINHA AMARELA É A STAMINA "somente para guerreiro" ~~ 
+
+~~ BOLINHA AZUL, MANA "somente para pistoleiro e bomber"~~
+
+~~ TECLAS ~~
+-Movimentação - "W, A, S, D"
+-Ataque: "M"
+-Perder vida - "K" (como não há inimigo ainda...)
+-Pegar item - "E"
+-Abrir inventario - "I"
+
+~~ OQUE HÁ NESTA VERSÃO? ~~
+- Sistema de XP e LEVEL;
+- 3 classes de personagem;
+- Barra de vida / mana / stamina;
+- movimentação;
+- Código para item BASE;
+- Apenas um item foi implementado ( poção de vida grande );
+- Ataque para trás;
+- Inventario ( armazena objetos na bolsa);
+- Pega o item "poção grande" e guarda ele como Stack;
