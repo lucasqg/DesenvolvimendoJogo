@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Espada_Costas : MonoBehaviour
-{
+public class AtivadorEspada : MonoBehaviour {
     public GameObject Espada__costas;
     public GameObject Espada__Frente;
     public GameObject Espada__Esquerda;
     public GameObject Espada__Direita;
+    public Espada Atributos;
     public Transform Personagem;
     public int posicao = 4;
     public bool espadaActive = false;
@@ -54,26 +54,23 @@ public class Espada_Costas : MonoBehaviour
             if (posicao == 3)
             {
                 Instantiate(Espada__costas, transform.position, transform.rotation, Personagem);
-                
+
             }
             else if (posicao == 1)
             {
                 Instantiate(Espada__Direita, transform.position, transform.rotation, Personagem);
-               
+
             }
             else if (posicao == 2)
             {
                 Instantiate(Espada__Esquerda, transform.position, transform.rotation, Personagem);
-                
+
             }
             else if (posicao == 4)
             {
                 Instantiate(Espada__Frente, transform.position, transform.rotation, Personagem);
-                
+
             }
         }
     }
-
-
-
 }

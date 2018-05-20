@@ -6,7 +6,6 @@ public class Espada : MonoBehaviour {
     private int posicao;
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame

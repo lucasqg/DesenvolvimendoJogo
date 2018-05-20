@@ -6,6 +6,7 @@ public class ArmasBehaviour : ItensBase{
     //atributos minimos;
     public float velAtaque;
     public int danoBase;
+    public int minLevel;
     public int minFor;
     public int minPres;
     public int minInt;
@@ -18,10 +19,13 @@ public class ArmasBehaviour : ItensBase{
     public override void TxtAtributos()
     {
         UIController.instancer.atributosItens.text ="\n"; // apaga tudo
-
+        if(minLevel >= 0)
+        {
+            UIController.instancer.atributosItens.text = UIController.instancer.atributosItens.text + "Nivel Minimo: " + minLevel.ToString();
+        }
         if (velAtaque > 0)
         {
-            UIController.instancer.atributosItens.text = UIController.instancer.atributosItens.text +"Velocidade de ataque: " + velAtaque.ToString();
+            UIController.instancer.atributosItens.text = UIController.instancer.atributosItens.text +"\nVelocidade de ataque: " + velAtaque.ToString();
         }
         if(danoBase > 0)
         {
