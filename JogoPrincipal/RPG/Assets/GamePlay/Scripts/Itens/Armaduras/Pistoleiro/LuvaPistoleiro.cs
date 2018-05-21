@@ -95,4 +95,8 @@ public class LuvaPistoleiro : ArmaduraBase
         defesaBase = 75;
         minPres = 25;
     }
+    public override string TipoDeArmadura()
+    {
+        return "luva";
+    }
 }

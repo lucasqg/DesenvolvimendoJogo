@@ -14,6 +14,8 @@ public class ContoleDeInventario : MonoBehaviour
     public GameObject buttonUse;
     public GameObject buttonEquip;
     private PlayerBehaviour player;
+    public PlayerItensController Equipavel;
+
     void Start()
     {
         instance = this;
@@ -36,11 +38,17 @@ public class ContoleDeInventario : MonoBehaviour
             if (selectedSlot.currentItem.canEquip)
             {
                 buttonUse.SetActive(false);
+                buttonEquip.SetActive(true);
             }
             else
             {
                 buttonEquip.SetActive(false);
+                buttonUse.SetActive(true);
             }
+        }
+        else
+        {
+            optionOnSelect.SetActive(false);
         }
     }
 
@@ -178,6 +186,16 @@ public class ContoleDeInventario : MonoBehaviour
 
     public void EquipeItem() // equipa  o item? !
     {
-
+        if(selectedSlot.currentItem.canEquip)
+        {
+            ItensBase item = selectedSlot.currentItem;
+            // coloca o item no equipavel
+            Equipavel.item = selectedSlot.currentItem;
+            Equipavel.EquipItem();
+            //retira o item do inventario
+            item.slot.currentItem = null;
+            item.slot.SetupSlot();  // método para retirar o icone do inventario
+            item.slot = null;
+        }
     }
 }

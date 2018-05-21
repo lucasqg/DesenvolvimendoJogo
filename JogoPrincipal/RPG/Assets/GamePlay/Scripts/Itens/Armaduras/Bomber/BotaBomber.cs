@@ -75,5 +75,10 @@ public class BotaBomber : ArmaduraBase {
         velocidadeMovimento = 6;
         minInt = 15;
     }
+    public override string TipoDeArmadura()
+    {
+        return "bota";
+    }
+
 }
 

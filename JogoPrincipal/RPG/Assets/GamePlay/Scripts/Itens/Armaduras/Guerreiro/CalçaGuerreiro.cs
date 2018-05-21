@@ -98,4 +98,8 @@ public class CalçaGuerreiro : ArmaduraBase {
         defesaBase = 130;
         minFor = 25;
     }
+    public override string TipoDeArmadura()
+    {
+        return "calça";
+    }
 }

@@ -76,4 +76,8 @@ public class BotaPisroleiro : ArmaduraBase {
         velocidadeMovimento = 6;
         minPres = 25;
     }
+    public override string TipoDeArmadura()
+    {
+        return "bota";
+    }
 }

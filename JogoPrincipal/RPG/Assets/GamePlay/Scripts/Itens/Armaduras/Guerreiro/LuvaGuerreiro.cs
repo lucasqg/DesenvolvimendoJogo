@@ -95,4 +95,8 @@ public class LuvaGuerreiro : ArmaduraBase {
         defesaBase = 90;
         minFor = 25;
     }
+    public override string TipoDeArmadura()
+    {
+        return "luva";
+    }
 }

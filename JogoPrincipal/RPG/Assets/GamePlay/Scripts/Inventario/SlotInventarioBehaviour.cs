@@ -18,7 +18,6 @@ public class SlotInventarioBehaviour : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         SetupSlot();
-
     }
 	
     public void SetupSlot()
@@ -78,4 +77,6 @@ public class SlotInventarioBehaviour : MonoBehaviour {
     {
         SetupSlot();
     }
+
+
 }

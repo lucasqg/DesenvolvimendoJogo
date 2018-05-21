@@ -49,7 +49,7 @@ public class ElmoBomber : ArmaduraBase
         else if (random == 5)
         {
             adicionalDefesa = 30;
-            adicionalMago = 8
+            adicionalMago = 8;
         }
         else if (random == 6)
         {
@@ -100,5 +100,9 @@ public class ElmoBomber : ArmaduraBase
         minLevel = 10;
         defesaBase = 90;
         minInt = 25;
+    }
+    public override string TipoDeArmadura()
+    {
+        return "Elmo";
     }
 }

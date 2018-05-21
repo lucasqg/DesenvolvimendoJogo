@@ -96,4 +96,8 @@ public class PeitoPistoleiro : ArmaduraBase {
         defesaBase = 110;
         minPres = 25;
     }
+    public override string TipoDeArmadura()
+    {
+        return "peito";
+    }
 }

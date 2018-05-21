@@ -101,4 +101,8 @@ public class CalçaBomber : ArmaduraBase {
         minFor = 10;
         minInt = 20;
     }
+    public override string TipoDeArmadura()
+    {
+        return "Calça";
+    }
 }

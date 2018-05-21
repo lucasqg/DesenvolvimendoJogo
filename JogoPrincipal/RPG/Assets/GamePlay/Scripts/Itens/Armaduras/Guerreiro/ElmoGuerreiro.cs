@@ -98,4 +98,8 @@ public class ElmoGuerreiro : ArmaduraBase
         defesaBase = 120;
         minFor = 25;
     }
+    public override string TipoDeArmadura()
+    {
+        return "elmo";
+    }
 }

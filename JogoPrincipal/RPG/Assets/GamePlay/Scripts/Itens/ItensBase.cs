@@ -11,8 +11,7 @@ public class ItensBase : MonoBehaviour {
     private bool canTakeItem;
     public bool canEquip;
     public SlotInventarioBehaviour slot;
-   
-
+    public SlotEquipavel slotEkp;
 
     public void addItem(int amountToAdd = 1)
     {
@@ -76,6 +75,10 @@ public class ItensBase : MonoBehaviour {
     public virtual void TxtAtributos()
     {
 
+    }
+    public virtual string TipoDeArmadura()
+    {
+        return "notArmadura";
     }
     public void TxtAtributosLimpa()
     {

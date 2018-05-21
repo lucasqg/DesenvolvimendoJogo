@@ -40,12 +40,12 @@ public class LuvaBomber : ArmaduraBase {
         else if (random == 3)
         {
             adicionalDefesa = 20;
-            adicionalMago = 6
+            adicionalMago = 6;
         }
         else if (random == 4)
         {
             adicionalDefesa = 25;
-            adicionalMago = 8
+            adicionalMago = 8;
         }
         else if (random == 5)
         {
@@ -98,5 +98,9 @@ public class LuvaBomber : ArmaduraBase {
         minLevel = 10;
         defesaBase = 75;
         minInt = 25;
+    }
+    public override string TipoDeArmadura()
+    {
+        return "Luva";
     }
 }

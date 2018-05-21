@@ -16,6 +16,10 @@ public class ArmaduraBase : ItensBase {
     public int adicionalDefesa;
     public float velocidadeMovimento;
 
+    public virtual string TipoDeArmadura()
+    {
+        return "";
+    }
 
     public override void TxtAtributos()
     {

@@ -95,4 +95,8 @@ public class PeitoGuerreiro : ArmaduraBase {
         defesaBase = 130;
         minFor = 25;
     }
+    public override string TipoDeArmadura()
+    {
+        return "peito";
+    }
 }

@@ -97,4 +97,8 @@ public class ElmoPistoleiro : ArmaduraBase
         defesaBase = 100;
         minPres = 25;
     }
+    public override string TipoDeArmadura()
+    {
+        return "elmo";
+    }
 }
