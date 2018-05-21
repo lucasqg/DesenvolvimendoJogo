@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovimentaçãoNPC : MonoBehaviour {
 
-    private float vel = 1.0f;
+    private float vel = 0.5f;
     public Transform Hero;
     private bool liberaPer = true;
     private float distancia;
@@ -12,9 +12,8 @@ public class MovimentaçãoNPC : MonoBehaviour {
     private Animator anim;
     private bool vivo = true;
     private Transform monster;
+    //public PlayerBehaviour Player;
     private List<Transform> monstros;
-    public PolygonCollider2D poligon;
-    public BoxCollider2D boxx;
 
     // Use this for initialization
     void Start () {
@@ -24,8 +23,7 @@ public class MovimentaçãoNPC : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        MovimentacaoX();
-        MovimentacaoY();
+        TesteDeslocamento();
     }
 
     public void OnTriggerEnter2D(Collider2D outro)
@@ -33,10 +31,21 @@ public class MovimentaçãoNPC : MonoBehaviour {
         // após o personagem entrar na zona de visão do mob, ele se deslocará até ele, caso o mob seja um monstro;
         if (outro.gameObject.CompareTag("Player"))
         {
-            anim.SetBool("Morrendo", true);
-            vivo = false;
+            
+            Hero = outro.transform;
         }
     }
+
+    public void OnTriggerExit2D(Collider2D outro)
+    {
+        if (outro.gameObject.CompareTag("Player"))
+        {
+            Hero = null;
+        }
+       
+    }
+
+    
 
     void Spawn() // ainda não há spawn
     {
@@ -52,90 +61,56 @@ public class MovimentaçãoNPC : MonoBehaviour {
 
     }
 
+    public void TesteDeslocamento()
+    {
+        float distanciaX = Hero.transform.position.x - this.transform.position.x;
+        float distanciaY = Hero.transform.position.y - this.transform.position.y;
+       // if(distanciaX == 0 && distanciaY == 0)
+        //{
+       //     Player.ApplayDamage()
+        //}
+        if (distanciaX < distanciaY ) // se a distancia de x < y, então deve andar em X
+        {
+            MovimentacaoX();
+        }
+        else // senão andar em y
+        {
+            MovimentacaoY();
+        }
+    }
+
     public void MovimentacaoX()
     {
-        if (monster.gameObject.CompareTag("Monster") == Hero.gameObject.CompareTag("Player"))
+        if (Hero != null)
         {
-            Destroy(Hero);
-        }
-
-
-        if (vivo == true)
-        {
-
-            distancia = Vector2.Distance(this.transform.position, Hero.transform.position);
-            if ((Hero.transform.position.x > this.transform.position.x) && !face)
-            {
-                flip();
-            }
-            else if ((Hero.transform.position.x < this.transform.position.x) && face)
-            {
-                flip();
-            }
-            if ((liberaPer == true) && distancia > 1f)
-            {
-                if (Hero.transform.position.x < this.transform.position.x)
-                {
-                    transform.Translate(new Vector2(-vel * Time.deltaTime, 0));
-                }
-                else if (Hero.transform.position.x > this.transform.position.x)
-                {
-                    transform.Translate(new Vector2(vel * Time.deltaTime, 0));
-                }
-            }
-        }
-        else
-        {
-            vel = 2f;
-            transform.Translate(new Vector3(0, -vel * Time.deltaTime, 0));
-
-            if (transform.position.y < -5)
-            {
-                Destroy(monster.gameObject);
-            }
+                    if (Hero.transform.position.x < this.transform.position.x)
+                    {
+                        transform.Translate(new Vector2(-vel * Time.deltaTime, 0));
+                    }
+                    else if (Hero.transform.position.x > this.transform.position.x)
+                    {
+                        transform.Translate(new Vector2(vel * Time.deltaTime, 0));
+                    }
+                
+            
         }
     }
     public void MovimentacaoY()
     {
-        if (monster.gameObject.CompareTag("Monster") == Hero.gameObject.CompareTag("Player"))
+        if (Hero != null)
         {
-            Destroy(Hero);
-        }
-
-
-        if (vivo == true)
-        {
-
-            distancia = Vector2.Distance(this.transform.position, Hero.transform.position);
-            if ((Hero.transform.position.y > this.transform.position.y) && !face)
-            {
-                flip();
-            }
-            else if ((Hero.transform.position.y < this.transform.position.y) && face)
-            {
-                flip();
-            }
-            if ((liberaPer == true) && distancia > 1f)
-            {
+            
                 if (Hero.transform.position.y < this.transform.position.y)
                 {
-                    transform.Translate(new Vector2(0,-vel * Time.deltaTime));
+                    transform.Translate(new Vector2(0, -vel * Time.deltaTime));
                 }
                 else if (Hero.transform.position.y > this.transform.position.y)
                 {
-                    transform.Translate(new Vector2(0,vel * Time.deltaTime));
+                    transform.Translate(new Vector2(0, vel * Time.deltaTime));
                 }
-            }
-        }
-        else
-        {
-            vel = 2f;
-            transform.Translate(new Vector3(0, -vel * Time.deltaTime, 0));
-
-            if (transform.position.y < -5)
-            {
-                Destroy(monster.gameObject);
-            }
+            
         }
     }
 }
+
+
