@@ -65,15 +65,15 @@ public class MovimentaçãoNPC : MonoBehaviour {
     {
         float distanciaX = Hero.transform.position.x - this.transform.position.x;
         float distanciaY = Hero.transform.position.y - this.transform.position.y;
-       // if(distanciaX == 0 && distanciaY == 0)
+        // if(distanciaX == 0 && distanciaY == 0)
         //{
-       //     Player.ApplayDamage()
+        //     Player.ApplayDamage()
         //}
-        if (distanciaX < distanciaY ) // se a distancia de x < y, então deve andar em X
+        if (distanciaX < distanciaY) // se a distancia de x < y, então deve andar em X
         {
             MovimentacaoX();
         }
-        else // senão andar em y
+        else if(distanciaX >= distanciaY )// senão andar em y
         {
             MovimentacaoY();
         }
@@ -91,15 +91,16 @@ public class MovimentaçãoNPC : MonoBehaviour {
                     {
                         transform.Translate(new Vector2(vel * Time.deltaTime, 0));
                     }
-                
-            
+            else
+            {
+                MovimentacaoY();
+            }
         }
     }
     public void MovimentacaoY()
     {
         if (Hero != null)
         {
-            
                 if (Hero.transform.position.y < this.transform.position.y)
                 {
                     transform.Translate(new Vector2(0, -vel * Time.deltaTime));
@@ -108,7 +109,10 @@ public class MovimentaçãoNPC : MonoBehaviour {
                 {
                     transform.Translate(new Vector2(0, vel * Time.deltaTime));
                 }
-            
+            else
+            {
+                MovimentacaoX();
+            }
         }
     }
 }
