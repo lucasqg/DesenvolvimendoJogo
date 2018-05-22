@@ -5,7 +5,7 @@ using UnityEngine;
 public class CidadãoMutante : NpcBase {
 
 	// Use this for initialization
-	void Start () {
+	protected void Start () {
 
         basicStats.baseAttack = 50;
         basicStats.baseDefense = 60;

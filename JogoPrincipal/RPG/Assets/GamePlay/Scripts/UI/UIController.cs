@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour {
     public Slider sliderLife;
     public Slider sliderStamina;
+    public Slider sliderMana;
     public Text messageItemToTake;
     public Text atributosItens;
     public ContoleDeInventario inventario;
     public float defaultTimeScale;
     public bool naoUtilizavel = false;
     public static UIController instancer;
-
+    public GameObject objectSliderMana, objectSliderStamina; // usado para ocultar o slider em player behaviour!
     public float timeToShowMessage;
     private float currentTimeToShowMessage;
     // Use this for initialization
@@ -68,10 +69,16 @@ public class UIController : MonoBehaviour {
         sliderLife.value = newPositionSlider;
         
     }
+   
     public void SetStamina(float maxStamina, float currentStamina)
     {
         float newPositionSlider = currentStamina * 1 / maxStamina;
         sliderStamina.value = newPositionSlider;
+    }
+    public void SetMana(float maxMana, float currentMana)
+    {
+        float newPositionSlider = currentMana * 1 / maxMana;
+        sliderMana.value = newPositionSlider;
     }
     
 }

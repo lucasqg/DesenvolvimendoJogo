@@ -23,7 +23,8 @@ public class MovimentaçãoNPC : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        TesteDeslocamento();
+
+        Movimentacao();
     }
 
     public void OnTriggerEnter2D(Collider2D outro)
@@ -61,60 +62,80 @@ public class MovimentaçãoNPC : MonoBehaviour {
 
     }
 
-    public void TesteDeslocamento()
+    public float VerificaModulo(float distancia) //atribui sempre distancia como positivo
+    {
+        if(distancia< 0)
+        {
+            distancia = distancia * -1;
+            return distancia;
+        }
+        return distancia;
+    }
+
+    public void Movimentacao()
     {
         float distanciaX = Hero.transform.position.x - this.transform.position.x;
         float distanciaY = Hero.transform.position.y - this.transform.position.y;
-        // if(distanciaX == 0 && distanciaY == 0)
-        //{
-        //     Player.ApplayDamage()
-        //}
-        if (distanciaX < distanciaY) // se a distancia de x < y, então deve andar em X
-        {
-            MovimentacaoX();
-        }
-        else if(distanciaX >= distanciaY )// senão andar em y
-        {
-            MovimentacaoY();
-        }
-    }
 
-    public void MovimentacaoX()
-    {
+        distanciaX = VerificaModulo(distanciaX);
+        distanciaY = VerificaModulo(distanciaY);
+                
         if (Hero != null)
         {
-                    if (Hero.transform.position.x < this.transform.position.x)
-                    {
-                        transform.Translate(new Vector2(-vel * Time.deltaTime, 0));
-                    }
-                    else if (Hero.transform.position.x > this.transform.position.x)
-                    {
-                        transform.Translate(new Vector2(vel * Time.deltaTime, 0));
-                    }
+            if (distanciaX > distanciaY)
+            {
+                if (Hero.transform.position.x < this.transform.position.x)
+                {
+                    transform.Translate(new Vector2(-vel * Time.deltaTime, 0));
+                    ResetAnimatorAndando();
+                    anim.SetBool("AndarEsquerda", true);
+
+                }
+                else if (Hero.transform.position.x > this.transform.position.x)
+                {
+                    transform.Translate(new Vector2(vel * Time.deltaTime, 0));
+                    ResetAnimatorAndando();
+                    anim.SetBool("AndarDireita", true);
+                }
+            }
             else
             {
-                MovimentacaoY();
-            }
-        }
-    }
-    public void MovimentacaoY()
-    {
-        if (Hero != null)
-        {
                 if (Hero.transform.position.y < this.transform.position.y)
                 {
                     transform.Translate(new Vector2(0, -vel * Time.deltaTime));
+                    ResetAnimatorAndando();
+                    anim.SetBool("AndarFrente", true);
                 }
                 else if (Hero.transform.position.y > this.transform.position.y)
                 {
                     transform.Translate(new Vector2(0, vel * Time.deltaTime));
+                    ResetAnimatorAndando();
+                    anim.SetBool("AndarCostas", true);
                 }
-            else
-            {
-                MovimentacaoX();
             }
         }
     }
+
+    public void ResetAnimatorParado()
+    {
+        anim.SetBool("AndarFrente", false);
+        anim.SetBool("AndarCostas", false);
+        anim.SetBool("AndarEsquerda", false);
+        anim.SetBool("AndarDireita", false);
+        anim.SetBool("Parar", true);
+
+    }
+
+    public void ResetAnimatorAndando()
+    {
+        anim.SetBool("AndarFrente", false);
+        anim.SetBool("AndarCostas", false);
+        anim.SetBool("AndarEsquerda", false);
+        anim.SetBool("AndarDireita", false);
+        anim.SetBool("Parar", false);
+
+    }
+   
 }
 
 

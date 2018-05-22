@@ -20,7 +20,26 @@ public class PlayerBehaviour : CharacterBase {
         type = PlayerStatsController.GetTypeCharacter();
         basicStats = PlayerStatsController.instance.GetBasicStatsPlayer(type);
         base.Start();
+        TipoDeSlider();
 
+
+
+    }
+
+    public void TipoDeSlider()
+    {
+        if (GetTypeChar() == TypeCharacter.Guerreiro)
+        {
+            UI.objectSliderMana.SetActive(false);
+        }
+        else if (GetTypeChar() == TypeCharacter.Bomber)
+        {
+            UI.objectSliderStamina.SetActive(false);
+        }
+        else if (GetTypeChar() == TypeCharacter.Pistoleiro)
+        {
+            UI.objectSliderStamina.SetActive(false);
+        }
     }
 
     public TypeCharacter GetTypeChar()
