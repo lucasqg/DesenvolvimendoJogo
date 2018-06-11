@@ -34,66 +34,67 @@ public class LuvaGuerreiro : ArmaduraBase {
         }
         else if (random == 2)
         {
-            adicionalDefesa = 15;
+            adicionalDefesa = 1;
         }
         else if (random == 3)
         {
-            adicionalDefesa = 20;
+            adicionalDefesa = 1;
         }
         else if (random == 4)
         {
-            adicionalDefesa = 25;
+            adicionalHP = 10;
         }
         else if (random == 5)
         {
-            adicionalDefesa = 30;
+            adicionalHP = 4;
         }
         else if (random == 6)
         {
-            adicionalDefesa = 20;
-            adicionalDano = 24;
+            adicionalHP = 5;
+            adicionalDano = 1;
         }
         else if (random == 7)
         {
-            adicionalDefesa = 25;
-            adicionalDano = 24;
+            adicionalHP = 6;
+            adicionalDano = 1;
         }
         else if (random == 8)
         {
-            adicionalDefesa = 15;
+            adicionalHP = 15;
         }
         else if (random == 9)
         {
-            adicionalDefesa = 10;
+            adicionalHP = 4;
         }
         else if (random == 10)
         {
-            adicionalDano = 5;
+            adicionalHP = 6;
+            adicionalDano = 1;
         }
     }
 
     public void LuvaInicial()
     {
         minLevel = 1;
-        defesaBase = 10;
+        HPbase = 2;
+        
     }
     public void LuvaRuim()
     {
         minLevel = 3;
-        defesaBase = 30;
-        minFor = 10;
+        HPbase = 5;
     }
     public void LuvaBoa()
     {
         minLevel = 6;
-        defesaBase = 60;
-        minFor = 15;
+        defesaBase = 1;
+        HPbase = 10;
     }
     public void LuvaMuitoBoa()
     {
         minLevel = 10;
-        defesaBase = 90;
-        minFor = 25;
+        HPbase = 10;
+        defesaBase = 2;
     }
     public override string TipoDeArmadura()
     {

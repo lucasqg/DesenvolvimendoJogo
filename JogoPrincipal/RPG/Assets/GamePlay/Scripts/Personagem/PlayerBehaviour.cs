@@ -14,16 +14,12 @@ public class PlayerBehaviour : CharacterBase {
     public UIController UI;
 
     protected void Start () {
-        
         currentLevel = PlayerStatsController.GetCurrentLevel();
         PlayerStatsController.SetTypeCharacter(TypeCharacter.Pistoleiro);
         type = PlayerStatsController.GetTypeCharacter();
         basicStats = PlayerStatsController.instance.GetBasicStatsPlayer(type);
         base.Start();
         TipoDeSlider();
-
-
-
     }
 
     public void TipoDeSlider()

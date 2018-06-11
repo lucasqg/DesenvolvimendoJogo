@@ -11,10 +11,13 @@ public abstract class DestructiveBase : MonoBehaviour {
     public float totalMana;
     public float currentStamina;
     public float totalStamina;
+    public int currentSkills;
     //das armas:
-    public float danoTotal;
-    public float magiaTotal;
+    public int danoTotal;
     public float velTotal;
+    public float defTotal;
+    // atributos variaveis a arma/set
+    public SlotEquipavel arma, elmo, peito, bota, luva, calça, colar, anel1, anel2;
 
 	void Start () {
         
@@ -60,6 +63,13 @@ public abstract class DestructiveBase : MonoBehaviour {
             OnDestroyed();
         }
     }
+
+
+    public void AppAtributosItens()
+    {
+       // elmo.currentItem
+    }
+
 
     public abstract void OnDestroyed();
 } 

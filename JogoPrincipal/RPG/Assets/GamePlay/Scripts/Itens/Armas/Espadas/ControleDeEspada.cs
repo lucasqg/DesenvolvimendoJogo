@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Espada : MonoBehaviour {
+public class ControleDeEspada : MonoBehaviour {
     private int posicao;
 	// Use this for initialization
 	void Start () {

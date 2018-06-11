@@ -13,6 +13,7 @@ public class BasicStats
     public int precisão;
     public int baseDefense;
     public int baseAttack;
+    public int pontosSkill;
 }
 
 public abstract class CharacterBase : DestructiveBase {

@@ -25,7 +25,7 @@ public class ContoleDeInventario : MonoBehaviour
         {
             GameObject tempSlot = Instantiate(slotPrefab.gameObject);
             tempSlot.transform.SetParent(itensGrid, false);
-            InventarioSlots.Add(tempSlot.GetComponent<SlotInventarioBehaviour>());
+            InventarioSlots.Add(tempSlot.GetComponent<SlotInventarioBehaviour>());  
         }
     }
 
@@ -189,13 +189,24 @@ public class ContoleDeInventario : MonoBehaviour
         if(selectedSlot.currentItem.canEquip)
         {
             ItensBase item = selectedSlot.currentItem;
-            // coloca o item no equipavel
-            Equipavel.item = selectedSlot.currentItem;
-            Equipavel.EquipItem();
-            //retira o item do inventario
-            item.slot.currentItem = null;
-            item.slot.SetupSlot();  // método para retirar o icone do inventario
-            item.slot = null;
+            // coloca o item no equipavel, mas verifica se ja há um item ocupando o slot
+            if (Equipavel.item != null)
+            {
+                PlayerItensController aux;
+                aux = Equipavel;
+                Equipavel.item = selectedSlot.currentItem;
+                Equipavel.EquipItem();
+                selectedSlot.currentItem = aux.item;
+            }
+            else
+            {
+                Equipavel.item = selectedSlot.currentItem;
+                Equipavel.EquipItem();
+                //retira o item do inventario
+                item.slot.currentItem = null;
+                item.slot.SetupSlot();  // método para retirar o icone do inventario
+                item.slot = null;
+            }
         }
     }
 }

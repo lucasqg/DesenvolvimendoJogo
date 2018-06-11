@@ -9,6 +9,7 @@ public class ArmaduraBase : ItensBase {
     public int minFor;
     public int minPres;
     public int minInt;
+    public int HPbase;
     //atributos adicionais
     public int adicionalHP;
     public int adicionalDano;

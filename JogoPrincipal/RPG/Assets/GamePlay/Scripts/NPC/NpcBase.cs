@@ -23,6 +23,11 @@ public class NpcBase : NpcDestructiveBase {
         Inicialization();
     }
 
+    protected void Update()
+    {
+        DestroiMonster();   // testa se o monstro deve morrer
+    }
+
     public void Inicialization()
     {
         currentLife = basicStats.startLife;
@@ -33,6 +38,29 @@ public class NpcBase : NpcDestructiveBase {
         totalStamina = basicStats.startStamina;
     }
 
+    public void applyDamage(int danoMin, int danoMax)
+    {
+
+        int random = Random.Range(1, 2);
+        if(random == 1)
+        {
+            if((defesaTotal - danoMin) > 0 )
+                currentLife = currentLife - (defesaTotal - danoMin);
+        }
+        else if(random == 2)
+        {
+            if ((defesaTotal - danoMax) > 0)
+                currentLife = currentLife - (defesaTotal - danoMax);
+        }
+    }
+
+    public void DestroiMonster()
+    {
+        if(currentLife < 0)
+        {
+            Destroy(this);
+        }
+    }
     public override void OnDestroyed()
     {
         //throw new System.NotImplementedException();

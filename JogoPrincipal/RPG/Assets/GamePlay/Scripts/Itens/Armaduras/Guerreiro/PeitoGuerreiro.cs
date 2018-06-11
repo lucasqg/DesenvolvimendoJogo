@@ -33,67 +33,67 @@ public class PeitoGuerreiro : ArmaduraBase {
         }
         else if (random == 2)
         {
-            adicionalDefesa = 15;
+            adicionalDefesa = 1;
         }
         else if (random == 3)
         {
-            adicionalDefesa = 50;
+            adicionalDefesa = 2;
+            adicionalHP = 10;
         }
         else if (random == 4)
         {
-            adicionalDefesa = 25;
+            adicionalHP = 5;
         }
         else if (random == 5)
         {
-            adicionalDefesa = 30;
+            adicionalDano = 2;
         }
         else if (random == 6)
         {
-            adicionalDefesa = 20;
-            adicionalDano = 24;
+            adicionalDefesa = 1;
+            adicionalDano = 1;
         }
         else if (random == 7)
         {
-            adicionalDefesa = 25;
-            adicionalDano = 24;
+            adicionalDefesa = 2;
+            adicionalDano = 2;
         }
         else if (random == 8)
         {
-            adicionalDefesa = 30;
-            adicionalDano = 30;
+            adicionalDefesa = 1;
+            adicionalDano = 2;
         }
         else if (random == 9)
         {
-            adicionalDefesa = 25;
+            adicionalDefesa = 1;
+            adicionalHP = 5;
         }
         else if (random == 10)
         {
-            adicionalDano = 24;
+            adicionalDano = 2;
+            adicionalHP = 10;
         }
     }
 
     public void PeitoInicial()
     {
         minLevel = 1;
-        defesaBase = 25;
+        defesaBase = 1;
     }
     public void PeitoRuim()
     {
         minLevel = 3;
-        defesaBase = 50;
-        minFor = 10;
+        defesaBase = 2;
     }
     public void PeitoBom()
     {
         minLevel = 6;
-        defesaBase = 90;
-        minFor = 15;
+        defesaBase = 5;
     }
     public void PeitoMuitoBom()
     {
         minLevel = 10;
-        defesaBase = 130;
-        minFor = 25;
+        defesaBase = 8;
     }
     public override string TipoDeArmadura()
     {

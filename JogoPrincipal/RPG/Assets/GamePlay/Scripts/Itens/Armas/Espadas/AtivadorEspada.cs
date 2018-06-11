@@ -7,10 +7,14 @@ public class AtivadorEspada : MonoBehaviour {
     public GameObject Espada__Frente;
     public GameObject Espada__Esquerda;
     public GameObject Espada__Direita;
-    public Espada Atributos;
+    public ControleDeEspada Atributos;
     public Transform Personagem;
     public int posicao = 4;
     public bool espadaActive = false;
+    public int velAtack = 100;
+    public int quantidadeDeHits=1;
+
+    public int ContadorDeTempo=0;
     void Start()
     {
 
@@ -19,12 +23,10 @@ public class AtivadorEspada : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (espadaActive)
-        {
+        
             posicaoPlayer();
             PosicaoDeAtack();
-        }
-
+        
     }
 
     public void posicaoPlayer()
@@ -49,28 +51,39 @@ public class AtivadorEspada : MonoBehaviour {
 
     public void PosicaoDeAtack()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        ContadorDeTempo += 1;
+        if (Input.GetKeyDown(KeyCode.M) && ContadorDeTempo >= velAtack)
         {
-            if (posicao == 3)
+            for (int i = 1; i <= quantidadeDeHits; i++)
             {
-                Instantiate(Espada__costas, transform.position, transform.rotation, Personagem);
+                if (posicao == 3)
+                {
+                    Instantiate(Espada__costas, transform.position, transform.rotation, Personagem);
 
-            }
-            else if (posicao == 1)
-            {
-                Instantiate(Espada__Direita, transform.position, transform.rotation, Personagem);
+                }
+                else if (posicao == 1)
+                {
+                    Instantiate(Espada__Direita, transform.position, transform.rotation, Personagem);
 
-            }
-            else if (posicao == 2)
-            {
-                Instantiate(Espada__Esquerda, transform.position, transform.rotation, Personagem);
+                }
+                else if (posicao == 2)
+                {
+                    Instantiate(Espada__Esquerda, transform.position, transform.rotation, Personagem);
 
-            }
-            else if (posicao == 4)
-            {
-                Instantiate(Espada__Frente, transform.position, transform.rotation, Personagem);
+                }
+                else if (posicao == 4)
+                {
+                    Instantiate(Espada__Frente, transform.position, transform.rotation, Personagem);
 
+                }
+                ContadorDeTempo = 0;
             }
+            quantidadeDeHits = 1;
         }
+    }
+
+    public void AtivadorHitSkill(int QuantidadeDeHits)
+    {
+        quantidadeDeHits = QuantidadeDeHits;
     }
 }

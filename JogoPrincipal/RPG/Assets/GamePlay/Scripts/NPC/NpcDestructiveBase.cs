@@ -10,14 +10,12 @@ public abstract class NpcDestructiveBase : MonoBehaviour {
     public float totalMana;
     public float currentStamina;
     public float totalStamina;
-    //das armas:
-    public float danoTotal;
-    public float magiaTotal;
-    public float velTotal;
+    public int defesaTotal;
+    public int danoTotal;
+    public int velTotal;
 
     void Start()
     {
-
 
     }
 

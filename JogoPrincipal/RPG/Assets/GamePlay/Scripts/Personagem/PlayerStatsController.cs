@@ -98,7 +98,7 @@ public class PlayerStatsController : MonoBehaviour{
         }
         return baseInfoChars[0].baseInfo;
     } 
-
+    
     private void OnGUI()
     {
         GUI.Label(new Rect(0, 0, 100, 50), "Current Xp" + GetCurrentXp());

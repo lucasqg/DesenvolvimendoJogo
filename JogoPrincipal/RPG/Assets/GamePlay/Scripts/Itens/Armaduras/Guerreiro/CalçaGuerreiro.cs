@@ -84,19 +84,16 @@ public class CalçaGuerreiro : ArmaduraBase {
     {
         minLevel = 3;
         defesaBase = 50;
-        minFor = 10;
     }
     public void CalçaBoa()
     {
         minLevel = 6;
         defesaBase = 90;
-        minFor = 15;
     }
     public void CalçaMuitoBoa()
     {
         minLevel = 10;
         defesaBase = 130;
-        minFor = 25;
     }
     public override string TipoDeArmadura()
     {

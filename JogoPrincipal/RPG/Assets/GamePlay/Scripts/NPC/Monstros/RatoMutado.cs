@@ -6,10 +6,9 @@ public class RatoMutado : NpcBase {
 
 	// Use this for initialization
 	void Start () {
-        basicStats.baseAttack = 30;
-        basicStats.baseDefense = 40;
-        basicStats.startLife = 120;
-        basicStats.nameNpc = "RatoMutado";
+        danoTotal = 30;
+        defesaTotal = 40;
+        totalLife = 120;
     }
 	
 	// Update is called once per frame

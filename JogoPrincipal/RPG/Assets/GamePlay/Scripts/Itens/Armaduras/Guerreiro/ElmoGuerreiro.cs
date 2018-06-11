@@ -34,69 +34,68 @@ public class ElmoGuerreiro : ArmaduraBase
         }
         else if (random == 2)
         {
-            adicionalDefesa = 15;
+            adicionalHP = 3;
         }
         else if (random == 3)
         {
-            adicionalDefesa = 20;
+            adicionalHP = 2;
         }
         else if (random == 4)
         {
-            adicionalDefesa = 25;
+            adicionalDefesa = 1;
         }
         else if (random == 5)
         {
-            adicionalDefesa = 30;
+            adicionalDefesa = 1;
         }
         else if (random == 6)
         {
-            adicionalDefesa = 20;
-            adicionalDano = 24;
+            adicionalDefesa = 2;
+            adicionalHP = 10;
         }
         else if (random == 7)
         {
-            adicionalDefesa = 25;
-            adicionalDano = 24;
+            adicionalDefesa = 1;
+            adicionalHP = 5;
         }
         else if (random == 8)
         {
-            adicionalDefesa = 20;
-            adicionalHP = 50;
+            adicionalDefesa = 1;
+            adicionalHP = 5;
         }
         else if (random == 9)
         {
-            adicionalDefesa = 25;
-            adicionalHP = 50;
+            adicionalDefesa = 1;
+            adicionalHP = 6;
         }
         else if (random == 10)
         {
-            adicionalHP = 80;
-            adicionalDano = 24;
+            adicionalHP = 10;
+            adicionalDano = 1;
         }
     }
 
     public void ElmoInicial()
     {
         minLevel = 1;
-        defesaBase = 20;
+        HPbase = 3;
     }
     public void ElmoRuim()
     {
         minLevel = 3;
-        defesaBase = 40;
-        minFor = 10;
+        HPbase = 5;
     }
     public void ElmoBom()
     {
         minLevel = 6;
-        defesaBase = 80;
-        minFor = 15;
+        defesaBase = 1;
+        HPbase = 5;
     }
     public void ElmoMuitoBom()
     {
         minLevel = 10;
-        defesaBase = 120;
-        minFor = 25;
+        defesaBase = 2;
+        HPbase = 10;
     }
     public override string TipoDeArmadura()
     {
