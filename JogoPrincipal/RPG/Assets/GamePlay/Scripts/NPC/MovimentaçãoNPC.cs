@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovimentaçãoNPC : MonoBehaviour {
+    private float ArmazenarCoordenadasX, ArmazenarCoordenadasY;
 
     private float vel = 0.5f;
     public Transform Hero;
@@ -12,6 +13,7 @@ public class MovimentaçãoNPC : MonoBehaviour {
     private Animator anim;
     private bool vivo = true;
     private Transform monster;
+    private bool perseguindo = false;
     //public PlayerBehaviour Player;
     private List<Transform> monstros;
 
@@ -19,12 +21,20 @@ public class MovimentaçãoNPC : MonoBehaviour {
     void Start () {
         anim = GetComponent<Animator>();
         monster = GetComponent<Transform>();
+        ArmazenarCoordenadasX = this.transform.position.x;
+        ArmazenarCoordenadasY = this.transform.position.y;
     }
 	
 	// Update is called once per frame
 	void Update () {
-
-        Movimentacao();
+        if (perseguindo)
+        {
+            Movimentacao();
+        }
+        else
+        {
+            VoltaPosicaoInicial();
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D outro)
@@ -34,6 +44,7 @@ public class MovimentaçãoNPC : MonoBehaviour {
         {
             
             Hero = outro.transform;
+            perseguindo = true;
         }
     }
 
@@ -42,11 +53,65 @@ public class MovimentaçãoNPC : MonoBehaviour {
         if (outro.gameObject.CompareTag("Player"))
         {
             Hero = null;
+            perseguindo = false;
         }
+        
        
     }
 
-    
+    public void VoltaPosicaoInicial()
+    {
+         
+                    
+            float distanciaX = ArmazenarCoordenadasX - this.transform.position.x;
+        float distanciaY = ArmazenarCoordenadasY - this.transform.position.y;
+
+        distanciaX = VerificaModulo(distanciaX);
+        distanciaY = VerificaModulo(distanciaY);
+        if (distanciaX != ArmazenarCoordenadasX && distanciaY != ArmazenarCoordenadasY)
+        {
+
+            if (distanciaX > distanciaY)
+            {
+                if (ArmazenarCoordenadasX < this.transform.position.x)
+                {
+                    transform.Translate(new Vector2(-vel * Time.deltaTime, 0));
+                    ResetAnimatorAndando();
+                    anim.SetBool("AndarEsquerda", true);
+
+                }
+                else if (ArmazenarCoordenadasX > this.transform.position.x)
+                {
+                    transform.Translate(new Vector2(vel * Time.deltaTime, 0));
+                    ResetAnimatorAndando();
+                    anim.SetBool("AndarDireita", true);
+                }
+            }
+            else
+            {
+                if (ArmazenarCoordenadasY < this.transform.position.y)
+                {
+                    transform.Translate(new Vector2(0, -vel * Time.deltaTime));
+                    ResetAnimatorAndando();
+                    anim.SetBool("AndarFrente", true);
+                }
+                else if (ArmazenarCoordenadasY > this.transform.position.y)
+                {
+                    transform.Translate(new Vector2(0, vel * Time.deltaTime));
+                    ResetAnimatorAndando();
+                    anim.SetBool("AndarCostas", true);
+                }
+            }
+        }
+        else
+        {
+            anim.SetBool("AndarCostas", false);
+            anim.SetBool("AndarFrente", false);
+            anim.SetBool("AndarDireita", false);
+            anim.SetBool("AndarEsquerda", false);
+        }
+       
+    }
 
     void Spawn() // ainda não há spawn
     {

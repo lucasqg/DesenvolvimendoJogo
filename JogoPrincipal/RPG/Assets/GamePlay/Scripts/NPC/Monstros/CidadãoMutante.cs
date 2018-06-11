@@ -7,11 +7,18 @@ public class CidadãoMutante : NpcBase {
 	// Use this for initialization
 	protected void Start () {
 
-        danoTotal = 50;
-        defesaTotal = 1;
-        totalLife = 200;
+        danoTotal = 5;
+        defesaTotal = 0;
+        totalLife = 30;
         currentLife = totalLife;
     }
-	
-	
+
+    public override void DestroiMonster()
+    {
+        if (currentLife <= 0)
+        {
+            
+            Destroy(this.gameObject);
+        }
+    }
 }

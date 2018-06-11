@@ -13,9 +13,11 @@ public class PlayerStatsController : MonoBehaviour{
     public static PlayerStatsController instance;
     public int level;
     public int xpMultiply = 1;
+    public int pontosSkill;
+    public int pontosAtributos;
     public float xpFirstLevel = 100;
     public float difficultFactor = 1.5f;
-
+    public PlayerBehaviour player;
     public List<BasicInfoChars> baseInfoChars;
 
 
@@ -23,23 +25,31 @@ public class PlayerStatsController : MonoBehaviour{
     // Use this for initialization
     void Start()
     {
+       
         instance = this;
         DontDestroyOnLoad(gameObject);
         Application.LoadLevel("GamePlay"); //Chama a cena apoós o menu
-
+        
+        
     }
 
     void Update()
     {
-
+        player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+        if (Input.GetKey(KeyCode.X))
+        {
+            AddXp(100);
+        }
     }
 
     public static void AddXp(float xpAdd)
     {
         float newXp = (GetCurrentXp() + xpAdd) * PlayerStatsController.instance.xpMultiply;
-        while(newXp >= GetNextXp())
+        int pSkill = (GetCurrentPontosSkill() + 1);
+        while (newXp >= GetNextXp())
         {
             newXp -= GetNextXp();
+            pSkill += GetCurrentPontosSkill();
             addLevel();
            
         }
@@ -54,9 +64,16 @@ public class PlayerStatsController : MonoBehaviour{
         return PlayerPrefs.GetInt("currentLevel");
     }
 
+    public static int GetCurrentPontosSkill()
+    {
+        return PlayerPrefs.GetInt("pontosSkill");
+    }
+
     public static void addLevel()
     {
         int newLevel = GetCurrentLevel() + 1;
+        instance.player.currentSkills += 1;
+        instance.player.currentPontos += 5;
         PlayerPrefs.SetInt("currentLevel", newLevel);
     }
     public static float GetNextXp()
@@ -99,10 +116,13 @@ public class PlayerStatsController : MonoBehaviour{
         return baseInfoChars[0].baseInfo;
     } 
     
+    /*
     private void OnGUI()
     {
         GUI.Label(new Rect(0, 0, 100, 50), "Current Xp" + GetCurrentXp());
         GUI.Label(new Rect(0, 50, 100, 50), "Current Level" + GetCurrentLevel());
         GUI.Label(new Rect(0, 100, 100, 50), "Current Next Level" + GetNextXp());
     }
+    */
+    
 }

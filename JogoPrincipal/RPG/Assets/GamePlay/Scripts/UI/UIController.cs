@@ -2,30 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class UIController : MonoBehaviour {
     public Slider sliderLife;
     public Slider sliderStamina;
     public Slider sliderMana;
+    public Slider sliderMonster;
     public Text messageItemToTake;
     public Text atributosItens;
     public ContoleDeInventario inventario;
     public float defaultTimeScale;
     public bool naoUtilizavel = false;
     public static UIController instancer;
-    public GameObject objectSliderMana, objectSliderStamina; // usado para ocultar o slider em player behaviour!
+    public GameObject objectSliderMana, objectSliderStamina, objectSliderMonster; // usado para ocultar o slider em player behaviour!
     public float timeToShowMessage;
     private float currentTimeToShowMessage;
+    public int tempoLoad = 1500;
+    public int ContadorDeTempo = 0;
+    public bool ativo = true;
+    public Image destruction;
     // Use this for initialization
     void Start () {
+        abrirInventario();
 
-        inventario.gameObject.SetActive(false);
+        Time.timeScale = defaultTimeScale;
         messageItemToTake.gameObject.SetActive(false);
         instancer = this;
+        objectSliderMonster.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        ContadorDeTempo += 1;
+        if(ContadorDeTempo < tempoLoad && ativo)
+        {
+            inventario.gameObject.SetActive(!inventario.gameObject.activeSelf); // liga e desliga o inventario
+            ativo = false;
+            Destroy(destruction.gameObject);
+        }
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventario.gameObject.SetActive(!inventario.gameObject.activeSelf); // liga e desliga o inventario
@@ -48,6 +61,19 @@ public class UIController : MonoBehaviour {
             }
         }
 
+    }
+    public void abrirInventario()
+    {
+        inventario.gameObject.SetActive(true);
+        
+        if (inventario.gameObject.activeSelf)//CONDICIONAL QUE PAUSE O GAME.
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = defaultTimeScale;
+        }
     }
     public void ShowMessageTakeItem()
     {
@@ -81,4 +107,9 @@ public class UIController : MonoBehaviour {
         sliderMana.value = newPositionSlider;
     }
     
+    public void SetLifeMonster(float maxVida, float currentLife)
+    {
+        float newPositionSlider = currentLife * 1 / maxVida;
+        sliderMonster.value = newPositionSlider;
+    }
 }

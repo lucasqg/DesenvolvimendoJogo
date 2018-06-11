@@ -111,7 +111,7 @@ public class AtributoDeEspadas : ArmasBehaviour {
         danoBase = 20;
         velAtaque = 15;
     }
-
+    
 
 }
 

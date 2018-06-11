@@ -4,48 +4,62 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour {
     public PolygonCollider2D colisor;
+    public NpcBase monstro;
     public CidadãoMutante cidadao;
-    public Esqueleto esqueleto;
-    public LoboDecomposto loboDecomposto;
-    public LoboSelvagem loboSelvagem;
-    public MorcegoMutado morcego;
-    public RatoMutado rato;
+    public BonecoDeTreino boneco;
     public PlayerBehaviour player;
+    public MorcegoMutado morcego;
     // Use this for initialization
     void Start () {
-		
-	}
-    public void applyDamageMonster(NpcBase monster)
-    {
-        monster.applyDamage(10, 100);
+        player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void applyDamageMonster(NpcBase monster)
     {
-        Debug.Log("ois");
-        if (collision.tag == "CidadaoMutante")
-        {
-            applyDamageMonster(cidadao);
-        }
-        if (collision.tag == "Esqueleto")
-        {
-            applyDamageMonster(esqueleto);
-        }
-        if (collision.tag == "LoboDecomposto")
-        {
-            applyDamageMonster(loboDecomposto);
-        }
-        if (collision.tag == "LoboSelvagem")
-        {
-            applyDamageMonster(loboSelvagem);
-        }
-        if (collision.tag == "MorcegoMutado")
-        {
+        monster.applyDamage(player.danoTotal -2, player.danoTotal);
+    }
+   
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+       
+            if (collision.tag == "CidadaoMutante")
+            {
+                Debug.Log("Cidadao Mutante levando DAMAGE");
+                cidadao = FindObjectOfType(typeof(CidadãoMutante)) as CidadãoMutante;
+                player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+                applyDamageMonster(cidadao);
+            }
+            else if (collision.tag == "Esqueleto")
+            {
+                applyDamageMonster(monstro);
+            }
+        else if (collision.tag == "LoboDecomposto")
+            {
+                applyDamageMonster(monstro);
+            }
+        else if(collision.tag == "LoboSelvagem")
+            {
+                applyDamageMonster(monstro);
+            }
+        else if(collision.tag == "Morcego")
+            {
+            Debug.Log("Morcego levando DANO");
+            morcego = FindObjectOfType(typeof(MorcegoMutado)) as MorcegoMutado;
+            player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
             applyDamageMonster(morcego);
         }
-        if (collision.tag == "RatoMutado")
+        else if (collision.tag == "RatoMutado")
         {
-            applyDamageMonster(rato);
+            applyDamageMonster(monstro);
         }
+        else if(collision.tag == "BonecoDeTreino")
+        {
+            Debug.Log("Saco de pancadas levando DANO");
+            boneco = FindObjectOfType(typeof(BonecoDeTreino)) as BonecoDeTreino;
+            player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+            applyDamageMonster(boneco);
+        }
+
     }
 }

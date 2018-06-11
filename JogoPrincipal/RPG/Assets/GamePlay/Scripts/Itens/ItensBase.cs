@@ -76,6 +76,10 @@ public class ItensBase : MonoBehaviour {
     {
 
     }
+    public virtual void StatusArma()
+    {
+        
+    }
     public virtual string TipoDeArmadura()
     {
         return "notArmadura";

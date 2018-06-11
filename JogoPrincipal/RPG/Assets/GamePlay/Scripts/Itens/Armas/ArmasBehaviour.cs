@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ArmasBehaviour : ItensBase{
     //atributos minimos;
+    private PlayerBehaviour player;
+
     public float velAtaque;
     public int danoBase;
     public int minLevel;
@@ -15,7 +17,10 @@ public class ArmasBehaviour : ItensBase{
     public int adicionalDano;
     public int adicionalMago;
     public int adicionalVel;
-    
+    private void Start()
+    {
+        player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+    }
     public override void TxtAtributos()
     {
         UIController.instancer.atributosItens.text ="\n"; // apaga tudo
@@ -43,8 +48,11 @@ public class ArmasBehaviour : ItensBase{
         {
             UIController.instancer.atributosItens.text = UIController.instancer.atributosItens.text + "\nInteligência minima: " + minInt.ToString();
         }
-    } 
-	
-	
-	
+    }
+    public override void StatusArma()
+    {
+        player.danoTotal += adicionalDano + danoBase;
+    }
+
+
 }

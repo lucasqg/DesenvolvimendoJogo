@@ -40,25 +40,23 @@ public class NpcBase : NpcDestructiveBase {
 
     public void applyDamage(int danoMin, int danoMax)
     {
-
         int random = Random.Range(1, 2);
         if(random == 1)
         {
-            if((defesaTotal - danoMin) > 0 )
-                currentLife = currentLife - (defesaTotal - danoMin);
+            addLife(-(danoMin - defesaTotal));
         }
-        else if(random == 2)
+        else 
         {
-            if ((defesaTotal - danoMax) > 0)
-                currentLife = currentLife - (defesaTotal - danoMax);
+            //if ((defesaTotal - danoMax) > 0)
+            addLife(-(danoMax - defesaTotal));
         }
     }
 
-    public void DestroiMonster()
+    public virtual void DestroiMonster()
     {
-        if(currentLife < 0)
+        if(currentLife <= 0)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
     public override void OnDestroyed()

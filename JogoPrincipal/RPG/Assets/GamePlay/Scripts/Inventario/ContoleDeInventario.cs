@@ -196,7 +196,8 @@ public class ContoleDeInventario : MonoBehaviour
                 aux = Equipavel;
                 Equipavel.item = selectedSlot.currentItem;
                 Equipavel.EquipItem();
-                selectedSlot.currentItem = aux.item;
+                selectedSlot.currentItem = null;
+                item.slot.SetupSlot();
             }
             else
             {

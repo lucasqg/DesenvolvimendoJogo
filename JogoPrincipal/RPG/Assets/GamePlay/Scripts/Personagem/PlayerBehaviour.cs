@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public enum TypeCharacter
 {
     Guerreiro=0, 
@@ -12,10 +12,10 @@ public class PlayerBehaviour : CharacterBase {
     private TypeCharacter type;
     //UI
     public UIController UI;
-
+    private NpcBase monster;
     protected void Start () {
         currentLevel = PlayerStatsController.GetCurrentLevel();
-        PlayerStatsController.SetTypeCharacter(TypeCharacter.Pistoleiro);
+        PlayerStatsController.SetTypeCharacter(TypeCharacter.Guerreiro);
         type = PlayerStatsController.GetTypeCharacter();
         basicStats = PlayerStatsController.instance.GetBasicStatsPlayer(type);
         base.Start();
@@ -43,14 +43,45 @@ public class PlayerBehaviour : CharacterBase {
         return type;
     }
 	
-    
+    public void levelUP()
+    {
+
+    }
 
     void Update () {
-        
+        Destroyer();
         if (Input.GetKeyDown(KeyCode.K))
         {
             currentLife -= Random.Range(1, 10);
         }
         UI.SetLife(basicStats.startLife, currentLife);
+        
+    }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "CidadaoMutante")
+        {
+            monster = FindObjectOfType(typeof(NpcBase)) as NpcBase;
+            UI.SetLifeMonster(monster.totalLife, monster.currentLife);
+            UI.objectSliderMonster.SetActive(true);
+        }
+        else if (collision.tag == "Morcego")
+        {
+            monster = FindObjectOfType(typeof(NpcBase)) as NpcBase;
+            UI.SetLifeMonster(monster.totalLife, monster.currentLife);
+            UI.objectSliderMonster.SetActive(true);
+        }
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "CidadaoMutante")
+        {
+            UI.objectSliderMonster.SetActive(false);
+        }
+        else if(collision.tag == "Morcego")
+        {
+            UI.objectSliderMonster.SetActive(false);
+        }
     }
 }

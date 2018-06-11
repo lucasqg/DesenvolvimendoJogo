@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Andar : MonoBehaviour {
-    private float vel = 1.5f;
+    private float vel = 2f;
     public Animator anim;
     public Transform player;
     private bool andando=true;

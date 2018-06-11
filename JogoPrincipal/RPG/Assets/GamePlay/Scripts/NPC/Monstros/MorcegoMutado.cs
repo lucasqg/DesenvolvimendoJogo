@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class MorcegoMutado : NpcBase {
 
+    public TreinadorCampo treinador;
 	// Use this for initialization
 	void Start () {
-        basicStats.baseAttack = 25;
-        basicStats.baseDefense = 35;
-        basicStats.startLife = 120;
-        basicStats.nameNpc = "MorcegoMutado";
+        danoTotal = 5;
+        defesaTotal = 1;
+        totalLife = 20;
+        currentLife = totalLife;
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	
+    public override void DestroiMonster()
+    {
+        if (currentLife <= 0)
+        {
+            treinador = FindObjectOfType(typeof(TreinadorCampo)) as TreinadorCampo;
+            treinador.missao2 = true;
+            Destroy(this.gameObject);
+        }
+    }
 }

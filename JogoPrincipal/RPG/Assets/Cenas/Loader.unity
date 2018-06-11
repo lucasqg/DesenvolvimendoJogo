@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 8
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,6 +39,7 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -54,11 +55,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -150,7 +150,122 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4165712461692564, guid: a913cec7ad93d4749925f5cc03b4601a, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[0].baseInfo.startLife
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[0].baseInfo.startStamina
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[0].baseInfo.forca
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[0].baseInfo.inteligencia
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: "baseInfoChars.Array.data[0].baseInfo.precis\xE3o"
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[0].baseInfo.baseDefense
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[0].baseInfo.baseAttack
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[0].baseInfo.pontosSkill
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[1].baseInfo.startLife
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[1].baseInfo.forca
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[1].baseInfo.inteligencia
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[1].baseInfo.baseDefense
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[1].baseInfo.baseAttack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[1].baseInfo.pontosSkill
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[2].baseInfo.startLife
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[2].baseInfo.mana
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[2].baseInfo.forca
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: "baseInfoChars.Array.data[2].baseInfo.precis\xE3o"
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: "baseInfoChars.Array.data[1].baseInfo.precis\xE3o"
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[2].baseInfo.baseAttack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[2].baseInfo.baseDefense
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: baseInfoChars.Array.data[2].baseInfo.pontosSkill
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896294079305706, guid: a913cec7ad93d4749925f5cc03b4601a,
+        type: 2}
+      propertyPath: player
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a913cec7ad93d4749925f5cc03b4601a, type: 2}
@@ -234,5 +349,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

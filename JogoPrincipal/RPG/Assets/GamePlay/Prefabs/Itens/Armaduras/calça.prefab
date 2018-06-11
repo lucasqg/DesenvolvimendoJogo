@@ -20,6 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4787565298783448}
   - component: {fileID: 212499601322993278}
+  - component: {fileID: 50734173949110420}
+  - component: {fileID: 70438514222443870}
+  - component: {fileID: 114173424249371562}
   m_Layer: 0
   m_Name: "cal\xE7a"
   m_TagString: Untagged
@@ -34,12 +37,75 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1754838525433922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99, y: 1.49, z: 0}
+  m_LocalPosition: {x: -1.73, y: 1.89, z: 0}
   m_LocalScale: {x: 0.5763703, y: 0.5664916, z: 0.5664916}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50734173949110420
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1754838525433922}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.19634955
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
+--- !u!70 &70438514222443870
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1754838525433922}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.01, y: 0}
+  m_Size: {x: 0.68, y: 1.1}
+  m_Direction: 0
+--- !u!114 &114173424249371562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1754838525433922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7361af2f7d789a644ada122cd22af1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameItem: "cal\xE7a"
+  icon: {fileID: 21300000, guid: e5fbb0f56e7d54143b312b6e7efda0d8, type: 3}
+  isStacklabe: 0
+  canEquip: 1
+  slot: {fileID: 0}
+  slotEkp: {fileID: 0}
+  defesaBase: 0
+  minLevel: 0
+  minFor: 0
+  minPres: 0
+  minInt: 0
+  HPbase: 0
+  adicionalHP: 0
+  adicionalDano: 0
+  adicionalMago: 0
+  adicionalDefesa: 0
+  velocidadeMovimento: 0
 --- !u!212 &212499601322993278
 SpriteRenderer:
   m_ObjectHideFlags: 1

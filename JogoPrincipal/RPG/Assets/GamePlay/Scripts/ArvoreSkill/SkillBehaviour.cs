@@ -7,11 +7,21 @@ public class SkillBehaviour : MonoBehaviour {
 
     public PlayerBehaviour player;
     public List<string> skillType;
-
+    public AtivadorEspada espada;
     public Sprite iconSkillWarrior;
     public Sprite iconSkillPistoleiro;
     public Sprite iconSkillBomber;
     public Button botão;
+    public bool explosion = false;
+    public bool hitDuplo = false;
+    public bool hitTriplo = false;
+    public bool buffDefesa = false;
+    public bool aumentoHP = false;
+    public bool lançarEspada = false;
+    public bool aumentoAtackGuerreiro = false;
+    public bool regeneracaoHPStamina = false;
+    public bool passivaIvulnerabilidade = false;
+    public bool giroDoInfinito = false;
 
     public void Start()
     {
@@ -30,7 +40,6 @@ public class SkillBehaviour : MonoBehaviour {
         {
             player.currentSkills--;     //retiro 1 ponto skill
             skillType.Add("HitDuplo");  //adiciona o skill duplo 
-
             //habilita animação skill ativada
         }
         else  
@@ -66,6 +75,7 @@ public class SkillBehaviour : MonoBehaviour {
         {
             player.currentSkills--;
             skillType.Add("Explosion");
+            explosion = true; //ativa a skill 
             //habilita animação skill ativada
         }
         else
@@ -88,6 +98,7 @@ public class SkillBehaviour : MonoBehaviour {
         {
             player.currentSkills -= 2;
             skillType.Add("HitTriplo");
+            hitTriplo = true;
             //habilita animação skill ativada
         }
         else
@@ -114,6 +125,7 @@ public class SkillBehaviour : MonoBehaviour {
         {
             player.currentSkills -= 2;
             skillType.Add("BuffDefesa");
+            buffDefesa = true;
             //habilita animação skill ativada
         }
         else
@@ -137,6 +149,7 @@ public class SkillBehaviour : MonoBehaviour {
         {
             player.currentSkills -= 2;
             skillType.Add("AumentoHP");
+            aumentoHP = true;
             //habilita animação skill ativada
         }
         else
@@ -159,6 +172,7 @@ public class SkillBehaviour : MonoBehaviour {
         {
             player.currentSkills -= 3;
             skillType.Add("LançarEspada");
+            lançarEspada = true;
             //habilita animação skill ativada
         }
         else
@@ -184,6 +198,7 @@ public class SkillBehaviour : MonoBehaviour {
         {
             player.currentSkills -= 3;
             skillType.Add("AumentoAtack");
+            aumentoAtackGuerreiro = true;
             //habilita animação skill ativada
         }
         else
@@ -211,6 +226,7 @@ public class SkillBehaviour : MonoBehaviour {
         {
             player.currentSkills -= 3;
             skillType.Add("Ivulnerabilidade");
+            passivaIvulnerabilidade = true;
             //habilita animação skill ativada
         }
         else
@@ -233,6 +249,7 @@ public class SkillBehaviour : MonoBehaviour {
         {
             player.currentSkills -= 3;
             skillType.Add("RegeneraçãoHPStamina");
+            regeneracaoHPStamina = true;
             //habilita animação skill ativada
         }
         else
@@ -267,6 +284,7 @@ public class SkillBehaviour : MonoBehaviour {
         {
             player.currentSkills -= 3;
             skillType.Add("GiroDoInfinito");
+            giroDoInfinito = true;
             //habilita animação skill ativada
         }
         else
@@ -275,6 +293,27 @@ public class SkillBehaviour : MonoBehaviour {
         }
     }
 
+    public void AtivarDuploHit()
+    {
+        espada.AtivadorHitSkill(2);
+    }
+    public void AtivadorTriploHit()
+    {
+        espada.AtivadorHitSkill(3);
+    }
+    public void AtivadorExplosion()
+    {
+
+    }
+    public void ativadorLançarEspada()
+    {
+       
+    }
+    public void AtivadorGiroDoInfinito()
+    {
+
+    }
+    //ativador de skill
     // FIM SKILLS GUERREIRO
 
 

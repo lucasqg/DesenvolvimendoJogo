@@ -26,7 +26,7 @@ public class SlotEquipavel : MonoBehaviour {
         {
             SetActiveSlot(true);
             iconItemSlot.sprite = currentItem.icon;
-            nameItem.text = currentItem.nameItem;
+            //nameItem.text = currentItem.nameItem;
             currentItem.slotEkp = this;
 
         }

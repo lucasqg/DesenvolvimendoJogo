@@ -12,6 +12,7 @@ public class PlayerItensController : MonoBehaviour {
     public GameObject buttonEquip;
     public GameObject optionOnSelect;
     public ContoleDeInventario slotInventario;
+    public PlayerBehaviour player;
     void Start () {
         instance = this;
 	}
@@ -30,6 +31,7 @@ public class PlayerItensController : MonoBehaviour {
             {
                 SlotArma();
                 arma.ActiveIcon();
+                arma.currentItem.StatusArma();
             }
             if(item.nameItem == "elmo")
             {
@@ -93,7 +95,7 @@ public class PlayerItensController : MonoBehaviour {
         {
             ItensBase item = selectedSlot.currentItem;
             // retirando o item equipavel
-            slotInventario.AddItemToInventory(item);
+           // slotInventario.selectedSlot.SetupSlot();
             //retira o item do inventario
             item = null;
             

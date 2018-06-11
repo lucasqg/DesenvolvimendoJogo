@@ -20,18 +20,23 @@ public abstract class CharacterBase : DestructiveBase {
     public int currentLevel;
     public BasicStats basicStats;
 
-    
-     
 
-	// Use this for initialization
-	protected void Start () {
+    public void AtualizaçãoDeStatus()
+    {
+        danoTotal = danoTotal + (basicStats.forca / 10) ;
+        danoTotal = danoTotal + (basicStats.precisão / 10);
+    }
+
+    // Use this for initialization
+    protected void Start () {
         Inicialization();
     }
 
     // Update is called once per frame
     protected void Update () {
-		
-	}
+        AtualizaçãoDeStatus();
+
+    }
 
     public override void OnDestroyed()
     {
@@ -46,5 +51,7 @@ public abstract class CharacterBase : DestructiveBase {
         totalMana = currentMana;
         currentStamina = basicStats.startStamina;
         totalStamina = basicStats.startStamina;
+        danoTotal = basicStats.baseAttack;
+        defTotal = basicStats.baseDefense;
     }
 }
