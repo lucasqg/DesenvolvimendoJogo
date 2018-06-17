@@ -4,9 +4,22 @@ using UnityEngine;
 
 public class PeitoGuerreiro : ArmaduraBase {
 
+    public int qualidadeDoItem;
+
+    public override void ativador() // ativado para nao usar o metodo start
+    {
+        GerarAleatorio(qualidadeDoItem);
+
+    }
+
     public void GerarAleatorio(int qualidadeDoItem)
     {
-        if (qualidadeDoItem < 3)
+        if(qualidadeDoItem == 0)
+        {
+            PeitoInicial();
+
+        }
+        else if (qualidadeDoItem < 0 && qualidadeDoItem < 3)
         {
             PeitoRuim();
             AtributosAdicionais();

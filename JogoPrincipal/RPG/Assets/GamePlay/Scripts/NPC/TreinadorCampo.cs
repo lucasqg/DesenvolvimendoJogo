@@ -51,36 +51,38 @@ public class TreinadorCampo : MonoBehaviour {
         }
     }
 
-    public void ConversaInicial( int i)
+    public void ConversaInicial(int i)
     {
-                    
-                    if (i == 0)
-                    {
-                        conversa.text = "Olá meu jovem, eu vou lhe ensinar o básico para sobreviver a este mundo cruel!!!\n" +
+
+        if (i == 0)
+        {
+            conversa.text = "Olá meu jovem, eu vou lhe ensinar o básico para sobreviver a este mundo cruel!!!\n" +
                 "Tudo bem, vamos começar com os comandos básicos, vou direto ao assunto para não tornar a sua experiencia ruim!\n Movimentação: [W, A, S, D] " +
-                            "\nAtaque Básico: Tecla [1]\n" +
-                            "Para utilizar as Skills (Somente após aprender alguma) teclas [2, 3, 4, 5, 6]\n" +
-                            "Para abrir/fechar o inventario [I]\n" +
-                            "Para ativar uma SKILL [O]\n" +
-                            "Para pegar itens no chão e conversar com NPCS [E, F]";
+                "\nAtaque Básico: Tecla [1]\n" +
+                "Para utilizar as Skills (Somente após aprender alguma) teclas [2, 3, 4, 5, 6]\n" +
+                "Para abrir/fechar o inventario [I]\n" +
+                "Para ativar uma SKILL [O]\n" +
+                "Para pegar itens no chão e conversar com NPCS [E, F]";
 
-                    }
-                    if (i == 1)
-                    {
-                        conversa.text = "Vamos fazer assim, tenho uma missão para você, pegue está espada que jogarei no chão ( APERTE [E] PARA PEGAR DO CHÃO) e bata no saco de pancadas até ele desaparecer, quando concluir a missão, volte aqui que lhe ensinarei outras coisinhas!";
-                        
-                    }
-                    if (i == 2)
-                    {
-                        tipoDeMissao = 1;
-                        Time.timeScale = defaultTimeScale;
-                        fala.gameObject.SetActive(false);
+        }
+        if (i == 1)
+        {
+            conversa.text = "Vamos fazer assim, tenho uma missão para você, pegue está espada que jogarei no chão ( APERTE [E] PARA PEGAR DO CHÃO) e bata no saco de pancadas até ele desaparecer, quando concluir a missão, volte aqui que lhe ensinarei outras coisinhas!";
 
-                    GameObject.Instantiate(espada, playert.position, playert.rotation );
-                    }
-                
-            
-            
+        }
+        if (i == 2)
+        {
+            tipoDeMissao = 1;
+            Time.timeScale = defaultTimeScale;
+            fala.gameObject.SetActive(false);
+
+            GameObject.Instantiate(espada, playert.position, playert.rotation);
+            PlayerStatsController.AddXp(50);
+
+        }
+
+
+
     }
 
     public void ConversaAposPrimeiraMissão(int i)
@@ -128,7 +130,7 @@ public class TreinadorCampo : MonoBehaviour {
                 GameObject.Instantiate(potion, playert.position, playert.rotation);
                 GameObject.Instantiate(potion, playert.position, playert.rotation);
                 GameObject.Instantiate(potion, playert.position, playert.rotation);
-
+                PlayerStatsController.AddXp(50);
                 spawn = false;
             }
         }

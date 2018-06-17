@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LuvaGuerreiro : ArmaduraBase {
+    public int qualidadeDoItem;
 
+    public override void ativador() // ativado para nao usar o metodo start
+    {
+        GerarAleatorio(qualidadeDoItem);
+
+    }
 
     public void GerarAleatorio(int qualidadeDoItem)
     {
-        if (qualidadeDoItem < 3)
+        if(qualidadeDoItem == 0)
+        {
+            LuvaInicial();
+        }
+        else if (qualidadeDoItem < 0 && qualidadeDoItem < 3)
         {
             LuvaRuim();
             AtributosAdicionais();

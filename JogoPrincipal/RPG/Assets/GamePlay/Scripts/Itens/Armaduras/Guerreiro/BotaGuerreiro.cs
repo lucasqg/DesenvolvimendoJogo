@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class BotaGuerreiro : ArmaduraBase {
 
+    public int qualidadeDoItem;
+
+    
+
+    public override void ativador() // ativado para nao usar o metodo start
+    {
+        GerarAleatorio(qualidadeDoItem);
+
+    }
 
     public void GerarAleatorio(int qualidadeDoItem)
     {
-        if (qualidadeDoItem < 3)
+        if(qualidadeDoItem == 0)
+        {
+            BotaInicial();
+        }
+        else if (qualidadeDoItem < 0 && qualidadeDoItem < 3)
         {
             BotaRuim();
             AtributosAdicionais();
@@ -34,48 +47,45 @@ public class BotaGuerreiro : ArmaduraBase {
         }
         else if (random == 2)
         {
-            adicionalDano = 15;
+            adicionalDano = 1;
         }
         else if (random == 3)
         {
-            adicionalDano = 20;
+            adicionalDano = 2;
         }
         else if (random == 4)
         {
-            adicionalDano = 25;
+            adicionalDano = 1;
         }
         else if (random == 5)
         {
-            adicionalDano = 30;
+            adicionalDano = 0;
         }
     }
 
     public void BotaInicial()
     {
         minLevel = 1;
-        velocidadeMovimento = 4;
-        defesaBase = 10;
+        velocidadeMovimento = 3;
+        defesaBase = 1;
     }
     public void BotaRuim()
     {
         minLevel = 3;
-        defesaBase = 20;
-        velocidadeMovimento = 5;
-        minFor = 10;
+        defesaBase = 1;
+        velocidadeMovimento = 4;
     }
     public void BotaBoa()
     {
         minLevel = 6;
-        defesaBase = 40;
+        defesaBase = 2;
         velocidadeMovimento = 5;
-        minFor = 15;
     }
     public void BotaMuitoBoa()
     {
         minLevel = 10;
-        defesaBase = 60;
+        defesaBase = 3;
         velocidadeMovimento = 6;
-        minFor = 25;
     }
     public override string TipoDeArmadura()
     {

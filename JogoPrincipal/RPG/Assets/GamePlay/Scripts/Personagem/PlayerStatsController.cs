@@ -128,6 +128,12 @@ public class PlayerStatsController : MonoBehaviour{
         }
        
     }
+
+    //metodo que retorna a quantidade de reputação do personagem
+    public static int GetCurrentReputation()  
+    {
+        return PlayerPrefs.GetInt("Reputação");
+    }
     /*
     private void OnGUI()
     {

@@ -16,6 +16,25 @@ public class ArmaduraBase : ItensBase {
     public int adicionalMago;
     public int adicionalDefesa;
     public float velocidadeMovimento;
+    public PlayerBehaviour player;
+
+
+    public virtual void ativador()
+    {
+
+    }
+
+    void Start()
+    {
+        player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+        ativador();
+    }
+    public override void StatusArma()
+    {
+        player.danoTotal += adicionalDano;
+        player.defTotal += defesaBase + adicionalDefesa;
+        player.totalLife += adicionalHP + HPbase;
+    }
 
     public virtual string TipoDeArmadura()
     {
@@ -52,6 +71,10 @@ public class ArmaduraBase : ItensBase {
         if(adicionalHP > 0)
         {
             UIController.instancer.atributosItens.text = UIController.instancer.atributosItens.text + "\nHP adicional: " + adicionalHP.ToString();
+        }
+        if (HPbase > 0)
+        {
+            UIController.instancer.atributosItens.text = UIController.instancer.atributosItens.text + "\nHP: " + HPbase.ToString();
         }
         if (adicionalDano > 0)
         {

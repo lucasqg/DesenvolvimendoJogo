@@ -17,6 +17,8 @@ public class ArmasBehaviour : ItensBase{
     public int adicionalDano;
     public int adicionalMago;
     public int adicionalVel;
+    
+
     private void Start()
     {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;

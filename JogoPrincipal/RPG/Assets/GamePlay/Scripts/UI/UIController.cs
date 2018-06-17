@@ -118,4 +118,9 @@ public class UIController : MonoBehaviour {
         float newPositionSlider = currentLife * 1 / maxVida;
         sliderMonster.value = newPositionSlider;
     }
+
+    public void SetExperiencia(float maxExp, float currentExp)
+    {
+
+    }
 }

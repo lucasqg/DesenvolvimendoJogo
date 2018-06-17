@@ -37,26 +37,31 @@ public class PlayerItensController : MonoBehaviour {
             {
                 SlotElmo();
                 elmo.ActiveIcon();
+                elmo.currentItem.StatusArma();
             }
             if (item.nameItem == "peito")
             {
                 SlotPeito();
                 peito.ActiveIcon();
+                peito.currentItem.StatusArma();
             }
             if (item.nameItem == "calça")
             {
                 SlotCalça();
                 calça.ActiveIcon();
+                calça.currentItem.StatusArma();
             }
             if (item.nameItem == "luva")
             {
                 SlotLuva();
                 luva.ActiveIcon();
+                luva.currentItem.StatusArma();
             }
             if (item.nameItem == "bota")
             {
                 SlotBota();
                 bota.ActiveIcon();
+                bota.currentItem.StatusArma();
             }
 
         }
@@ -101,4 +106,5 @@ public class PlayerItensController : MonoBehaviour {
             
         }
     }
+
 }
