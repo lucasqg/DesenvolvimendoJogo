@@ -29,7 +29,7 @@ public class Andar : MonoBehaviour {
 
         if (andando == true)
         {
-            if (Input.GetKey(KeyCode.D) && andando == true)
+            if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && andando == true)
             {
                 anim.SetBool("Parado", false);
                 anim.SetBool("DireitaAndando", true);
@@ -38,7 +38,7 @@ public class Andar : MonoBehaviour {
                 anim.SetBool("CostasAndando", false);
                 transform.Translate(new Vector2(vel * Time.deltaTime, 0));
             }
-            else if (Input.GetKey(KeyCode.A) && andando == true)
+            else if ((Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.LeftArrow)) && andando == true)
             {
                 anim.SetBool("Parado", false);
                 anim.SetBool("EsquerdaAndando", true);
@@ -47,7 +47,7 @@ public class Andar : MonoBehaviour {
                 anim.SetBool("DireitaAndando", false);
                 transform.Translate(new Vector2(-vel * Time.deltaTime, 0));
             }
-            else if (Input.GetKey(KeyCode.W) && andando == true)
+            else if ((Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.UpArrow)) && andando == true)
             {
                 anim.SetBool("Parado", false);
                 anim.SetBool("CostasAndando", true);
@@ -56,7 +56,7 @@ public class Andar : MonoBehaviour {
                 anim.SetBool("FrenteAndando", false);
                 transform.Translate(new Vector2(0, vel * Time.deltaTime));
             }
-            else if (Input.GetKey(KeyCode.S) && andando == true)
+            else if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && andando == true)
             {
                 anim.SetBool("Parado", false);
                 anim.SetBool("FrenteAndando", true);
@@ -65,7 +65,8 @@ public class Andar : MonoBehaviour {
                 anim.SetBool("CostasAndando", false);
                 transform.Translate(new Vector2(0, -vel * Time.deltaTime));
             }
-            else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.W))
+            else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow)
+                || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.W))
                 andando = false;
         }
 

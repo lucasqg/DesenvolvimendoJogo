@@ -61,6 +61,12 @@ public class UIController : MonoBehaviour {
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape) && inventario.gameObject.activeSelf)
+        {
+            inventario.gameObject.SetActive(!inventario.gameObject.activeSelf); // liga e desliga o inventario
+            Time.timeScale = defaultTimeScale;
+        }
+
     }
     public void abrirInventario()
     {

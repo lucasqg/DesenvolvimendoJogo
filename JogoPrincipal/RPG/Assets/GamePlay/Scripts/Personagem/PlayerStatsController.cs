@@ -116,6 +116,18 @@ public class PlayerStatsController : MonoBehaviour{
         return baseInfoChars[0].baseInfo;
     } 
     
+    public static void AddReputation(int reputation) // Adiciona a o novo valor de reputação a playerPrefs
+    {
+        int newReputarion = PlayerPrefs.GetInt("Reputação") + reputation;
+
+        PlayerPrefs.SetInt("Reputação", newReputarion);
+
+        if(PlayerPrefs.GetInt("Reputação") == -20)
+        {
+            //GAME OVER
+        }
+       
+    }
     /*
     private void OnGUI()
     {
