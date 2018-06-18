@@ -30,6 +30,10 @@ public class ItensBase : MonoBehaviour {
     {
         return amount;
     }
+    public void removeAmount(int amountNew)
+    {
+        amount -= amountNew;
+    }
 
     public void Use()
     {

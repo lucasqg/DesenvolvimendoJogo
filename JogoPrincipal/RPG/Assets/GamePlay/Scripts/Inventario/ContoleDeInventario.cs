@@ -104,6 +104,11 @@ public class ContoleDeInventario : MonoBehaviour
 
     public void UseItem()
     {
+        if (selectedSlot.currentItem.nameItem == "Pergaminho")
+        {
+            selectedSlot.currentItem.Use();     //usa o item e o retira do inventario.
+            selectedSlot.SetupSlot();           //atualiza o inventario e retira o icone
+        }
         if (TestePVida())  //se for poção de vida, TODAS classes podem usar.
         {
             selectedSlot.currentItem.Use();     //usa o item e o retira do inventario.
@@ -139,6 +144,9 @@ public class ContoleDeInventario : MonoBehaviour
         
                
     }
+
+    
+
     public bool TestePMana() // teste poção de mana, verifica se o objeto a ser usado é mana
     {
         if (selectedSlot.currentItem.nameItem == "Poção Mana Grande" || selectedSlot.currentItem.nameItem == "Poção Mana Média" || selectedSlot.currentItem.nameItem == "Poção Mana Pequena")

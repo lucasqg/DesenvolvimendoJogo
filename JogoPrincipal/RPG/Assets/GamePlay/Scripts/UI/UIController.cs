@@ -20,6 +20,7 @@ public class UIController : MonoBehaviour {
     public int ContadorDeTempo = 0;
     public bool ativo = true;
     public Image destruction;
+    public GameObject inventarioDoVendedor;
     // Use this for initialization
     void Start () {
         abrirInventario();
@@ -39,7 +40,7 @@ public class UIController : MonoBehaviour {
             ativo = false;
             Destroy(destruction.gameObject);
         }
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && !inventarioDoVendedor.activeSelf)
         {
             inventario.gameObject.SetActive(!inventario.gameObject.activeSelf); // liga e desliga o inventario
 
@@ -61,7 +62,7 @@ public class UIController : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && inventario.gameObject.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) && inventario.gameObject.activeSelf && !inventarioDoVendedor.activeSelf)
         {
             inventario.gameObject.SetActive(!inventario.gameObject.activeSelf); // liga e desliga o inventario
             Time.timeScale = defaultTimeScale;
