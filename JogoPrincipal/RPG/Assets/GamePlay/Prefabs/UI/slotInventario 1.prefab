@@ -98,6 +98,9 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   "pre\xE7o": {fileID: 114319138813254230}
   inventario: {fileID: 0}
+  background: {fileID: 0}
+  unselectedColor: {r: 0.8392157, g: 0, b: 0, a: 0}
+  selectedColor: {r: 0.08503916, g: 0.84198743, b: 0.8584906, a: 0}
 --- !u!114 &114308814671897394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,7 +227,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114258934857228016}
         m_MethodName: onClick
         m_Mode: 1
         m_Arguments:

@@ -10,18 +10,19 @@ public class InventarioVendedor : MonoBehaviour {
     public SlotsVendedor slotPrefab;
     public Transform itensGrid;
     public SlotsVendedor selectedSlot;
-    public GameObject buttonComprar;
+    public GameObject buttonComprar, buttonUse, buttonEquip, buttonRemove;
     public GameObject buttoncompras;
+    
     private PlayerBehaviour player;
-        
 
-
+    public ContoleDeInventario slots;
+    public int quantidadeDeMoedasNecessarias = 0;
     public ItensBase potionsHPb, potionsStaminab, potionsManab, Pergaminho;
     public ItensBase potionsHPm, potionsStaminam, potionsManam;
     public ItensBase potionsHPmm, potionsStaminamm, potionsManamm;
     private void Start()
     {
-        
+
         for (int i = 0; i < 10; i++)
         {
             GameObject tempSlot = Instantiate(slotPrefab.gameObject);
@@ -35,12 +36,19 @@ public class InventarioVendedor : MonoBehaviour {
         if (selectedSlot != null && selectedSlot.currentItem != null)
         {
             buttonComprar.SetActive(true);
-            buttoncompras.SetActive(false);
-            
+            buttoncompras.SetActive(true);
+            buttonEquip.SetActive(false);
+            buttonRemove.SetActive(false);
+            buttonUse.SetActive(false);
         }
         else
         {
+
+            buttonEquip.SetActive(true);
+            buttonRemove.SetActive(true);
+            buttonUse.SetActive(true);
             buttoncompras.SetActive(false);
+            buttonComprar.SetActive(false);
         }
     }
     public void AddItemToInventory(ItensBase item) // adiciona um item ao inventario, testa se é Stack ou não.
@@ -143,5 +151,38 @@ public class InventarioVendedor : MonoBehaviour {
     public void RemoveItensDoIventario()
     {
         InventarioSlots.Clear();
+    }
+
+    public void comprarObjeto()
+    {
+        //verifica no inventario do player se existe o objeto moeda;
+        foreach (SlotInventarioBehaviour slot in slots.InventarioSlots)
+        {
+           
+            if (slot.currentItem.nameItem == "Moeda")
+            {
+                // verifica se o player possui a quantidade de moedas necessaria
+                if (slot.currentItem.getAmount() >= quantidadeDeMoedasNecessarias)
+                {
+                    Debug.Log("oi");
+                    // remove a quantidade de moedas do inventairo
+                    slot.currentItem.removeAmount(quantidadeDeMoedasNecessarias);
+                    // metodo que adiciona o item comprado ao inventario
+                    AdicionarItemAoInventario();
+                }
+            }
+        }
+    }
+    public void AdicionarItemAoInventario()
+    {
+        foreach (SlotInventarioBehaviour slot in slots.InventarioSlots)
+        {
+            if (slot.currentItem == null)
+            {
+                slot.currentItem = selectedSlot.currentItem;
+               // slot.currentItem.RemoveItem();
+                break;
+            }
+        }
     }
 }

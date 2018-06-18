@@ -9,47 +9,51 @@ public class SlotsVendedor : MonoBehaviour {
     public Image icon;
     public ItensBase currentItem;
     public Text preço;
-    public SlotInventarioBehaviour inventario;
+    public InventarioVendedor inventario;
+    public Image background;
+    public Color unselectedColor;
+    public Color selectedColor;
+    private bool isSelected = false;
+    public int quantidadeDeMoedasNecessarias=0;
 
-	
-	// Update is called once per frame
-	void Update () {
+    void Update () {
         //atualiza os icones e nomes do slot
+        SetupSlot();
+        //isSelected = InventarioVendedor.instance.selectedSlot == this;
+        //background.color = isSelected ? selectedColor : unselectedColor;
+    }
+
+    private void Start()
+    {
+        inventario = FindObjectOfType(typeof(InventarioVendedor)) as InventarioVendedor;
+       
+    }
+    public void SetupSlot()
+    {
         if (currentItem != null)
         {
             icon.sprite = currentItem.icon;
             nameObject.text = currentItem.nameItem;
+            currentItem.slot1 = this;
             amount.text = currentItem.getAmount().ToString();
-        }
-	}
-    /*public void comprarObjeto()
-    {
-        //verifica no inventario do player se existe o objeto moeda;
-        foreach (SlotInventarioBehaviour slot in slots.InventarioSlots)
-        {
-            if (slot.currentItem == moeda)
-            {
-                // verifica se o player possui a quantidade de moedas necessaria
-                if (slot.currentItem.getAmount() <= quantidadeDeMoedasNecessarias)
-                {
-                    // remove a quantidade de moedas do inventairo
-                    slot.currentItem.removeAmount(quantidadeDeMoedasNecessarias);
-                    // metodo que adiciona o item comprado ao inventario
-                    AdicionarItemAoInventario();
-                }
-            }
+            
         }
     }
-    public void AdicionarItemAoInventario()
+
+    public void onClick()
     {
-        foreach (SlotInventarioBehaviour slot in slots.InventarioSlots)
+        if (isSelected)
         {
-            if (slot.currentItem == null)
-            {
-                slot.currentItem = currentItem;
-                slot.currentItem.RemoveItem();
-                break;
-            }
+            inventario.selectedSlot = null;
+            isSelected = false;
+
         }
-    }*/
+        else
+        {
+            inventario.selectedSlot = this;
+            isSelected = true;
+        }
+    }
+    
+    
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class UIController : MonoBehaviour {
     public Slider sliderLife;
     public Slider sliderStamina;
@@ -24,7 +25,6 @@ public class UIController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         abrirInventario();
-
         Time.timeScale = defaultTimeScale;
         messageItemToTake.gameObject.SetActive(false);
         instancer = this;
@@ -37,13 +37,14 @@ public class UIController : MonoBehaviour {
         if(ContadorDeTempo < tempoLoad && ativo)
         {
             inventario.gameObject.SetActive(!inventario.gameObject.activeSelf); // liga e desliga o inventario
+
+            inventarioDoVendedor.gameObject.SetActive(false);
             ativo = false;
             Destroy(destruction.gameObject);
         }
         if (Input.GetKeyDown(KeyCode.I) && !inventarioDoVendedor.activeSelf)
         {
             inventario.gameObject.SetActive(!inventario.gameObject.activeSelf); // liga e desliga o inventario
-
             if (inventario.gameObject.activeSelf)//CONDICIONAL QUE PAUSE O GAME.
             {
                 Time.timeScale = 0;
@@ -72,6 +73,7 @@ public class UIController : MonoBehaviour {
     public void abrirInventario()
     {
         inventario.gameObject.SetActive(true);
+        inventarioDoVendedor.gameObject.SetActive(true);
         
         if (inventario.gameObject.activeSelf)//CONDICIONAL QUE PAUSE O GAME.
         {

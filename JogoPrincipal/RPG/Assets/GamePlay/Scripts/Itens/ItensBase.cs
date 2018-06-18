@@ -12,6 +12,7 @@ public class ItensBase : MonoBehaviour {
     public bool canEquip;
     public SlotInventarioBehaviour slot;
     public SlotEquipavel slotEkp;
+    public SlotsVendedor slot1;
 
     public void addItem(int amountToAdd = 1)
     {
