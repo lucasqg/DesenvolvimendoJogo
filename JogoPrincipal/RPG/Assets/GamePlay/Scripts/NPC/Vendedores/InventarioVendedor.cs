@@ -12,10 +12,12 @@ public class InventarioVendedor : MonoBehaviour {
     public SlotsVendedor selectedSlot;
     public GameObject buttonComprar, buttonUse, buttonEquip, buttonRemove;
     public GameObject buttoncompras;
+    private bool testePrimeiraVez = false;
+    public Transform playerPosition;
     
     private PlayerBehaviour player;
 
-    public ContoleDeInventario slots;
+    public ContoleDeInventario slots, slotDeVerificação;
     public int quantidadeDeMoedasNecessarias = 0;
     public ItensBase potionsHPb, potionsStaminab, potionsManab, Pergaminho;
     public ItensBase potionsHPm, potionsStaminam, potionsManam;
@@ -52,7 +54,7 @@ public class InventarioVendedor : MonoBehaviour {
         }
     }
     public void AddItemToInventory(ItensBase item) // adiciona um item ao inventario, testa se é Stack ou não.
-    {
+    {                                                                   // caso remover = true, entao remove o item e nao adiciona.
         bool foundItem = false;
         SlotsVendedor slotVazio = proxSlotVazio();
         if (item.isStacklabe)
@@ -63,7 +65,10 @@ public class InventarioVendedor : MonoBehaviour {
                 {
                     slot.currentItem.addItem();
                     foundItem = true;
+                    Destroy(item.gameObject);
                 }
+                
+                
             }
             if (!foundItem && slotVazio != null)
             {
@@ -72,10 +77,12 @@ public class InventarioVendedor : MonoBehaviour {
         }
         else if (slotVazio != null)
         {
+            
             slotVazio.currentItem = item;
         }
 
         item.gameObject.SetActive(false);
+
     }
 
     private SlotsVendedor proxSlotVazio() //aponta o proximo slot vazio
@@ -100,46 +107,20 @@ public class InventarioVendedor : MonoBehaviour {
 
     }
 
-    public void AdicionarItemUtilizaveis()
+    public void AdicionarItemUtilizavel()
     {
-        for (int i = 0; i < 100; i++)
+        if (testePrimeiraVez == false)
         {
+            testePrimeiraVez = true;
             AddItemToInventory(potionsHPb);
-        }
-        for (int i = 0; i < 100; i++)
-        {
             AddItemToInventory(potionsHPm);
-        }
-        for (int i = 0; i < 100; i++)
-        {
             AddItemToInventory(potionsHPmm);
-        }
-        for (int i = 0; i < 100; i++)
-        {
             AddItemToInventory(potionsManab);
-        }
-        for (int i = 0; i < 100; i++)
-        {
             AddItemToInventory(potionsManam);
-        }
-        for (int i = 0; i < 100; i++)
-        {
             AddItemToInventory(potionsManamm);
-        }
-        for (int i = 0; i < 100; i++)
-        {
             AddItemToInventory(potionsStaminab);
-        }
-        for (int i = 0; i < 100; i++)
-        {
             AddItemToInventory(potionsStaminam);
-        }
-        for (int i = 0; i < 100; i++)
-        {
             AddItemToInventory(potionsStaminamm);
-        }
-        for (int i = 0; i < 100; i++)
-        {
             AddItemToInventory(Pergaminho);
         }
     }
@@ -164,7 +145,7 @@ public class InventarioVendedor : MonoBehaviour {
                 // verifica se o player possui a quantidade de moedas necessaria
                 if (slot.currentItem.getAmount() >= quantidadeDeMoedasNecessarias)
                 {
-                    Debug.Log("oi");
+                    Debug.Log(quantidadeDeMoedasNecessarias.ToString());
                     // remove a quantidade de moedas do inventairo
                     slot.currentItem.removeAmount(quantidadeDeMoedasNecessarias);
                     // metodo que adiciona o item comprado ao inventario
@@ -173,14 +154,44 @@ public class InventarioVendedor : MonoBehaviour {
             }
         }
     }
+    public void AtualizaSlotsAposCompra()
+    {
+        foreach (SlotInventarioBehaviour slot in slots.InventarioSlots)
+        {
+            slot.SetupSlot();
+        }
+    }
     public void AdicionarItemAoInventario()
     {
         foreach (SlotInventarioBehaviour slot in slots.InventarioSlots)
         {
             if (slot.currentItem == null)
             {
-                slot.currentItem = selectedSlot.currentItem;
-               // slot.currentItem.RemoveItem();
+                GameObject objeto = Instantiate(selectedSlot.currentItem.prefab, transform.position, transform.rotation, playerPosition);
+                objeto.SetActive(true);
+
+                if (objeto.activeSelf) // só adiciona o objeto ao inventario caso ele apareça na cena
+                {
+                    objeto.GetComponent<ItensBase>().AdicionaDiretamenteAoInventario();
+                    //objeto.SetActive(true);
+                    selectedSlot.isSelected = false;
+                    selectedSlot = null;
+                    AtualizaSlotsAposCompra();
+                }
+                
+                
+                /*slots.proxVazio().currentItem = selectedSlot.currentItem;
+               
+                selectedSlot.currentItem = null;
+                selectedSlot.isSelected = false;
+                selectedSlot = null;*/
+
+                // AddItemToInventory(selectedSlot.currentItem);        
+
+                //slot.currentItem = selectedSlot.currentItem;
+                //selectedSlot.currentItem.removeAmount(99);
+                //slot.currentItem.removeAmount(1);
+                // slot.currentItem.RemoveItem();
                 break;
             }
         }

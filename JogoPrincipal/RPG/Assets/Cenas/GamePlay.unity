@@ -122,11 +122,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4461542572948254, guid: 6cc3b88a7c4790847a61e64deaeeada6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.64
+      value: -5.31
       objectReference: {fileID: 0}
     - target: {fileID: 4461542572948254, guid: 6cc3b88a7c4790847a61e64deaeeada6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -42.24
+      value: -41.7
       objectReference: {fileID: 0}
     - target: {fileID: 4461542572948254, guid: 6cc3b88a7c4790847a61e64deaeeada6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -519,6 +519,11 @@ Prefab:
       propertyPath: quantidadeDeMoedasNecessarias
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114938697688169662, guid: 9c455726f9ecc2b4d93500772c54924f,
+        type: 2}
+      propertyPath: buttonComprar
+      value: 
+      objectReference: {fileID: 2078822399}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c455726f9ecc2b4d93500772c54924f, type: 2}
   m_IsPrefabParent: 0
@@ -4958,6 +4963,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc31109a49cd2d942b401798bd2a6bf9, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2078822399 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1417368138689354, guid: 9c455726f9ecc2b4d93500772c54924f,
+    type: 2}
+  m_PrefabInternal: {fileID: 29827420}
 --- !u!1001 &2146507825
 Prefab:
   m_ObjectHideFlags: 0
