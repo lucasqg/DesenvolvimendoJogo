@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4261684583960870
 Transform:
   m_ObjectHideFlags: 1
@@ -95,6 +95,9 @@ MonoBehaviour:
   canEquip: 0
   slot: {fileID: 0}
   slotEkp: {fileID: 0}
+  slot1: {fileID: 0}
+  prefab: {fileID: 1063695508580538}
+  valorDoItem: 0
   amountLiquid: 0
 --- !u!212 &212499358178186930
 SpriteRenderer:

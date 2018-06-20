@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasicStatsNpc
 {
-    public float startLife; //vida inicial
+    public float startLife = 10; //vida inicial
     public float startStamina;
     public float mana;
     public int forca;
@@ -18,12 +18,14 @@ public class NpcBase : NpcDestructiveBase {
     public int currentLevel;
     public BasicStatsNpc basicStats;
 
-    protected void Start()
+    
+
+    public virtual void Start()
     {
         Inicialization();
     }
 
-    protected void Update()
+    public virtual void Update()
     {
         DestroiMonster();   // testa se o monstro deve morrer
     }
