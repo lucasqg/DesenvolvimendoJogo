@@ -12,8 +12,6 @@ public class InventarioVendedor : MonoBehaviour {
     public SlotsVendedor selectedSlot;
     public GameObject buttonComprar, buttonUse, buttonEquip, buttonRemove;
     public GameObject buttoncompras;
-    private bool testePrimeiraVez = false;
-    public Transform playerPosition;
     
     private PlayerBehaviour player;
 
@@ -65,7 +63,6 @@ public class InventarioVendedor : MonoBehaviour {
                 {
                     slot.currentItem.addItem();
                     foundItem = true;
-                    Destroy(item.gameObject);
                 }
                 
                 
@@ -77,12 +74,11 @@ public class InventarioVendedor : MonoBehaviour {
         }
         else if (slotVazio != null)
         {
-            
             slotVazio.currentItem = item;
         }
+        proxSlotVazio().currentItem = item;
 
         item.gameObject.SetActive(false);
-
     }
 
     private SlotsVendedor proxSlotVazio() //aponta o proximo slot vazio
@@ -107,20 +103,46 @@ public class InventarioVendedor : MonoBehaviour {
 
     }
 
-    public void AdicionarItemUtilizavel()
+    public void AdicionarItemUtilizaveis()
     {
-        if (testePrimeiraVez == false)
+        for (int i = 0; i < 5; i++)
         {
-            testePrimeiraVez = true;
             AddItemToInventory(potionsHPb);
+        }
+        for (int i = 0; i < 5; i++)
+        {
             AddItemToInventory(potionsHPm);
+        }
+        for (int i = 0; i < 5; i++)
+        {
             AddItemToInventory(potionsHPmm);
+        }
+        for (int i = 0; i < 5; i++)
+        {
             AddItemToInventory(potionsManab);
+        }
+        for (int i = 0; i < 5; i++)
+        {
             AddItemToInventory(potionsManam);
+        }
+        for (int i = 0; i < 5; i++)
+        {
             AddItemToInventory(potionsManamm);
+        }
+        for (int i = 0; i < 5; i++)
+        {
             AddItemToInventory(potionsStaminab);
+        }
+        for (int i = 0; i < 5; i++)
+        {
             AddItemToInventory(potionsStaminam);
+        }
+        for (int i = 0; i < 5; i++)
+        {
             AddItemToInventory(potionsStaminamm);
+        }
+        for (int i = 0; i < 5; i++)
+        {
             AddItemToInventory(Pergaminho);
         }
     }
@@ -154,39 +176,14 @@ public class InventarioVendedor : MonoBehaviour {
             }
         }
     }
-    public void AtualizaSlotsAposCompra()
-    {
-        foreach (SlotInventarioBehaviour slot in slots.InventarioSlots)
-        {
-            slot.SetupSlot();
-        }
-    }
     public void AdicionarItemAoInventario()
     {
         foreach (SlotInventarioBehaviour slot in slots.InventarioSlots)
         {
             if (slot.currentItem == null)
             {
-                GameObject objeto = Instantiate(selectedSlot.currentItem.prefab, transform.position, transform.rotation, playerPosition);
-                objeto.SetActive(true);
-
-                if (objeto.activeSelf) // só adiciona o objeto ao inventario caso ele apareça na cena
-                {
-                    objeto.GetComponent<ItensBase>().AdicionaDiretamenteAoInventario();
-                    //objeto.SetActive(true);
-                    selectedSlot.isSelected = false;
-                    selectedSlot = null;
-                    AtualizaSlotsAposCompra();
-                }
-                
-                
-                /*slots.proxVazio().currentItem = selectedSlot.currentItem;
-               
-                selectedSlot.currentItem = null;
-                selectedSlot.isSelected = false;
-                selectedSlot = null;*/
-
-                // AddItemToInventory(selectedSlot.currentItem);        
+                slots.proxVazio().currentItem = selectedSlot.currentItem;
+                AddItemToInventory(selectedSlot.currentItem);        
 
                 //slot.currentItem = selectedSlot.currentItem;
                 //selectedSlot.currentItem.removeAmount(99);

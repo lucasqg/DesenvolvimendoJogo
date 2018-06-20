@@ -10,8 +10,6 @@ public class PotionBehaviour : ItensBase {
     private void Start()
     {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
-        ValorDoItem();
-
     }
     public override void AfterUse()
     {
@@ -35,21 +33,6 @@ public class PotionBehaviour : ItensBase {
         }
     }
 
-    public void ValorDoItem()
-    {
-        if (this.nameItem == "Poção Vida Média" || this.nameItem == "Poção Mana Média" || this.nameItem == "Poção Stamina Média")
-        {
-            valorDoItem = 2;
-        }
-            else if(this.nameItem == "Poção Vida Grande" || this.nameItem == "Poção Mana Grande" || this.nameItem == "Poção Stamina Grande")
-        {
-            valorDoItem = 3;
-        } 
-            else if(this.nameItem == "Poção Vida Pequena" || this.nameItem == "Poção Mana Pequena" || this.nameItem == "Poção Stamina Pequena") 
-        {
-            valorDoItem = 1;
-        }
-    }
         public override void TxtAtributos()
         {
         UIController.instancer.atributosItens.text = "Poção Vermelha: Recupera HP do personagem" +

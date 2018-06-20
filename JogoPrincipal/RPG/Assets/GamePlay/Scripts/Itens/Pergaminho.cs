@@ -10,7 +10,6 @@ public class Pergaminho : ItensBase {
     private void Start()
     {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
-        valorDoItem = 3;
     }
     public override void AfterUse()
     {

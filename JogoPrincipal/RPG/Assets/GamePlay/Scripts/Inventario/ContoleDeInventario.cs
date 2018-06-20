@@ -59,7 +59,7 @@ public class ContoleDeInventario : MonoBehaviour
         }
     }
 
-    public void AddItemToInventory(ItensBase item, bool delete = false) // adiciona um item ao inventario, testa se é Stack ou não.
+    public void AddItemToInventory(ItensBase item) // adiciona um item ao inventario, testa se é Stack ou não.
     {
         bool foundItem = false;
         SlotInventarioBehaviour slotVazio = proxSlotVazio();
@@ -71,10 +71,6 @@ public class ContoleDeInventario : MonoBehaviour
                 {
                     slot.currentItem.addItem();
                     foundItem = true;
-                    if (delete)
-                    {
-                        item.DestroiItem();
-                    }
                 }
             }
             if (!foundItem && slotVazio !=null)
@@ -86,10 +82,8 @@ public class ContoleDeInventario : MonoBehaviour
         {
             slotVazio.currentItem = item;
         }
-        if (!delete)
-        {
-            item.gameObject.SetActive(false);
-        }
+        
+        item.gameObject.SetActive(false);
     }
 
     public SlotInventarioBehaviour proxVazio()

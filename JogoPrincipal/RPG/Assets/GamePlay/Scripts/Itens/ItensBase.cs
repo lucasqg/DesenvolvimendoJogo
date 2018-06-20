@@ -13,21 +13,10 @@ public class ItensBase : MonoBehaviour {
     public SlotInventarioBehaviour slot;
     public SlotEquipavel slotEkp;
     public SlotsVendedor slot1;
-    public GameObject prefab;
-    public int valorDoItem = 0;
 
-    public void InstantiatePrefab()
-    {
-        prefab = gameObject;
-    }
     public void addItem(int amountToAdd = 1)
     {
         amount += amountToAdd;
-    }
-
-    public void DestroiItem()
-    {
-        Destroy(gameObject);
     }
 
     public void RemoveItem(int amountToRemove = 1)
@@ -64,11 +53,6 @@ public class ItensBase : MonoBehaviour {
             ContoleDeInventario.instance.AddItemToInventory(this);
         }
 
-    }
-
-    public void AdicionaDiretamenteAoInventario()
-    {
-        ContoleDeInventario.instance.AddItemToInventory(this, true);
     }
 
     public void OnTriggerStay2D(Collider2D collision)

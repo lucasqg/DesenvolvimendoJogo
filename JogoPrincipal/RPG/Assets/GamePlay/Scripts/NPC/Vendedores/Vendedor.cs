@@ -8,12 +8,8 @@ public class Vendedor : NpcBase{
     public GameObject inventarioPlayer;
     public GameObject inventarioEquipavel;
     public InventarioVendedor inventario;
-    public Transform vendedor;
-    public ItensBase potionHP1, potionHP2, potionHP3, potionStamina1, potionStamina2, potionStamina3, potionMana1, potionMana2, potionMana3, pergaminho;
-
 	// Use this for initialization
 	void Start () {
-        
     }
 	
 	// Update is called once per frame
@@ -31,7 +27,7 @@ public class Vendedor : NpcBase{
                 inventarioVendedor.SetActive(true);
                 inventarioPlayer.SetActive(true);
                 inventarioEquipavel.SetActive(false);
-                inventario.AdicionarItemUtilizavel();
+                //inventario.AdicionarItemUtilizaveis();
 
                 // código para abertura do vendedor
             }
@@ -43,20 +39,21 @@ public class Vendedor : NpcBase{
                 inventarioPlayer.SetActive(false);
                 // código para abertura do vendedor
             }
-            /*if (collision.GetComponent<ItensBase>())
+            if (collision.GetComponent<ItensBase>())
             {
+                Debug.Log("sou um item base");
                 inventario.AddItemToInventory(collision.GetComponent<ItensBase>());
-            }*/
+            }
         }
         
     }
-    
     public void OnTriggerEnter2D(Collider2D collision)
     {
-       /* if (collision.GetComponent<ItensBase>())
+        if (collision.GetComponent<ItensBase>())
         {
+            Debug.Log("sou um item base");
             inventario.AddItemToInventory(collision.GetComponent<ItensBase>());
-        }*/
+        }
     }
 
 

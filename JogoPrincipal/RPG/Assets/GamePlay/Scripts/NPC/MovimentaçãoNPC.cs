@@ -63,7 +63,7 @@ public class MovimentaçãoNPC : MonoBehaviour {
     {
          
                     
-        float distanciaX = ArmazenarCoordenadasX - this.transform.position.x;
+            float distanciaX = ArmazenarCoordenadasX - this.transform.position.x;
         float distanciaY = ArmazenarCoordenadasY - this.transform.position.y;
 
         distanciaX = VerificaModulo(distanciaX);

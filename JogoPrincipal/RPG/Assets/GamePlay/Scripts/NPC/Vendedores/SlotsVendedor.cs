@@ -13,7 +13,7 @@ public class SlotsVendedor : MonoBehaviour {
     public Image background;
     public Color unselectedColor;
     public Color selectedColor;
-    public bool isSelected = false;
+    private bool isSelected = false;
     public int quantidadeDeMoedasNecessarias=0;
 
     void Update () {
@@ -30,20 +30,12 @@ public class SlotsVendedor : MonoBehaviour {
     }
     public void SetupSlot()
     {
-        
         if (currentItem != null)
         {
             icon.sprite = currentItem.icon;
             nameObject.text = currentItem.nameItem;
             currentItem.slot1 = this;
             amount.text = currentItem.getAmount().ToString();
-        }
-        else
-        {
-            icon.sprite =null;
-            nameObject.text = "Item esgotado";
-            currentItem.slot1 = this;
-            amount.text = "0";
         }
     }
     
