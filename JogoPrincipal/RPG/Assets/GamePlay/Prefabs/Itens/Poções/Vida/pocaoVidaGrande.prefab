@@ -44,7 +44,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4196776444981276
 Transform:
   m_ObjectHideFlags: 1
@@ -123,7 +123,10 @@ MonoBehaviour:
   isStacklabe: 1
   canEquip: 0
   slot: {fileID: 0}
-  uIController: {fileID: 0}
+  slotEkp: {fileID: 0}
+  slot1: {fileID: 0}
+  prefab: {fileID: 1472684276487144}
+  valorDoItem: 0
   amountLiquid: 100
 --- !u!212 &212340863962827870
 SpriteRenderer:
@@ -138,6 +141,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
