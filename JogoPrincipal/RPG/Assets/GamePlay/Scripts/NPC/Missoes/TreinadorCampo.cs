@@ -22,33 +22,17 @@ public class TreinadorCampo : MonoBehaviour {
     public BotaGuerreiro bota;
     public LuvaGuerreiro luva;
 
+    public bool falar = false;
+    public bool dizendo = false;
     public PotionBehaviour potion;
     public ArmasBehaviour espada;
     public MorcegoMutado morcego;
     public Transform playert;
     public bool spawn = true;
-    public void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.tag == "Player")
-        {
-            abrirJanela.text = "Pressione [F] para conversar";
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                fala.gameObject.SetActive(true); // liga e desliga o inventario
-                nomeNpc.text = "Treinador";
 
-                if (fala.gameObject.activeSelf)//CONDICIONAL QUE PAUSE O GAME.
-                {
-                    Time.timeScale = 0;
-                }
-                else
-                {
-                    Time.timeScale = defaultTimeScale;
-                }
-            }
-            abrirJanela.gameObject.SetActive(true);
-                
-        }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        falar = true;
     }
 
     public void ConversaInicial(int i)
@@ -146,6 +130,7 @@ public class TreinadorCampo : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
+            falar = false;
             abrirJanela.gameObject.SetActive(false);
         }
     }
@@ -157,26 +142,60 @@ public class TreinadorCampo : MonoBehaviour {
         i = 0;
     }
 
+
+    public void Conversando()
+    {
+
+        if (falar)
+        {
+            abrirJanela.text = "Pressione [F] para conversar";
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                fala.gameObject.SetActive(true); // liga e desliga o inventario
+                nomeNpc.text = "Treinador";
+                dizendo = true;
+
+                if (fala.gameObject.activeSelf)//CONDICIONAL QUE PAUSE O GAME.
+                {
+                    Time.timeScale = 0;
+                }
+                else
+                {
+                    Time.timeScale = defaultTimeScale;
+                }
+            }
+            abrirJanela.gameObject.SetActive(true);
+
+
+        }
+        if (dizendo)
+        { 
+            falar = false;
+            if (Input.GetKeyUp(KeyCode.KeypadEnter) && fala.gameObject.activeSelf)
+            {
+                i++;
+            }
+            if (i <= 2 && fala.gameObject.activeSelf && missao1 == false)
+            {
+
+                ConversaInicial(i);
+            }
+            else if (i > 2 && i <= 9 && fala.gameObject.activeSelf && missao1 == true)
+            {
+
+                ConversaAposPrimeiraMissão(i + 1);
+            }
+            else if (fala.gameObject.activeSelf && i > 10)
+            {
+                Time.timeScale = defaultTimeScale;
+                fala.gameObject.SetActive(false);
+            }
+        }
+    }
+
     private void Update()
     {
-        
-        if (Input.GetKeyUp(KeyCode.KeypadEnter) && fala.gameObject.activeSelf)
-        {
-            i++;
-        }
-        if (i <= 2 && fala.gameObject.activeSelf && missao1 == false) {
-            
-            ConversaInicial(i);
-        }
-        else if (i> 2 && i <= 9 && fala.gameObject.activeSelf && missao1 == true) {
-            
-            ConversaAposPrimeiraMissão(i+1);
-        }
-        else if(fala.gameObject.activeSelf && i>10)
-        {
-            Time.timeScale = defaultTimeScale;
-            fala.gameObject.SetActive(false);
-        }
+    Conversando();
         
 
     }
