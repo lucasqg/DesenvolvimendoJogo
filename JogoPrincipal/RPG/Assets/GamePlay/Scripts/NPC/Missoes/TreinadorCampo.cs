@@ -12,9 +12,9 @@ public class TreinadorCampo : MonoBehaviour {
     public Image npc, player;
     public int quantidadeDeFalas = 5;
     public int tipoDeMissao = 0;
-    private int i;
+    private int i=1;
     public bool missao1 = false;
-    public bool missao2 = false;
+    public bool missao0 = true;
 
     public ElmoGuerreiro elmo;
     public PeitoGuerreiro peito;
@@ -32,7 +32,10 @@ public class TreinadorCampo : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        falar = true;
+        if (collision.tag == "Player")
+        {
+            falar = true;
+        }
     }
 
     public void ConversaInicial(int i)
@@ -47,7 +50,6 @@ public class TreinadorCampo : MonoBehaviour {
                 "Para abrir/fechar o inventario [I]\n" +
                 "Para ativar uma SKILL [O]\n" +
                 "Para pegar itens no chão e conversar com NPCS [E, F]";
-
         }
         if (i == 1)
         {
@@ -59,23 +61,18 @@ public class TreinadorCampo : MonoBehaviour {
             tipoDeMissao = 1;
             Time.timeScale = defaultTimeScale;
             fala.gameObject.SetActive(false);
-
+            dizendo = false;
             GameObject.Instantiate(espada, playert.position, playert.rotation);
             PlayerStatsController.AddXp(50);
-
+            missao0 = false;
         }
-
-
-
     }
 
     public void ConversaAposPrimeiraMissão(int i)
     {
-            
             if (i == 3)
             {
                 conversa.text = "Meus parabéns, você bateu em um boneco sem vida, parece que você está se tornando um nobre guerreiro, não é mesmo?";
-
             }
             if (i == 4)
             {
@@ -115,15 +112,16 @@ public class TreinadorCampo : MonoBehaviour {
                 GameObject.Instantiate(potion, playert.position, playert.rotation);
                 GameObject.Instantiate(potion, playert.position, playert.rotation);
                 PlayerStatsController.AddXp(50);
+                
                 spawn = false;
             }
         }
             if (i == 9)
             {
             Time.timeScale = defaultTimeScale;
+            dizendo = false;
             fala.gameObject.SetActive(false);
             }
-        
     }
 
     public void OnTriggerExit2D(Collider2D collision)
@@ -145,7 +143,6 @@ public class TreinadorCampo : MonoBehaviour {
 
     public void Conversando()
     {
-
         if (falar)
         {
             abrirJanela.text = "Pressione [F] para conversar";
@@ -154,7 +151,20 @@ public class TreinadorCampo : MonoBehaviour {
                 fala.gameObject.SetActive(true); // liga e desliga o inventario
                 nomeNpc.text = "Treinador";
                 dizendo = true;
-
+                if (missao0)
+                {
+                    conversa.text = "Olá meu jovem, eu vou lhe ensinar o básico para sobreviver a este mundo cruel!!!\n" +
+                "Tudo bem, vamos começar com os comandos básicos, vou direto ao assunto para não tornar a sua experiencia ruim!\n Movimentação: [W, A, S, D] " +
+                "\nAtaque Básico: Tecla [1]\n" +
+                "Para utilizar as Skills (Somente após aprender alguma) teclas [2, 3, 4, 5, 6]\n" +
+                "Para abrir/fechar o inventario [I]\n" +
+                "Para ativar uma SKILL [O]\n" +
+                "Para pegar itens no chão e conversar com NPCS [E, F]";
+                }
+                if (missao1)
+                {
+                    conversa.text = "Meus parabéns, você bateu em um boneco sem vida, parece que você está se tornando um nobre guerreiro, não é mesmo?";
+                }
                 if (fala.gameObject.activeSelf)//CONDICIONAL QUE PAUSE O GAME.
                 {
                     Time.timeScale = 0;
@@ -165,37 +175,49 @@ public class TreinadorCampo : MonoBehaviour {
                 }
             }
             abrirJanela.gameObject.SetActive(true);
-
-
+            
         }
+        /*if (missao1)
+        {
+            falar = true;
+        }*/
         if (dizendo)
         { 
             falar = false;
             if (Input.GetKeyUp(KeyCode.KeypadEnter) && fala.gameObject.activeSelf)
             {
                 i++;
-            }
-            if (i <= 2 && fala.gameObject.activeSelf && missao1 == false)
-            {
 
-                ConversaInicial(i);
-            }
-            else if (i > 2 && i <= 9 && fala.gameObject.activeSelf && missao1 == true)
-            {
+                if (i <= 2 && fala.gameObject.activeSelf && missao1 == false)
+                {
 
-                ConversaAposPrimeiraMissão(i + 1);
-            }
-            else if (fala.gameObject.activeSelf && i > 10)
-            {
-                Time.timeScale = defaultTimeScale;
-                fala.gameObject.SetActive(false);
+                    ConversaInicial(i);
+                }
+
+                else if (i > 2 && i <= 9 && fala.gameObject.activeSelf && missao1 == true)
+                {
+                    ConversaAposPrimeiraMissão(i);
+                }
+                else if (fala.gameObject.activeSelf && i > 10)
+                {
+                    Time.timeScale = defaultTimeScale;
+                    fala.gameObject.SetActive(false);
+                }
             }
         }
     }
 
     private void Update()
     {
-    Conversando();
+
+        if (missao0)
+        {
+            Conversando();
+        }
+        else if (missao1)
+        {
+            Conversando();
+        }
         
 
     }

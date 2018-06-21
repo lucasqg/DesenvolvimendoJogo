@@ -19,7 +19,7 @@ public class MorcegoMutado : NpcBase {
         if (currentLife <= 0)
         {
             treinador = FindObjectOfType(typeof(TreinadorCampo)) as TreinadorCampo;
-            treinador.missao2 = true;
+            treinador.missao1 = false;
             Destroy(this.gameObject);
         }
     }

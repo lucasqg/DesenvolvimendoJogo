@@ -18,17 +18,17 @@ public class CarroceiroFalas : MonoBehaviour {
     private int i = 1;
 	// Use this for initialization
 	void Start () {
-        PLAYER = player;
-        NPC.sprite = npc;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-        TentaConversar();
-        Conversando(i);
-        
-
+        if (falando)
+        {
+            TentaConversar();
+            Conversando(i);
+            PLAYER = player;
+            NPC.sprite = npc;
+        }
     }
 
     public void TentaConversar()
@@ -86,6 +86,7 @@ public class CarroceiroFalas : MonoBehaviour {
         fala.gameObject.SetActive(false);//liga e desliga o inventario
         this.gameObject.SetActive(false);
     }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -93,6 +94,7 @@ public class CarroceiroFalas : MonoBehaviour {
             falando = true;
         }
     }
+
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")

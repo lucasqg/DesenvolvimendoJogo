@@ -17,7 +17,7 @@ public class BasicStatsNpc
 public class NpcBase : NpcDestructiveBase {
     public int currentLevel;
     public BasicStatsNpc basicStats;
-
+    public string nameNPC;
     
 
     public virtual void Start()
