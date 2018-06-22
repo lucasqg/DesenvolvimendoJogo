@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour {
     public Slider sliderStamina;
     public Slider sliderMana;
     public Slider sliderMonster;
+    public Slider sloderExp;
     public Text messageItemToTake;
     public Text atributosItens;
     public ContoleDeInventario inventario;
@@ -22,6 +23,7 @@ public class UIController : MonoBehaviour {
     public bool ativo = true;
     public Image destruction;
     public GameObject inventarioDoVendedor;
+    public GameObject pontos;
     // Use this for initialization
     void Start () {
         abrirInventario();
@@ -33,6 +35,7 @@ public class UIController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        AbrirStatusPontos();
         ContadorDeTempo += 1;
         if(ContadorDeTempo < tempoLoad && ativo)
         {
@@ -70,6 +73,20 @@ public class UIController : MonoBehaviour {
         }
 
     }
+
+    public void AbrirStatusPontos()
+    {
+        if (pontos.activeSelf && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.K)))
+        {
+            pontos.SetActive(false);
+            //espera para fechar
+        }
+        else if(!pontos.activeSelf && Input.GetKeyDown(KeyCode.K))
+        {
+            pontos.SetActive(true);
+        }
+    }
+
     public void abrirInventario()
     {
         inventario.gameObject.SetActive(true);
@@ -124,6 +141,7 @@ public class UIController : MonoBehaviour {
 
     public void SetExperiencia(float maxExp, float currentExp)
     {
-
+        float newPositionSlider = currentExp * 1 / maxExp;
+        sloderExp.value = newPositionSlider;
     }
 }

@@ -11,6 +11,7 @@ public class BasicStats
     public int forca;
     public int inteligencia;
     public int precisão;
+    public int constituicao;
     public int baseDefense;
     public int baseAttack;
     public int pontosSkill;

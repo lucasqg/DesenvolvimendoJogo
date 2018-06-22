@@ -49,11 +49,12 @@ public class PlayerBehaviour : CharacterBase {
 
     void Update () {
         Destroyer();
-        if (Input.GetKeyDown(KeyCode.K))
+        /*if (Input.GetKeyDown(KeyCode.K))
         {
             currentLife -= Random.Range(1, 10);
-        }
-        UI.SetLife(basicStats.startLife, currentLife);
+        }*/
+        UI.SetExperiencia(PlayerStatsController.GetNextXp(), PlayerStatsController.GetCurrentXp());
+        UI.SetLife(totalLife, currentLife);
         
     }
 
