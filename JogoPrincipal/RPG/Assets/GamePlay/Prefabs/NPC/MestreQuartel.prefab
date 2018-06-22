@@ -124,6 +124,20 @@ MonoBehaviour:
   player: {fileID: 0}
   quantidadeDeFalas: 5
   tipoDeMissao: 0
+  missao1: 0
+  missao0: 1
+  elmo: {fileID: 0}
+  peito: {fileID: 0}
+  "cal\xE7a": {fileID: 0}
+  bota: {fileID: 0}
+  luva: {fileID: 0}
+  falar: 0
+  dizendo: 0
+  potion: {fileID: 0}
+  espada: {fileID: 0}
+  morcego: {fileID: 0}
+  playert: {fileID: 0}
+  spawn: 1
 --- !u!212 &212900946846728908
 SpriteRenderer:
   m_ObjectHideFlags: 1

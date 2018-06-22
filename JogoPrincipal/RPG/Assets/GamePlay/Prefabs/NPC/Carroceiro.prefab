@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114726083331945314}
   m_Layer: 0
   m_Name: Carroceiro
-  m_TagString: Untagged
+  m_TagString: Carroceiro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   danoTotal: 0
   velTotal: 0
   currentLevel: 0
+  nameNPC: Carroceiro
   DeslocCarroceiro: {fileID: 4053935799351262}
   anim: {fileID: 0}
   tipoDeMissao: 0

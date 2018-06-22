@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114767281655387558}
   m_Layer: 0
   m_Name: CarroceiroMissao
-  m_TagString: Untagged
+  m_TagString: Carroceiro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

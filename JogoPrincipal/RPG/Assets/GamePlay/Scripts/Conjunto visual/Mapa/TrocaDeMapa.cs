@@ -5,6 +5,8 @@ using UnityEngine;
 public class TrocaDeMapa : MonoBehaviour {
     public Transform player;
     public Quaternion player2;
+    public float x, y, z;
+
 
 	// Use this for initialization
 	void Start () {
@@ -16,11 +18,16 @@ public class TrocaDeMapa : MonoBehaviour {
 		
 	}
 
+    public void SetLocation( )    {
+
+        player.SetPositionAndRotation(new Vector3(x, y, z), player2);
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag== "Player")
         {
-            player.SetPositionAndRotation(new Vector3(-22.88f, -5.65f, -0.28f), player2);
+            SetLocation();
         }
     }
 }

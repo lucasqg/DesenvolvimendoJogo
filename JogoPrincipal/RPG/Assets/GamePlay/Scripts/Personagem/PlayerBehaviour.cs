@@ -12,7 +12,6 @@ public class PlayerBehaviour : CharacterBase {
     private TypeCharacter type;
     //UI
     public UIController UI;
-    private NpcBase monster;
     protected void Start () {
         currentLevel = PlayerStatsController.GetCurrentLevel();
         PlayerStatsController.SetTypeCharacter(TypeCharacter.Guerreiro);
@@ -62,13 +61,13 @@ public class PlayerBehaviour : CharacterBase {
     {
         if (collision.tag == "CidadaoMutante")
         {
-            monster = FindObjectOfType(typeof(NpcBase)) as NpcBase;
+            NpcBase monster = collision.GetComponent<NpcBase>();
             UI.SetLifeMonster(monster.totalLife, monster.currentLife);
             UI.objectSliderMonster.SetActive(true);
         }
         else if (collision.tag == "Morcego")
         {
-            monster = FindObjectOfType(typeof(NpcBase)) as NpcBase;
+            NpcBase monster = collision.GetComponent<NpcBase>();
             UI.SetLifeMonster(monster.totalLife, monster.currentLife);
             UI.objectSliderMonster.SetActive(true);
         }

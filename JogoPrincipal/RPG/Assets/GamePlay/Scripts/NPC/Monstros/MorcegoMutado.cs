@@ -7,9 +7,9 @@ public class MorcegoMutado : NpcBase {
     public TreinadorCampo treinador;
 	// Use this for initialization
 	void Start () {
-        danoTotal = 5;
+        danoTotal = 3;
         defesaTotal = 1;
-        totalLife = 20;
+        totalLife = 12;
         currentLife = totalLife;
     }
 	

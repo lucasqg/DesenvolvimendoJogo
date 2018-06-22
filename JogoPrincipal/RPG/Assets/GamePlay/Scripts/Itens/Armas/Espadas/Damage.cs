@@ -26,28 +26,26 @@ public class Damage : MonoBehaviour {
             if (collision.tag == "CidadaoMutante")
             {
                 Debug.Log("Cidadao Mutante levando DAMAGE");
-                cidadao = FindObjectOfType(typeof(CidadãoMutante)) as CidadãoMutante;
                 player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
-                applyDamageMonster(cidadao);
+                applyDamageMonster(collision.GetComponent<NpcBase>());
             }
             else if (collision.tag == "Esqueleto")
             {
-                applyDamageMonster(monstro);
+                applyDamageMonster(collision.GetComponent<NpcBase>());
             }
         else if (collision.tag == "LoboDecomposto")
             {
-                applyDamageMonster(monstro);
+                applyDamageMonster(collision.GetComponent<NpcBase>());
             }
         else if(collision.tag == "LoboSelvagem")
             {
-                applyDamageMonster(monstro);
+                applyDamageMonster(collision.GetComponent<NpcBase>());
             }
         else if(collision.tag == "Morcego")
             {
             Debug.Log("Morcego levando DANO");
-            morcego = FindObjectOfType(typeof(MorcegoMutado)) as MorcegoMutado;
             player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
-            applyDamageMonster(morcego);
+            applyDamageMonster(collision.GetComponent<NpcBase>());
         }
         else if (collision.tag == "RatoMutado")
         {

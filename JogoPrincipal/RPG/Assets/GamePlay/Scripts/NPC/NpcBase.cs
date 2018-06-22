@@ -65,4 +65,8 @@ public class NpcBase : NpcDestructiveBase {
     {
         //throw new System.NotImplementedException();
     }
+    public void Destroi()
+    {
+        Destroy(this.gameObject);
+    }
 }
