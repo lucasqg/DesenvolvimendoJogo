@@ -17,6 +17,10 @@ public class DamageMonster : MonoBehaviour
     {
         player.addLife(-dano);
     }
+    public void applyDamageNPC(int dano, Carroceiro carroceiro)
+    {
+        carroceiro.addLife(-dano);
+    }
     public void OnTriggerStay2D(Collider2D collision)
     {
         ContadorDeTempo += 1;
@@ -25,6 +29,11 @@ public class DamageMonster : MonoBehaviour
         {
             player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
             applyDamagePlayer(monstro.danoTotal);
+            ContadorDeTempo = 0;
+        }
+        else if(collision.tag == "Carroceiro" && ContadorDeTempo > velAtack)
+        {
+            applyDamageNPC(monstro.danoTotal, collision.GetComponent<Carroceiro>());
             ContadorDeTempo = 0;
         }
     }

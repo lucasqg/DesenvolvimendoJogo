@@ -89,7 +89,7 @@ public class DataBaseSpawnMonster : MonoBehaviour {
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player" || collision.tag == "Carroceiro")
+        if (collision.tag == "Player" )
         {
             activeMonster = false;
             desactive = true;

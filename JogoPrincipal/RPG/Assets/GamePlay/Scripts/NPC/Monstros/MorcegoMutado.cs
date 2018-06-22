@@ -23,4 +23,6 @@ public class MorcegoMutado : NpcBase {
             Destroy(this.gameObject);
         }
     }
+
+    
 }

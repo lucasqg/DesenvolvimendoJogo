@@ -5,7 +5,7 @@ using UnityEngine;
 public class Carroceiro : NpcBase {
     public Transform DeslocCarroceiro;
     private bool inimigo = false;
-    private float vel = 1.5f;
+    private float vel = 1f;
     public Animator anim;
 
     private int i=2;
@@ -18,14 +18,16 @@ public class Carroceiro : NpcBase {
 
 	// Use this for initialization
 	public override void Start () {
-       
-        Inicialization();
+        totalLife = 30;
+        defesaTotal = 2;
+
     }
 	
 	// Update is called once per frame
 	public override void Update () {
-        DestroiMonster();   // testa se o monstro deve morrer
+        //DestroiMonster();   // testa se o monstro deve morrer
         DeslocamentoDeMissao();
+        TestVida();             // testa se o monstro deve morrer e remove reputação caso morra
     }
 
     private void restorePosition(int op)
@@ -60,10 +62,31 @@ public class Carroceiro : NpcBase {
                 positionX = 46.18f;
                 positionY = -78.88f;
                 break;
+            case 8:
+                Chegada();
+                Destroi();
+                break;
             default:
                 break;
         }
 
+    }
+    public void TestVida()
+    {
+        if (currentLife <= 2)
+        {
+            PlayerStatsController.AddReputation(-5);
+            Destroi();
+        }
+    }
+    public void Chegada()
+    {
+        if(this.transform.position.x == positionX && transform.position.y == positionY)
+        {
+            // adiciona 5 pontos de reputação
+            PlayerStatsController.AddReputation(5);
+
+        }
     }
     public void DeslocamentoDeMissao()
     {
@@ -80,6 +103,11 @@ public class Carroceiro : NpcBase {
                 restorePosition(i);
                 i++;
             }   
+            if(i == 8)
+            {
+                Chegada();
+                Destroi();
+            }
             else
             {
                 Movimentacao();
@@ -89,14 +117,14 @@ public class Carroceiro : NpcBase {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "monster")
+        if (collision.tag == "Morcego")
         {
             inimigo = true; // tem um inimigo no raio de visão
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "monster")
+        if (collision.tag == "Morcego")
         {
             inimigo = false; // saiu o inimigo do campo de visão, entao deve caminhar
         }

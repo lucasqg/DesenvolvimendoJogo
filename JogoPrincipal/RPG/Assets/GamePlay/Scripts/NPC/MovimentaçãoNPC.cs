@@ -39,8 +39,13 @@ public class MovimentaçãoNPC : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D outro)
     {
-        // após o personagem entrar na zona de visão do mob, ele se deslocará até ele, caso o mob seja um monstro;
-        if (outro.gameObject.CompareTag("Player"))
+        if (outro.tag == "Carroceiro")
+        {
+            Hero = outro.transform;
+            perseguindo = true;
+        }
+            // após o personagem entrar na zona de visão do mob, ele se deslocará até ele, caso o mob seja um monstro;
+        else if (outro.gameObject.CompareTag("Player"))
         {
             
             Hero = outro.transform;
@@ -50,7 +55,12 @@ public class MovimentaçãoNPC : MonoBehaviour {
 
     public void OnTriggerExit2D(Collider2D outro)
     {
-        if (outro.gameObject.CompareTag("Player"))
+        if(outro.tag == "Carroceiro")
+        {
+            Hero = null;
+            perseguindo = false;
+        }
+        else if (outro.gameObject.CompareTag("Player"))
         {
             Hero = null;
             perseguindo = false;

@@ -134,13 +134,14 @@ public class PlayerStatsController : MonoBehaviour{
     {
         return PlayerPrefs.GetInt("Reputação");
     }
-    /*
+    
     private void OnGUI()
     {
         GUI.Label(new Rect(0, 0, 100, 50), "Current Xp" + GetCurrentXp());
         GUI.Label(new Rect(0, 50, 100, 50), "Current Level" + GetCurrentLevel());
         GUI.Label(new Rect(0, 100, 100, 50), "Current Next Level" + GetNextXp());
+        GUI.Label(new Rect(0, 150, 100, 50), "Current Reputação" + GetCurrentReputation());
     }
-    */
+    
     
 }
