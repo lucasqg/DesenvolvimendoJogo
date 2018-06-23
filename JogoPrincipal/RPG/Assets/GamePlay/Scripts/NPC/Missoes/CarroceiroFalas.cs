@@ -15,6 +15,9 @@ public class CarroceiroFalas : MonoBehaviour {
     public Image NPC;
     public GameObject carroceiro;
     public bool falando = false;
+    public GameObject descricaoMissao;
+    public Text descricao;
+
     private int i = 1;
 	// Use this for initialization
 	void Start () {
@@ -82,6 +85,8 @@ public class CarroceiroFalas : MonoBehaviour {
     public void IniciarMissao()
     {
         Instantiate(carroceiro, transform.position, transform.rotation);
+        descricaoMissao.SetActive(true);
+        descricao.text = "Proteja o carroceiro e o leve até seu destino!";
         Time.timeScale = defaultTimeScale;
         fala.gameObject.SetActive(false);//liga e desliga o inventario
         this.gameObject.SetActive(false);
