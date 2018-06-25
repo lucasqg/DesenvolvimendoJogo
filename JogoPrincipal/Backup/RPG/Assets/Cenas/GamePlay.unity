@@ -5072,6 +5072,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114108475677575216, guid: c56ef6cd7ba279d4f9abb0865df25c11,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 224678513116743552, guid: c56ef6cd7ba279d4f9abb0865df25c11,
         type: 2}
       propertyPath: m_RootOrder
@@ -5171,9 +5176,63 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114108475677575216, guid: c56ef6cd7ba279d4f9abb0865df25c11,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108475677575216, guid: c56ef6cd7ba279d4f9abb0865df25c11,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108475677575216, guid: c56ef6cd7ba279d4f9abb0865df25c11,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2082925936}
+    - target: {fileID: 114108475677575216, guid: c56ef6cd7ba279d4f9abb0865df25c11,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108475677575216, guid: c56ef6cd7ba279d4f9abb0865df25c11,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c56ef6cd7ba279d4f9abb0865df25c11, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2082925935 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1612910195043748, guid: c56ef6cd7ba279d4f9abb0865df25c11,
+    type: 2}
+  m_PrefabInternal: {fileID: 2082925934}
+--- !u!114 &2082925936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2082925935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa67e0a93b5249548815762474e894d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Load: MainMenu
+  ceneAtual: 
+  texturaFundo: {fileID: 2800000, guid: 80f3cccd0e92aea40be9fb38ab848f94, type: 3}
+  barraLoad: {fileID: 2800000, guid: bfe381ed0057292408fb12a94a344aab, type: 3}
+  textoLoad: 'Progresso do Carregamendo da Cena:'
+  cor: {r: 0.12941177, g: 0.1254902, b: 0.20392159, a: 1}
+  Fonte: {fileID: 12800000, guid: ce07755c47bdfb841ae3978356cffec0, type: 3}
+  tamanhoTexto: 1.5
+  larguraBarra: 8
+  alturaBarra: 2
+  deslocarBarra: 4
+  deslocarTextoX: 2
+  deslocarTextoY: 3
 --- !u!1001 &2146507825
 Prefab:
   m_ObjectHideFlags: 0
