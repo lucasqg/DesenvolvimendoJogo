@@ -20,7 +20,7 @@ public class Setas1 : MonoBehaviour {
     {
         if (collision.tag=="Player"){
 
-            Destroy(sigaSeta.gameObject);
+            sigaSeta.text = "Entre na porta e fale com o treinador";
             Destroy(this.gameObject);
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TreinadorCampo : MonoBehaviour {
 
+    public Text descricao;
     public Text abrirJanela;
     public Text conversa, nomeNpc;
     public Canvas fala;
@@ -54,7 +55,7 @@ public class TreinadorCampo : MonoBehaviour {
         if (i == 1)
         {
             conversa.text = "Vamos fazer assim, tenho uma missão para você, pegue está espada que jogarei no chão ( APERTE [E] PARA PEGAR DO CHÃO) e bata no saco de pancadas até ele desaparecer, quando concluir a missão, volte aqui que lhe ensinarei outras coisinhas!";
-
+            descricao.text = "-Pegue a espada do chão\nAbra o inventario [i]\n-Equipe a espada\n-Mate pelo menos um boneco de treino";
         }
         if (i == 2)
         {
@@ -97,9 +98,11 @@ public class TreinadorCampo : MonoBehaviour {
                     " Lhe darei apenas 1 ponto de reputação, mas é porque está missão é muito facil...\n Tome aqui, lhe darei roupas novas para lhe ajudar nesta jornada, pois está frio lá fora. Além disto, lhe darei uma poção! Utilize-a com sabedoria :)\n" +
                     "Pegue os itens do chão pressionando [E]";
             }
-            if (i == 8)
-            {
-                conversa.text = "Ahhh, ja ia me esquecendo..\n Não é necessario voltar aqui após matar o morcego, siga em frente e fale com o chefe de vila, ele te dirá os proximos passos! Boa sorte amigo!";
+        if (i == 8)
+        {
+            conversa.text = "Ahhh, ja ia me esquecendo..\n Não é necessario voltar aqui após matar o morcego, siga em frente e fale com o chefe de vila, ele te dirá os proximos passos! Boa sorte amigo!";
+            descricao.text = "\n OPCIONAL\n-Pegue os itens do chão\nAbra o inventario [i]\n-Equipe os itens\n-Mate o morcego\n-Vá até uma banca e compre poções de vida\n -Procure um npc na cidade para fazer missões";
+
             if (spawn)
             {
                 GameObject.Instantiate(morcego, new Vector3(-39.8f, -6.73f, -1.45f), playert.rotation);
@@ -112,7 +115,7 @@ public class TreinadorCampo : MonoBehaviour {
                 GameObject.Instantiate(potion, playert.position, playert.rotation);
                 GameObject.Instantiate(potion, playert.position, playert.rotation);
                 PlayerStatsController.AddXp(50);
-                
+
                 spawn = false;
             }
         }
