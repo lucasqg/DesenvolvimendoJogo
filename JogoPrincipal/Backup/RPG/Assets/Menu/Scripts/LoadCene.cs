@@ -26,7 +26,7 @@ public class LoadCene : MonoBehaviour {
     public float deslocarTextoX = 2;
     [Range(-4.5f, 4.5f)]
     public float deslocarTextoY = 3;
-
+    
 
     private bool mostraLoad = false;
     private int progressoLoad = 0;
