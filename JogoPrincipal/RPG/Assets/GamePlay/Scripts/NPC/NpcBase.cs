@@ -19,10 +19,16 @@ public class NpcBase : NpcDestructiveBase {
     public BasicStatsNpc basicStats;
     public string nameNPC;
     
+    public virtual void InicializacaoDeStatus()
+    {
+        // status atribuido dentro do monstro
+    }
+
 
     public virtual void Start()
     {
-        Inicialization();
+       
+        
     }
 
     public virtual void Update()
@@ -33,7 +39,7 @@ public class NpcBase : NpcDestructiveBase {
     public void Inicialization()
     {
         currentLife = basicStats.startLife;
-        totalLife = currentLife;
+        totalLife = basicStats.startLife;
         currentMana = basicStats.mana;
         totalMana = currentMana;
         currentStamina = basicStats.startStamina;

@@ -6,11 +6,11 @@ public class DamageMonster : MonoBehaviour
 {
     public PlayerBehaviour player;
     public NpcBase monstro;
-    public int velAtack = 1500;
     public int ContadorDeTempo = 0;
     // Use this for initialization
 
     void Start () {
+        monstro = this.GetComponent<NpcBase>();
 	}
 
     public void applyDamagePlayer(int dano)
@@ -25,13 +25,13 @@ public class DamageMonster : MonoBehaviour
     {
         ContadorDeTempo += 1;
 
-        if (collision.tag == "Player" && ContadorDeTempo>velAtack)
+        if (collision.tag == "Player" && ContadorDeTempo> monstro.velTotal)
         {
             player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
             applyDamagePlayer(monstro.danoTotal);
             ContadorDeTempo = 0;
         }
-        else if(collision.tag == "Carroceiro" && ContadorDeTempo > velAtack)
+        else if(collision.tag == "Carroceiro" && ContadorDeTempo > monstro.velTotal)
         {
             applyDamageNPC(monstro.danoTotal, collision.GetComponent<Carroceiro>());
             ContadorDeTempo = 0;
