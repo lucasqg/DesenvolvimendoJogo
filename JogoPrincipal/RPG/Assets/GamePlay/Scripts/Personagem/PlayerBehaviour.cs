@@ -17,6 +17,7 @@ public class PlayerBehaviour : CharacterBase {
         PlayerStatsController.SetTypeCharacter(TypeCharacter.Guerreiro);
         type = PlayerStatsController.GetTypeCharacter();
         basicStats = PlayerStatsController.instance.GetBasicStatsPlayer(type);
+        MontarMissoes(); // adiciona todas missoes em um list
         base.Start();
         TipoDeSlider();
     }

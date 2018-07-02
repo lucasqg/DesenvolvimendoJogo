@@ -8,17 +8,23 @@ public class CabeloVerde : MonoBehaviour {
     public Text conversa, nomeNpc;
     public Canvas fala;
     public float defaultTimeScale;
-    public Image player;
+    public Image player1;
     public Image PLAYER;
     public Sprite npc;
     public Image NPC;
     public bool falando = false;
     private int i = 1;
-    public GameObject bandeira;
+    public bool missaoAtiva;
+    public int ContadorDeTempo = 0, tempoMaximoMissao;
+    public GameObject bandeira, bandeiraAtiva;
+    public PlayerBehaviour player;
 
     // Use this for initialization
     void Start()
     {
+        player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+        missaoAtiva = false;
+        tempoMaximoMissao = 5000;
     }
 
     // Update is called once per frame
@@ -28,8 +34,24 @@ public class CabeloVerde : MonoBehaviour {
         {
             TentaConversar();
             Conversando(i);
-            PLAYER = player;
+            PLAYER = player1;
             NPC.sprite = npc;
+        }
+
+        if (missaoAtiva)
+        {
+            MissaoAtiva();
+            DerrotaDeMissao();
+        }
+    }
+
+    public void MissaoAtiva()
+    {
+        ContadorDeTempo += 1;
+        if(ContadorDeTempo >= tempoMaximoMissao)
+        {
+            FinalizarMissao();
+            missaoAtiva = false;
         }
     }
 
@@ -66,7 +88,6 @@ public class CabeloVerde : MonoBehaviour {
         {
             case 1:
                 conversa.text = "Por favor, me ajude :(";
-
                 break;
             case 2:
                 conversa.text = "Tenho uma fazenda que abastece a cidadela com comida, mas os monstros estão se direcionando para ataca-la, preciso de um verdadeiro heroi para salvar minha fazenda!";
@@ -83,10 +104,30 @@ public class CabeloVerde : MonoBehaviour {
 
     public void IniciarMissao()
     {
-        bandeira.SetActive(true); // liga a bandeira e inicia a missão
+        bandeiraAtiva = Instantiate(bandeira, new Vector3(75.09f, -24.36f, -1), Quaternion.identity);
+        //bandeira.SetActive(true); // liga a bandeira e inicia a missão
         Time.timeScale = defaultTimeScale;
         fala.gameObject.SetActive(false);//liga e desliga o inventario
         this.gameObject.SetActive(false);
+        missaoAtiva = true;
+    }
+
+    public void FinalizarMissao()
+    {
+        //condições de vitoria
+        Destroy(bandeiraAtiva);
+        PlayerStatsController.AddReputation(10);
+        player.SetNivelDeMissao("missao2");
+    }
+
+    public void DerrotaDeMissao()
+    {
+       if(bandeira.GetComponent<NpcBase>().currentLife <= 10)
+        {
+            Destroy(bandeiraAtiva);
+            PlayerStatsController.AddReputation(-10);
+            missaoAtiva = false;
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

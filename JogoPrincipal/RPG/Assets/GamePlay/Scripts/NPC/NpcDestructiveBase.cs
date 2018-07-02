@@ -14,6 +14,7 @@ public abstract class NpcDestructiveBase : MonoBehaviour {
     public int danoTotal;
     public int velTotal;
 
+    public int nivel;
     void Start()
     {
 

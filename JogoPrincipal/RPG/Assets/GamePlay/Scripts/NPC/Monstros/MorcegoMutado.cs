@@ -16,7 +16,7 @@ public class MorcegoMutado : NpcBase {
         }
     }
 
-    public override void InicializacaoDeStatus()
+    public void Inicializar()
     {
         velTotal = 1500;
         danoTotal = 3;
@@ -24,12 +24,17 @@ public class MorcegoMutado : NpcBase {
         totalLife = 12;
         currentLife = totalLife;
         nameNPC = "Morcego";
+    }
 
+    public override void VerificaNivel()
+    {
+        Inicializar();
+        base.VerificaNivel(); //chama o metodo base;
     }
 
     public override void Start()
     {
-        InicializacaoDeStatus();
+        VerificaNivel();
     }
 
 }

@@ -22,6 +22,10 @@ public abstract class DestructiveBase : MonoBehaviour {
     public float defTotal;
     // atributos variaveis a arma/set
     public SlotEquipavel arma, elmo, peito, bota, luva, calça, colar, anel1, anel2;
+
+    //Controle de missões
+    public List<int> missoes;
+
 	void Start () {
         
 
@@ -30,8 +34,38 @@ public abstract class DestructiveBase : MonoBehaviour {
 	void Update () {
 
     }
-
+    public void MontarMissoes()
+    {
+        missoes.Add(0);
+        missoes.Add(0);
+        missoes.Add(0);
+        missoes.Add(0);
+    }
     
+    public int GetNivelDeMissao(string missao) // 
+    {
+        if (missao == "Missão1" || missao == "missao1" || missao == "missão1" || missao == "missaoUM")
+            return missoes[0];
+        else if (missao == "Missão2" || missao == "missao2" || missao == "missão2" || missao == "missaoDOIS")
+            return missoes[1];
+        else if (missao == "Missão3" || missao == "missao3" || missao == "missão3" || missao == "missaoTRES")
+            return missoes[2];
+        else if (missao == "MissaoPrincipal" || missao == "missaoPrincipal" || missao == "MissãoPrincipal")
+            return missoes[3];
+        return 0;
+    }
+
+    public void SetNivelDeMissao(string missao) //adiciona 1 na missao que foi concluida
+    {
+        if (missao == "Missão1" || missao == "missao1" || missao == "missão1" || missao == "missaoUM")
+           missoes[0] +=1;
+        else if (missao == "Missão2" || missao == "missao2" || missao == "missão2" || missao == "missaoDOIS")
+            missoes[1] += 1;
+        else if (missao == "Missão3" || missao == "missao3" || missao == "missão3" || missao == "missaoTRES")
+            missoes[2] += 1;
+        else if (missao == "MissaoPrincipal" || missao == "missaoPrincipal" || missao == "MissãoPrincipal")
+            missoes[3] += 1;
+    }
 
     public void addLife(int life)
     {
