@@ -19,6 +19,12 @@ public class NpcBase : NpcDestructiveBase {
     public BasicStatsNpc basicStats;
     public string nameNPC;
     
+    public virtual void InicializacaoDeStatus()
+    {
+        // status atribuido dentro do monstro
+    }
+
+
     public virtual void Start()
     {
        
@@ -69,18 +75,4 @@ public class NpcBase : NpcDestructiveBase {
     {
         Destroy(this.gameObject);
     }
-
-    public virtual void VerificaNivel()
-    {
-        //atribui os atributos do monstro conforme o nivel dele.
-        for (int i = 0; i <= nivel; i++)
-        {
-            velTotal -= 50;
-            danoTotal += 3;
-            defesaTotal += 2;
-            totalLife += 10;
-            currentLife = totalLife;
-        }
-    }
-
 }
