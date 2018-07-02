@@ -98,6 +98,8 @@ MonoBehaviour:
   NPC: {fileID: 0}
   carroceiro: {fileID: 1719763468331810, guid: 899f5dff938d6344f889a0338eb874c3, type: 2}
   falando: 0
+  descricaoMissao: {fileID: 0}
+  descricao: {fileID: 0}
 --- !u!212 &212590653389245066
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -143,6 +143,7 @@ MonoBehaviour:
   defesaTotal: 0
   danoTotal: 0
   velTotal: 0
+  nivel: 0
   currentLevel: 0
   nameNPC: Carroceiro
   DeslocCarroceiro: {fileID: 4053935799351262}

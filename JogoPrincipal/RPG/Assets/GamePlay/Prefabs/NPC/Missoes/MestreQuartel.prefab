@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2160d58b1dd20a458306d5249c48d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  descricao: {fileID: 0}
   abrirJanela: {fileID: 0}
   conversa: {fileID: 0}
   nomeNpc: {fileID: 0}

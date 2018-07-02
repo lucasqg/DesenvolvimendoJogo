@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 60327502638276824}
   - component: {fileID: 50625371957454204}
   m_Layer: 0
-  m_Name: bandeira
+  m_Name: Bandeira
   m_TagString: Bandeira
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
