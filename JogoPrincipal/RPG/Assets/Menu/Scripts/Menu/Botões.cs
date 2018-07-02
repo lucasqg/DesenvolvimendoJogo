@@ -21,11 +21,15 @@ public class Botões : MonoBehaviour {
     public void OnStart()
     {
         AudioG.inst.PlayAudio(selectAudio);
+        this.GetComponent<LoadCene>().Load = "CreateChar";
+        this.GetComponent<LoadCene>().OnStart();
     }
 
     public void OnLoad()
     {
         AudioG.inst.PlayAudio(selectAudio);
+        this.GetComponent<LoadCene>().Load = "Loader";
+        this.GetComponent<LoadCene>().OnStart();
     }
 
     public void OnOptions()

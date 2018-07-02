@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Cenas/GamePlay.unity
+=======
+- path: Assets/Cenas/Historia.unity
+>>>>>>> 16dd0544d50325918008a3bfa3ae27977bada242
   isLoaded: 1
   isActive: 1
