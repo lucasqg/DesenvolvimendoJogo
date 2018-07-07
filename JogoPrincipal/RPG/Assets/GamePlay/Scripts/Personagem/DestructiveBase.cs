@@ -57,14 +57,39 @@ public abstract class DestructiveBase : MonoBehaviour {
 
     public void SetNivelDeMissao(string missao) //adiciona 1 na missao que foi concluida
     {
-        if (missao == "Missão1" || missao == "missao1" || missao == "missão1" || missao == "missaoUM")
+        if (missao == "Missão1" || missao == "missao1" || missao == "missão1")
            missoes[0] +=1;
-        else if (missao == "Missão2" || missao == "missao2" || missao == "missão2" || missao == "missaoDOIS")
+        else if (missao == "Missão2" || missao == "missao2" || missao == "missão2")
             missoes[1] += 1;
-        else if (missao == "Missão3" || missao == "missao3" || missao == "missão3" || missao == "missaoTRES")
+        else if (missao == "Missão3" || missao == "missao3" || missao == "missão3")
             missoes[2] += 1;
-        else if (missao == "MissaoPrincipal" || missao == "missaoPrincipal" || missao == "MissãoPrincipal")
+        else if (missao == "Missão4" || missao == "missao4" || missao == "missão4")
             missoes[3] += 1;
+        else if (missao == "MissaoPrincipal" || missao == "missaoPrincipal" || missao == "MissãoPrincipal")
+            missoes[4] += 1;
+    }
+
+    public void SetNivelDeMissaoTotal(string missao) //adiciona 1 na missao que foi concluida
+    {
+        if (missao == "Missão1" || missao == "missao1" || missao == "missão1")
+            missoes[0] += 1;
+        else if (missao == "Missão2" || missao == "missao2" || missao == "missão2")
+            missoes[1] += 1;
+        else if (missao == "Missão3" || missao == "missao3" || missao == "missão3")
+            missoes[2] += 1;
+        else if (missao == "Missão4" || missao == "missao4" || missao == "missão4")
+            missoes[3] += 1;
+        else if (missao == "MissaoPrincipal" || missao == "missaoPrincipal" || missao == "MissãoPrincipal")
+            missoes[4] += 1;
+    }
+
+    public void SetTodasMissoes() //adiciona 1 na missao que foi concluida
+    {
+            missoes[0] = GetNivelDeMissao("missão1");
+            missoes[1] = GetNivelDeMissao("missão2");
+            missoes[2] = GetNivelDeMissao("missão3");
+            missoes[3] = GetNivelDeMissao("missão4");
+            missoes[4] = GetNivelDeMissao("missaoPrincipal");
     }
 
     public void addLife(int life)

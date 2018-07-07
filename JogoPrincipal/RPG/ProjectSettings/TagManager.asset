@@ -14,6 +14,8 @@ TagManager:
   - VendedorPotions
   - Vendedor
   - Carroceiro
+  - LoboSelvagem
+  - Bandeira
   layers:
   - Default
   - TransparentFX

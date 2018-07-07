@@ -8,14 +8,18 @@ public class SpawnLoboMissao2 : MonoBehaviour {
     public int contadorDeTempo1, contadorDeTempo2, contadorDeTempo3 = 0;
     public int tempoSpawn1, tempoSpawn2, tempoSpawn3;
     public GameObject lobo;
+    public CabeloVerde boneca;
 
     public List<float> positionX, positionY;
     public List<GameObject> conjuntoDeMonstros;
     // Use this for initialization
     void Start () {
+        iniciarMissao = true;
         tempoSpawn1 = 1500;
         tempoSpawn2 = 1000;
         tempoSpawn3 = 700;
+        //linha de codigo abaixo ja está implementada no script da boneca
+        //boneca = FindObjectOfType(typeof(CabeloVerde)) as CabeloVerde; // ENCONTRA O SCRIPT DA CABELO VERDE NA CENA
     }
 	
 	// Update is called once per frame
@@ -33,18 +37,26 @@ public class SpawnLoboMissao2 : MonoBehaviour {
 
     public void InicioSpawn()
     {
-        if(contadorDeTempo1 >= tempoSpawn1)
+        if (tempoSpawn2 <= 0)
+        {
+            FimDeMissão();
+        }
+        if (contadorDeTempo1 >= tempoSpawn1)
         {
             contadorDeTempo1 = 0; //reseta o contador para reiniciar o spawn
             tempoSpawn1 -= 100;
             conjuntoDeMonstros.Add(SpawnMonster(positionX[0], positionY[0], lobo));
 
         }
-        if (contadorDeTempo2 >= tempoSpawn2)
+        if (contadorDeTempo2 >= tempoSpawn2 && tempoSpawn2 >= -100)
         {
             contadorDeTempo2 = 0; //reseta o contador para reiniciar o spawn
             tempoSpawn2 -= 150;
             conjuntoDeMonstros.Add(SpawnMonster(positionX[1], positionY[1], lobo));
+            if (tempoSpawn2 <= 0)
+            {
+                FimDeMissão();
+            }
 
         }
         if (contadorDeTempo3 >= tempoSpawn3)
@@ -60,7 +72,7 @@ public class SpawnLoboMissao2 : MonoBehaviour {
     public void FimDeMissão()
     {
         conjuntoDeMonstros.Clear();
-
+        boneca.FinalizarMissao();
     }
     public GameObject SpawnMonster(float x, float y, GameObject monstro)
     {

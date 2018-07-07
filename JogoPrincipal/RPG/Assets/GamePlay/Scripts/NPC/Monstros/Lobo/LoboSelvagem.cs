@@ -8,9 +8,9 @@ public class LoboSelvagem : NpcBase {
     public override void InicializacaoDeStatus()
     {
         velTotal = 1000;
-        danoTotal = 10;
-        defesaTotal = 20;
-        totalLife = 50;
+        danoTotal = 2;
+        defesaTotal = 1;
+        totalLife = 2;
         currentLife = totalLife;
         nameNPC = "LoboSelvagem";
         

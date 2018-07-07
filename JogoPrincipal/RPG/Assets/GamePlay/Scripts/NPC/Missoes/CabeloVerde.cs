@@ -63,7 +63,7 @@ public class CabeloVerde : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.F))
             {
                 fala.gameObject.SetActive(true); // liga e desliga o inventario
-                nomeNpc.text = "Carroceiro";
+                nomeNpc.text = "Cabelo Verde";
 
                 if (fala.gameObject.activeSelf)//CONDICIONAL QUE PAUSE O GAME.
                 {
@@ -96,7 +96,7 @@ public class CabeloVerde : MonoBehaviour {
                 conversa.text = "Siga na estrada a direita até o final e defenda a bandeira vermelha, se um monstro chegar até ela, tudo estará acabado! \n<b>PROTEJA MINHA FAZENDA!</b>\n\nDizem que sua reputação subirá ao terminar isso, ah e te darei um pouquinho de ouro pela ajuda! ";
                 break;
             case 4:
-                IniciarMissao();
+                IniciarMissao(); // inicia a missao
                 break;
         }
 
@@ -105,15 +105,18 @@ public class CabeloVerde : MonoBehaviour {
     public void IniciarMissao()
     {
         bandeiraAtiva = Instantiate(bandeira, new Vector3(75.09f, -24.36f, -1), Quaternion.identity);
+        bandeiraAtiva.GetComponent<SpawnLoboMissao2>().boneca = this;
         //bandeira.SetActive(true); // liga a bandeira e inicia a missão
-        Time.timeScale = defaultTimeScale;
+        Time.timeScale = defaultTimeScale; // pausa o game
         fala.gameObject.SetActive(false);//liga e desliga o inventario
-        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(false); // boneca desaparece
         missaoAtiva = true;
     }
 
     public void FinalizarMissao()
     {
+        this.gameObject.SetActive(true);
+        missaoAtiva = false;
         //condições de vitoria
         Destroy(bandeiraAtiva);
         PlayerStatsController.AddReputation(10);

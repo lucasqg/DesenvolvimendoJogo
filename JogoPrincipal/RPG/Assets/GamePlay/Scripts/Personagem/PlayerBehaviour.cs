@@ -73,6 +73,12 @@ public class PlayerBehaviour : CharacterBase {
             UI.SetLifeMonster(monster.totalLife, monster.currentLife);
             UI.objectSliderMonster.SetActive(true);
         }
+        else if (collision.tag == "LoboSelvagem")
+        {
+            NpcBase monster = collision.GetComponent<NpcBase>();
+            UI.SetLifeMonster(monster.totalLife, monster.currentLife);
+            UI.objectSliderMonster.SetActive(true);
+        }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
@@ -81,6 +87,10 @@ public class PlayerBehaviour : CharacterBase {
             UI.objectSliderMonster.SetActive(false);
         }
         else if(collision.tag == "Morcego")
+        {
+            UI.objectSliderMonster.SetActive(false);
+        }
+        else if (collision.tag == "LoboSelvagem")
         {
             UI.objectSliderMonster.SetActive(false);
         }
