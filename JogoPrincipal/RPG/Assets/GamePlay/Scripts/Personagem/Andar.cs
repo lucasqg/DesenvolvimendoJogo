@@ -19,9 +19,6 @@ public class Andar : MonoBehaviour {
         anim.SetBool("FrenteAndando", false);
         anim.SetBool("CostasAndando", false);
     }
-
-    
-	
 	// Update is called once per frame
 	void Update () {
         //if (morto == false)
