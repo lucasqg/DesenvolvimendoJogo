@@ -11,14 +11,34 @@ public class PotionBehaviour : ItensBase {
     {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
         ValorDoItem();
-
+        Identificacao();
     }
     public override void AfterUse()
     {
         ApplyPotion();
         RemoveItem();
     }
-
+    public void Identificacao()
+    {
+        if (this.nameItem == "Poção Vida Média")
+            identificacao = 3;
+        else if (this.nameItem == "Poção Vida Grande")
+            identificacao = 4;
+        else if (this.nameItem == "Poção Vida Pequena")
+            identificacao = 5;
+        else if (this.nameItem == "Poção Mana Média")
+            identificacao = 6;
+        else if (this.nameItem == "Poção Mana Grande")
+            identificacao = 7;
+        else if (this.nameItem == "Poção Mana Pequena")
+            identificacao = 8;
+        else if (this.nameItem == "Poção Stamina Média")
+            identificacao = 9;
+        else if (this.nameItem == "Poção Stamina Grande")
+            identificacao = 10;
+        else if (this.nameItem == "Poção Stamina Pequena")
+            identificacao = 11;
+    }
     public void ApplyPotion()
     {
         if (this.nameItem == "Poção Vida Média" || this.nameItem == "Poção Vida Grande" || this.nameItem == "Poção Vida Pequena")

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ItensBase : MonoBehaviour {
+    public int identificacao;
     public string nameItem;
     public Sprite icon;
     public bool isStacklabe;
@@ -16,6 +17,10 @@ public class ItensBase : MonoBehaviour {
     public GameObject prefab;
     public int valorDoItem = 0;
 
+    public int GetId()
+    {
+        return identificacao;
+    }
     public void InstantiatePrefab()
     {
         prefab = gameObject;

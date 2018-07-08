@@ -6,7 +6,7 @@ public class Moeda : ItensBase {
 
 	// Use this for initialization
 	void Start () {
-		
+        identificacao = 1;
 	}
 	
 	// Update is called once per frame

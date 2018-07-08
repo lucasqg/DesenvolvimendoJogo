@@ -11,6 +11,7 @@ public class Pergaminho : ItensBase {
     {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
         valorDoItem = 3;
+        identificacao = 2;
     }
     public override void AfterUse()
     {
