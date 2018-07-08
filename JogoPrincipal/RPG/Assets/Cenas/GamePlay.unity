@@ -4247,6 +4247,11 @@ GameObject:
   - component: {fileID: 821499882}
   - component: {fileID: 821499881}
   - component: {fileID: 821499880}
+  - component: {fileID: 821499887}
+  - component: {fileID: 821499886}
+  - component: {fileID: 821499885}
+  - component: {fileID: 821499884}
+  - component: {fileID: 821499883}
   m_Layer: 0
   m_Name: Esqueleton00
   m_TagString: Untagged
@@ -4324,12 +4329,96 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 821499879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64.257, y: -31.151, z: -1}
+  m_LocalPosition: {x: 67.99, y: -31.01, z: -1}
   m_LocalScale: {x: 0.41162208, y: 0.41162208, z: 0.41162208}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &821499883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821499879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2106154dcc6d3e24db834b60c85a5356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hero: {fileID: 0}
+--- !u!114 &821499884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821499879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306a0db8b769f1c4e9d9a2069af33aa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLife: 0
+  totalLife: 0
+  currentMana: 0
+  totalMana: 0
+  currentStamina: 0
+  totalStamina: 0
+  defesaTotal: 0
+  danoTotal: 0
+  velTotal: 0
+  currentLevel: 0
+  nameNPC: 
+--- !u!50 &821499885
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821499879}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!58 &821499886
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821499879}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.033719707, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.979727
+--- !u!70 &821499887
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821499879}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.066855565, y: -0.9084306}
+  m_Size: {x: 0.55842096, y: 0.8831353}
+  m_Direction: 0
 --- !u!1 &851120112
 GameObject:
   m_ObjectHideFlags: 0
