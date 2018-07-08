@@ -16,6 +16,7 @@ TagManager:
   - Carroceiro
   - LoboSelvagem
   - Bandeira
+  - Esqueleto
   layers:
   - Default
   - TransparentFX

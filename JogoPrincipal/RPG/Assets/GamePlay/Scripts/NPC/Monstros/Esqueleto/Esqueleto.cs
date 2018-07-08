@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Esqueleto : NpcBase {
-    
+
     // Use this for initialization
-    protected void Start ()
+    public override void InicializacaoDeStatus()
     {
-        basicStats.baseAttack = 40;
-        basicStats.baseDefense = 50;
-        basicStats.startLife = 200;
-        basicStats.nameNpc = "Esqueleto";
+        velTotal = 1000;
+        danoTotal = 2;
+        defesaTotal = 1;
+        totalLife = 2;
+        currentLife = totalLife;
+        nameNPC = "LoboSelvagem";
+
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public override void Start()
+    {
+        InicializacaoDeStatus();
+    }
+
 }

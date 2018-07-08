@@ -89,15 +89,13 @@ public class MovimentacaoEsqueleto : MonoBehaviour {
                 {
                     transform.Translate(new Vector2(-vel * Time.deltaTime, 0));
                     ResetAnimatorAndando();
-                    anim.SetBool("AndarLado", true);
-                    Face(0);
+                    anim.SetBool("AndandoLadoEsquerdo", true);
                 }
                 else if (ArmazenarCoordenadasX > this.transform.position.x)
                 {
                     transform.Translate(new Vector2(vel * Time.deltaTime, 0));
                     ResetAnimatorAndando();
-                    anim.SetBool("AndarLado", true);
-                    Face(0);
+                    anim.SetBool("AndandoLado", true);
                 }
             }
             else
@@ -106,21 +104,22 @@ public class MovimentacaoEsqueleto : MonoBehaviour {
                 {
                     transform.Translate(new Vector2(0, -vel * Time.deltaTime));
                     ResetAnimatorAndando();
-                    anim.SetBool("AndarFrente", true);
+                    anim.SetBool("AndandoFrente", true);
                 }
                 else if (ArmazenarCoordenadasY > this.transform.position.y)
                 {
                     transform.Translate(new Vector2(0, vel * Time.deltaTime));
                     ResetAnimatorAndando();
-                    anim.SetBool("AndarCostas", true);
+                    anim.SetBool("AndandoCostas", true);
                 }
             }
         }
         else
         {
-            anim.SetBool("AndarCostas", false);
-            anim.SetBool("AndarFrente", false);
-            anim.SetBool("AndarLado", false);
+            anim.SetBool("AndandoCostas", false);
+            anim.SetBool("AndandoFrente", false);
+            anim.SetBool("AndandoLadoEsquerdo", false);
+            anim.SetBool("AndandoLado", false);
         }
 
     }
@@ -165,15 +164,13 @@ public class MovimentacaoEsqueleto : MonoBehaviour {
                 {
                     transform.Translate(new Vector2(-vel * Time.deltaTime, 0));
                     ResetAnimatorAndando();
-                    Face(0);
-                    anim.SetBool("AndarLado", true);
+                    anim.SetBool("AndandoLadoEsquerdo", true);
                 }
                 else if (Hero.transform.position.x > this.transform.position.x)
                 {
                     transform.Translate(new Vector2(vel * Time.deltaTime, 0));
                     ResetAnimatorAndando();
-                    Face(180);
-                    anim.SetBool("AndarLado", true);
+                    anim.SetBool("AndandoLado", true);
                 }
             }
             else
@@ -182,13 +179,13 @@ public class MovimentacaoEsqueleto : MonoBehaviour {
                 {
                     transform.Translate(new Vector2(0, -vel * Time.deltaTime));
                     ResetAnimatorAndando();
-                    anim.SetBool("AndarFrente", true);
+                    anim.SetBool("AndandoFrente", true);
                 }
                 else if (Hero.transform.position.y > this.transform.position.y)
                 {
                     transform.Translate(new Vector2(0, vel * Time.deltaTime));
                     ResetAnimatorAndando();
-                    anim.SetBool("AndarCostas", true);
+                    anim.SetBool("AndandoCostas", true);
                 }
             }
         }
@@ -201,18 +198,20 @@ public class MovimentacaoEsqueleto : MonoBehaviour {
 
     public void ResetAnimatorParado()
     {
-        anim.SetBool("AndarFrente", false);
-        anim.SetBool("AndarCostas", false);
-        anim.SetBool("AndarLado", false);
+        anim.SetBool("AndandoFrente", false);
+        anim.SetBool("AndandoCostas", false);
+        anim.SetBool("AndandoLado", false);
+        anim.SetBool("AndandoLadoEsquerdo", false);
         anim.SetBool("Parar", true);
 
     }
 
     public void ResetAnimatorAndando()
     {
-        anim.SetBool("AndarFrente", false);
-        anim.SetBool("AndarCostas", false);
-        anim.SetBool("AndarLado", false);
+        anim.SetBool("AndandoFrente", false);
+        anim.SetBool("AndandoCostas", false);
+        anim.SetBool("AndandoLado", false);
+        anim.SetBool("AndandoLadoEsquerdo", false);
         anim.SetBool("Parar", false);
     }
 }

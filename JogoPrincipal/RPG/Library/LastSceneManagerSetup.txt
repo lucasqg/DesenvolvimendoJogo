@@ -2,3 +2,6 @@ sceneSetups:
 - path: Assets/Cenas/GamePlay.unity
   isLoaded: 1
   isActive: 1
+- path: Assets/Cenas/Loader.unity
+  isLoaded: 1
+  isActive: 0
