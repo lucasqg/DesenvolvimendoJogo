@@ -109,7 +109,25 @@ public static class DataStatusInGame
             Itens[i] = PlayerPrefs.GetInt(item);
         }
 
+        Itens[0] = 9;
+        Itens[2] = 5;
+        Itens[7] = 2;
         return Itens;
+    }
+
+    public static int[] LoadInGameAmount()
+    {
+        int qtsItem = PlayerPrefs.GetInt("QtItem");
+        string item = "Amount";
+        int[] Amount = new int[20];
+
+        for (int i = 0; i < qtsItem; i++)
+        {
+            item = "Amount" + i;
+            Amount[i] = PlayerPrefs.GetInt(item);
+        }
+
+        return Amount;
     }
 
     public static int[] LoadInGameItensEquipaveis()

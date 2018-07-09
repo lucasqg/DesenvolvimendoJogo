@@ -29,6 +29,10 @@ public class ItensBase : MonoBehaviour {
     {
         amount += amountToAdd;
     }
+    public void AmountSet(int amountToAdd)
+    {
+        amount += amountToAdd;
+    }
 
     public void DestroiItem()
     {

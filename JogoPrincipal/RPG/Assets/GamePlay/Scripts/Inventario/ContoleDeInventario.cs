@@ -92,6 +92,31 @@ public class ContoleDeInventario : MonoBehaviour
         }
     }
 
+    public void AddItemToInventoryPermanent(ItensBase item, bool delete = false) // adiciona um item ao inventario, testa se é Stack ou não.
+    {
+        bool foundItem = false;
+        SlotInventarioBehaviour slotVazio = proxSlotVazio();
+        if (item.isStacklabe)
+        {
+            foreach (SlotInventarioBehaviour slot in InventarioSlots)
+            {
+                if (slot.currentItem != null && slot.currentItem.nameItem == item.nameItem)
+                {
+                    slot.currentItem.addItem();
+                    foundItem = true;
+                }
+            }
+            if (!foundItem && slotVazio != null)
+            {
+                slotVazio.currentItem = item;
+            }
+        }
+        else if (slotVazio != null)
+        {
+            slotVazio.currentItem = item;
+        }
+    }
+
     public SlotInventarioBehaviour proxVazio()
     {
         return proxSlotVazio();
