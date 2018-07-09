@@ -19,9 +19,10 @@ public static class DataStatusInGame
     }
 
     //Salva ID dos itens
-    public static void SaveInGameItens(int[] Itens)
+    public static void SaveInGameItens(int[] Itens, int[] Amount)
     {
         string Item = "Item";
+        string Quantidade = "Amount";
         int i = 0;
 
         foreach(int idElemento in Itens)
@@ -30,6 +31,14 @@ public static class DataStatusInGame
             PlayerPrefs.SetInt(Item, idElemento);
             i++;
         }
+
+        foreach (int QtElemento in Amount)
+        {
+            Quantidade = "Amount" + i;
+            PlayerPrefs.SetInt(Quantidade, QtElemento);
+            i++;
+        }
+        
         PlayerPrefs.SetInt("QtItem", i);
     }
 

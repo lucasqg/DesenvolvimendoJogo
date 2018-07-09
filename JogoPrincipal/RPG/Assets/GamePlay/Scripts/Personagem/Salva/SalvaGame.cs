@@ -51,6 +51,7 @@ public class SalvaGame : MonoBehaviour {
     {
         List<SlotInventarioBehaviour> inventario;
         int[] IDItens = new int[20];
+        int[] Amount = new int[20];
         int i = 0;
 
         inventario = Inventario.GetComponent<ContoleDeInventario>().InventarioSlots;
@@ -62,11 +63,12 @@ public class SalvaGame : MonoBehaviour {
             if(slot.currentItem != null)
             {
                 IDItens[i] = slot.currentItem.GetId();
+                Amount[i] = slot.currentItem.getAmount();
             }
             i++;
         }
 
-        DataStatusInGame.SaveInGameItens(IDItens);
+        DataStatusInGame.SaveInGameItens(IDItens, Amount);
     }
 
     public void SaveItensEquipaveis()
