@@ -28,23 +28,13 @@ public class FadeManager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.anyKey)
-        {
-            Fade(true, 1.25f);
-        }
-
-        if (Input.anyKey)
-        {
-            Fade(false, 2);
-        }
-
         if (!isInTransition)
         {
             return;
         }
 
-        transition += (isShow) ? Time.deltaTime * (1 / duration) : Time.deltaTime * (1 / duration);
-        FadeImage.color = Color.Lerp(new Color(1, 1, 1, 0), Color.white, transition);
+        transition += (isShow) ? Time.deltaTime * (1 / duration) : -Time.deltaTime * (1 / duration);
+        FadeImage.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, transition);
 
         if(transition > 1 || transition < 0)
         {

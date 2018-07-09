@@ -9,9 +9,15 @@ public class DialogManager : MonoBehaviour {
     public TMP_Text TituloText;
     public TMP_Text DialogText;
 
+    public Image SwapImage;
+    public Sprite toSwap;
+
     public Animator animator;
 
+    public GameObject Ativa;
+
     private Queue<string> sentences;
+    bool seg = true;
 
     // Use this for initialization
     void Start() {
@@ -61,7 +67,24 @@ public class DialogManager : MonoBehaviour {
     public void EndDialog()
     {
         animator.SetBool("IsOpen", false);
-        Debug.Log("Acabou");
+
+        FadeManager.Instance.Fade(true, 1.25f);
+        Debug.Log("acabou");
+
+        StartCoroutine(wait());
+
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SwapImage.GetComponent<Image>().sprite = toSwap;
+        FadeManager.Instance.Fade(false, 3);
+
+        yield return new WaitForSeconds(1.5f);
+        Ativa.SetActive(true);
+
+        yield return new WaitForSeconds(0.8f);
 
         this.GetComponent<LoadCene>().OnStart();
     }

@@ -9,6 +9,7 @@ public class DialogTrigger : MonoBehaviour
 
     private void Start()
     {
+        FadeManager.Instance.Fade(false, 3);
         StartCoroutine(wait());
     }
 
