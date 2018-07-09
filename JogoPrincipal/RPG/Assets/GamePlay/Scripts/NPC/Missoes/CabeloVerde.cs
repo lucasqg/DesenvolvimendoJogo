@@ -90,10 +90,10 @@ public class CabeloVerde : MonoBehaviour {
                 conversa.text = "Por favor, me ajude :(";
                 break;
             case 2:
-                conversa.text = "Tenho uma fazenda que abastece a cidadela com comida, mas os monstros estão se direcionando para ataca-la, preciso de um verdadeiro heroi para salvar minha fazenda!";
+                conversa.text = "Tenho uma fazenda que abastece a cidadela com comida, mas eu descobri que os lobos estão indo para lá, preciso de um verdadeiro heroi para salvar minha fazenda!\n Bom... acho que estão atrás da minha ovelha, ela é a ultima que sobrou no mundo todo! Salve a qualquer custo!!!!";
                 break;
             case 3:
-                conversa.text = "Siga na estrada a direita até o final e defenda a bandeira vermelha, se um monstro chegar até ela, tudo estará acabado! \n<b>PROTEJA MINHA FAZENDA!</b>\n\nDizem que sua reputação subirá ao terminar isso, ah e te darei um pouquinho de ouro pela ajuda! ";
+                conversa.text = "Siga na estrada a direita até o final e defenda a ovelha, se um lobo matar ela, tudo estará acabado! \n<b>PROTEJA MINHA OVELHA e minha fazenda...</b>\n\nDizem que sua reputação subirá ao terminar isso, ah e te darei um pouquinho de ouro pela ajuda! ";
                 break;
             case 4:
                 IniciarMissao(); // inicia a missao
@@ -119,7 +119,7 @@ public class CabeloVerde : MonoBehaviour {
         missaoAtiva = false;
         //condições de vitoria
         Destroy(bandeiraAtiva);
-        PlayerStatsController.AddReputation(10);
+        PlayerStatsController.AddReputation(20);
         player.SetNivelDeMissao("missao2");
     }
 
@@ -128,7 +128,7 @@ public class CabeloVerde : MonoBehaviour {
        if(bandeira.GetComponent<NpcBase>().currentLife <= 10)
         {
             Destroy(bandeiraAtiva);
-            PlayerStatsController.AddReputation(-10);
+            PlayerStatsController.AddReputation(-15);
             missaoAtiva = false;
         }
     }

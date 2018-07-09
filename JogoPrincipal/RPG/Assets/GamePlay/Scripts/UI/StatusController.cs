@@ -9,7 +9,7 @@ public class StatusController : MonoBehaviour {
     public List<Text> PontosTotais;
     public List<Text> StatusTotais;
     public Text pontos;
-    
+    public List<Button> Mais;
 
     private PlayerBehaviour player;
 
@@ -28,26 +28,45 @@ public class StatusController : MonoBehaviour {
 
     public void ForcaMAIS()
     {
-        player.basicStats.forca++;
-        PontosTotais[0].text = player.basicStats.forca.ToString();
+        if (player.currentPontos >= 3)
+        {
+            player.basicStats.forca++;
+            PontosTotais[0].text = player.basicStats.forca.ToString();
+            player.danoTotal++;
+            player.currentPontos-=3;
+        }
     }
 
     public void PrecisaoMAIS()
     {
-        player.basicStats.precisão++;
-        PontosTotais[1].text = player.basicStats.precisão.ToString();
+        if (player.currentPontos >= 4)
+        {
+            player.currentPontos -= 4;
+            player.basicStats.precisão++;
+            player.danoTotal++;
+            PontosTotais[1].text = player.basicStats.precisão.ToString();
+        }
     }
 
     public void InteligenciaMAIS()
     {
-        player.basicStats.inteligencia++;
-        PontosTotais[2].text = player.basicStats.inteligencia.ToString();
+        if (player.currentPontos >= 1)
+        {
+            player.currentPontos--;
+            player.basicStats.inteligencia++;
+            PontosTotais[2].text = player.basicStats.inteligencia.ToString();
+        }
     }
 
     public void ConstituiçãoMAIS()
     {
-        player.basicStats.constituicao++;
-        PontosTotais[3].text = player.basicStats.constituicao.ToString();
+        if (player.currentPontos >= 1)
+        {
+            player.currentPontos--;
+            player.basicStats.constituicao++;
+            player.totalLife++;
+            PontosTotais[3].text = player.basicStats.constituicao.ToString();
+        }
     }
 
     public void AtualizaPontos()

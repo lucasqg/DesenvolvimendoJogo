@@ -10,6 +10,7 @@ public class BotaGuerreiro : ArmaduraBase {
 
     public override void ativador() // ativado para nao usar o metodo start
     {
+        qualidadeDoItem = Random.Range(1, 10);
         GerarAleatorio(qualidadeDoItem);
 
     }

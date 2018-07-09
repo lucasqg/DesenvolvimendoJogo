@@ -22,6 +22,7 @@ public class ArmasBehaviour : ItensBase{
     private void Start()
     {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+        GeraAtributos();
     }
     public override void TxtAtributos()
     {
@@ -54,6 +55,12 @@ public class ArmasBehaviour : ItensBase{
     public override void StatusArma()
     {
         player.danoTotal += adicionalDano + danoBase;
+    }
+    public void GeraAtributos()
+    {
+        danoBase= Random.Range(0, 4);
+        adicionalDano = Random.Range(0, 5);
+        adicionalHP = Random.Range(0, 20);
     }
 
 

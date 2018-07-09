@@ -17,6 +17,7 @@ TagManager:
   - LoboSelvagem
   - Bandeira
   - Esqueleto
+  - LoboDecomposto
   layers:
   - Default
   - TransparentFX
