@@ -66,7 +66,7 @@ public class SalvaGame : MonoBehaviour {
 
             i++;
         }
-
+        i = 0;
         DataStatusInGame.SaveInGameItens(IDItens, Amount);
     }
 

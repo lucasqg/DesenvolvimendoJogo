@@ -7,7 +7,10 @@ public class PauseMenu : MonoBehaviour {
 
     public static bool JogoPause = false;
     public GameObject pauseMenu;
-  
+    public GameObject popUpDie;
+
+    public PlayerBehaviour player;
+
 
     // Use this for initialization
     void Start () {
@@ -51,5 +54,16 @@ public class PauseMenu : MonoBehaviour {
     public void quitGame()
     {
         Application.Quit();
+    }
+
+    public void teleporte()
+    {
+        player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+
+        player.gameObject.transform.position = new Vector3(-0.78f, -30f, -0.28f);
+
+        player.addLife(30);
+
+        popUpDie.gameObject.SetActive(false);
     }
 }

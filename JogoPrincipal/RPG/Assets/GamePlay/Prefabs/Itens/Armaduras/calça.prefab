@@ -89,12 +89,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7361af2f7d789a644ada122cd22af1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identificacao: 18
   nameItem: "cal\xE7a"
   icon: {fileID: 21300000, guid: e5fbb0f56e7d54143b312b6e7efda0d8, type: 3}
   isStacklabe: 0
   canEquip: 1
   slot: {fileID: 0}
   slotEkp: {fileID: 0}
+  slot1: {fileID: 0}
+  prefab: {fileID: 0}
+  valorDoItem: 0
   defesaBase: 0
   minLevel: 0
   minFor: 0
@@ -106,6 +110,8 @@ MonoBehaviour:
   adicionalMago: 0
   adicionalDefesa: 0
   velocidadeMovimento: 0
+  player: {fileID: 0}
+  qualidadeDoItem: 0
 --- !u!212 &212499601322993278
 SpriteRenderer:
   m_ObjectHideFlags: 1

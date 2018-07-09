@@ -143,7 +143,7 @@ public abstract class DestructiveBase : MonoBehaviour {
         {
             destructive.gameObject.SetActive(true);
             
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
 
         }
     }

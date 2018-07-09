@@ -24,12 +24,7 @@ public class LoadGame : MonoBehaviour {
 
     public void OnButtonCarregaGame()
     {
-        LoadMissoes();
-        LoadGameStatus();
-        LoadItensInventario();
-        LoadItensEquipaveis();
-
-        Debug.Log("Carregou com sucesso");
+        PlayerPrefs.SetInt("NewOrLoad", 1);
 
         SceneManager.LoadScene("Loader");
     }
@@ -73,8 +68,9 @@ public class LoadGame : MonoBehaviour {
                 //addPergaminho
                 if (IDItens[i] == 2)
                 {
-                    for(int j = 0; j < Amount[i]; j++)
+                    for (int j = 0; j < Amount[i]; j++) {
                         Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Pergaminho);
+                    }                        
                 }
 
                 //addPotionVidaMedia
@@ -179,6 +175,7 @@ public class LoadGame : MonoBehaviour {
                 if (IDItens[i] == 17)
                 {
                     for (int j = 0; j < Amount[i]; j++)
+                        Debug.Log("Cheguei aki---------------------");
                         Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Luva);
                 }
 
