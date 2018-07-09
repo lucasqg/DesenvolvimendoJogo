@@ -88,8 +88,8 @@ public abstract class DestructiveBase : MonoBehaviour {
             missoes[0] = GetNivelDeMissao("missão1");
             missoes[1] = GetNivelDeMissao("missão2");
             missoes[2] = GetNivelDeMissao("missão3");
-            missoes[3] = GetNivelDeMissao("missão4");
-            missoes[4] = GetNivelDeMissao("missaoPrincipal");
+            //missoes[3] = GetNivelDeMissao("missão4");
+            missoes[3] = GetNivelDeMissao("missaoPrincipal");
     }
 
     public void addLife(int life)

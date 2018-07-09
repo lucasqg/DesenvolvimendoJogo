@@ -21,6 +21,7 @@ public class Botões : MonoBehaviour {
     public void OnStart()
     {
         AudioG.inst.PlayAudio(selectAudio);
+        PlayerPrefs.SetInt("NewOrLoad", 0);
         this.GetComponent<LoadCene>().Load = "CreateChar";
         this.GetComponent<LoadCene>().OnStart();
     }
@@ -28,6 +29,7 @@ public class Botões : MonoBehaviour {
     public void OnLoad()
     {
         AudioG.inst.PlayAudio(selectAudio);
+        PlayerPrefs.SetInt("NewOrLoad", 1);
         this.GetComponent<LoadCene>().Load = "Loader";
         this.GetComponent<LoadCene>().OnStart();
     }
