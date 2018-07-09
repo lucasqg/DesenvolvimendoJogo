@@ -58,13 +58,12 @@ public class SalvaGame : MonoBehaviour {
 
         foreach (SlotInventarioBehaviour slot in inventario)
         {
-            Debug.Log(i);
-
             if(slot.currentItem != null)
             {
                 IDItens[i] = slot.currentItem.GetId();
                 Amount[i] = slot.currentItem.getAmount();
             }
+
             i++;
         }
 
@@ -78,7 +77,6 @@ public class SalvaGame : MonoBehaviour {
         if(PlayerItensController.instance.elmo.currentItem != null)
         {
             elmo = PlayerItensController.instance.elmo.currentItem.identificacao;
-            Debug.Log(arma);
         }
         
         if(PlayerItensController.instance.peito.currentItem != null)

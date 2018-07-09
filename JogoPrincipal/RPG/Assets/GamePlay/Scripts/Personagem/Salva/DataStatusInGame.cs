@@ -24,6 +24,7 @@ public static class DataStatusInGame
         string Item = "Item";
         string Quantidade = "Amount";
         int i = 0;
+        int j = 0;
 
         foreach(int idElemento in Itens)
         {
@@ -34,12 +35,11 @@ public static class DataStatusInGame
 
         foreach (int QtElemento in Amount)
         {
-            Quantidade = "Amount" + i;
+            Quantidade = "Amount" + j;
             PlayerPrefs.SetInt(Quantidade, QtElemento);
-            i++;
+            j++;
         }
         
-        PlayerPrefs.SetInt("QtItem", i);
     }
 
     //Salva ID dos itens equipaveis
@@ -100,24 +100,23 @@ public static class DataStatusInGame
     public static int[] LoadInGameItens()
     {
 
-        int qtsItem = PlayerPrefs.GetInt("QtItem");
+        int qtsItem = 20;
         string item = "Item";
         int[] Itens = new int[20];
 
-        for (int i = 0; i < qtsItem; i++) {
+        for (int i = 0; i < qtsItem; i++)
+        {
             item = "Item" + i;
             Itens[i] = PlayerPrefs.GetInt(item);
+            Debug.Log(Itens[i]);
         }
 
-        Itens[0] = 9;
-        Itens[2] = 5;
-        Itens[7] = 2;
         return Itens;
     }
 
     public static int[] LoadInGameAmount()
     {
-        int qtsItem = PlayerPrefs.GetInt("QtItem");
+        int qtsItem = 20;
         string item = "Amount";
         int[] Amount = new int[20];
 

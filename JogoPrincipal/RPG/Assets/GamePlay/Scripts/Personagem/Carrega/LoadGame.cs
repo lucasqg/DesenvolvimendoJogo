@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadGame : MonoBehaviour {
     [Space(10)]
@@ -9,7 +10,7 @@ public class LoadGame : MonoBehaviour {
     public ItensBase potionsHPb, potionsStaminab, potionsManab, Pergaminho;
     public ItensBase potionsHPm, potionsStaminam, potionsManam;
     public ItensBase potionsHPmm, potionsStaminamm, potionsManamm;
-    public ItensBase Bota, Calça, Elmo, Luva, Peito, Pistola, Bomba, Espada;
+    public ItensBase Bota, Calça, Elmo, Luva, Peito, Pistola, Bomba, Espada, Moeda;
 
     public void CarregaGame()
     {
@@ -19,6 +20,18 @@ public class LoadGame : MonoBehaviour {
         LoadItensEquipaveis();
 
         Debug.Log("Carregou com sucesso");
+    }
+
+    public void OnButtonCarregaGame()
+    {
+        LoadMissoes();
+        LoadGameStatus();
+        LoadItensInventario();
+        LoadItensEquipaveis();
+
+        Debug.Log("Carregou com sucesso");
+
+        SceneManager.LoadScene("Loader");
     }
 
     public void LoadMissoes()
@@ -55,130 +68,152 @@ public class LoadGame : MonoBehaviour {
         //Seta os itens no inventario
         for (i = 0; i < IDItens.Length; i++)
         {
+            Debug.Log(IDItens[i]);
             {
                 //addPergaminho
                 if (IDItens[i] == 2)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Pergaminho);
+                    for(int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Pergaminho);
                 }
 
                 //addPotionVidaMedia
                 if (IDItens[i] == 3)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsHPm);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsHPm);
                 }
 
                 //addPotionVidaGrande
                 if (IDItens[i] == 4)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsHPb);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsHPb);
                 }
 
                 //addPotionVidaPequena
                 if (IDItens[i] == 5)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsHPmm);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsHPmm);
                 }
 
                 //addPotionManaMedia
                 if (IDItens[i] == 6)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsManam);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsManam);
                 }
 
                 //addPotionManaGrande
                 if (IDItens[i] == 7)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsManab);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsManab);
                 }
 
                 //addPotionManaPequena
                 if (IDItens[i] == 8)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsManamm);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsManamm);
                 }
 
                 //addPotionStaminaMedia
                 if (IDItens[i] == 9)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsStaminam);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsStaminam);
                 }
 
                 //addPotionStaminaGrande
                 if (IDItens[i] == 10)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsStaminab);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsStaminab);
                 }
 
                 //addPotionStaminaPequena
                 if (IDItens[i] == 11)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsStaminamm);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(potionsStaminamm);
                 }
 
                 //addEspada
                 if (IDItens[i] == 12)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Espada);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Espada);
                 }
 
                 //addBomba
                 if (IDItens[i] == 13)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Bomba);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Bomba);
                 }
 
                 //addPistola
                 if (IDItens[i] == 14)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Pistola);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Pistola);
                 }
 
                 //addElmo
                 if (IDItens[i] == 15)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Elmo);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Elmo);
                 }
 
                 //addPeito
                 if (IDItens[i] == 16)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Peito);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Peito);
                 }
 
                 //addLuva
                 if (IDItens[i] == 17)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Luva);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Luva);
                 }
 
                 //addCalça
                 if (IDItens[i] == 18)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Calça);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Calça);
                 }
 
                 //addBota
                 if (IDItens[i] == 19)
                 {
-                    Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Bota);
+                    for (int j = 0; j < Amount[i]; j++)
+                        Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Bota);
                 }
 
                 //addAnel
                 if (IDItens[i] == 20)
                 {
+                    //for (int j = 0; j < Amount[i]; j++)
                     //Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Anel);
                 }
 
                 //addBrinco
                 if (IDItens[i] == 21)
                 {
+                    //for (int j = 0; j < Amount[i]; j++)
                     //Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Brinco);
                 }
 
                 //addItemMissão
                 if (IDItens[i] > 21)
                 {
+                    //for (int j = 0; j < Amount[i]; j++)
                     //Inventario.GetComponent<ContoleDeInventario>().AddItemToInventoryPermanent(Elmo);
                 }
             }
@@ -199,6 +234,10 @@ public class LoadGame : MonoBehaviour {
     {
         int[] ItensEquipaveis = DataStatusInGame.LoadInGameItensEquipaveis();
 
+        if (ItensEquipaveis[0] != 0)
+        {
+
+        }
         /*PlayerItensController.instance.elmo.currentItem.identificacao = ItensEquipaveis[0];
         PlayerItensController.instance.peito.currentItem.identificacao = ItensEquipaveis[1];
         PlayerItensController.instance.calça.currentItem.identificacao = ItensEquipaveis[2];
