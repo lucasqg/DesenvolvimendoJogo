@@ -10,7 +10,8 @@ public class LoadGame : MonoBehaviour {
     {
         LoadMissoes();
         LoadGameStatus();
-        LoadItens();
+        LoadItensInventario();
+        LoadItensEquipaveis();
 
         Debug.Log("Carregou com sucesso");
     }
@@ -40,7 +41,7 @@ public class LoadGame : MonoBehaviour {
         FindObjectOfType<PlayerBehaviour>().currentSkills = Status[5];
     }
 
-    public void LoadItens()
+    public void LoadItensInventario()
     {
         int[] IDItens = DataStatusInGame.LoadInGameItens();
         int i = 0;
@@ -53,5 +54,21 @@ public class LoadGame : MonoBehaviour {
                 Inventario.GetComponent<ContoleDeInventario>().InventarioSlots[i].currentItem.identificacao = IDItens[i];
             }
         }
+    }
+
+    public void LoadItensEquipaveis()
+    {
+        int[] ItensEquipaveis = DataStatusInGame.LoadInGameItensEquipaveis();
+
+        /*PlayerItensController.instance.elmo.currentItem.identificacao = ItensEquipaveis[0];
+        PlayerItensController.instance.peito.currentItem.identificacao = ItensEquipaveis[1];
+        PlayerItensController.instance.calça.currentItem.identificacao = ItensEquipaveis[2];
+        PlayerItensController.instance.luva.currentItem.identificacao = ItensEquipaveis[3];
+        PlayerItensController.instance.bota.currentItem.identificacao = ItensEquipaveis[4];
+        PlayerItensController.instance.arma.currentItem.identificacao = ItensEquipaveis[5];
+        PlayerItensController.instance.anel1.currentItem.identificacao = ItensEquipaveis[6];
+        PlayerItensController.instance.anel2.currentItem.identificacao = ItensEquipaveis[7];
+        PlayerItensController.instance.colar.currentItem.identificacao = ItensEquipaveis[8];
+        */
     }
 }

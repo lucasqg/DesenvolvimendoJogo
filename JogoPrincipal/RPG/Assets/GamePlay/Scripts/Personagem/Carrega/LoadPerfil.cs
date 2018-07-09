@@ -27,6 +27,8 @@ public class LoadPerfil : MonoBehaviour {
         Head.GetComponent<SpriteRenderer>().sprite = Visual.GetComponent<DataBaseVisual>().Heads[IndexHeadP];
         Body.GetComponent<SpriteRenderer>().sprite = Visual.GetComponent<DataBaseVisual>().Bodys[IndexBodyP];
         Legs.GetComponent<SpriteRenderer>().sprite = Visual.GetComponent<DataBaseVisual>().Legs[IndexLegsP];
+
+
     }
 	
 	// Update is called once per frame

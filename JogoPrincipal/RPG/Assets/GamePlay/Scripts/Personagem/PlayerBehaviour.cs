@@ -14,7 +14,28 @@ public class PlayerBehaviour : CharacterBase {
     public UIController UI;
     protected void Start () {
         currentLevel = PlayerStatsController.GetCurrentLevel();
-        PlayerStatsController.SetTypeCharacter(TypeCharacter.Guerreiro);
+
+        if (PlayerPrefs.GetString("CharClasse") == "Guerreiro")
+        {
+            PlayerStatsController.SetTypeCharacter(TypeCharacter.Guerreiro);
+
+            Debug.Log("Guerreiro");
+        }
+        else if (PlayerPrefs.GetString("CharClasse") == "Pistoleiro")
+        {
+            PlayerStatsController.SetTypeCharacter(TypeCharacter.Pistoleiro);
+
+            Debug.Log("Pistoleiro");
+        }
+        else if (PlayerPrefs.GetString("CharClasse") == "Bomber")
+        {
+            PlayerStatsController.SetTypeCharacter(TypeCharacter.Bomber);
+
+            Debug.Log("Bomber");
+        }
+        else { Debug.Log("Não carregou classe"); }
+            
+
         type = PlayerStatsController.GetTypeCharacter();
         basicStats = PlayerStatsController.instance.GetBasicStatsPlayer(type);
         MontarMissoes(); // adiciona todas missoes em um list

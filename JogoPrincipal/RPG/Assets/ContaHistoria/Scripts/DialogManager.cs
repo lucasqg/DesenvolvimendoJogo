@@ -63,6 +63,6 @@ public class DialogManager : MonoBehaviour {
         animator.SetBool("IsOpen", false);
         Debug.Log("Acabou");
 
-        //this.GetComponent<LoadCene>().OnStart();
+        this.GetComponent<LoadCene>().OnStart();
     }
 }

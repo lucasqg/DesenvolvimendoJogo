@@ -18,6 +18,7 @@ public static class DataStatusInGame
         PlayerPrefs.SetInt("pontosSkill", pontosSkill);
     }
 
+    //Salva ID dos itens
     public static void SaveInGameItens(int[] Itens)
     {
         string Item = "Item";
@@ -30,6 +31,21 @@ public static class DataStatusInGame
             i++;
         }
         PlayerPrefs.SetInt("QtItem", i);
+    }
+
+    //Salva ID dos itens equipaveis
+    public static void SaveInGameItensEquipaveis(int elmo,int peito, int calça,
+        int luva, int bota, int arma, int anel1, int anel2, int colar)
+    {
+        PlayerPrefs.SetInt("Elmo", elmo);
+        PlayerPrefs.SetInt("Peito", peito);
+        PlayerPrefs.SetInt("Calça", calça);
+        PlayerPrefs.SetInt("Luva", luva);
+        PlayerPrefs.SetInt("Bota", bota);
+        PlayerPrefs.SetInt("Arma", arma);
+        PlayerPrefs.SetInt("Anel1", anel1);
+        PlayerPrefs.SetInt("Anel2", anel2);
+        PlayerPrefs.SetInt("Colar", colar);
     }
 
     //Salva o estado de cada missão
@@ -85,5 +101,21 @@ public static class DataStatusInGame
         }
 
         return Itens;
+    }
+
+    public static int[] LoadInGameItensEquipaveis()
+    {
+        return new int[]
+        {
+            PlayerPrefs.GetInt("Elmo"),
+            PlayerPrefs.GetInt("Peito"),
+            PlayerPrefs.GetInt("Calça"),
+            PlayerPrefs.GetInt("Luva"),
+            PlayerPrefs.GetInt("Bota"),
+            PlayerPrefs.GetInt("Arma"),
+            PlayerPrefs.GetInt("Anel1"),
+            PlayerPrefs.GetInt("Anel2"),
+            PlayerPrefs.GetInt("Colar")
+        };
     }
 }

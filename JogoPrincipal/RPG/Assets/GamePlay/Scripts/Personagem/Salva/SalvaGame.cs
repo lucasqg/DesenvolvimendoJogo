@@ -10,7 +10,8 @@ public class SalvaGame : MonoBehaviour {
 
         SaveMissoes();
         SaveGameStatus();
-        SaveItens();
+        SaveItensInventario();
+        SaveItensEquipaveis();
 
         Debug.Log("Salvou com sucesso");
     }
@@ -46,7 +47,7 @@ public class SalvaGame : MonoBehaviour {
         DataStatusInGame.SaveInGameStatusBase(forca, inteligencia, precisão, constituicao, currentPontos, pontosSkill);
     }
 
-    public void SaveItens()
+    public void SaveItensInventario()
     {
         List<SlotInventarioBehaviour> inventario;
         int[] IDItens = new int[20];
@@ -66,5 +67,59 @@ public class SalvaGame : MonoBehaviour {
         }
 
         DataStatusInGame.SaveInGameItens(IDItens);
+    }
+
+    public void SaveItensEquipaveis()
+    {
+        int elmo = 0, peito = 0, calça = 0, luva = 0, bota = 0, arma = 0, anel1 = 0, anel2 = 0, colar = 0;
+
+        if(PlayerItensController.instance.elmo.currentItem != null)
+        {
+            elmo = PlayerItensController.instance.elmo.currentItem.identificacao;
+            Debug.Log(arma);
+        }
+        
+        if(PlayerItensController.instance.peito.currentItem != null)
+        {
+            peito = PlayerItensController.instance.peito.currentItem.identificacao;
+        }
+
+        if (PlayerItensController.instance.calça.currentItem != null)
+        {
+            calça = PlayerItensController.instance.calça.currentItem.identificacao;
+        }
+
+        if (PlayerItensController.instance.luva.currentItem != null)
+        {
+            luva = PlayerItensController.instance.luva.currentItem.identificacao;
+        }
+
+        if (PlayerItensController.instance.bota.currentItem != null)
+        {
+            bota = PlayerItensController.instance.bota.currentItem.identificacao;
+        }
+
+        if (PlayerItensController.instance.arma.currentItem != null)
+        {
+            arma = PlayerItensController.instance.arma.currentItem.identificacao;
+        }
+
+        if (PlayerItensController.instance.anel1.currentItem != null)
+        {
+            anel1 = PlayerItensController.instance.anel1.currentItem.identificacao;
+        }
+
+        if (PlayerItensController.instance.anel2.currentItem != null)
+        {
+            anel2 = PlayerItensController.instance.anel2.currentItem.identificacao;
+        }
+
+        if (PlayerItensController.instance.colar.currentItem != null)
+        {
+            colar = PlayerItensController.instance.colar.currentItem.identificacao;
+        }
+
+
+        DataStatusInGame.SaveInGameItensEquipaveis(elmo, peito, calça, luva, bota, arma, anel1, anel2, colar);
     }
 }

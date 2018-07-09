@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4165712461692564}
   - component: {fileID: 114896294079305706}
-  - component: {fileID: 114216879003483156}
   m_Layer: 0
   m_Name: PlayerStatsController
   m_TagString: Untagged
@@ -41,17 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114216879003483156
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1065151174825178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114896294079305706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,8 +53,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   xpMultiply: 1
+  pontosSkill: 0
+  pontosAtributos: 0
   xpFirstLevel: 100
   difficultFactor: 1.5
+  player: {fileID: 0}
   baseInfoChars:
   - baseInfo:
       startLife: 100
@@ -75,8 +66,10 @@ MonoBehaviour:
       forca: 40
       inteligencia: 20
       "precis\xE3o": 20
+      constituicao: 0
       baseDefense: 60
       baseAttack: 70
+      pontosSkill: 0
     typeChar: 0
   - baseInfo:
       startLife: 50
@@ -85,8 +78,10 @@ MonoBehaviour:
       forca: 20
       inteligencia: 40
       "precis\xE3o": 20
+      constituicao: 0
       baseDefense: 30
       baseAttack: 30
+      pontosSkill: 0
     typeChar: 1
   - baseInfo:
       startLife: 70
@@ -95,6 +90,8 @@ MonoBehaviour:
       forca: 30
       inteligencia: 20
       "precis\xE3o": 40
+      constituicao: 0
       baseDefense: 40
       baseAttack: 50
+      pontosSkill: 0
     typeChar: 2
