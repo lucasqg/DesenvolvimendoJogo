@@ -78,12 +78,12 @@ public class DataBaseSpawnMonster : MonoBehaviour {
     {
         if(collision.tag == "Player" || collision.tag == "Carroceiro")
         {
-            activeMonster = true;
+           /* activeMonster = true;
             if (desactive)
-            {
+            {*/
                 Spawn();
                 desactive = false;
-            }
+           // }
         }
     }
 
@@ -91,15 +91,15 @@ public class DataBaseSpawnMonster : MonoBehaviour {
     {
         if (collision.tag == "Player" )
         {
-            activeMonster = false;
-            desactive = true;
+           /* activeMonster = false;
+            desactive = true;*/
             for (int i = 0; i < quantidadeDeMonstros; i++)
             {
                 conjuntoDeMonstros[i].GetComponent<NpcBase>().Destroi(); //destroi todos monstros quando o personagem sai do trigger
                 
             }
             conjuntoDeMonstros.Clear();
-            desactive = true;
+           // desactive = true;
         }
     }
 }
