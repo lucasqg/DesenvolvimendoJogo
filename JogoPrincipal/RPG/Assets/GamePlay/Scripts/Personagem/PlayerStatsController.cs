@@ -27,12 +27,12 @@ public class PlayerStatsController : MonoBehaviour{
     {
 
         //RESET PLAYER PREFS;
-        /*
+        
         PlayerPrefs.SetFloat("currentXp", 0);
         PlayerPrefs.SetInt("currentLevel", 0);
         PlayerPrefs.SetInt("pontosSkill", 0);
         PlayerPrefs.SetInt("Reputação", 0);
-        */
+        
         instance = this;
         DontDestroyOnLoad(gameObject);
         Application.LoadLevel("GamePlay"); //Chama a cena apoós o menu

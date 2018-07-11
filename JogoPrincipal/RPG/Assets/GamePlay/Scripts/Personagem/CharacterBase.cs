@@ -24,8 +24,9 @@ public abstract class CharacterBase : DestructiveBase {
 
     public void AtualizaçãoDeStatus()
     {
-        danoTotal = danoTotal + (basicStats.forca / 10) ;
+       /* danoTotal = danoTotal + (basicStats.forca / 10) ;
         danoTotal = danoTotal + (basicStats.precisão / 10);
+        totalLife = basicStats.constituicao;*/
     }
 
     // Use this for initialization

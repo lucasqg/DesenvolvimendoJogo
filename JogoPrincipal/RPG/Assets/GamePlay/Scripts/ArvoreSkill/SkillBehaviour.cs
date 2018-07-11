@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SkillBehaviour : MonoBehaviour {
-
     public PlayerBehaviour player;
     public List<string> skillType;
     public AtivadorEspada espada;
@@ -25,7 +24,6 @@ public class SkillBehaviour : MonoBehaviour {
 
     public void Start()
     {
-        
         botão.image.overrideSprite = iconSkillWarrior;
     }
     public void Update()

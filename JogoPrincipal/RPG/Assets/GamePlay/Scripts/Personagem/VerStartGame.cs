@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class VerStartGame : MonoBehaviour {
 
-    public GameObject verifica;
 
     void Start()
     {
@@ -13,28 +12,19 @@ public class VerStartGame : MonoBehaviour {
 
         if (flag == 1)
         {
-            verifica.GetComponent<LoadGame>().CarregaGame();
+            this.GetComponent<LoadGame>().CarregaGame();
         }
-        else {
-            verifica.GetComponent<SalvaGame>().SaveGame();
-        }
+        else {}
 
     }
 
     public void OnSaveGame()
     {
-        StartCoroutine(wait());
-        verifica.GetComponent<SalvaGame>().SaveGame();
+        this.GetComponent<SalvaGame>().SaveGame();
     }
 
     public void OnLoadGame()
     {
-        StartCoroutine(wait());
-        verifica.GetComponent<LoadGame>().CarregaGame();
-    }
-
-    IEnumerator wait()
-    {
-        yield return new WaitForSeconds(1);
+        this.GetComponent<LoadGame>().CarregaGame();
     }
 }

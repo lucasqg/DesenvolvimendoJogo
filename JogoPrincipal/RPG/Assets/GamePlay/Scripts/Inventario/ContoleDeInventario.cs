@@ -92,6 +92,7 @@ public class ContoleDeInventario : MonoBehaviour
         }
     }
 
+
     public void AddItemToInventoryPermanent(ItensBase item, bool delete = false) // adiciona um item ao inventario, testa se é Stack ou não.
     {
         bool foundItem = false;

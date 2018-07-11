@@ -63,10 +63,8 @@ public abstract class DestructiveBase : MonoBehaviour {
             missoes[1] += 1;
         else if (missao == "Missão3" || missao == "missao3" || missao == "missão3")
             missoes[2] += 1;
-        else if (missao == "Missão4" || missao == "missao4" || missao == "missão4")
-            missoes[3] += 1;
         else if (missao == "MissaoPrincipal" || missao == "missaoPrincipal" || missao == "MissãoPrincipal")
-            missoes[4] += 1;
+            missoes[3] += 1;
     }
 
     public void SetNivelDeMissaoTotal(string missao) //adiciona 1 na missao que foi concluida
@@ -77,10 +75,8 @@ public abstract class DestructiveBase : MonoBehaviour {
             missoes[1] += 1;
         else if (missao == "Missão3" || missao == "missao3" || missao == "missão3")
             missoes[2] += 1;
-        else if (missao == "Missão4" || missao == "missao4" || missao == "missão4")
-            missoes[3] += 1;
         else if (missao == "MissaoPrincipal" || missao == "missaoPrincipal" || missao == "MissãoPrincipal")
-            missoes[4] += 1;
+            missoes[3] += 1;
     }
 
     public void SetTodasMissoes() //adiciona 1 na missao que foi concluida
@@ -143,7 +139,7 @@ public abstract class DestructiveBase : MonoBehaviour {
         {
             destructive.gameObject.SetActive(true);
             
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
 
         }
     }

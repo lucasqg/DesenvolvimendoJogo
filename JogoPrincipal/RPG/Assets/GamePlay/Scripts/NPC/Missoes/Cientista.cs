@@ -14,13 +14,12 @@ public class Cientista : MonoBehaviour {
     public Image NPC;
     public bool falando = false;
     private int i = 1;
-    public bool missaoAtiva;
+    public bool missaoAtiva, verificaSlot;
     public int ContadorDeTempo = 0, tempoMaximoMissao;
     public PlayerBehaviour player;
     private int nivelDeMissao;
-
-    public GameObject esqueletoOSSO, esqueleto;
-    public float X, Y;
+    public Text texto;
+    //public GameObject Spawn;
 
     void Start () {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
@@ -29,7 +28,7 @@ public class Cientista : MonoBehaviour {
     }
 	
 	void Update () {
-        if (falando)
+        if (falando && !missaoAtiva)
         {
             TentaConversar();
             Conversando(i);
@@ -37,10 +36,15 @@ public class Cientista : MonoBehaviour {
             NPC.sprite = npc;
         }
 
-        if (missaoAtiva)
+        if (missaoAtiva && falando)
         {
-            MissaoAtiva();
+           /* MissaoAtiva();
             DerrotaDeMissao();
+            */
+            TentaConversar();
+            ConversandoPosMissao(i);
+            PLAYER = player1;
+            NPC.sprite = npc;
         }
     }
 
@@ -62,7 +66,7 @@ public class Cientista : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.F))
             {
                 fala.gameObject.SetActive(true); // liga e desliga o inventario
-                nomeNpc.text = "Cabelo Verde";
+                nomeNpc.text = "Cientista";
 
                 if (fala.gameObject.activeSelf)//CONDICIONAL QUE PAUSE O GAME.
                 {
@@ -83,8 +87,9 @@ public class Cientista : MonoBehaviour {
 
     public void Conversando(int op = 1)
     {
-        nivelDeMissao += 1;
-        switch (op)
+       
+            //nivelDeMissao += 1;
+            switch (op)
         {
             case 1:
                 conversa.text = "Olá companheiro, estou feliz em ver você por aqui";
@@ -93,17 +98,18 @@ public class Cientista : MonoBehaviour {
                 conversa.text = "Vejo que você busca um trabalho...\n Estou construindo um novo filtro para melhorar o ar da cidadela e preciso de materiais!\n Faça o que eu mando no tempo exato que você será bem recompensado!";
                 break;
             case 3:
-                if (nivelDeMissao == 1 || nivelDeMissao > 3) {
+               // if (nivelDeMissao == 1 || nivelDeMissao > 3) {
                     conversa.text = "Vá pela estrada da esquerda e mate os esqueletos até encontrar um osso bem forte para que eu possa queimar e o transformar em carvão para o filtro!\n Vou precisar de muitos, mas por hora... Só quero um :";
-                }
-                else if (nivelDeMissao ==2)
-                {
-                    conversa.text = "Vá pela estrada a esquerda, caminhe até encontrar uma carroça tombada, nela talvez você encontre um regulador de ar. Não me pergunte como ela foi parar lá... \n E não esqueça de trazer o item para mim, mas seja rapido";
-                }
-                else if (nivelDeMissao == 3)
-                {
-                    conversa.text = "Vá pela estrada a esquerda, em um lugar não tão distante existe um homem que carrega uma engrenagem, não sei para que ele carrega isso, mas, ME TRAGA!!! ";
-                }
+                /*  }
+                  else if (nivelDeMissao ==2)
+                  {
+                      conversa.text = "Vá pela estrada a esquerda, caminhe até encontrar uma carroça tombada, nela talvez você encontre um regulador de ar. Não me pergunte como ela foi parar lá... \n E não esqueça de trazer o item para mim, mas seja rapido";
+                  }
+                  else if (nivelDeMissao == 3)
+                  {
+                      conversa.text = "Vá pela estrada a esquerda, em um lugar não tão distante existe um homem que carrega uma engrenagem, não sei para que ele carrega isso, mas, ME TRAGA!!! ";
+                  }*/
+                texto.text = "Mate os esqueletos até encontrar ossos";
                 break;
             case 4:
                 IniciarMissao(); // inicia a missao
@@ -112,47 +118,89 @@ public class Cientista : MonoBehaviour {
 
     }
 
+    public void ConversandoPosMissao(int op = 1)
+    {
+
+        foreach (SlotInventarioBehaviour slot in ContoleDeInventario.instance.InventarioSlots)
+        {
+            if (slot.currentItem != null && slot.currentItem.identificacao == 22)
+            {
+                slot.currentItem.DestroiItem();
+                verificaSlot = true;
+            }
+        }
+        switch (op)
+        {
+            case 1:
+                conversa.text = "Você conseguiu??";
+                break;
+            case 2:
+                if (verificaSlot) {
+                    conversa.text = "Obrigado, tome aqui sua recompensa..";
+                    FinalizarMissao();
+                }
+                else
+                {
+                    conversa.text = "Volte quando acabar..";
+                }
+                break;
+            
+        }
+
+    }
+
     public void IniciarMissao()
     {
+        Time.timeScale = defaultTimeScale; //despausa o game
+        fala.gameObject.SetActive(false);//liga e desliga a fala
+        missaoAtiva = true;
+        i = 0;
+        //this.gameObject.SetActive(false); // boneca desaparece
+       /* missaoAtiva = true;
         if (nivelDeMissao == 1 || nivelDeMissao > 3)
         {
-            GameObject SpawnEsqueletoOSSO = Instantiate(esqueletoOSSO, new Vector3(X, Y, -1), Quaternion.identity);
+            Spawn.GetComponent<SpawnEsqueleto>().missaoDrop = true;
         }
         else if (nivelDeMissao == 2)
         {
-            GameObject SpawnEsqueleto = Instantiate(esqueleto, new Vector3(X, Y, -1), Quaternion.identity);
+            Spawn.GetComponent<SpawnEsqueleto>().missaoDrop = false;
         }
         else if (nivelDeMissao == 3)
         {
-            GameObject SpawnEsqueleto = Instantiate(esqueleto, new Vector3(X, Y, -1), Quaternion.identity);
-        }
-        // bandeiraAtiva = Instantiate(bandeira, new Vector3(75.09f, -24.36f, -1), Quaternion.identity);
-        //bandeiraAtiva.GetComponent<SpawnLoboMissao2>().boneca = this;
-        //bandeira.SetActive(true); // liga a bandeira e inicia a missão
-        Time.timeScale = defaultTimeScale; // pausa o game
-        fala.gameObject.SetActive(false);//liga e desliga o inventario
-        this.gameObject.SetActive(false); // boneca desaparece
-        missaoAtiva = true;
+            Spawn.GetComponent<SpawnEsqueleto>().missaoDrop = false;
+        }*/
+        
     }
 
     public void FinalizarMissao()
     {
         this.gameObject.SetActive(true);
         missaoAtiva = false;
-        //condições de vitoria
-       // Destroy(bandeiraAtiva);
-        PlayerStatsController.AddReputation(10);
+        i = 0;
+        //Spawn.GetComponent<SpawnEsqueleto>().missaoDrop = false;
+        PlayerStatsController.AddReputation(20);
         player.SetNivelDeMissao("missao2");
+        texto.text = " ";
     }
 
     public void DerrotaDeMissao()
     {
         //if (bandeira.GetComponent<NpcBase>().currentLife <= 10)
-       // {
-         //   Destroy(bandeiraAtiva);
-            PlayerStatsController.AddReputation(-10);
-        //    missaoAtiva = false;
-       // }
+        // {
+       // Spawn.GetComponent<SpawnEsqueleto>().missaoDrop = false;
+       // Spawn.GetComponent<SpawnEsqueleto>().missaoDrop = false;
+        //   Destroy(bandeiraAtiva);
+        PlayerStatsController.AddReputation(-10);
+        missaoAtiva = false;
+        foreach (SlotInventarioBehaviour slot in ContoleDeInventario.instance.InventarioSlots)
+        {
+            if (slot.currentItem != null && slot.currentItem.identificacao == 22)
+            {
+                slot.currentItem.DestroiItem();
+                verificaSlot = true;
+            }
+        }
+        // }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

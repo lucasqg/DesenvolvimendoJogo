@@ -157,8 +157,15 @@ MonoBehaviour:
   defesaTotal: 0
   danoTotal: 0
   velTotal: 0
+  xp: 0
   currentLevel: 0
   nameNPC: 
+  moeda: {fileID: 1252179299354272, guid: bc31109a49cd2d942b401798bd2a6bf9, type: 2}
+  potionHP: {fileID: 1658521738948218, guid: 5f2adefd13f83d747a7eb0c5aaf99771, type: 2}
+  player: {fileID: 0}
+  espada: {fileID: 1117270107112250, guid: 52bf0687d29791c43854a2eee8d2f154, type: 2}
+  peito: {fileID: 1371843549754502, guid: 3d1b08b42611fdc44b4b5a12b7c1b1bf, type: 2}
+  osso: {fileID: 1294794030929908, guid: 2415e497f3458d54c90a0819f36ca7ce, type: 2}
 --- !u!114 &114932980701544484
 MonoBehaviour:
   m_ObjectHideFlags: 1

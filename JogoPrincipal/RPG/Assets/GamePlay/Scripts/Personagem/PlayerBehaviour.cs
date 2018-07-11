@@ -77,7 +77,7 @@ public class PlayerBehaviour : CharacterBase {
         }*/
         UI.SetExperiencia(PlayerStatsController.GetNextXp(), PlayerStatsController.GetCurrentXp());
         UI.SetLife(totalLife, currentLife);
-        
+        //base.Update();
     }
 
     public void OnTriggerStay2D(Collider2D collision)
@@ -100,6 +100,18 @@ public class PlayerBehaviour : CharacterBase {
             UI.SetLifeMonster(monster.totalLife, monster.currentLife);
             UI.objectSliderMonster.SetActive(true);
         }
+        else if (collision.tag == "LoboDecomposto")
+        {
+            NpcBase monster = collision.GetComponent<NpcBase>();
+            UI.SetLifeMonster(monster.totalLife, monster.currentLife);
+            UI.objectSliderMonster.SetActive(true);
+        }
+        else if (collision.tag == "Esqueleto")
+        {
+            NpcBase monster = collision.GetComponent<NpcBase>();
+            UI.SetLifeMonster(monster.totalLife, monster.currentLife);
+            UI.objectSliderMonster.SetActive(true);
+        }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
@@ -112,6 +124,14 @@ public class PlayerBehaviour : CharacterBase {
             UI.objectSliderMonster.SetActive(false);
         }
         else if (collision.tag == "LoboSelvagem")
+        {
+            UI.objectSliderMonster.SetActive(false);
+        }
+        else if (collision.tag == "Esqueleto")
+        {
+            UI.objectSliderMonster.SetActive(false);
+        }
+        else if (collision.tag == "LoboDecomposto")
         {
             UI.objectSliderMonster.SetActive(false);
         }

@@ -13,12 +13,15 @@ public class BasicStatsNpc
     public int baseDefense;
     public int baseAttack;
     public string nameNpc;
+    
 }
 public class NpcBase : NpcDestructiveBase {
     public int currentLevel;
     public BasicStatsNpc basicStats;
     public string nameNPC;
-    
+    public GameObject moeda, potionHP;
+    public PlayerBehaviour player;
+    private bool morto;
     public virtual void InicializacaoDeStatus()
     {
         // status atribuido dentro do monstro
@@ -27,8 +30,7 @@ public class NpcBase : NpcDestructiveBase {
 
     public virtual void Start()
     {
-       
-        
+        player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
     }
 
     public virtual void Update()
@@ -62,8 +64,10 @@ public class NpcBase : NpcDestructiveBase {
 
     public virtual void DestroiMonster()
     {
-        if(currentLife <= 0)
+        if(currentLife <= 0 && !morto)
         {
+            morto = true;
+            DropItem();
             Destroy(this.gameObject);
         }
     }
@@ -73,6 +77,21 @@ public class NpcBase : NpcDestructiveBase {
     }
     public void Destroi()
     {
+        Destroy(this.gameObject);
+    }
+
+    public virtual void DropItem()
+    {
+        int random = Random.Range(1, 10);
+        if (random == 2) //10% chance de acertar o valor
+        {
+            GameObject mooeda =Instantiate(moeda, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity);
+        }
+        int randomico = Random.Range(1, 8);
+        if (randomico == 1) //10% chance de acertar o valor
+        {
+            Instantiate(potionHP, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity).SetActive(true);
+        }
         Destroy(this.gameObject);
     }
 }

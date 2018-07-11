@@ -13,7 +13,7 @@ public abstract class NpcDestructiveBase : MonoBehaviour {
     public int defesaTotal;
     public int danoTotal;
     public int velTotal;
-
+    public int xp;
     void Start()
     {
 

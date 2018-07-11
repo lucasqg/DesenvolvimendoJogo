@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Pergaminho : ItensBase {
 
-    public int amountLiquid;
     private PlayerBehaviour player;
 
     private void Start()
