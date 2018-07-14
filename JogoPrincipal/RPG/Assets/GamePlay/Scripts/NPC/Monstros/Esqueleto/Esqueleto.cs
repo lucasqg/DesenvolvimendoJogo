@@ -41,7 +41,8 @@ public class Esqueleto : NpcBase {
         int randomico = Random.Range(1, 10);
         if (randomico == 1) //10% chance de acertar o valor
         {
-            Instantiate(espada, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity).SetActive(true);
+            GameObject espadaInstanciada = Instantiate(espada, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity);
+            espadaInstanciada.GetComponent<ArmasBehaviour>().GerarAleatorio(player.GetNivelDeMissao("missão3"));
         }
         int randominco = Random.Range(1, 10);
         if (randominco == 1) //10% chance de acertar o valor
