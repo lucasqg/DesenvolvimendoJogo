@@ -16,7 +16,7 @@ public class CalçaGuerreiro : ArmaduraBase {
 
 
 
-    private void GerarAleatorio(int qualidadeDoItem)
+    public void GerarAleatorio(int qualidadeDoItem)
     {
         if(qualidadeDoItem == 0)
         {

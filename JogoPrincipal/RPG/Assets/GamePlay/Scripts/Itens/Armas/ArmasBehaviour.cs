@@ -63,5 +63,11 @@ public class ArmasBehaviour : ItensBase{
         adicionalHP = Random.Range(0, 20);
     }
 
+    public void GerarAtributosPorDefinicao(int nivel)
+    {
+        danoBase = Random.Range(1,3);
+        adicionalDano = Random.Range(1,3);
+    }
+
 
 }

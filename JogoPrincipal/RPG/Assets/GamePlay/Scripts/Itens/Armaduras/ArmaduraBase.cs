@@ -27,7 +27,7 @@ public class ArmaduraBase : ItensBase {
     void Start()
     {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
-        ativador();
+        //ativador();
     }
     public override void StatusArma()
     {

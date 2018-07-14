@@ -38,12 +38,14 @@ public class LoboSelvagem : NpcBase {
         int random = Random.Range(1, 10);
         if (random == 2) //10% chance de acertar o valor
         {
-            Instantiate(luva, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity).SetActive(true);
+            GameObject luvaInstanciada = Instantiate(luva, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity);
+            luvaInstanciada.GetComponent<LuvaGuerreiro>().GerarAleatorio(player.GetNivelDeMissao("missão2"));
         }
         int randomico = Random.Range(1, 10);
         if (randomico == 1) //10% chance de acertar o valor
         {
-            Instantiate(elmo, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity).SetActive(true);
+            GameObject elmoInstanciada = Instantiate(elmo, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity);
+            elmoInstanciada.GetComponent<ElmoGuerreiro>().GerarAleatorio(player.GetNivelDeMissao("missão2"));
         }
         base.DropItem();
     }
