@@ -86,15 +86,21 @@ public class MovimentaçãoNPC : MonoBehaviour {
                 if (ArmazenarCoordenadasX < this.transform.position.x)
                 {
                     transform.Translate(new Vector2(-vel * Time.deltaTime, 0));
-                    ResetAnimatorAndando();
-                    anim.SetBool("AndarEsquerda", true);
+                    if (this.gameObject.tag != "Morcego")
+                    {
+                        ResetAnimatorAndando();
+                        anim.SetBool("AndarEsquerda", true);
+                    }
 
                 }
                 else if (ArmazenarCoordenadasX > this.transform.position.x)
                 {
                     transform.Translate(new Vector2(vel * Time.deltaTime, 0));
-                    ResetAnimatorAndando();
-                    anim.SetBool("AndarDireita", true);
+                    if (this.gameObject.tag != "Morcego")
+                    {
+                        ResetAnimatorAndando();
+                        anim.SetBool("AndarDireita", true);
+                    }
                 }
             }
             else
@@ -102,23 +108,32 @@ public class MovimentaçãoNPC : MonoBehaviour {
                 if (ArmazenarCoordenadasY < this.transform.position.y)
                 {
                     transform.Translate(new Vector2(0, -vel * Time.deltaTime));
-                    ResetAnimatorAndando();
-                    anim.SetBool("AndarFrente", true);
+                    if (this.gameObject.tag != "Morcego")
+                    {
+                        ResetAnimatorAndando();
+                        anim.SetBool("AndarFrente", true);
+                    }
                 }
                 else if (ArmazenarCoordenadasY > this.transform.position.y)
                 {
                     transform.Translate(new Vector2(0, vel * Time.deltaTime));
-                    ResetAnimatorAndando();
-                    anim.SetBool("AndarCostas", true);
+                    if (this.gameObject.tag != "Morcego")
+                    {
+                        ResetAnimatorAndando();
+                        anim.SetBool("AndarCostas", true);
+                    }
                 }
             }
         }
         else
         {
-            anim.SetBool("AndarCostas", false);
-            anim.SetBool("AndarFrente", false);
-            anim.SetBool("AndarDireita", false);
-            anim.SetBool("AndarEsquerda", false);
+            if (this.gameObject.tag != "Morcego")
+            {
+                anim.SetBool("AndarCostas", false);
+                anim.SetBool("AndarFrente", false);
+                anim.SetBool("AndarDireita", false);
+                anim.SetBool("AndarEsquerda", false);
+            }
         }
        
     }
@@ -162,15 +177,21 @@ public class MovimentaçãoNPC : MonoBehaviour {
                 if (Hero.transform.position.x < this.transform.position.x)
                 {
                     transform.Translate(new Vector2(-vel * Time.deltaTime, 0));
-                    ResetAnimatorAndando();
-                    anim.SetBool("AndarEsquerda", true);
+                    if (this.gameObject.tag != "Morcego")
+                    {
+                        ResetAnimatorAndando();
+                        anim.SetBool("AndarEsquerda", true);
+                    }
 
                 }
                 else if (Hero.transform.position.x > this.transform.position.x)
                 {
                     transform.Translate(new Vector2(vel * Time.deltaTime, 0));
-                    ResetAnimatorAndando();
-                    anim.SetBool("AndarDireita", true);
+                    if (this.gameObject.tag != "Morcego")
+                    {
+                        ResetAnimatorAndando();
+                        anim.SetBool("AndarDireita", true);
+                    }
                 }
             }
             else
@@ -178,14 +199,20 @@ public class MovimentaçãoNPC : MonoBehaviour {
                 if (Hero.transform.position.y < this.transform.position.y)
                 {
                     transform.Translate(new Vector2(0, -vel * Time.deltaTime));
-                    ResetAnimatorAndando();
-                    anim.SetBool("AndarFrente", true);
+                    if (this.gameObject.tag != "Morcego")
+                    {
+                        ResetAnimatorAndando();
+                        anim.SetBool("AndarFrente", true);
+                    }
                 }
                 else if (Hero.transform.position.y > this.transform.position.y)
                 {
                     transform.Translate(new Vector2(0, vel * Time.deltaTime));
-                    ResetAnimatorAndando();
-                    anim.SetBool("AndarCostas", true);
+                    if (this.gameObject.tag != "Morcego")
+                    {
+                        ResetAnimatorAndando();
+                        anim.SetBool("AndarCostas", true);
+                    }
                 }
             }
         }
@@ -193,21 +220,27 @@ public class MovimentaçãoNPC : MonoBehaviour {
 
     public void ResetAnimatorParado()
     {
-        anim.SetBool("AndarFrente", false);
-        anim.SetBool("AndarCostas", false);
-        anim.SetBool("AndarEsquerda", false);
-        anim.SetBool("AndarDireita", false);
-        anim.SetBool("Parar", true);
+        if (this.gameObject.tag != "Morcego")
+        {
+            anim.SetBool("AndarFrente", false);
+            anim.SetBool("AndarCostas", false);
+            anim.SetBool("AndarEsquerda", false);
+            anim.SetBool("AndarDireita", false);
+            anim.SetBool("Parar", true);
+        }
 
     }
 
     public void ResetAnimatorAndando()
     {
-        anim.SetBool("AndarFrente", false);
-        anim.SetBool("AndarCostas", false);
-        anim.SetBool("AndarEsquerda", false);
-        anim.SetBool("AndarDireita", false);
-        anim.SetBool("Parar", false);
+        if (this.gameObject.tag != "Morcego")
+        {
+            anim.SetBool("AndarFrente", false);
+            anim.SetBool("AndarCostas", false);
+            anim.SetBool("AndarEsquerda", false);
+            anim.SetBool("AndarDireita", false);
+            anim.SetBool("Parar", false);
+        }
 
     }
    
