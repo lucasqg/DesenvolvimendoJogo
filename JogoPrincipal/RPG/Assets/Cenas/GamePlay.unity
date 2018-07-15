@@ -1132,7 +1132,7 @@ MonoBehaviour:
   monster: []
   tamanho: 20
   monstro: {fileID: 1775152632793700, guid: 59a0f833b9b2ee64fa2f541b5fca4828, type: 2}
-  spawn: {fileID: 0}
+  spawn: {fileID: 711418920}
   chamaSpawn: 0
 --- !u!1001 &85913647
 Prefab:
@@ -2499,7 +2499,7 @@ MonoBehaviour:
   monster: []
   tamanho: 20
   monstro: {fileID: 1775152632793700, guid: 59a0f833b9b2ee64fa2f541b5fca4828, type: 2}
-  spawn: {fileID: 0}
+  spawn: {fileID: 711418920}
   chamaSpawn: 0
 --- !u!1 &207218726
 GameObject:
@@ -5675,7 +5675,7 @@ MonoBehaviour:
   monster: []
   tamanho: 0
   monstro: {fileID: 1204738826431052, guid: be04752d90337cf4b963bac913db31d3, type: 2}
-  spawn: {fileID: 0}
+  spawn: {fileID: 711418920}
   chamaSpawn: 0
 --- !u!4 &655373625 stripped
 Transform:
@@ -51314,7 +51314,7 @@ MonoBehaviour:
   monster: []
   tamanho: 15
   monstro: {fileID: 1830894640697126, guid: 158a05dc71aad144b845a2553ab4bc51, type: 2}
-  spawn: {fileID: 0}
+  spawn: {fileID: 711418920}
   chamaSpawn: 0
 --- !u!4 &1080374752 stripped
 Transform:
@@ -54792,7 +54792,7 @@ MonoBehaviour:
   monster: []
   tamanho: 0
   monstro: {fileID: 1571747785475470, guid: 2fc01de6e129b7f409ca301f4ed245b8, type: 2}
-  spawn: {fileID: 0}
+  spawn: {fileID: 711418920}
   chamaSpawn: 0
 --- !u!4 &1255903111 stripped
 Transform:
@@ -62091,7 +62091,7 @@ MonoBehaviour:
   monster: []
   tamanho: 13
   monstro: {fileID: 1830894640697126, guid: 158a05dc71aad144b845a2553ab4bc51, type: 2}
-  spawn: {fileID: 0}
+  spawn: {fileID: 711418920}
   chamaSpawn: 0
 --- !u!1 &2023035640 stripped
 GameObject:
