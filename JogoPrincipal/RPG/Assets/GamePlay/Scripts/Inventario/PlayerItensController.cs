@@ -13,15 +13,23 @@ public class PlayerItensController : MonoBehaviour {
     public GameObject optionOnSelect;
     public ContoleDeInventario slotInventario;
     public PlayerBehaviour player;
+    public GameObject teste;
     void Start () {
         instance = this;
-	}
+        AddEquipSave(teste);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        
     }
     
+    public void AddEquipSave(GameObject ObjetoEquipavel)
+    {
+            item = ObjetoEquipavel.GetComponent<ItensBase>();
+            this.EquipItem();
+            item.slot.SetupSlot();
+            item = null;
+    }
 
     public void EquipItem()
     {
@@ -103,8 +111,6 @@ public class PlayerItensController : MonoBehaviour {
            // slotInventario.selectedSlot.SetupSlot();
             //retira o item do inventario
             item = null;
-            
         }
     }
-
 }

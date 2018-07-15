@@ -10,6 +10,7 @@ public class SpawnTotal : MonoBehaviour {
     public List<GameObject> monster;
     public int tamanho;
     public GameObject monstro;
+    public GameObject spawn;
     public int chamaSpawn = 0;
 
     void Start()
@@ -49,6 +50,7 @@ public class SpawnTotal : MonoBehaviour {
             for (int i = 0; i < tamanho; i++)
             {
                 GameObject monstro1 = Instantiate(monstro, new Vector3(x[i], y[i], -2), Quaternion.identity);
+                monstro1.transform.parent = spawn.transform;
                 monster.Add(monstro1);
             }
         }
@@ -66,6 +68,7 @@ public class SpawnTotal : MonoBehaviour {
             if (monster[i].activeSelf == false && contadorSpawn[i] >= tempoSpawn)
             {
                 monster[i] = (Instantiate(monstro, new Vector3(x[i], y[i], -2), Quaternion.identity));
+                monster[i].transform.parent = spawn.transform;
             }
         }
     }
