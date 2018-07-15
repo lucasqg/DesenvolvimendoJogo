@@ -18,6 +18,7 @@ TagManager:
   - Bandeira
   - Esqueleto
   - LoboDecomposto
+  - Spawn
   layers:
   - Default
   - TransparentFX
