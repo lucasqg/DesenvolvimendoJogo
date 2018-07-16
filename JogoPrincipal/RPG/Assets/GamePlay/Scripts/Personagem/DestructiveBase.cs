@@ -122,6 +122,11 @@ public abstract class DestructiveBase : MonoBehaviour {
         {
             OnDestroyed();
         }
+        if(PlayerStatsController.GetCurrentReputation() <= -20)
+        {
+            Destroy(this.gameObject);
+            destructive.gameObject.SetActive(true);
+        }
     }
 
 
@@ -137,9 +142,10 @@ public abstract class DestructiveBase : MonoBehaviour {
        
         if (currentLife <= 2)
         {
-            destructive.gameObject.SetActive(true);
-            
-            Destroy(this.gameObject);
+            //destructive.gameObject.SetActive(true);
+            currentLife = totalLife;
+            this.gameObject.transform.position = new Vector3(-0.78f, -30f, -0.28f);
+            // Destroy(this.gameObject);
 
         }
     }
