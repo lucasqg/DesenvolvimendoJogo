@@ -22,12 +22,12 @@ public class LoadGame : MonoBehaviour {
         Debug.Log("Carregou com sucesso");
     }
 
-    public void OnButtonCarregaGame()
+    /*public void OnButtonCarregaGame()
     {
         PlayerPrefs.SetInt("NewOrLoad", 1);
 
         SceneManager.LoadScene("Loader");
-    }
+    }*/
 
     public void LoadMissoes()
     {

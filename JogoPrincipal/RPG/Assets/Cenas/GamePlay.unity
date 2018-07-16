@@ -66398,11 +66398,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1530743438}
+      objectReference: {fileID: 1530743440}
     - target: {fileID: 114619339071858040, guid: 3ac654be96b5bd84aa5e2eae293f8db1,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnButtonCarregaGame
+      value: OnLoadGame
       objectReference: {fileID: 0}
     - target: {fileID: 224891184716277504, guid: 3ac654be96b5bd84aa5e2eae293f8db1,
         type: 2}
@@ -66471,12 +66471,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1997960153048318, guid: 3ac654be96b5bd84aa5e2eae293f8db1,
     type: 2}
   m_PrefabInternal: {fileID: 1530743436}
---- !u!114 &1530743438 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114047487679840976, guid: 3ac654be96b5bd84aa5e2eae293f8db1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1530743436}
-  m_Script: {fileID: 11500000, guid: 76ccea367d6cece44b8cf29ea7fc9f0b, type: 3}
 --- !u!114 &1530743439 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114196318158900200, guid: 3ac654be96b5bd84aa5e2eae293f8db1,
