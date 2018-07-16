@@ -27,12 +27,12 @@ public class PlayerStatsController : MonoBehaviour{
     {
 
         //RESET PLAYER PREFS;
-        
+        /*
         PlayerPrefs.SetFloat("currentXp", 0);
         PlayerPrefs.SetInt("currentLevel", 0);
         PlayerPrefs.SetInt("pontosSkill", 0);
         PlayerPrefs.SetInt("Reputação", 0);
-        
+        */
         instance = this;
         DontDestroyOnLoad(gameObject);
         Application.LoadLevel("GamePlay"); //Chama a cena apoós o menu
@@ -43,6 +43,7 @@ public class PlayerStatsController : MonoBehaviour{
     void Update()
     {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+        /*
         if (Input.GetKey(KeyCode.X))
         {
             AddXp(100);
@@ -50,7 +51,7 @@ public class PlayerStatsController : MonoBehaviour{
         if (Input.GetKey(KeyCode.Z))
         {
             AddReputation(100);
-        }
+        }*/
     }
 
     public static void AddXp(float xpAdd)
@@ -148,10 +149,11 @@ public class PlayerStatsController : MonoBehaviour{
     
     private void OnGUI()
     {
-        GUI.Label(new Rect(0, 0, 100, 50), "Current Xp" + GetCurrentXp());
-        GUI.Label(new Rect(0, 50, 100, 50), "Current Level" + GetCurrentLevel());
-        GUI.Label(new Rect(0, 100, 100, 50), "Current Next Level" + GetNextXp());
-        GUI.Label(new Rect(0, 150, 100, 50), "Current Reputação" + GetCurrentReputation());
+        //GUI.Label(new Rect(0, 0, 100, 50), "Current Xp" + GetCurrentXp());
+        GUI.Label(new Rect(0, 0, 150, 50), "Level: " + GetCurrentLevel());
+        //GUI.Label(new Rect(0, 100, 100, 50), "Current Next Level" + GetNextXp());
+        GUI.Label(new Rect(0, 30, 150, 50), "Reputação: " + GetCurrentReputation());
+        GUI.Label(new Rect(0, 60, 150, 50), "Nome: " + PlayerPrefs.GetString("CharNome"));
     }
     
     

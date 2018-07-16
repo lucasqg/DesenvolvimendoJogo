@@ -26,7 +26,7 @@ public class SkillAtivador : MonoBehaviour {
         {
             if(istancer.hitDuplo == true)
             {
-                skill.image.overrideSprite 
+                //skill.image.overrideSprite;
             }
         }
     }
