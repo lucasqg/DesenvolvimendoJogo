@@ -20,6 +20,11 @@ TagManager:
   - LoboDecomposto
   - Spawn
   - Ovelha
+  - Skill1
+  - Skill2
+  - Skill3
+  - Skill4
+  - Skill5
   layers:
   - Default
   - TransparentFX

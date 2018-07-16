@@ -15,15 +15,18 @@ public class DamageMonster : MonoBehaviour
 
     public void applyDamagePlayer(int dano)
     {
-        player.addLife(-dano);
+        if(((int)player.defTotal - dano) < 0)
+            player.addLife((int)player.defTotal - dano);
     }
     public void applyDamageNPC(int dano, Carroceiro carroceiro)
     {
-        carroceiro.addLife(-dano);
+        if (((int)carroceiro.defesaTotal - dano) < 0)
+            carroceiro.addLife((int)player.defTotal - dano);
     }
     public void applyDamageOvelha(int dano, SpawnLoboMissao2 ovelha)
     {
-        ovelha.addLife(-dano);
+        if (((int)ovelha.defesaTotal - dano) < 0)
+            ovelha.addLife((int)player.defTotal - dano);
     }
     public void OnTriggerStay2D(Collider2D collision)
     {

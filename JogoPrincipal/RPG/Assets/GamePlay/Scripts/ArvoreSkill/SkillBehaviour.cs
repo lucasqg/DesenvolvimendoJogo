@@ -38,6 +38,7 @@ public class SkillBehaviour : MonoBehaviour {
         {
             player.currentSkills--;     //retiro 1 ponto skill
             skillType.Add("HitDuplo");  //adiciona o skill duplo 
+            hitDuplo = true;
             //habilita animação skill ativada
         }
         else  
@@ -84,19 +85,14 @@ public class SkillBehaviour : MonoBehaviour {
 
     public void HitTriplo()
     {
-        int valorTeste = 0;
-        foreach (string skillz in skillType)
-        {
-            if(skillz == "HitDuplo") // verifica se a skill anterior já foi aprendida
-            {
-                valorTeste++;
-            }
-        }
-        if (player.currentSkills >= 2 && valorTeste==1)
+
+        
+        if (player.currentSkills >= 2 && hitDuplo==true)
         {
             player.currentSkills -= 2;
             skillType.Add("HitTriplo");
             hitTriplo = true;
+  
             //habilita animação skill ativada
         }
         else
@@ -107,19 +103,7 @@ public class SkillBehaviour : MonoBehaviour {
 
     public void BuffDefesa()
     {
-        int valorTeste = 0;
-        foreach (string skillz in skillType)
-        {
-            if (skillz == "HitDuplo")
-            {
-                valorTeste++;
-            }
-            if(skillz == "Explosion")
-            {
-                valorTeste++;
-            }
-        }
-        if (player.currentSkills >= 2 && valorTeste == 2)
+        if (player.currentSkills >= 2 && hitDuplo == true && explosion == true)
         {
             player.currentSkills -= 2;
             skillType.Add("BuffDefesa");
@@ -134,16 +118,7 @@ public class SkillBehaviour : MonoBehaviour {
 
     public void AumentoHP()
     {
-        int valorTeste = 0;
-        foreach (string skillz in skillType)
-        {
-            if (skillz == "Explosion")
-            {
-                valorTeste++;
-            }
-            
-        }
-        if (player.currentSkills >= 1)
+        if (player.currentSkills >= 1 && explosion == true)
         {
             player.currentSkills -= 2;
             skillType.Add("AumentoHP");
@@ -158,15 +133,7 @@ public class SkillBehaviour : MonoBehaviour {
 
     public void LançarEspada()
     {
-        int valorTeste = 0;
-        foreach (string skillz in skillType)
-        {
-            if (skillz == "HitTriplo")
-            {
-                valorTeste++;
-            }
-        }
-        if (player.currentSkills >= 3 && valorTeste ==1)
+        if (player.currentSkills >= 3 && hitTriplo == true)
         {
             player.currentSkills -= 3;
             skillType.Add("LançarEspada");
@@ -180,19 +147,7 @@ public class SkillBehaviour : MonoBehaviour {
     }
     public void AumentoAtackGuerreiro()
     {
-        int valorTeste = 0;
-        foreach (string skillz in skillType)
-        {
-            if (skillz == "HitTriplo")
-            {
-                valorTeste++;
-            }
-            if (skillz == "BuffDefesa")
-            {
-                valorTeste++;
-            }
-        }
-        if (player.currentSkills >= 3 && valorTeste == 2)
+        if (player.currentSkills >= 3 && hitTriplo== true && buffDefesa== true)
         {
             player.currentSkills -= 3;
             skillType.Add("AumentoAtack");
@@ -207,20 +162,8 @@ public class SkillBehaviour : MonoBehaviour {
 
     public void PassivaIvulnerabilidade()
     {
-        int valorTeste = 0;
-        foreach (string skillz in skillType)
-        {
-            if (skillz == "BuffDefesa")
-            {
-                valorTeste++;
-            }
-            if (skillz == "AumentoHP")
-            {
-                valorTeste++;
-            }
-        }
 
-        if (player.currentSkills >= 3 && valorTeste==2)
+        if (player.currentSkills >= 3 && buffDefesa == true && aumentoHP == true)
         {
             player.currentSkills -= 3;
             skillType.Add("Ivulnerabilidade");
@@ -235,15 +178,7 @@ public class SkillBehaviour : MonoBehaviour {
 
      public void RegeneraçãoHPStamina()
     {
-        int valorTeste = 0;
-        foreach (string skillz in skillType)
-        {
-            if (skillz == "AumentoHP")
-            {
-                valorTeste++;
-            }
-        }
-        if (player.currentSkills >= 3 && valorTeste ==1)
+        if (player.currentSkills >= 3 && aumentoHP == true)
         {
             player.currentSkills -= 3;
             skillType.Add("RegeneraçãoHPStamina");
@@ -258,27 +193,7 @@ public class SkillBehaviour : MonoBehaviour {
 
     public void GiroDoInfinito()
     {
-        int valorTeste = 0;
-        foreach (string skillz in skillType)
-        {
-            if (skillz == "LançarEspada")
-            {
-                valorTeste++;
-            }
-            if (skillz == "AumentoAtack")
-            {
-                valorTeste++;
-            }
-            if (skillz == "Ivulnerabilidade")
-            {
-                valorTeste++;
-            }
-            if (skillz == "RegeneraçãoHPStamina")
-            {
-                valorTeste++;
-            }   
-        }
-        if (player.currentSkills >= 2 && valorTeste == 4)
+        if (player.currentSkills >= 2 && lançarEspada == true && aumentoHP == true && passivaIvulnerabilidade == true && regeneracaoHPStamina == true)
         {
             player.currentSkills -= 3;
             skillType.Add("GiroDoInfinito");
