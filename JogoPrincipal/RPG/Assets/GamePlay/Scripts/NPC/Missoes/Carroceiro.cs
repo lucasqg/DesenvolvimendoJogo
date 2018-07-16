@@ -7,6 +7,7 @@ public class Carroceiro : NpcBase {
     private bool inimigo = false;
     private float vel = 1f;
     public Animator anim;
+    public GameObject carroceiroFalas;
 
     private int i=2;
     private float positionX;
@@ -35,34 +36,48 @@ public class Carroceiro : NpcBase {
         switch (op)
         {
             case 1:
-                positionX = 17f;
-                positionY = -43.29f;
+                positionX = -9.56f;
+                positionY = -42.63f;
                 break;
             case 2:
-                positionX = 25.11f;
-                positionY = -41.25f;
+                positionX = -17.95f;
+                positionY = -43.38f;
                 break;
             case 3:
-                positionX = 35.22f;
-                positionY = -40.56f;
+                //deve ser teleportado
+                positionX = -121.04f;
+                positionY = -63.41f;
+                this.gameObject.transform.SetPositionAndRotation(new Vector2(positionX, positionY), Quaternion.identity);
                 break;
             case 4:
-                positionX = 39.67f;
-                positionY = -60.05f;
+                positionX = -123.76f;
+                positionY =-62.4f;
                 break;
             case 5:
-                positionX = 43.21f;
-                positionY = -67.41f;
+                positionX = -135.89f;
+                positionY = -62.19f;
                 break;
             case 6:
-                positionX = 50.57f;
-                positionY = -70.15f;
+                positionX = -135.89f;
+                positionY = -36.35f;
                 break;
             case 7:
-                positionX = 46.18f;
-                positionY = -78.88f;
+                positionX = -166.53f;
+                positionY = -36.35f;
                 break;
             case 8:
+                positionX = -166.53f;
+                positionY = -30.57f;
+                break;
+            case 9:
+                positionX = -208.73f;
+                positionY = -30.57f;
+                break;
+            case 10:
+                positionX = -208.73f;
+                positionY = -24.76f;
+                break;
+            case 11:
                 Chegada();
                 Destroi();
                 break;
@@ -76,6 +91,7 @@ public class Carroceiro : NpcBase {
         if (currentLife <= 2)
         {
             PlayerStatsController.AddReputation(-5);
+            carroceiroFalas.SetActive(true);
             Destroi();
         }
     }
@@ -84,7 +100,8 @@ public class Carroceiro : NpcBase {
         if(this.transform.position.x == positionX && transform.position.y == positionY)
         {
             // adiciona 5 pontos de reputação
-            PlayerStatsController.AddReputation(5);
+            PlayerStatsController.AddReputation(20);
+            carroceiroFalas.SetActive(true);
 
         }
     }
@@ -103,7 +120,7 @@ public class Carroceiro : NpcBase {
                 restorePosition(i);
                 i++;
             }   
-            if(i == 8)
+            if(i == 11)
             {
                 Chegada();
                 Destroi();
@@ -117,14 +134,14 @@ public class Carroceiro : NpcBase {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Morcego")
+        if (collision.tag == "Morcego" || collision.tag == "LoboDecomposto" || collision.tag == "LoboSelvagem" || collision.tag == "Esqueleto")
         {
             inimigo = true; // tem um inimigo no raio de visão
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Morcego")
+        if (collision.tag == "Morcego" || collision.tag == "LoboDecomposto" || collision.tag == "LoboSelvagem" || collision.tag == "Esqueleto")
         {
             inimigo = false; // saiu o inimigo do campo de visão, entao deve caminhar
         }

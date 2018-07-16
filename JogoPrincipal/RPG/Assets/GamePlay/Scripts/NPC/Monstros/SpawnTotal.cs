@@ -34,6 +34,10 @@ public class SpawnTotal : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
+            for (int i = 0; i < tamanho; i++)
+            {
+                Destroy(monster[i]);
+            }
             monster.Clear();
             chamaSpawn = 0;
         }

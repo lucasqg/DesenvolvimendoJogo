@@ -53,6 +53,12 @@ public class MovimentacaoEsqueleto : MonoBehaviour {
             Hero = outro.transform;
             perseguindo = true;
         }
+        else if (outro.gameObject.CompareTag("Carroceiro"))
+        {
+
+            Hero = outro.transform;
+            perseguindo = true;
+        }
     }
 
     public void OnTriggerExit2D(Collider2D outro)
@@ -67,11 +73,16 @@ public class MovimentacaoEsqueleto : MonoBehaviour {
             Hero = null;
             perseguindo = false;
         }
+        else if (outro.gameObject.CompareTag("Carroceiro"))
+        {
+            Hero = null;
+            perseguindo = false;
+        }
 
 
-    }
+        }
 
-    public void VoltaPosicaoInicial()
+        public void VoltaPosicaoInicial()
     {
 
 

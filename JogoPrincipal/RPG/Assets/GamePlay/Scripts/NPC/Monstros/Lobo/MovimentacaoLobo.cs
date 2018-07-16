@@ -57,6 +57,11 @@ public class MovimentacaoLobo : MonoBehaviour {
             Hero = outro.transform;
             perseguindo = true;
         }
+        else if (outro.tag == "Carroceiro")
+        {
+            Hero = outro.transform;
+            perseguindo = true;
+        }
         else if(LoboDeMissao)
         {
             Hero = bandeira.transform; // passa para perseguir a coordenada da bandeira;

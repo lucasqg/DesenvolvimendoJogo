@@ -65,6 +65,7 @@ public class MovimentaçãoNPC : MonoBehaviour {
             Hero = null;
             perseguindo = false;
         }
+
         
        
     }

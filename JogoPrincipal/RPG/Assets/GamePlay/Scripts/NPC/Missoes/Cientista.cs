@@ -99,7 +99,7 @@ public class Cientista : MonoBehaviour {
                 break;
             case 3:
                // if (nivelDeMissao == 1 || nivelDeMissao > 3) {
-                    conversa.text = "Vá pela estrada da esquerda e mate os esqueletos até encontrar um osso bem forte para que eu possa queimar e o transformar em carvão para o filtro!\n Vou precisar de muitos, mas por hora... Só quero um :";
+                    conversa.text = "Vá pela estrada da esquerda e mate os esqueletos até encontrar alguns ossos bem fortes para que eu possa queimar e o transformar em carvão para o filtro!\n Vou precisar de muitos, mas por hora... Só quero um :";
                 /*  }
                   else if (nivelDeMissao ==2)
                   {

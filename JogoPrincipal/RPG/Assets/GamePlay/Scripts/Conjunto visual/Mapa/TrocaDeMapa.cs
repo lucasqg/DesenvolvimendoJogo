@@ -6,6 +6,8 @@ public class TrocaDeMapa : MonoBehaviour {
     public Transform player;
     public Quaternion player2;
     public float x, y, z;
+    private bool desactive;
+    public TrocaDeMapa proximo;
 
 
 	// Use this for initialization
@@ -27,7 +29,16 @@ public class TrocaDeMapa : MonoBehaviour {
     {
         if(collision.tag== "Player")
         {
-            SetLocation();
+            if (!desactive)
+            {
+                SetLocation();
+                proximo.desactive = true;
+                desactive = false;
+            }
         }
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        desactive = false;
     }
 }

@@ -43,7 +43,7 @@ public class CarroceiroFalas : MonoBehaviour {
             {
                 fala.gameObject.SetActive(true); // liga e desliga o inventario
                 nomeNpc.text = "Carroceiro";
-
+                conversa.text = " ";
                 if (fala.gameObject.activeSelf)//CONDICIONAL QUE PAUSE O GAME.
                 {
                     Time.timeScale = 0;
@@ -84,12 +84,15 @@ public class CarroceiroFalas : MonoBehaviour {
 
     public void IniciarMissao()
     {
-        Instantiate(carroceiro, transform.position, transform.rotation);
+        GameObject carroca1 = Instantiate(carroceiro, transform.position, transform.rotation);
+        carroca1.GetComponent<Carroceiro>().carroceiroFalas = this.gameObject;
         descricaoMissao.SetActive(true);
         descricao.text = "Proteja o carroceiro e o leve até seu destino!";
         Time.timeScale = defaultTimeScale;
         fala.gameObject.SetActive(false);//liga e desliga o inventario
         this.gameObject.SetActive(false);
+        i = 0;
+        falando = false;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

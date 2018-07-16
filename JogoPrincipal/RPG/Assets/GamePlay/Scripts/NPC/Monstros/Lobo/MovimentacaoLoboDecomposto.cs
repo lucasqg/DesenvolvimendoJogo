@@ -51,12 +51,22 @@ public class MovimentacaoLoboDecomposto : MonoBehaviour {
             Hero = outro.transform;
             perseguindo = true;
         }
+        else if (outro.tag == "Carroceiro")
+        {
+            Hero = outro.transform;
+            perseguindo = true;
+        }
     }
 
     public void OnTriggerExit2D(Collider2D outro)
     {
 
         if (outro.gameObject.CompareTag("Player"))
+        {
+            VoltaPosicaoInicial();
+            perseguindo = false;
+        }
+        else if (outro.tag == "Carroceiro")
         {
             VoltaPosicaoInicial();
             perseguindo = false;
