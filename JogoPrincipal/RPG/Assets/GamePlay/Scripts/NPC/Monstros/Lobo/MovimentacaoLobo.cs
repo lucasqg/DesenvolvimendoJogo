@@ -17,7 +17,7 @@ public class MovimentacaoLobo : MonoBehaviour {
     private Transform lobo;
     public GameObject bandeira;
     public float positionX, positionY;
-
+    public bool LoboDeMissao;
     // Use this for initialization
     void Start()
     {
@@ -43,7 +43,7 @@ public class MovimentacaoLobo : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D outro)
     {
-        if (outro.tag == "Bandeira")
+        if (outro.tag == "Ovelha" && LoboDeMissao)
         {
             Hero = outro.transform;
             perseguindo = true;
