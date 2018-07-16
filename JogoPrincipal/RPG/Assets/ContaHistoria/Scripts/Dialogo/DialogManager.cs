@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class DialogManager : MonoBehaviour {
 
-    public TMP_Text TituloText;
-    public TMP_Text DialogText;
+    public Text TituloText;
+    public Text DialogText;
 
     public Image SwapImage;
     public Sprite toSwap;

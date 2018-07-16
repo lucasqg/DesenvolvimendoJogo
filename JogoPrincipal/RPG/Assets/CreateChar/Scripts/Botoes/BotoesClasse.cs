@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class BotoesClasse : MonoBehaviour {
 
@@ -12,7 +12,7 @@ public class BotoesClasse : MonoBehaviour {
     public GameObject GetIndexChar;
     public GameObject Load;
     [Space(10)]
-    public TMP_InputField InputTmp;
+    public InputField InputTmp;
 
 
     //Botoes
