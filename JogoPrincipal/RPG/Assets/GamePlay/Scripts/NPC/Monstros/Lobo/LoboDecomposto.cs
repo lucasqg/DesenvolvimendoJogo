@@ -8,9 +8,9 @@ public class LoboDecomposto : NpcBase {
     public override void InicializacaoDeStatus()
     {
         velTotal = 1000;
-        danoTotal = 20;
-        defesaTotal = 7;
-        totalLife = 40;
+        danoTotal = 6;
+        defesaTotal = 4;
+        totalLife = 20;
         currentLife = totalLife;
         xp = 100;
         nameNPC = "LoboDecomposto";
@@ -18,9 +18,9 @@ public class LoboDecomposto : NpcBase {
         for (int i = 0; i < player.GetNivelDeMissao("missãoPrincipal"); i++)
         {
             xp += 70;
-            danoTotal += 6;
+            danoTotal += 2;
             defesaTotal += 3;
-            totalLife += 25;
+            totalLife += 5;
             currentLife = totalLife;
         }
 

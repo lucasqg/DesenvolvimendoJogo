@@ -8,9 +8,9 @@ public class LoboSelvagem : NpcBase {
     public override void InicializacaoDeStatus()
     {
         velTotal = 1000;
-        danoTotal = 10;
-        defesaTotal = 5;
-        totalLife = 25;
+        danoTotal = 5;
+        defesaTotal = 3;
+        totalLife = 13;
         currentLife = totalLife;
         nameNPC = "LoboSelvagem";
         xp = 40;
@@ -18,9 +18,9 @@ public class LoboSelvagem : NpcBase {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
         for (int i=0; i<player.GetNivelDeMissao("missão2"); i++)
         {
-            danoTotal += 5;
+            danoTotal += 2;
             defesaTotal += 2;
-            totalLife += 20;
+            totalLife += 5;
             currentLife = totalLife;
             xp += 38;
         }

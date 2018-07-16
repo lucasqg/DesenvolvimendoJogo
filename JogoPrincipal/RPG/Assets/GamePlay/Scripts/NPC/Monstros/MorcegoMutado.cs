@@ -31,9 +31,9 @@ public class MorcegoMutado : NpcBase {
         for (int i = 0; i < player.GetNivelDeMissao("missao1"); i++)
         {
             xp += 40;
-            danoTotal += 9;
-            defesaTotal += 3;
-            totalLife += 25;
+            danoTotal += 3;
+            defesaTotal += 2;
+            totalLife += 5;
             currentLife = totalLife;
 
         }

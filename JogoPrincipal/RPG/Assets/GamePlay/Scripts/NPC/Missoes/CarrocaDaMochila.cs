@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class CarrocaDaMochila : MonoBehaviour {
     public bool ativarMissao;
     public GameObject mochila;
+    public FalaNpcs Mestre;
     public Text texto;
+    public bool mochilaEncontrada;
 	// Use this for initialization
 	void Start () {
 		
@@ -23,8 +25,10 @@ public class CarrocaDaMochila : MonoBehaviour {
         {
             if (ativarMissao)
             {
-                GameObject mochileti = Instantiate(mochila, new Vector3(this.gameObject.transform.position.x, -this.gameObject.transform.position.y, -1.12f), Quaternion.identity);
-                texto.text = "Leve a mochila ao Mestre !";
+                GameObject mochileti = Instantiate(mochila, new Vector3(-242.99f, -64.56f, -1.12f), Quaternion.identity);
+                texto.text = "Mochila encontrada\nLeve a mochila ao Mestre !";
+                mochilaEncontrada = true;
+                ativarMissao = false;
             }
         }
     }

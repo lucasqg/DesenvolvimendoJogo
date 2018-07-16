@@ -16,6 +16,8 @@ public class CientistaLouco : MonoBehaviour {
 		
 	}
 
+   
+
     public void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.tag == "Player")
@@ -25,7 +27,7 @@ public class CientistaLouco : MonoBehaviour {
                 if (slot.currentItem != null && slot.currentItem.identificacao == 2)
                 {
                     slot.currentItem.DestroiItem();
-                    mestre.pergaminhoEntregue = true;
+                    mestre.EncontrouCientista();
                     Destroy(this.gameObject);
                 }
             }

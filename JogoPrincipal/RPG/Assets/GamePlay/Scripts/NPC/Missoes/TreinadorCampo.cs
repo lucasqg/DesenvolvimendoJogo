@@ -17,17 +17,17 @@ public class TreinadorCampo : MonoBehaviour {
     public bool missao1 = false;
     public bool missao0 = true;
 
-    public ElmoGuerreiro elmo;
-    public PeitoGuerreiro peito;
-    public CalçaGuerreiro calça;
-    public BotaGuerreiro bota;
-    public LuvaGuerreiro luva;
+    public GameObject elmo;
+    public GameObject peito;
+    public GameObject calça;
+    public GameObject bota;
+    public GameObject luva;
 
     public bool falar = false;
     public bool dizendo = false;
-    public PotionBehaviour potion;
-    public ArmasBehaviour espada;
-    public MorcegoMutado morcego;
+    public GameObject potion;
+    public GameObject espada;
+    public GameObject morcego;
     public Transform playert;
     public bool spawn = true;
 
@@ -63,8 +63,9 @@ public class TreinadorCampo : MonoBehaviour {
             Time.timeScale = defaultTimeScale;
             fala.gameObject.SetActive(false);
             dizendo = false;
-            GameObject.Instantiate(espada, playert.position, playert.rotation);
-            PlayerStatsController.AddXp(50);
+            GameObject espadaa = Instantiate(espada, playert.position, playert.rotation);
+            espada.GetComponent<ArmasBehaviour>().GerarAleatorio(0);
+            PlayerStatsController.AddXp(150);
             missao0 = false;
         }
     }
@@ -105,15 +106,23 @@ public class TreinadorCampo : MonoBehaviour {
 
             if (spawn)
             {
-                GameObject.Instantiate(morcego, new Vector3(-39.8f, -6.73f, -1.45f), playert.rotation);
-                GameObject.Instantiate(elmo, playert.position, playert.rotation);
-                GameObject.Instantiate(peito, playert.position, playert.rotation);
-                GameObject.Instantiate(calça, playert.position, playert.rotation);
-                GameObject.Instantiate(luva, playert.position, playert.rotation);
-                GameObject.Instantiate(bota, playert.position, playert.rotation);
-                GameObject.Instantiate(potion, playert.position, playert.rotation);
-                GameObject.Instantiate(potion, playert.position, playert.rotation);
-                GameObject.Instantiate(potion, playert.position, playert.rotation);
+                GameObject morcegoo = Instantiate(morcego, new Vector3(-39.8f, -6.73f, -1.45f), Quaternion.identity);
+                GameObject elmoo = Instantiate(elmo, playert.position, playert.rotation);
+                elmoo.GetComponent<ElmoGuerreiro>().GerarAleatorio(0);
+                GameObject peitoo = Instantiate(peito, playert.position, playert.rotation);
+                peito.GetComponent<PeitoGuerreiro>().GerarAleatorio(0);
+                GameObject calcaa = Instantiate(calça, playert.position, playert.rotation);
+                calcaa.GetComponent<CalçaGuerreiro>().GerarAleatorio(0);
+                GameObject luvaa = Instantiate(luva, playert.position, playert.rotation);
+                luvaa.GetComponent<LuvaGuerreiro>().GerarAleatorio(0);
+                GameObject botaa = Instantiate(bota, playert.position, playert.rotation);
+                botaa.GetComponent<BotaGuerreiro>().GerarAleatorio(0);
+                GameObject potion1 = Instantiate(potion, playert.position, playert.rotation);
+                GameObject potion2 = Instantiate(potion, playert.position, playert.rotation);
+                GameObject potion3 = Instantiate(potion, playert.position, playert.rotation);
+                GameObject potion4 = Instantiate(potion, playert.position, playert.rotation);
+                GameObject potion5 = Instantiate(potion, playert.position, playert.rotation);
+                GameObject potion6 = Instantiate(potion, playert.position, playert.rotation);
                 PlayerStatsController.AddXp(50);
 
                 spawn = false;

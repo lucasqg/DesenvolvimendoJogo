@@ -47,6 +47,10 @@ public class PlayerStatsController : MonoBehaviour{
         {
             AddXp(100);
         }
+        if (Input.GetKey(KeyCode.Z))
+        {
+            AddReputation(100);
+        }
     }
 
     public static void AddXp(float xpAdd)

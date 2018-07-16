@@ -191,11 +191,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4461542572948254, guid: 6cc3b88a7c4790847a61e64deaeeada6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.93
+      value: -1.85
       objectReference: {fileID: 0}
     - target: {fileID: 4461542572948254, guid: 6cc3b88a7c4790847a61e64deaeeada6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -32.9
+      value: -32.51
       objectReference: {fileID: 0}
     - target: {fileID: 4461542572948254, guid: 6cc3b88a7c4790847a61e64deaeeada6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1578,7 +1578,7 @@ MonoBehaviour:
   cien: {fileID: 1104875203110406, guid: 70b6c3c021490724a85ae4eaf366e1f3, type: 2}
   pergaminhoEntregue: 0
   encontrouMochila: 0
-  carroca: {fileID: 0}
+  carroca: {fileID: 745123721}
 --- !u!61 &185111123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4245,7 +4245,8 @@ Prefab:
         type: 2}
       propertyPath: espada
       value: 
-      objectReference: {fileID: 1496116633}
+      objectReference: {fileID: 1117270107112250, guid: 52bf0687d29791c43854a2eee8d2f154,
+        type: 2}
     - target: {fileID: 114014082280053030, guid: 7704b3734c7acdc44b684d6f8d00a7e6,
         type: 2}
       propertyPath: playert
@@ -4260,43 +4261,44 @@ Prefab:
         type: 2}
       propertyPath: morcego
       value: 
-      objectReference: {fileID: 114953716215171802, guid: 59a0f833b9b2ee64fa2f541b5fca4828,
+      objectReference: {fileID: 1775152632793700, guid: 59a0f833b9b2ee64fa2f541b5fca4828,
         type: 2}
     - target: {fileID: 114014082280053030, guid: 7704b3734c7acdc44b684d6f8d00a7e6,
         type: 2}
       propertyPath: bota
       value: 
-      objectReference: {fileID: 114082945499309432, guid: 905a73ded4f2aba4499ece958e2d3804,
+      objectReference: {fileID: 1903816769839920, guid: 905a73ded4f2aba4499ece958e2d3804,
         type: 2}
     - target: {fileID: 114014082280053030, guid: 7704b3734c7acdc44b684d6f8d00a7e6,
         type: 2}
       propertyPath: peito
       value: 
-      objectReference: {fileID: 114938820764976202, guid: 3d1b08b42611fdc44b4b5a12b7c1b1bf,
+      objectReference: {fileID: 1371843549754502, guid: 3d1b08b42611fdc44b4b5a12b7c1b1bf,
         type: 2}
     - target: {fileID: 114014082280053030, guid: 7704b3734c7acdc44b684d6f8d00a7e6,
         type: 2}
       propertyPath: luva
       value: 
-      objectReference: {fileID: 114488291882988754, guid: 7b59d7550b60a5740a63e5cf534c0057,
+      objectReference: {fileID: 1032894057585352, guid: 7b59d7550b60a5740a63e5cf534c0057,
         type: 2}
     - target: {fileID: 114014082280053030, guid: 7704b3734c7acdc44b684d6f8d00a7e6,
         type: 2}
       propertyPath: "cal\xE7a"
       value: 
-      objectReference: {fileID: 114173424249371562, guid: a081a2585835ea04f8ddbc1ff98f1cf7,
+      objectReference: {fileID: 1754838525433922, guid: a081a2585835ea04f8ddbc1ff98f1cf7,
         type: 2}
     - target: {fileID: 114014082280053030, guid: 7704b3734c7acdc44b684d6f8d00a7e6,
         type: 2}
       propertyPath: elmo
       value: 
-      objectReference: {fileID: 114521711109159312, guid: 9782a464bef8ccb45b468af9bc2d9ed2,
+      objectReference: {fileID: 1429183487864426, guid: 9782a464bef8ccb45b468af9bc2d9ed2,
         type: 2}
     - target: {fileID: 114014082280053030, guid: 7704b3734c7acdc44b684d6f8d00a7e6,
         type: 2}
       propertyPath: potion
       value: 
-      objectReference: {fileID: 666100082}
+      objectReference: {fileID: 1926248103022560, guid: a0c985615aa156d4ca433c56094f4cff,
+        type: 2}
     - target: {fileID: 61387080588991936, guid: 7704b3734c7acdc44b684d6f8d00a7e6,
         type: 2}
       propertyPath: m_Offset.x
@@ -5391,6 +5393,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &745123716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1936582950715468, guid: 7763fd32a7ca6bc4f9c40b14ad99aa73,
+    type: 2}
+  m_PrefabInternal: {fileID: 1655369150}
+--- !u!114 &745123721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 745123716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 789a15c90914ef54c8f4706cc34c51e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ativarMissao: 0
+  mochila: {fileID: 1986341039961684, guid: 0faf6d6b95336644383bbe6c3686aa02, type: 2}
+  Mestre: {fileID: 0}
+  texto: {fileID: 0}
+  mochilaEncontrada: 0
 --- !u!1 &767319130
 GameObject:
   m_ObjectHideFlags: 0
@@ -50912,7 +50935,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 932976784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -208.59, y: -24.76, z: 0.09375}
+  m_LocalPosition: {x: -242.99, y: -64.56, z: 0.09375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -66129,12 +66152,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4314628802018722, guid: 2acb467af7bffe141be1eaab67e8a60d,
     type: 2}
   m_PrefabInternal: {fileID: 669659760}
---- !u!114 &1496116633 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114459142377942486, guid: 52bf0687d29791c43854a2eee8d2f154,
-    type: 2}
-  m_PrefabInternal: {fileID: 301866294}
-  m_Script: {fileID: 11500000, guid: 6b41d697348cc414b98fa8d93e5d853f, type: 3}
 --- !u!1 &1514358585 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1881877288196942, guid: 8bfd79ebdf6fec5429e820ab03911116,

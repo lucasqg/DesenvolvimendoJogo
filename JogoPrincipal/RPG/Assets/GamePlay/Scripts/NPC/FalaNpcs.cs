@@ -44,15 +44,15 @@ public class FalaNpcs : MonoBehaviour
             NPC.sprite = npc;
 
         }
-
-        if (pergaminhoEntregue)
-        {
-            pergaminhoEntregue = false;
-            player.SetNivelDeMissao("missaoPrincipal");
-            instrucoes.text = "Fale com o mestre da vila";
-        }
+        
     }
 
+    public void EncontrouCientista()
+    {
+        player.SetNivelDeMissao("missaoPrincipal");
+        ativaCientista = false;
+        instrucoes.text = "Fale com o mestre da vila";
+    }
 
     public void TentaConversar()
     {
@@ -85,8 +85,24 @@ public class FalaNpcs : MonoBehaviour
     {
         switch (op)
         {
+            case 0:
+                if (ativaCientista)
+                {
+                    conversa.text = "RÁPIDO, ENCONTRE O CIENTISTA";
+                }
+                else
+                {
+                    conversa.text = " ";
+                }
+                break;
             case 1:
-                if (PlayerStatsController.GetCurrentReputation() <= 100)
+                if (ativaCientista)
+                {
+                    i = 0;
+                    conversa.text = " ";
+                    fechaTudo();
+                }
+                if (PlayerStatsController.GetCurrentReputation() < 100)
                 {
                     conversa.text = "Olá amigo\n As regras são claras, siga-as e você terá futuro em nossa civilização.\n Saia daqui e volte quando conseguir!";
                   
@@ -100,14 +116,15 @@ public class FalaNpcs : MonoBehaviour
                 else if (PlayerStatsController.GetCurrentReputation() >= 100 && nivelDeMissao == 1)
                 {
                     conversa.text = "Oh não o cientista se esqueceu da mochila, nela está contida a unica receita que pode destruir o fungo e os equipamentos necessarios para fazer este feito!\n" +
-                    "Por favor, volte até la e encontre a mochila.";
+                    "Por favor, volte até la e encontre a mochila onde ela estiver." +
+                    "\nDica: Encontre a carroça quebrada";
                     instrucoes.text = "Encontre a mochila!";
                     buscarMochila();
                 }
                 else if (PlayerStatsController.GetCurrentReputation() >= 100 && nivelDeMissao == 2)
                 {
                     conversa.text = "Finalmente, achei que tivesse morrido...\n" +
-                    "Você trouxe a mochiça?";
+                    "Você trouxe a mochila?";
                 }
                 break;
             case 2:
@@ -124,9 +141,10 @@ public class FalaNpcs : MonoBehaviour
                     iniciaMissaoSalvamento();
                     break;
                 }
-                else
+                else if(PlayerStatsController.GetCurrentReputation() < 100)
                 {
-                    
+                    i = 0;
+                    fechaTudo();
                 }
                 break;
             case 3:
@@ -138,12 +156,13 @@ public class FalaNpcs : MonoBehaviour
     private void buscarMochila()
     {
         carroca.ativarMissao = true;
+        carroca.Mestre = this;
     }
     private void iniciaMissaoSalvamento()
     {
         if (ativaCientista == false)
         {
-            cientista = Instantiate(cien, new Vector3(1.08f, -61.42f, -1.12f), Quaternion.identity);
+            cientista = Instantiate(cien, new Vector3(-245.13f, -101.34f, -1.12f), Quaternion.identity);
             cientista.GetComponent<CientistaLouco>().mestre = this;
             ativaCientista = true;
         }
@@ -159,7 +178,7 @@ public class FalaNpcs : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if (nivelDeMissao == 1) foreach (SlotInventarioBehaviour slot in ContoleDeInventario.instance.InventarioSlots)
+            if (carroca.mochilaEncontrada) foreach (SlotInventarioBehaviour slot in ContoleDeInventario.instance.InventarioSlots)
                 {
                     if (slot.currentItem != null && slot.currentItem.identificacao == 23)
                     {

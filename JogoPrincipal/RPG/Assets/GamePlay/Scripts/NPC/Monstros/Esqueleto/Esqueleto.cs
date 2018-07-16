@@ -9,18 +9,18 @@ public class Esqueleto : NpcBase {
     public override void InicializacaoDeStatus()
     {
         velTotal = 900;
-        danoTotal = 10;
+        danoTotal = 5;
         defesaTotal = 3;
-        totalLife = 20;
+        totalLife = 17;
         currentLife = totalLife;
         nameNPC = "Esqueleto";
         xp = 50;
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
         for (int i = 0; i < player.GetNivelDeMissao("missão3"); i++)
         {
-            danoTotal += 8;
-            defesaTotal += 4;
-            totalLife += 25;
+            danoTotal += 2;
+            defesaTotal += 3;
+            totalLife += 3;
             currentLife = totalLife;
             xp += 50;
         }
