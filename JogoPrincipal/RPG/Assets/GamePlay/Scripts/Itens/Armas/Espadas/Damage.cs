@@ -17,7 +17,7 @@ public class Damage : MonoBehaviour {
 
     public void applyDamageMonster(NpcBase monster)
     {
-        monster.applyDamage(player.danoTotal -2, player.danoTotal);
+        monster.applyDamage(player.danoTotal, player.danoTotal);
     }
    
     public void OnTriggerExit2D(Collider2D collision)

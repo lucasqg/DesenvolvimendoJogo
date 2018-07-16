@@ -21,6 +21,8 @@ public class MovimentacaoLobo : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        ArmazenarCoordenadasX = this.transform.position.x;
+        ArmazenarCoordenadasY = this.transform.position.y;
         bandeira = (FindObjectOfType(typeof(SpawnLoboMissao2)) as SpawnLoboMissao2).gameObject;
         anim = GetComponent<Animator>();
         lobo = GetComponent<Transform>();
@@ -74,7 +76,7 @@ public class MovimentacaoLobo : MonoBehaviour {
         
         if (outro.gameObject.CompareTag("Player"))
         {
-            Hero = bandeira.transform;
+            Hero = null;
             perseguindo = true;
         }
 

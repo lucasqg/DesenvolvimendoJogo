@@ -22,8 +22,8 @@ public class MorcegoMutado : NpcBase {
     {
         velTotal = 1500;
         danoTotal = 5;
-        defesaTotal = 3;
-        totalLife = 10;
+        defesaTotal = 1;
+        totalLife = 20;
         currentLife = totalLife;
         nameNPC = "Morcego";
         xp = 30;
