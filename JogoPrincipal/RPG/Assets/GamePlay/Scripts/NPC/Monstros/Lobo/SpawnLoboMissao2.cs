@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnLoboMissao2 : MonoBehaviour {
+public class SpawnLoboMissao2 : NpcBase {
 
     public bool iniciarMissao = true;
-    public int contadorDeTempo1, contadorDeTempo2, contadorDeTempo3 = 0;
+    public int contadorDeTempo1, contadorDeTempo2, contadorDeTempo3 = 0, contadorFimMissao;
     public int tempoSpawn1, tempoSpawn2, tempoSpawn3;
     public GameObject lobo;
     public CabeloVerde boneca;
-
+    private bool Ativador;
     public List<float> positionX, positionY;
     public List<GameObject> conjuntoDeMonstros;
     // Use this for initialization
     void Start () {
+        inicialization();
         iniciarMissao = true;
         tempoSpawn1 = 1500;
         tempoSpawn2 = 1000;
@@ -21,17 +22,43 @@ public class SpawnLoboMissao2 : MonoBehaviour {
         //linha de codigo abaixo ja está implementada no script da boneca
         //boneca = FindObjectOfType(typeof(CabeloVerde)) as CabeloVerde; // ENCONTRA O SCRIPT DA CABELO VERDE NA CENA
     }
-	
-	// Update is called once per frame
-	void Update () {
+    public override void DropItem()
+    {
 
-        contadorDeTempo1 += 1; // inicia um contador de tempo para dar spawn nos mobs
-        contadorDeTempo2 += 1;
-        contadorDeTempo3 += 1;
-        if (iniciarMissao == true)
+    }
+    public override void DestroiMonster()
+    {
+        if (currentLife <= 0)
         {
-            // inicia spawn
-            InicioSpawn();
+            boneca.DerrotaDeMissao();//fim de missao
+            Destroy(this.gameObject);
+        }
+    }
+    public void inicialization()
+    {
+        danoTotal = 10;
+        defesaTotal = 5;
+        totalLife = 30;
+        currentLife = totalLife;
+        nameNPC = "Ovelha";;
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if (Ativador)
+        {
+            contadorDeTempo1 += 1; // inicia um contador de tempo para dar spawn nos mobs
+            contadorDeTempo2 += 1;
+            contadorDeTempo3 += 1;
+            contadorFimMissao += 1;
+            if (contadorFimMissao >= 15000) //spawn 15X
+                boneca.FinalizarMissao();
+            if (iniciarMissao == true)
+            {
+                // inicia spawn
+                InicioSpawn();
+            }
+            DestroiMonster();
         }
 	}
 
@@ -53,10 +80,6 @@ public class SpawnLoboMissao2 : MonoBehaviour {
             contadorDeTempo2 = 0; //reseta o contador para reiniciar o spawn
             tempoSpawn2 -= 150;
             conjuntoDeMonstros.Add(SpawnMonster(positionX[1], positionY[1], lobo));
-            if (tempoSpawn2 <= 0)
-            {
-                FimDeMissão();
-            }
 
         }
         if (contadorDeTempo3 >= tempoSpawn3)
@@ -77,6 +100,17 @@ public class SpawnLoboMissao2 : MonoBehaviour {
     public GameObject SpawnMonster(float x, float y, GameObject monstro)
     {
         GameObject monster = Instantiate(monstro, new Vector3(x, y, -1), Quaternion.identity);
+        monster.GetComponent<MovimentacaoLobo>().LoboDeMissao = true;
+        monster.transform.parent = this.transform;
         return monster;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            Ativador = true;
+            Destroy(this.GetComponent<CircleCollider2D>());
+        }
     }
 }

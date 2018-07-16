@@ -21,19 +21,28 @@ public class DamageMonster : MonoBehaviour
     {
         carroceiro.addLife(-dano);
     }
+    public void applyDamageOvelha(int dano, SpawnLoboMissao2 ovelha)
+    {
+        ovelha.addLife(-dano);
+    }
     public void OnTriggerStay2D(Collider2D collision)
     {
         ContadorDeTempo += 1;
 
-        if (collision.tag == "Player" && ContadorDeTempo> monstro.velTotal)
+        if (collision.tag == "Player" && ContadorDeTempo > monstro.velTotal)
         {
             player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
             applyDamagePlayer(monstro.danoTotal);
             ContadorDeTempo = 0;
         }
-        else if(collision.tag == "Carroceiro" && ContadorDeTempo > monstro.velTotal)
+        else if (collision.tag == "Carroceiro" && ContadorDeTempo > monstro.velTotal)
         {
             applyDamageNPC(monstro.danoTotal, collision.GetComponent<Carroceiro>());
+            ContadorDeTempo = 0;
+        }
+        else if (this.gameObject.tag == "LoboSelvagem" && collision.tag == "Ovelha")
+        {
+            applyDamageOvelha(monstro.danoTotal, collision.GetComponent<SpawnLoboMissao2>());
             ContadorDeTempo = 0;
         }
     }

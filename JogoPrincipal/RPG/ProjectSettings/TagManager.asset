@@ -19,6 +19,7 @@ TagManager:
   - Esqueleto
   - LoboDecomposto
   - Spawn
+  - Ovelha
   layers:
   - Default
   - TransparentFX

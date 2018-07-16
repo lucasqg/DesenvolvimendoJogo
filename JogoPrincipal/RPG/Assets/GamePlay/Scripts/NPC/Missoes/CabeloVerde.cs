@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CabeloVerde : MonoBehaviour {
+    public Text Descricao;
     public Text abrirJanela;
     public Text conversa, nomeNpc;
     public Canvas fala;
@@ -38,22 +39,8 @@ public class CabeloVerde : MonoBehaviour {
             NPC.sprite = npc;
         }
 
-        if (missaoAtiva)
-        {
-            MissaoAtiva();
-            DerrotaDeMissao();
-        }
     }
 
-    public void MissaoAtiva()
-    {
-        ContadorDeTempo += 1;
-        if(ContadorDeTempo >= tempoMaximoMissao)
-        {
-            FinalizarMissao();
-            missaoAtiva = false;
-        }
-    }
 
     public void TentaConversar()
     {
@@ -90,12 +77,17 @@ public class CabeloVerde : MonoBehaviour {
                 conversa.text = "Por favor, me ajude :(";
                 break;
             case 2:
-                conversa.text = "Tenho uma fazenda que abastece a cidadela com comida, mas eu descobri que os lobos estão indo para lá, preciso de um verdadeiro heroi para salvar minha fazenda!\n Bom... acho que estão atrás da minha ovelha, ela é a ultima que sobrou no mundo todo! Salve a qualquer custo!!!!";
+                conversa.text = "Minha ovelha desapareceu, já procurei por toda a cidade e não encontro em lugar nenhum\n Talvez ela tenha fugido pelas escadas\n Por favor, a encontre e a mantenha segur!" +
+                    "\nSalve a qualquer custo!!!!";
                 break;
             case 3:
-                conversa.text = "Siga na estrada a direita até o final e defenda a ovelha, se um lobo matar ela, tudo estará acabado! \n<b>PROTEJA MINHA OVELHA e minha fazenda...</b>\n\nDizem que sua reputação subirá ao terminar isso, ah e te darei um pouquinho de ouro pela ajuda! ";
+                conversa.text = "Encontre e defenda a ovelha, não deixe os lobos se aproximarem pois tudo estará acabado! \n<b>PROTEJA MINHA OVELHA...</b>\n ";
+                Descricao.text = "Encontre a ovelha\n Não deixe que nenhum lobo mate ela.. e também não morra!";
                 break;
             case 4:
+
+                falando = false;
+                
                 IniciarMissao(); // inicia a missao
                 break;
         }
@@ -104,18 +96,18 @@ public class CabeloVerde : MonoBehaviour {
 
     public void IniciarMissao()
     {
-        bandeiraAtiva = Instantiate(bandeira, new Vector3(75.09f, -24.36f, -1), Quaternion.identity);
+        falando = false;
+        bandeiraAtiva = Instantiate(bandeira, new Vector3(-147.32f, -93.13f, -2), Quaternion.identity);
         bandeiraAtiva.GetComponent<SpawnLoboMissao2>().boneca = this;
-        //bandeira.SetActive(true); // liga a bandeira e inicia a missão
+        bandeiraAtiva.SetActive(true); // liga a bandeira e inicia a missão
         Time.timeScale = defaultTimeScale; // pausa o game
-        fala.gameObject.SetActive(false);//liga e desliga o inventario
-        this.gameObject.SetActive(false); // boneca desaparece
+        fala.gameObject.SetActive(false);//liga e desliga a fala
         missaoAtiva = true;
+        i = 0;
     }
 
     public void FinalizarMissao()
     {
-        this.gameObject.SetActive(true);
         missaoAtiva = false;
         //condições de vitoria
         Destroy(bandeiraAtiva);
@@ -125,12 +117,10 @@ public class CabeloVerde : MonoBehaviour {
 
     public void DerrotaDeMissao()
     {
-       if(bandeira.GetComponent<NpcBase>().currentLife <= 10)
-        {
-            Destroy(bandeiraAtiva);
+       
             PlayerStatsController.AddReputation(-15);
             missaoAtiva = false;
-        }
+        
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
