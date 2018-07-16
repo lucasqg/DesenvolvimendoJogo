@@ -20,7 +20,10 @@ public class Botões : MonoBehaviour {
 
     public void OnStart()
     {
+        
         AudioG.inst.PlayAudio(selectAudio);
+        PlayerPrefs.SetInt("Reputação", 0);
+        PlayerPrefs.SetInt("currentLevel", 0);
         PlayerPrefs.SetInt("NewOrLoad", 0);
         this.GetComponent<LoadCene>().Load = "CreateChar";
         this.GetComponent<LoadCene>().OnStart();

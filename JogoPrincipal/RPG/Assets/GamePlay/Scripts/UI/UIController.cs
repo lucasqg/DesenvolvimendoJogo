@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
+    public GameObject TexTMissao, HUD, miniMapa;
     public Slider sliderLife;
     public Slider sliderStamina;
     public Slider sliderMana;
@@ -47,6 +48,9 @@ public class UIController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.I) && !inventarioDoVendedor.activeSelf)
         {
+            miniMapa.gameObject.SetActive(!miniMapa.gameObject.activeSelf);
+            HUD.gameObject.SetActive(!HUD.gameObject.activeSelf);
+            TexTMissao.gameObject.SetActive(!TexTMissao.gameObject.activeSelf);
             inventario.gameObject.SetActive(!inventario.gameObject.activeSelf); // liga e desliga o inventario
             if (inventario.gameObject.activeSelf)//CONDICIONAL QUE PAUSE O GAME.
             {
