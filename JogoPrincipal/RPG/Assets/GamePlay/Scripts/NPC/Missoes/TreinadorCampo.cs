@@ -118,11 +118,17 @@ public class TreinadorCampo : MonoBehaviour {
                 GameObject botaa = Instantiate(bota, playert.position, playert.rotation);
                 botaa.GetComponent<BotaGuerreiro>().GerarAleatorio(0);
                 GameObject potion1 = Instantiate(potion, playert.position, playert.rotation);
+                potion1.SetActive(true);
                 GameObject potion2 = Instantiate(potion, playert.position, playert.rotation);
+                potion2.SetActive(true);
                 GameObject potion3 = Instantiate(potion, playert.position, playert.rotation);
+                potion3.SetActive(true);
                 GameObject potion4 = Instantiate(potion, playert.position, playert.rotation);
+                potion4.SetActive(true);
                 GameObject potion5 = Instantiate(potion, playert.position, playert.rotation);
+                potion5.SetActive(true);
                 GameObject potion6 = Instantiate(potion, playert.position, playert.rotation);
+                potion6.SetActive(true);
                 PlayerStatsController.AddXp(50);
 
                 spawn = false;
