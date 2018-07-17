@@ -12,7 +12,6 @@ public class Damage : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
-
     }
 
     public void applyDamageMonster(NpcBase monster)
@@ -54,9 +53,8 @@ public class Damage : MonoBehaviour {
         else if(collision.tag == "BonecoDeTreino")
         {
             Debug.Log("Saco de pancadas levando DANO");
-            boneco = FindObjectOfType(typeof(BonecoDeTreino)) as BonecoDeTreino;
             player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
-            applyDamageMonster(boneco);
+            applyDamageMonster(collision.GetComponent<NpcBase>());
         }
 
     }

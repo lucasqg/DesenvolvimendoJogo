@@ -8,15 +8,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1372041717073480}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1196582552149814
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4954828652212686}
   - component: {fileID: 212785375473422930}
@@ -31,13 +31,14 @@ GameObject:
 --- !u!1 &1372041717073480
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4375374174666244}
   - component: {fileID: 60782267474437612}
   - component: {fileID: 114660437814314914}
+  - component: {fileID: 114412494002002018}
   m_Layer: 0
   m_Name: Espada_Cima
   m_TagString: Untagged
@@ -48,12 +49,12 @@ GameObject:
 --- !u!4 &4375374174666244
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372041717073480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08, y: 2.74, z: -0.28}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.28}
+  m_LocalScale: {x: 0.2700315, y: 0.2877235, z: 0.3274502}
   m_Children:
   - {fileID: 4954828652212686}
   m_Father: {fileID: 0}
@@ -62,7 +63,7 @@ Transform:
 --- !u!4 &4954828652212686
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1196582552149814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -75,7 +76,7 @@ Transform:
 --- !u!60 &60782267474437612
 PolygonCollider2D:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372041717073480}
   m_Enabled: 1
@@ -106,7 +107,7 @@ PolygonCollider2D:
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1196582552149814}
   m_Enabled: 1
@@ -120,10 +121,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114412494002002018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372041717073480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97006c9e097ed0d469dfe002b2bc5177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colisor: {fileID: 0}
+  monstro: {fileID: 0}
+  cidadao: {fileID: 0}
+  boneco: {fileID: 0}
+  player: {fileID: 0}
+  morcego: {fileID: 0}
 --- !u!114 &114660437814314914
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372041717073480}
   m_Enabled: 1
@@ -131,11 +149,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f740cc52c939d146af3faee5bf8c0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colisor: {fileID: 0}
+  monstro: {fileID: 0}
+  cidadao: {fileID: 0}
+  boneco: {fileID: 0}
+  player: {fileID: 0}
+  morcego: {fileID: 0}
   Arma: {fileID: 1372041717073480}
 --- !u!212 &212785375473422930
 SpriteRenderer:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1196582552149814}
   m_Enabled: 1
@@ -177,3 +201,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+  m_SpriteSortPoint: 0

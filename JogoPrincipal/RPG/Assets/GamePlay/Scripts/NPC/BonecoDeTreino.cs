@@ -5,13 +5,18 @@ using UnityEngine;
 public class BonecoDeTreino : NpcBase {
 
     public TreinadorCampo treinador;
-    public PlayerBehaviour player;
-    protected void Start()
+    public override void Start()
     {
         danoTotal = 0;
         defesaTotal = 0;
-        totalLife = 5;
+        totalLife = 10;
         currentLife = totalLife;
+        DestroiMonster();
+       // base.Start();
+    }
+    public override void Update()
+    {
+        DestroiMonster();
     }
 
     public override void DestroiMonster()

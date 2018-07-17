@@ -9,6 +9,7 @@ public class AtivadorEspada : MonoBehaviour {
     public GameObject Espada__Direita;
     public ControleDeEspada Atributos;
     public Transform Personagem;
+    public GameObject tPersonagem;
     public int posicao = 4;
     public bool espadaActive = false;
     public int velAtack = 100;
@@ -23,10 +24,8 @@ public class AtivadorEspada : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
             posicaoPlayer();
             PosicaoDeAtack();
-        
     }
 
     public void posicaoPlayer()
@@ -56,25 +55,26 @@ public class AtivadorEspada : MonoBehaviour {
         {
             for (int i = 1; i <= quantidadeDeHits; i++)
             {
+                ContadorDeTempo = 0;
                 if (posicao == 3)
                 {
-                    Instantiate(Espada__costas, transform.position, transform.rotation, Personagem);
-
+                    GameObject espada = Instantiate(Espada__costas, transform.position, transform.rotation, Personagem);
+                    espada.transform.parent = tPersonagem.transform;
                 }
                 else if (posicao == 1)
                 {
-                    Instantiate(Espada__Direita, transform.position, transform.rotation, Personagem);
-
+                    GameObject espada = Instantiate(Espada__Direita, transform.position, transform.rotation, Personagem);
+                    espada.transform.parent = tPersonagem.transform;
                 }
                 else if (posicao == 2)
                 {
-                    Instantiate(Espada__Esquerda, transform.position, transform.rotation, Personagem);
-
+                    GameObject espada = Instantiate(Espada__Esquerda, transform.position, transform.rotation, Personagem);
+                    espada.transform.parent = tPersonagem.transform;
                 }
                 else if (posicao == 4)
                 {
-                    Instantiate(Espada__Frente, transform.position, transform.rotation, Personagem);
-
+                    GameObject espada =  Instantiate(Espada__Frente, transform.position, transform.rotation, Personagem);
+                    espada.transform.parent = tPersonagem.transform;
                 }
                 ContadorDeTempo = 0;
             }
