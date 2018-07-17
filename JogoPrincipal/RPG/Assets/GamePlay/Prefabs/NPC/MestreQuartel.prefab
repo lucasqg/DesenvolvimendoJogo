@@ -8,15 +8,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1514420034686584}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1514420034686584
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4754178997347538}
   - component: {fileID: 212900946846728908}
@@ -34,11 +34,11 @@ GameObject:
 --- !u!4 &4754178997347538
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514420034686584}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.1, y: -3.96, z: -0.96}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -50.411385, y: 48.62207, z: -3.30375}
   m_LocalScale: {x: 0.892187, y: 0.9137504, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,10 +48,10 @@ Transform:
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514420034686584}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -67,7 +67,7 @@ Rigidbody2D:
 --- !u!58 &58750856706179924
 CircleCollider2D:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514420034686584}
   m_Enabled: 1
@@ -76,13 +76,13 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: -0.57}
+  m_Offset: {x: 0.027614415, y: -0.09255314}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.49484378
 --- !u!61 &61387080588991936
 BoxCollider2D:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514420034686584}
   m_Enabled: 1
@@ -91,7 +91,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0136595, y: -1.1786877}
+  m_Offset: {x: 0.54727376, y: -0.9548615}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -102,12 +102,12 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.987319, y: 2.7896445}
+  m_Size: {x: 2.0545473, y: 2.3419926}
   m_EdgeRadius: 0
 --- !u!114 &114014082280053030
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514420034686584}
   m_Enabled: 1
@@ -115,33 +115,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2160d58b1dd20a458306d5249c48d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  descricao: {fileID: 0}
   abrirJanela: {fileID: 0}
   conversa: {fileID: 0}
   nomeNpc: {fileID: 0}
   fala: {fileID: 0}
-  defaultTimeScale: 0
+  defaultTimeScale: 1
   npc: {fileID: 0}
   player: {fileID: 0}
   quantidadeDeFalas: 5
   tipoDeMissao: 0
   missao1: 0
   missao0: 1
-  elmo: {fileID: 0}
-  peito: {fileID: 0}
-  "cal\xE7a": {fileID: 0}
-  bota: {fileID: 0}
-  luva: {fileID: 0}
+  elmo: {fileID: 1429183487864426, guid: 9782a464bef8ccb45b468af9bc2d9ed2, type: 2}
+  peito: {fileID: 1371843549754502, guid: 3d1b08b42611fdc44b4b5a12b7c1b1bf, type: 2}
+  "cal\xE7a": {fileID: 1754838525433922, guid: a081a2585835ea04f8ddbc1ff98f1cf7, type: 2}
+  bota: {fileID: 1903816769839920, guid: 905a73ded4f2aba4499ece958e2d3804, type: 2}
+  luva: {fileID: 1032894057585352, guid: 7b59d7550b60a5740a63e5cf534c0057, type: 2}
   falar: 0
   dizendo: 0
-  potion: {fileID: 0}
-  espada: {fileID: 0}
-  morcego: {fileID: 0}
+  potion: {fileID: 1472684276487144, guid: 14b0fb9550428e54b9d05a2d27fa2931, type: 2}
+  espada: {fileID: 1117270107112250, guid: 52bf0687d29791c43854a2eee8d2f154, type: 2}
+  morcego: {fileID: 1775152632793700, guid: 59a0f833b9b2ee64fa2f541b5fca4828, type: 2}
   playert: {fileID: 0}
   spawn: 1
 --- !u!212 &212900946846728908
 SpriteRenderer:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514420034686584}
   m_Enabled: 1
@@ -183,3 +184,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
