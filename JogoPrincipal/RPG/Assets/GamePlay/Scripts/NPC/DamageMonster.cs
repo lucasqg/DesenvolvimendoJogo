@@ -20,8 +20,7 @@ public class DamageMonster : MonoBehaviour
     }
     public void applyDamageNPC(int dano, Carroceiro carroceiro)
     {
-        if (((int)carroceiro.defesaTotal - dano) < 0)
-            carroceiro.addLife((int)player.defTotal - dano);
+            carroceiro.addLife(- dano);
     }
     public void applyDamageOvelha(int dano, SpawnLoboMissao2 ovelha)
     {

@@ -14,6 +14,7 @@ public class MovimentaçãoNPC : MonoBehaviour {
     private bool vivo = true;
     private Transform monster;
     private bool perseguindo = false;
+    public float auxVel;
     //public PlayerBehaviour Player;
     private List<Transform> monstros;
 
@@ -23,6 +24,10 @@ public class MovimentaçãoNPC : MonoBehaviour {
         monster = GetComponent<Transform>();
         ArmazenarCoordenadasX = this.transform.position.x;
         ArmazenarCoordenadasY = this.transform.position.y;
+        if(auxVel != 0)
+        {
+            vel = auxVel;
+        }
     }
 	
 	// Update is called once per frame

@@ -7,9 +7,8 @@ public class SkillBehaviour : MonoBehaviour {
     public PlayerBehaviour player;
     public List<string> skillType;
     public AtivadorEspada espada;
-    public Sprite iconSkillWarrior;
-    public Sprite iconSkillPistoleiro;
-    public Sprite iconSkillBomber;
+    public Sprite iconCadeado;
+    public Sprite iconGuerreiro1, iconGuerreiro2, iconGuerreiro3, iconGuerreiro4, iconGuerreiro5, iconGuerreiro6;
     public Button botão;
     public bool explosion = false;
     public bool hitDuplo = false;
@@ -21,14 +20,41 @@ public class SkillBehaviour : MonoBehaviour {
     public bool regeneracaoHPStamina = false;
     public bool passivaIvulnerabilidade = false;
     public bool giroDoInfinito = false;
-
+    public SkillAtivador um, dois, tres, quatro, cinco, seis;
+    public SkillAtivador tipoDeSkill;
     public void Start()
     {
-        botão.image.overrideSprite = iconSkillWarrior;
+        
     }
     public void Update()
     {
-        botão.image.sprite = iconSkillWarrior;
+        
+    }
+
+    public void DescricaoDeSkill()
+    {
+        // aki fica a descricao das skills
+    }
+
+    public void CompraSkill()
+    {
+        if(tipoDeSkill != null)
+        {
+            DescricaoDeSkill();
+            if(tipoDeSkill.code == 0)
+            {
+                //duplo hit
+                if (hitDuplo == false)
+                {
+                    HitDuplo();
+                    tipoDeSkill = null;
+                }
+            }
+            else if( tipoDeSkill.code == 1)
+            {
+                // Explosion
+            }
+        }
     }
     //Arvores skill class guerreiro
     //variaveis de cada classe:
@@ -40,6 +66,7 @@ public class SkillBehaviour : MonoBehaviour {
             skillType.Add("HitDuplo");  //adiciona o skill duplo 
             hitDuplo = true;
             //habilita animação skill ativada
+            um.ativaImagem(iconGuerreiro1);
         }
         else  
         {
@@ -48,7 +75,7 @@ public class SkillBehaviour : MonoBehaviour {
     }
 
     public void TiposDeSkill() // apresenta na arvore de skill todas imagens
-    {
+    {/*
         if(player.GetType().ToString() == "Guerreiro")
         {
             botão.image.overrideSprite = iconSkillWarrior;
@@ -64,7 +91,7 @@ public class SkillBehaviour : MonoBehaviour {
         else
         {
             botão.image.overrideSprite = iconSkillWarrior;
-        }
+        }*/
     }
 
     // INICIO SKILL GUERREIRO
