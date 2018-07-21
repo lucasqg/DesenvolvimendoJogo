@@ -8,7 +8,7 @@ public class SkillBehaviour : MonoBehaviour {
     public List<string> skillType;
     public AtivadorEspada espada;
     public Sprite iconCadeado;
-    public Sprite iconGuerreiro1, iconGuerreiro2, iconGuerreiro3, iconGuerreiro4, iconGuerreiro5, iconGuerreiro6;
+    public Sprite DH, EX, TH, BD, AH, LE, AAG, PIB, RH, GI;
     public Button botão;
     public bool explosion = false;
     public bool hitDuplo = false;
@@ -20,39 +20,180 @@ public class SkillBehaviour : MonoBehaviour {
     public bool regeneracaoHPStamina = false;
     public bool passivaIvulnerabilidade = false;
     public bool giroDoInfinito = false;
-    public SkillAtivador um, dois, tres, quatro, cinco, seis;
+    //public SkillAtivador um, dois, tres, quatro, cinco, seis;
     public SkillAtivador tipoDeSkill;
+
+    //UI
+    public Text descricao;
+    public Text pontos;
     public void Start()
     {
+        player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+    }
+    public void Update() { 
+        DescricaoDeSkill();
+        pontos.text = player.currentSkills.ToString();
+        //pontos.text = PlayerStatsController.GetCurrentPontosSkill().ToString();
         
     }
-    public void Update()
+    public void SelectedSkill(SkillAtivador Selecionado)
     {
-        
+        tipoDeSkill = Selecionado;
     }
 
     public void DescricaoDeSkill()
     {
-        // aki fica a descricao das skills
+        if (tipoDeSkill != null)
+        { 
+            if(tipoDeSkill.code == 0)
+            {
+                descricao.text = "Desfere 2 golpes rapidamente causando um dano duplo";
+            }
+            else if(tipoDeSkill.code == 1)
+            {
+                descricao.text = "Explode o campo em que a espada passar, causando o dobro de dano";
+            }
+            else if (tipoDeSkill.code == 2)
+            {
+                descricao.text = "Desfere 3 golpes rapidamente causando o triplo de dano de um ataque comum";
+            }
+            else if (tipoDeSkill.code == 3)
+            {
+                descricao.text = "Libera um spray reveitalizante que lhe permite ganhar defesa por um determinado tempo";
+            }
+            else if (tipoDeSkill.code == 4)
+            {
+                descricao.text = "Percebe-se que a vida não é so isto, ao habilitar esta passiva você ganha uma certa quantidade de HP permanentemente";
+            }
+            else if (tipoDeSkill.code == 5)
+            {
+                descricao.text = "Por que ficar atacando de perto se posso jogar a espada?\n Atira a espada para sua frente, causando dano na área em que passar";
+            }
+            else if (tipoDeSkill.code == 6)
+            {
+                descricao.text = "Parece que isto funciona como uma academia sem esteroides, ao ativa-lá você ganha força permanentemente";
+            }
+            else if (tipoDeSkill.code == 7)
+            {
+                descricao.text = "Cada primeiro ataque de um monstro lhe causará a metade de sua vida ";
+            }
+            else if (tipoDeSkill.code == 8)
+            {
+                descricao.text = "Seu sangue ferve no campo de batalha." +
+                    "\nApartir daqui, você recebe um pouco de Vida e Stamina a cada 5 segundo";
+            }
+            else if (tipoDeSkill.code == 9)
+            {
+                descricao.text = "Sua espada gira em seu redor por 3 segundos causando dano a quem estiver perto";
+            }
+        }
+
+    
     }
 
     public void CompraSkill()
     {
         if(tipoDeSkill != null)
         {
-            DescricaoDeSkill();
             if(tipoDeSkill.code == 0)
             {
                 //duplo hit
                 if (hitDuplo == false)
                 {
                     HitDuplo();
+                    tipoDeSkill.ativaImagemSemCadeado(DH);
                     tipoDeSkill = null;
                 }
             }
             else if( tipoDeSkill.code == 1)
             {
                 // Explosion
+                if(explosion == false)
+                {
+                    Explosion();
+                    tipoDeSkill.ativaImagemSemCadeado(EX);
+                    tipoDeSkill = null;
+                }
+            }
+            else if (tipoDeSkill.code == 2)
+            {
+                // hit Triplo
+                if (hitTriplo == false)
+                {
+                    HitTriplo();
+                    tipoDeSkill.ativaImagemSemCadeado(TH);
+                    tipoDeSkill = null;
+                }
+            }
+            else if (tipoDeSkill.code == 3)
+            {
+                // buff defesa
+                if (buffDefesa == false)
+                {
+                    BuffDefesa();
+                    tipoDeSkill.ativaImagemSemCadeado(BD);
+                    tipoDeSkill = null;
+                }
+            }
+            else if (tipoDeSkill.code == 4)
+            {
+                // aumento hp
+                if (aumentoHP == false)
+                {
+                    AumentoHP();
+                    tipoDeSkill.ativaImagemSemCadeado(AH);
+                    tipoDeSkill = null;
+                }
+            }
+            else if (tipoDeSkill.code == 5)
+            {
+                // lança espada
+                if (lançarEspada == false)
+                {
+                    LançarEspada();
+                    tipoDeSkill.ativaImagemSemCadeado(LE);
+                    tipoDeSkill = null;
+                }
+            }
+            else if (tipoDeSkill.code == 6)
+            {
+                // aumento atack guerreiro
+                if (aumentoAtackGuerreiro == false)
+                {
+                    AumentoAtackGuerreiro();
+                    tipoDeSkill.ativaImagemSemCadeado(AAG);
+                    tipoDeSkill = null;
+                }
+            }
+            else if (tipoDeSkill.code == 7)
+            {
+                // passiva de ivunerabilidade
+                if (passivaIvulnerabilidade == false)
+                {
+                    PassivaIvulnerabilidade();
+                    tipoDeSkill.ativaImagemSemCadeado(PIB);
+                    tipoDeSkill = null;
+                }
+            }
+            else if (tipoDeSkill.code == 8)
+            {
+                // passiva de ivunerabilidade
+                if (regeneracaoHPStamina == false)
+                {
+                    RegeneraçãoHPStamina();
+                    tipoDeSkill.ativaImagemSemCadeado(RH);
+                    tipoDeSkill = null;
+                }
+            }
+            else if (tipoDeSkill.code == 9)
+            {
+                // passiva de ivunerabilidade
+                if (giroDoInfinito == false)
+                {
+                    GiroDoInfinito();
+                    tipoDeSkill.ativaImagemSemCadeado(GI);
+                    tipoDeSkill = null;
+                }
             }
         }
     }
@@ -66,32 +207,12 @@ public class SkillBehaviour : MonoBehaviour {
             skillType.Add("HitDuplo");  //adiciona o skill duplo 
             hitDuplo = true;
             //habilita animação skill ativada
-            um.ativaImagem(iconGuerreiro1);
+            //um.ativaImagem(iconGuerreiro1);
         }
         else  
         {
             //informa pontos skill insuficiente;
         }
-    }
-
-    public void TiposDeSkill() // apresenta na arvore de skill todas imagens
-    {/*
-        if(player.GetType().ToString() == "Guerreiro")
-        {
-            botão.image.overrideSprite = iconSkillWarrior;
-        }
-        else if (player.GetType().ToString() == "Pistoleiro")
-        {
-            botão.image.overrideSprite = iconSkillPistoleiro;
-        }
-        else if(player.GetType().ToString() == "Bomber")
-        {
-            botão.image.overrideSprite = iconSkillBomber;
-        }
-        else
-        {
-            botão.image.overrideSprite = iconSkillWarrior;
-        }*/
     }
 
     // INICIO SKILL GUERREIRO
@@ -128,7 +249,7 @@ public class SkillBehaviour : MonoBehaviour {
         }
     }
 
-    public void BuffDefesa()
+    public void BuffDefesa()//
     {
         if (player.currentSkills >= 2 && hitDuplo == true && explosion == true)
         {
@@ -143,7 +264,7 @@ public class SkillBehaviour : MonoBehaviour {
         }
     }
 
-    public void AumentoHP()
+    public void AumentoHP()//
     {
         if (player.currentSkills >= 1 && explosion == true)
         {
@@ -158,7 +279,7 @@ public class SkillBehaviour : MonoBehaviour {
         }
     }
 
-    public void LançarEspada()
+    public void LançarEspada()//
     {
         if (player.currentSkills >= 3 && hitTriplo == true)
         {
@@ -172,7 +293,7 @@ public class SkillBehaviour : MonoBehaviour {
             //informa pontos skill insuficientes;
         }
     }
-    public void AumentoAtackGuerreiro()
+    public void AumentoAtackGuerreiro()//
     {
         if (player.currentSkills >= 3 && hitTriplo== true && buffDefesa== true)
         {
@@ -187,7 +308,7 @@ public class SkillBehaviour : MonoBehaviour {
         }
     }
 
-    public void PassivaIvulnerabilidade()
+    public void PassivaIvulnerabilidade()//
     {
 
         if (player.currentSkills >= 3 && buffDefesa == true && aumentoHP == true)
@@ -203,7 +324,7 @@ public class SkillBehaviour : MonoBehaviour {
         }
     }
 
-     public void RegeneraçãoHPStamina()
+     public void RegeneraçãoHPStamina()//
     {
         if (player.currentSkills >= 3 && aumentoHP == true)
         {

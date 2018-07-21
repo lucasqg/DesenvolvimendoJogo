@@ -5,23 +5,31 @@ using UnityEngine.UI;
 
 public class SkillAtivador : MonoBehaviour {
 
-    public SkillBehaviour istancer;
+    public SkillBehaviour arvore;
     public PlayerBehaviour player;
     public Button skill;
-    public Image cadeado;
     public int code;
 
 	// Use this for initialization
 
 	void Start () {
-        skill.image.overrideSprite = istancer.iconCadeado; // coloca como imagem o icone de arvore skill 
+        skill.image.overrideSprite = arvore.iconCadeado; // coloca o icone do cadeado
+        //arvore= FindObjectOfType(typeof(SkillBehaviour)) as SkillBehaviour;
+        skill = this.GetComponent<Button>();
+        player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+        ativaImagem();
     }
 	
 	// Update is called once per frame
 	void Update () {
         //skill.image.overrideSprite = istancer.botão.image.sprite; // coloca como imagem o icone de arvore skill 
     }
-    public void ativaImagem(Sprite image)
+
+    public void ativaImagem()
+    {
+        skill.image.overrideSprite = arvore.iconCadeado;
+    }
+    public void ativaImagemSemCadeado( Sprite image)
     {
         skill.image.overrideSprite = image;
     }
@@ -29,10 +37,16 @@ public class SkillAtivador : MonoBehaviour {
     {
         if (this.tag == "Skill1")
         {
-            if(istancer.hitDuplo == true)
+            if(arvore.hitDuplo == true)
             {
                 //skill.image.overrideSprite;
             }
         }
+    }
+
+    public void onClick()
+    {
+        arvore.SelectedSkill(this);
+        
     }
 }

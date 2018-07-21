@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ArvoreSkillController : MonoBehaviour {
 
     public Sprite imagemSlot;
+    public PlayerBehaviour player;
     public Text descrition;
     public Image arvoreSkill;
     public bool isActived;
@@ -16,6 +17,7 @@ public class ArvoreSkillController : MonoBehaviour {
     {
         arvoreSkill.gameObject.SetActive(false);
         isActived = false;
+        player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
     }
 	// Update is called once per frame
 	void Update () {
@@ -31,36 +33,4 @@ public class ArvoreSkillController : MonoBehaviour {
         }
     }
 
-    public void AtivadorSkill()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) // ataque básico
-        {
-
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha2) && skill.hitDuplo == true)
-        {
-            skill.AtivarDuploHit();
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha3) && skill.explosion == true)
-        {
-
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha4) && skill.hitTriplo == true)
-        {
-
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5) && skill.lançarEspada == true)
-        {
-
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha6) && skill.giroDoInfinito == true)
-        {
-
-        }
-    }
-
-    public void OnClick()
-    {
-
-    }
 }
