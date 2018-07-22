@@ -36,12 +36,12 @@ public class Carroceiro : NpcBase {
         switch (op)
         {
             case 1:
-                positionX = -9.56f;
-                positionY = -42.63f;
+                positionX = -199.45f;
+                positionY = -225.28f;
                 break;
             case 2:
-                positionX = -17.95f;
-                positionY = -43.38f;
+                positionX = -211.91f;
+                positionY = -226.55f;
                 break;
             case 3:
                 //deve ser teleportado
