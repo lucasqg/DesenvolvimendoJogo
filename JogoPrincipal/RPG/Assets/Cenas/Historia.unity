@@ -113,6 +113,40 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1386488935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1238400837954278, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1998513978}
+--- !u!114 &1386488936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1386488935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -146154839, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1386488941
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1386488935}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 986757c04734f7446a6d71eab9c36ea7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1998513978
 Prefab:
   m_ObjectHideFlags: 0
@@ -161,28 +195,28 @@ Prefab:
         type: 2}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: 580ddb539947d45479b5f14d39a3f1a8,
+      objectReference: {fileID: 12800000, guid: a8b9107eca74199489b6e47fd4649a77,
         type: 3}
     - target: {fileID: 114489266107659882, guid: 761ba637534a5aa48a81ea348fc4c2d9,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114489266107659882, guid: 761ba637534a5aa48a81ea348fc4c2d9,
         type: 2}
       propertyPath: m_FontData.m_LineSpacing
-      value: 0.9
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 114180480211050090, guid: 761ba637534a5aa48a81ea348fc4c2d9,
         type: 2}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: 580ddb539947d45479b5f14d39a3f1a8,
+      objectReference: {fileID: 12800000, guid: a8b9107eca74199489b6e47fd4649a77,
         type: 3}
     - target: {fileID: 114180480211050090, guid: 761ba637534a5aa48a81ea348fc4c2d9,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 35
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 114563682037588430, guid: 761ba637534a5aa48a81ea348fc4c2d9,
         type: 2}
@@ -198,46 +232,141 @@ Prefab:
     - target: {fileID: 114888273896685660, guid: 761ba637534a5aa48a81ea348fc4c2d9,
         type: 2}
       propertyPath: dialog.setences.Array.data[0]
-      value: "Em um planeta conhecido como D59, habitavam humanos com uma tecnologia
-        nao muito avancada, apos alguns conflitos internos que haviam acontecido,
-        finalmente encontraram a paz no mundo\u2026 mas mal sabiam que essa paz estava
-        para ser abalada, pois sob suas cabecas havia uma meteoro que nao... apresentava
+      value: "Em um planeta conhecido como D-59, habitavam humanos com uma tecnologia
+        n\xE3o muito avan\xE7ada, apos alguns conflitos internos que haviam acontecido,
+        finalmente encontraram a paz no mundo mas mal sabiam que essa paz estava para
+        ser abalada, pois sob suas cabe\xE7as havia um meteoro que n\xE3o apresentava
         perigo pelo seu tamanho, e sim pelo conte\xFAdo."
       objectReference: {fileID: 0}
     - target: {fileID: 114888273896685660, guid: 761ba637534a5aa48a81ea348fc4c2d9,
         type: 2}
       propertyPath: dialog.setences.Array.data[1]
-      value: E como um estrondo de um raio, mesmo caindo a uma velocidade grande nao
-        causou estragos na hora do impacto, apos o choque o meteoro liberou um certo
-        tipo de fungo que se instala nas plantas mudando sua forma de trabalhar no
-        meio ambiente, assim ao inves de produzir oxigenio...
+      value: "E como um estrondo de um raio, mesmo caindo a uma velocidade grande
+        n\xE3o causou estragos na hora do impacto, apos o choque o meteoro liberou
+        um certo tipo de fungo que se instala nas plantas mudando sua forma de trabalhar
+        no meio ambiente, assim ao inv\xE9s de produzir oxig\xEAnio..."
       objectReference: {fileID: 0}
     - target: {fileID: 114888273896685660, guid: 761ba637534a5aa48a81ea348fc4c2d9,
         type: 2}
       propertyPath: dialog.setences.Array.data[2]
       value: "Produz um composto com outras substancias extremamente t\xF3xicas que
-        em poucos segundos levava a falencia de orgaos."
+        em poucos segundos levava a fal\xEAncia de \xF3rg\xE3os."
       objectReference: {fileID: 0}
     - target: {fileID: 114888273896685660, guid: 761ba637534a5aa48a81ea348fc4c2d9,
         type: 2}
       propertyPath: dialog.setences.Array.data[3]
-      value: E como se nao fosse o bastante,  os que nao morrem se transformam em
-        criaturas atraves da mutacao do fungo.
+      value: "E como se n\xE3o fosse o bastante,  os que n\xE3o morrem se transformam
+        em criaturas atrav\xE9s da muta\xE7\xE3o do fungo."
       objectReference: {fileID: 0}
     - target: {fileID: 114888273896685660, guid: 761ba637534a5aa48a81ea348fc4c2d9,
         type: 2}
       propertyPath: dialog.setences.Array.data[4]
-      value: "Com isso a humanidade veio a beira da extincao, poucos conseguiram se
-        proteger os que conseguiram correram para o subsolo pois descobriram que como
-        o fungo ficava nas plantas ele n\xE3o se desenvolvia muito abaixo do solo.
-        No subsolo come\xE7aram a criar estufas onde atraves da ajuda tecnologica
-        da epoca, produziam oxigenio suficiente para os sobreviventes.\r\n"
+      value: "Com isso a humanidade veio a beira da extin\xE7\xE3o, poucos conseguiram
+        se proteger os que conseguiram correram para o subsolo pois descobriram que
+        como o fungo ficava nas plantas ele n\xE3o se desenvolvia muito abaixo do
+        solo. No subsolo come\xE7aram a criar estufas onde atrav\xE9s da ajuda tecnologica
+        da \xE9poca, produziam oxig\xEAnio suficiente para os sobreviventes.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 114489266107659882, guid: 761ba637534a5aa48a81ea348fc4c2d9,
         type: 2}
       propertyPath: m_FontData.m_Alignment
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 224479495500871946, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -639
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203779627015200, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203779627015200, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073833812185118, guid: 761ba637534a5aa48a81ea348fc4c2d9, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114140590905543092, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: a8b9107eca74199489b6e47fd4649a77,
+        type: 3}
+    - target: {fileID: 114140590905543092, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 114036171104588284, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224286470503499626, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224329276757874544, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224399392072849150, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224840275252397308, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224479495500871946, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224399392072849150, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224399392072849150, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224399392072849150, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224399392072849150, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224399392072849150, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224399392072849150, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114273317053612354, guid: 761ba637534a5aa48a81ea348fc4c2d9,
+        type: 2}
+      propertyPath: CameraFocus
+      value: 
+      objectReference: {fileID: 1386488941}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 761ba637534a5aa48a81ea348fc4c2d9, type: 2}
   m_IsPrefabAsset: 0

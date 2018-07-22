@@ -6,7 +6,7 @@ using UnityEngine;
 public class Dialog {
 
     public string Nome;
-    [TextArea(3,10)]
+    [TextArea(3,20)]
     public string[] setences;
 
 }

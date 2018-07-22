@@ -12,6 +12,7 @@ public class DialogManager : MonoBehaviour {
     public Sprite toSwap;
 
     public Animator animator;
+    public Animator CameraFocus;
 
     public GameObject Ativa;
 
@@ -82,8 +83,9 @@ public class DialogManager : MonoBehaviour {
 
         yield return new WaitForSeconds(1.5f);
         Ativa.SetActive(true);
+        CameraFocus.SetBool("AtivaZoom", true);
 
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(4);
 
         this.GetComponent<LoadCene>().OnStart();
     }
