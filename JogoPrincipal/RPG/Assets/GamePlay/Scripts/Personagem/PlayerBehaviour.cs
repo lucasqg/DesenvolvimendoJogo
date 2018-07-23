@@ -77,6 +77,7 @@ public class PlayerBehaviour : CharacterBase {
         }*/
         UI.SetExperiencia(PlayerStatsController.GetNextXp(), PlayerStatsController.GetCurrentXp());
         UI.SetLife(totalLife, currentLife);
+        UI.SetStamina(totalStamina, currentStamina);
         //base.Update();
     }
 

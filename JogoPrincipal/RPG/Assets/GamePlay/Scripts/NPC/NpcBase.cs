@@ -22,6 +22,12 @@ public class NpcBase : NpcDestructiveBase {
     public GameObject moeda, potionHP;
     public PlayerBehaviour player;
     private bool morto;
+    public bool explosionIsActive;
+
+    public void IstantiateExplosion(GameObject explosion)
+    {
+        GameObject explosionObject = Instantiate(explosion, this.transform.position, this.transform.rotation);
+    }
     public virtual void InicializacaoDeStatus()
     {
         // status atribuido dentro do monstro

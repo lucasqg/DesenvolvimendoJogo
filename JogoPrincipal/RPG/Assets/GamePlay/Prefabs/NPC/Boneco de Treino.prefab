@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 70356978107201180}
   - component: {fileID: 50827099857748256}
   - component: {fileID: 114096648733693162}
+  - component: {fileID: 61508661732045584}
   m_Layer: 0
   m_Name: Boneco de Treino
   m_TagString: BonecoDeTreino
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1881877288196942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -62.404907, y: 49.438747, z: -3.30375}
+  m_LocalPosition: {x: -95.88, y: 18.18, z: -3.30375}
   m_LocalScale: {x: 1.7861693, y: 1.7861693, z: 1.7861693}
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,6 +65,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
+--- !u!61 &61508661732045584
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1881877288196942}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.027488679, y: -0.060462773}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.76, y: 0.64}
+    newSize: {x: 0.76, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3679018, y: 0.51907444}
+  m_EdgeRadius: 0
 --- !u!70 &70356978107201180
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -121,7 +147,6 @@ MonoBehaviour:
   potionHP: {fileID: 0}
   player: {fileID: 0}
   treinador: {fileID: 0}
-  player: {fileID: 0}
 --- !u!212 &212241915178388124
 SpriteRenderer:
   m_ObjectHideFlags: 1

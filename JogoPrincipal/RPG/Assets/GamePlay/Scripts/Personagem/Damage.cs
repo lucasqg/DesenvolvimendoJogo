@@ -9,6 +9,8 @@ public class Damage : MonoBehaviour {
     public BonecoDeTreino boneco;
     public PlayerBehaviour player;
     public MorcegoMutado morcego;
+    public bool explosionActivation;
+    public GameObject explosion;
     // Use this for initialization
     void Start () {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
@@ -16,19 +18,26 @@ public class Damage : MonoBehaviour {
 
     public void applyDamageMonster(NpcBase monster)
     {
-        monster.applyDamage(player.danoTotal, player.danoTotal);
+        if (explosionActivation)
+        {
+            monster.IstantiateExplosion(explosion);
+            explosionActivation = false;
+            monster.applyDamage(player.danoTotal + 4, player.danoTotal + 4);
+        }
+        else
+            monster.applyDamage(player.danoTotal, player.danoTotal);
     }
    
     public void OnTriggerExit2D(Collider2D collision)
     {
        
-            if (collision.tag == "CidadaoMutante")
+        if (collision.tag == "CidadaoMutante")
             {
                 Debug.Log("Cidadao Mutante levando DAMAGE");
                 player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
                 applyDamageMonster(collision.GetComponent<NpcBase>());
             }
-            else if (collision.tag == "Esqueleto")
+        else if (collision.tag == "Esqueleto")
             {
                 applyDamageMonster(collision.GetComponent<NpcBase>());
             }
@@ -40,7 +49,7 @@ public class Damage : MonoBehaviour {
             {
                 applyDamageMonster(collision.GetComponent<NpcBase>());
             }
-        else if(collision.tag == "Morcego")
+        else if(collision.tag == "Morcego" && collision.GetComponent<BoxCollider2D>() == collision)
             {
             Debug.Log("Morcego levando DANO");
             player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;

@@ -106,7 +106,7 @@ public class TreinadorCampo : MonoBehaviour {
 
             if (spawn)
             {
-                GameObject morcegoo = Instantiate(morcego, new Vector3(-39.8f, -6.73f, -1.45f), Quaternion.identity);
+                GameObject morcegoo = Instantiate(morcego, new Vector3(-274.51f, -222.33f, -1.45f), Quaternion.identity);
                 GameObject elmoo = Instantiate(elmo, playert.position, playert.rotation);
                 elmoo.GetComponent<ElmoGuerreiro>().GerarAleatorio(0);
                 GameObject peitoo = Instantiate(peito, playert.position, playert.rotation);

@@ -25,6 +25,7 @@ TagManager:
   - Skill3
   - Skill4
   - Skill5
+  - MonsterDamage
   layers:
   - Default
   - TransparentFX

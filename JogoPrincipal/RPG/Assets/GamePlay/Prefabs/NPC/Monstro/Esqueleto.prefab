@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114683961506988122}
   - component: {fileID: 114932980701544484}
   - component: {fileID: 61509965355383376}
+  - component: {fileID: 58330061564793518}
   m_Layer: 0
   m_Name: Esqueleto
   m_TagString: Esqueleto
@@ -41,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1571747785475470}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.88, y: -55.47, z: -1}
+  m_LocalPosition: {x: -134.6659, y: -61.051426, z: -1}
   m_LocalScale: {x: 0.41162238, y: 0.41162238, z: 0.4116221}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,8 +83,8 @@ CircleCollider2D:
   m_Offset: {x: 0.033719707, y: 0}
   serializedVersion: 2
   m_Radius: 6.03
---- !u!61 &61509965355383376
-BoxCollider2D:
+--- !u!58 &58330061564793518
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -94,7 +95,22 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.8888251}
+  m_Offset: {x: 0.08904184, y: -0.72725064}
+  serializedVersion: 2
+  m_Radius: 0.5633926
+--- !u!61 &61509965355383376
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1571747785475470}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.059370577, y: -0.71071887}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -105,7 +121,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8, y: 0.9223496}
+  m_Size: {x: 1.6812588, y: 1.9316089}
   m_EdgeRadius: 0
 --- !u!95 &95900949609983940
 Animator:

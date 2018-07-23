@@ -101,7 +101,7 @@ public class SkillBehaviour : MonoBehaviour {
                 if (hitDuplo == false)
                 {
                     HitDuplo();
-                    tipoDeSkill.ativaImagemSemCadeado(DH);
+                    tipoDeSkill.ativaImagemSemCadeado(DH, true);
                     tipoDeSkill = null;
                 }
             }
@@ -111,7 +111,7 @@ public class SkillBehaviour : MonoBehaviour {
                 if(explosion == false)
                 {
                     Explosion();
-                    tipoDeSkill.ativaImagemSemCadeado(EX);
+                    tipoDeSkill.ativaImagemSemCadeado(EX, true);
                     tipoDeSkill = null;
                 }
             }
@@ -121,17 +121,18 @@ public class SkillBehaviour : MonoBehaviour {
                 if (hitTriplo == false)
                 {
                     HitTriplo();
-                    tipoDeSkill.ativaImagemSemCadeado(TH);
+                    tipoDeSkill.ativaImagemSemCadeado(TH, true);
                     tipoDeSkill = null;
                 }
             }
             else if (tipoDeSkill.code == 3)
             {
-                // buff defesa
+                // passiva defesa
                 if (buffDefesa == false)
                 {
                     BuffDefesa();
-                    tipoDeSkill.ativaImagemSemCadeado(BD);
+                    player.defTotal += 4;
+                    tipoDeSkill.ativaImagemSemCadeado(BD, false);
                     tipoDeSkill = null;
                 }
             }
@@ -141,7 +142,8 @@ public class SkillBehaviour : MonoBehaviour {
                 if (aumentoHP == false)
                 {
                     AumentoHP();
-                    tipoDeSkill.ativaImagemSemCadeado(AH);
+                    player.totalLife += 20;
+                    tipoDeSkill.ativaImagemSemCadeado(AH, false);
                     tipoDeSkill = null;
                 }
             }
@@ -151,7 +153,7 @@ public class SkillBehaviour : MonoBehaviour {
                 if (lançarEspada == false)
                 {
                     LançarEspada();
-                    tipoDeSkill.ativaImagemSemCadeado(LE);
+                    tipoDeSkill.ativaImagemSemCadeado(LE, true);
                     tipoDeSkill = null;
                 }
             }
@@ -161,7 +163,8 @@ public class SkillBehaviour : MonoBehaviour {
                 if (aumentoAtackGuerreiro == false)
                 {
                     AumentoAtackGuerreiro();
-                    tipoDeSkill.ativaImagemSemCadeado(AAG);
+                    player.danoTotal += 3;
+                    tipoDeSkill.ativaImagemSemCadeado(AAG, false);
                     tipoDeSkill = null;
                 }
             }
@@ -171,7 +174,7 @@ public class SkillBehaviour : MonoBehaviour {
                 if (passivaIvulnerabilidade == false)
                 {
                     PassivaIvulnerabilidade();
-                    tipoDeSkill.ativaImagemSemCadeado(PIB);
+                    tipoDeSkill.ativaImagemSemCadeado(PIB, false);
                     tipoDeSkill = null;
                 }
             }
@@ -181,17 +184,17 @@ public class SkillBehaviour : MonoBehaviour {
                 if (regeneracaoHPStamina == false)
                 {
                     RegeneraçãoHPStamina();
-                    tipoDeSkill.ativaImagemSemCadeado(RH);
+                    tipoDeSkill.ativaImagemSemCadeado(RH, false);
                     tipoDeSkill = null;
                 }
             }
             else if (tipoDeSkill.code == 9)
             {
-                // passiva de ivunerabilidade
+                // regeneração HP e Stamina
                 if (giroDoInfinito == false)
                 {
                     GiroDoInfinito();
-                    tipoDeSkill.ativaImagemSemCadeado(GI);
+                    tipoDeSkill.ativaImagemSemCadeado(GI, true);
                     tipoDeSkill = null;
                 }
             }

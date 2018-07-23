@@ -115,7 +115,7 @@ public abstract class DestructiveBase : MonoBehaviour {
         }
     }
 
-    public void ApplayDamage(int damage)
+        public void ApplayDamage(int damage)
     {
         currentLife -= damage;
         if (currentLife <= 0)

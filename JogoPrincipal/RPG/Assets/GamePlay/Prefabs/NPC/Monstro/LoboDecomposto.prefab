@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 70611995680761404}
   - component: {fileID: 58158913702262800}
   - component: {fileID: 114741183986026754}
+  - component: {fileID: 61598285680507652}
   m_Layer: 0
   m_Name: LoboDecomposto
   m_TagString: LoboDecomposto
@@ -40,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1204738826431052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 66.82, y: -30.61, z: -1.1}
+  m_LocalPosition: {x: -134.42407, y: -59.21422, z: -1.1}
   m_LocalScale: {x: 0.2823352, y: 0.2823352, z: 0.2823352}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,6 +82,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 7.06
+--- !u!61 &61598285680507652
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1204738826431052}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.54093266, y: -0.043280482}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.2, y: 2.4}
+    newSize: {x: 4.2, y: 2.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.8970728, y: 2.6596596}
+  m_EdgeRadius: 0
 --- !u!70 &70611995680761404
 CapsuleCollider2D:
   m_ObjectHideFlags: 1

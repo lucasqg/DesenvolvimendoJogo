@@ -59,6 +59,33 @@ public class ContoleDeInventario : MonoBehaviour
         }
     }
 
+    public void VerificaPotionHP()
+    {
+        foreach (SlotInventarioBehaviour slot in InventarioSlots)
+        {
+            if (slot.currentItem.nameItem == "Poção Vida Grande" || slot.currentItem.nameItem == "Poção Vida Média" || slot.currentItem.nameItem == "Poção Vida Pequena")
+            {
+                slot.currentItem.Use(); //usa o item e o retira do inventario.
+                slot.SetupSlot();
+                break;
+            }
+
+        }
+    }
+    public void VerificaPotionStamina()
+    {
+        foreach (SlotInventarioBehaviour slot in InventarioSlots)
+        {
+            if (slot.currentItem.nameItem == "Poção Stamina Grande" || slot.currentItem.nameItem == "Poção Stamina Média" || slot.currentItem.nameItem == "Poção Stamina Pequena")
+            {
+                slot.currentItem.Use(); //usa o item e o retira do inventario.
+                slot.SetupSlot();
+                break;
+            }
+
+        }
+    }
+
     public void AddItemToInventory(ItensBase item, bool delete = false) // adiciona um item ao inventario, testa se é Stack ou não.
     {
         bool foundItem = false;

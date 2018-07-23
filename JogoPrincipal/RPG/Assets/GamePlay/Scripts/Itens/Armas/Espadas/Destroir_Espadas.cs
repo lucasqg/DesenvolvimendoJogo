@@ -5,6 +5,7 @@ using UnityEngine;
 public class Destroir_Espadas : Damage {
     public GameObject Arma;
     private float timer = 0f;
+
     // Use this for initialization
 
     void Start () {

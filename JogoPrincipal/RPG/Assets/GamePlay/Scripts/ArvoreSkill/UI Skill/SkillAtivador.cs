@@ -8,6 +8,7 @@ public class SkillAtivador : MonoBehaviour {
     public SkillBehaviour arvore;
     public PlayerBehaviour player;
     public Button skill;
+    public Button skillHUD;
     public int code;
 
 	// Use this for initialization
@@ -29,9 +30,11 @@ public class SkillAtivador : MonoBehaviour {
     {
         skill.image.overrideSprite = arvore.iconCadeado;
     }
-    public void ativaImagemSemCadeado( Sprite image)
+    public void ativaImagemSemCadeado(Sprite image, bool skillType)
     {
         skill.image.overrideSprite = image;
+        if(skillType)
+            skillHUD.image.overrideSprite = image;
     }
     public void tipoDeSkill()
     {

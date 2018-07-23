@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 58500944737611908}
   - component: {fileID: 50810231902115806}
   - component: {fileID: 58160840971207316}
+  - component: {fileID: 61630095580792658}
   m_Layer: 0
   m_Name: LoboSelvagem
   m_TagString: LoboSelvagem
@@ -41,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1830894640697126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -128.01706, y: -62.351524, z: -1.1}
+  m_LocalPosition: {x: -131.99483, y: -60.216404, z: -1.1}
   m_LocalScale: {x: 0.40605158, y: 0.40605158, z: 0.40605158}
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,6 +98,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.24890088}
   serializedVersion: 2
   m_Radius: 8.56
+--- !u!61 &61630095580792658
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1830894640697126}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.50667, y: 0.38383067}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.2, y: 4.2}
+    newSize: {x: 4.2, y: 4.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.6953523, y: 1.89696}
+  m_EdgeRadius: 0
 --- !u!95 &95966075140082078
 Animator:
   serializedVersion: 3

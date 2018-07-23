@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour {
     public Slider sliderStamina;
     public Slider sliderMana;
     public Slider sliderMonster;
-    public Slider sloderExp;
+    public Slider sloderExp, skill2, skill3, skill4, skill5, skill6;
     public Text messageItemToTake;
     public Text atributosItens;
     public ContoleDeInventario inventario;
@@ -75,7 +75,18 @@ public class UIController : MonoBehaviour {
             inventario.gameObject.SetActive(!inventario.gameObject.activeSelf); // liga e desliga o inventario
             Time.timeScale = defaultTimeScale;
         }
-
+        testaPotion();
+    }
+    public void testaPotion()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            inventario.VerificaPotionHP();
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            inventario.VerificaPotionStamina();
+        }
     }
 
     public void AbrirStatusPontos()
@@ -125,7 +136,31 @@ public class UIController : MonoBehaviour {
         sliderLife.value = newPositionSlider;
         
     }
-   
+    public void SetSkill2(float maxStamina, float currentStamina)
+    {
+        float newPositionSlider = currentStamina * 1 / maxStamina;
+        skill2.value = newPositionSlider;
+    }
+    public void SetSkill3(float maxStamina, float currentStamina)
+    {
+        float newPositionSlider = currentStamina * 1 / maxStamina;
+        skill3.value = newPositionSlider;
+    }
+    public void SetSkill4(float maxStamina, float currentStamina)
+    {
+        float newPositionSlider = currentStamina * 1 / maxStamina;
+        skill4.value = newPositionSlider;
+    }
+    public void SetSkill5(float maxStamina, float currentStamina)
+    {
+        float newPositionSlider = currentStamina * 1 / maxStamina;
+        skill5.value = newPositionSlider;
+    }
+    public void SetSkill6(float maxStamina, float currentStamina)
+    {
+        float newPositionSlider = currentStamina * 1 / maxStamina;
+        skill6.value = newPositionSlider;
+    }
     public void SetStamina(float maxStamina, float currentStamina)
     {
         float newPositionSlider = currentStamina * 1 / maxStamina;
