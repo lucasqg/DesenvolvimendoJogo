@@ -16,14 +16,16 @@ public class EditarPersonagem : MonoBehaviour {
     public GameObject GObjectHead;
     public GameObject GObjectBody;
     public GameObject GObjectLeg;
-
+    
     public int indexH = 0, indexB = 0, indexL = 0;
+
+    public AudioClip click;
 
 
     //Botões para Head
     public void nextSpriteHead()
     {
-
+        AudioG.inst.PlayAudio(click);
         if (indexH < Heads.Length-1)
         {
             indexH++;
@@ -40,6 +42,7 @@ public class EditarPersonagem : MonoBehaviour {
 
     public void previousSpriteHead()
     {
+        AudioG.inst.PlayAudio(click);
         if (indexH > 0)
         {
             indexH--;
@@ -58,7 +61,7 @@ public class EditarPersonagem : MonoBehaviour {
     //Botoes para Body
     public void nextSpriteBody()
     {
-
+        AudioG.inst.PlayAudio(click);
         if (indexB < Heads.Length-1)
         {
             indexB++;
@@ -75,6 +78,7 @@ public class EditarPersonagem : MonoBehaviour {
 
     public void previousSpriteBody()
     {
+        AudioG.inst.PlayAudio(click);
         if (indexB > 0)
         {
             indexB--;
@@ -93,7 +97,7 @@ public class EditarPersonagem : MonoBehaviour {
     //Botoes para Legs
     public void nextSpriteLeg()
     {
-
+        AudioG.inst.PlayAudio(click);
         if (indexL < Heads.Length-1)
         {
             indexL++;
@@ -109,6 +113,7 @@ public class EditarPersonagem : MonoBehaviour {
 
     public void previousSpriteLeg()
     {
+        AudioG.inst.PlayAudio(click);
         if (indexL > 0)
         {
             indexL--;
@@ -118,7 +123,7 @@ public class EditarPersonagem : MonoBehaviour {
         else
         {
             indexL = Heads.Length-1;
-            Leg.sprite = Heads[indexL];
+            Leg.sprite = Legs[indexL];
             GObjectLeg.GetComponent<SpriteRenderer>().sprite = Legs[indexL];
         }
     }

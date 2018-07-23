@@ -13,22 +13,25 @@ public class BotoesClasse : MonoBehaviour {
     public GameObject Load;
     [Space(10)]
     public InputField InputTmp;
-
+    public AudioClip click;
 
     //Botoes
 	public void OnGuerreiro()
     {
+        AudioG.inst.PlayAudio(click);
         classe = "Guerreiro";
     }
 
     public void OnPistoleiro()
     {
-        classe = "Pistoleiro";
+        AudioG.inst.PlayAudio(click);
+        classe = "Guerreiro";
     }
 
     public void OnBomber()
     {
-        classe = "Bomber";
+        AudioG.inst.PlayAudio(click);
+        classe = "Guerreiro";
     }
 
     public void OnCriarPesonagem()

@@ -23,6 +23,7 @@ public abstract class DestructiveBase : MonoBehaviour {
     // atributos variaveis a arma/set
     public SlotEquipavel arma, elmo, peito, bota, luva, calça, colar, anel1, anel2;
 
+
     //Controle de missões
     public List<int> missoes;
 
@@ -143,10 +144,9 @@ public abstract class DestructiveBase : MonoBehaviour {
         if (currentLife <= 2)
         {
             //destructive.gameObject.SetActive(true);
-            currentLife = totalLife;
-            this.gameObject.transform.position = new Vector3(-0.78f, -30f, -0.28f);
             // Destroy(this.gameObject);
-
+            this.GetComponent<PlayerBehaviour>().TelaMorre.gameObject.SetActive(true);
+            Debug.Log("chegou aki morreu");
         }
     }
 

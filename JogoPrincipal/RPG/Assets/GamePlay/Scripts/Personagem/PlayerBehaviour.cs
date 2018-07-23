@@ -12,6 +12,9 @@ public class PlayerBehaviour : CharacterBase {
     private TypeCharacter type;
     //UI
     public UIController UI;
+
+    public GameObject TelaMorre;
+
     protected void Start () {
         currentLevel = PlayerStatsController.GetCurrentLevel();
 

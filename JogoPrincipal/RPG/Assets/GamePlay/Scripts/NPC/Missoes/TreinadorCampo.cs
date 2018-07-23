@@ -202,7 +202,7 @@ public class TreinadorCampo : MonoBehaviour {
         if (dizendo)
         { 
             falar = false;
-            if (Input.GetKeyUp(KeyCode.KeypadEnter) && fala.gameObject.activeSelf)
+            if (Input.GetKeyUp(KeyCode.Return) && fala.gameObject.activeSelf)
             {
                 i++;
 

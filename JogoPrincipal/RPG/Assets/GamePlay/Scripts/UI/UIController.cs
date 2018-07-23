@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
-    public GameObject TexTMissao, HUD, miniMapa;
+    public GameObject TexTMissao, HUD, miniMapa, pause;
     public Slider sliderLife;
     public Slider sliderStamina;
     public Slider sliderMana;
@@ -70,7 +70,7 @@ public class UIController : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && inventario.gameObject.activeSelf && !inventarioDoVendedor.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) && inventario.gameObject.activeSelf && !inventarioDoVendedor.activeSelf && !pause)
         {
             inventario.gameObject.SetActive(!inventario.gameObject.activeSelf); // liga e desliga o inventario
             Time.timeScale = defaultTimeScale;
@@ -113,7 +113,7 @@ public class UIController : MonoBehaviour {
         }
         else
         {
-            Time.timeScale = defaultTimeScale;
+            Time.timeScale = 1f;
         }
     }
     public void ShowMessageTakeItem()
