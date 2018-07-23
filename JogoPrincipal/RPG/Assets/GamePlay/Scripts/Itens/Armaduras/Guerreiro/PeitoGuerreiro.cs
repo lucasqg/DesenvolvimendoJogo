@@ -20,17 +20,17 @@ public class PeitoGuerreiro : ArmaduraBase {
             PeitoInicial();
 
         }
-        else if (qualidadeDoItem < 0 && qualidadeDoItem < 3)
+        else if (qualidadeDoItem ==1)
         {
             PeitoRuim();
             AtributosAdicionais();
         }
-        else if (qualidadeDoItem >= 3 && qualidadeDoItem <= 6)
+        else if (qualidadeDoItem == 2)
         {
             PeitoBom();
             AtributosAdicionais();
         }
-        if (qualidadeDoItem <= 10 && qualidadeDoItem > 6)
+        if (qualidadeDoItem>= 3)
         {
             PeitoMuitoBom();
             AtributosAdicionais();

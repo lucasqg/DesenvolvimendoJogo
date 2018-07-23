@@ -42,13 +42,13 @@ public class Esqueleto : NpcBase {
         if (randomico == 1) //10% chance de acertar o valor
         {
             GameObject espadaInstanciada = Instantiate(espada, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity);
-            espadaInstanciada.GetComponent<ArmasBehaviour>().GerarAleatorio(player.GetNivelDeMissao("missão3"));
+            espadaInstanciada.GetComponent<ArmasBehaviour>().GerarAleatorio(player.GetNivelDeMissao("missão3" )+1);
         }
         int randominco = Random.Range(1, 10);
         if (randominco == 1) //10% chance de acertar o valor
         {
             GameObject peitoInstanciado = Instantiate(peito, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity);
-            peitoInstanciado.GetComponent<PeitoGuerreiro>().GerarAleatorio(player.GetNivelDeMissao("missão3")); //gera o atributo da armadura
+            peitoInstanciado.GetComponent<PeitoGuerreiro>().GerarAleatorio(player.GetNivelDeMissao("missão3")+1); //gera o atributo da armadura
         }
         base.DropItem();
     }

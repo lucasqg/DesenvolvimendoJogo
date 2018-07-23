@@ -19,7 +19,7 @@ public class NpcBase : NpcDestructiveBase {
     public int currentLevel;
     public BasicStatsNpc basicStats;
     public string nameNPC;
-    public GameObject moeda, potionHP;
+    public GameObject moeda, potionHP, potionStamina;
     public PlayerBehaviour player;
     private bool morto;
     public bool explosionIsActive;
@@ -97,6 +97,11 @@ public class NpcBase : NpcDestructiveBase {
         if (randomico == 1) //10% chance de acertar o valor
         {
             Instantiate(potionHP, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity).SetActive(true);
+        }
+        int randomico1 = Random.Range(1, 8);
+        if (randomico1 == 1) //10% chance de acertar o valor
+        {
+            Instantiate(potionStamina, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity).SetActive(true);
         }
         Destroy(this.gameObject);
     }

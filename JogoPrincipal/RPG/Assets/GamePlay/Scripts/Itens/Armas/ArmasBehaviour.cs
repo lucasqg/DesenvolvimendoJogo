@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -56,6 +57,10 @@ public class ArmasBehaviour : ItensBase{
     {
         player.danoTotal += adicionalDano + danoBase;
     }
+    public override void StatusArmaD()
+    {
+        player.danoTotal += adicionalDano - danoBase;
+    }
     public void GeraAtributos()
     {
         danoBase= Random.Range(1, 6);
@@ -76,17 +81,17 @@ public class ArmasBehaviour : ItensBase{
         {
             ArmaIncial();
         }
-        else if (qualidadeDoItem < 0 && qualidadeDoItem < 3)
+        else if (qualidadeDoItem == 1)
         {
             ArmaRuim();
             AtributosAdicionais();
         }
-        else if (qualidadeDoItem >= 3 && qualidadeDoItem <= 6)
+        else if (qualidadeDoItem == 2)
         {
             ArmaBoa();
             AtributosAdicionais();
         }
-        if (qualidadeDoItem <= 10 && qualidadeDoItem > 6)
+        if (qualidadeDoItem >=3)
         {
             ArmaMuitoBoa();
             AtributosAdicionais();
@@ -150,17 +155,14 @@ public class ArmasBehaviour : ItensBase{
     }
     public void ArmaRuim()
     {
-        minLevel = 3;
         danoBase = 3;
     }
     public void ArmaBoa()
     {
-        minLevel = 6;
         danoBase = 6;
     }
     public void ArmaMuitoBoa()
     {
-        minLevel = 10;
         danoBase = 9;
         velAtaque = 1.2f;
     }

@@ -166,9 +166,13 @@ MonoBehaviour:
   nameNPC: 
   moeda: {fileID: 1252179299354272, guid: bc31109a49cd2d942b401798bd2a6bf9, type: 2}
   potionHP: {fileID: 1926248103022560, guid: a0c985615aa156d4ca433c56094f4cff, type: 2}
+  potionStamina: {fileID: 1433011097007662, guid: 2f2272c8c054e3e4dbf787462b8c064c,
+    type: 2}
   player: {fileID: 0}
+  explosionIsActive: 0
   luva: {fileID: 1032894057585352, guid: 7b59d7550b60a5740a63e5cf534c0057, type: 2}
   elmo: {fileID: 1429183487864426, guid: 9782a464bef8ccb45b468af9bc2d9ed2, type: 2}
+  espada: {fileID: 1117270107112250, guid: 52bf0687d29791c43854a2eee8d2f154, type: 2}
 --- !u!114 &114505754296334158
 MonoBehaviour:
   m_ObjectHideFlags: 1

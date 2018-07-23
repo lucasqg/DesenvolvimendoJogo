@@ -7,7 +7,7 @@ public class CidadãoMutante : NpcBase {
 	// Use this for initialization
 	protected void Start () {
 
-        danoTotal = 8;
+        danoTotal = 20;
         defesaTotal = 6;
         totalLife = 30;
         currentLife = totalLife;

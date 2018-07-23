@@ -270,7 +270,7 @@ public class ContoleDeInventario : MonoBehaviour
             // coloca o item no equipavel, mas verifica se ja há um item ocupando o slot
             if (item.nameItem == "Espada")
             { 
-                if(PlayerItensController.instance.arma == null)
+                if(PlayerItensController.instance.arma.currentItem == null)
                 {
                     PlayerItensController aux;
                     aux = Equipavel;
@@ -284,6 +284,7 @@ public class ContoleDeInventario : MonoBehaviour
                     
                     PlayerItensController aux;
                     SlotEquipavel auxInventory = PlayerItensController.instance.arma;
+                    auxInventory.currentItem.StatusArmaD();
                     aux = Equipavel;
                     Equipavel.item = selectedSlot.currentItem;
                     Equipavel.EquipItem();
@@ -295,7 +296,7 @@ public class ContoleDeInventario : MonoBehaviour
             }
             if (item.nameItem == "elmo")
             {
-                if (PlayerItensController.instance.elmo == null)
+                if (PlayerItensController.instance.elmo.currentItem == null)
                 {
                     PlayerItensController aux;
                     aux = Equipavel;
@@ -309,6 +310,7 @@ public class ContoleDeInventario : MonoBehaviour
 
                     PlayerItensController aux;
                     SlotEquipavel auxInventory = PlayerItensController.instance.elmo;
+                    auxInventory.currentItem.StatusArmaD();
                     aux = Equipavel;
                     Equipavel.item = selectedSlot.currentItem;
                     Equipavel.EquipItem();
@@ -319,7 +321,7 @@ public class ContoleDeInventario : MonoBehaviour
             }
             if (item.nameItem == "peito")
             {
-                if (PlayerItensController.instance.peito == null)
+                if (PlayerItensController.instance.peito.currentItem == null)
                 {
                     PlayerItensController aux;
                     aux = Equipavel;
@@ -333,6 +335,7 @@ public class ContoleDeInventario : MonoBehaviour
 
                     PlayerItensController aux;
                     SlotEquipavel auxInventory = PlayerItensController.instance.peito;
+                    auxInventory.currentItem.StatusArmaD();
                     aux = Equipavel;
                     Equipavel.item = selectedSlot.currentItem;
                     Equipavel.EquipItem();
@@ -343,7 +346,7 @@ public class ContoleDeInventario : MonoBehaviour
             }
             if (item.nameItem == "calça")
             {
-                if (PlayerItensController.instance.calça == null)
+                if (PlayerItensController.instance.calça.currentItem == null)
                 {
                     PlayerItensController aux;
                     aux = Equipavel;
@@ -357,6 +360,7 @@ public class ContoleDeInventario : MonoBehaviour
 
                     PlayerItensController aux;
                     SlotEquipavel auxInventory = PlayerItensController.instance.calça;
+                    auxInventory.currentItem.StatusArmaD();
                     aux = Equipavel;
                     Equipavel.item = selectedSlot.currentItem;
                     Equipavel.EquipItem();
@@ -367,7 +371,7 @@ public class ContoleDeInventario : MonoBehaviour
             }
             if (item.nameItem == "luva")
             {
-                if (PlayerItensController.instance.luva == null)
+                if (PlayerItensController.instance.luva.currentItem == null)
                 {
                     PlayerItensController aux;
                     aux = Equipavel;
@@ -381,6 +385,7 @@ public class ContoleDeInventario : MonoBehaviour
 
                     PlayerItensController aux;
                     SlotEquipavel auxInventory = PlayerItensController.instance.luva;
+                    auxInventory.currentItem.StatusArmaD();
                     aux = Equipavel;
                     Equipavel.item = selectedSlot.currentItem;
                     Equipavel.EquipItem();
@@ -391,7 +396,7 @@ public class ContoleDeInventario : MonoBehaviour
             }
             if (item.nameItem == "bota")
             {
-                if (PlayerItensController.instance.bota == null)
+                if (PlayerItensController.instance.bota.currentItem == null)
                 {
                     PlayerItensController aux;
                     aux = Equipavel;
@@ -405,6 +410,7 @@ public class ContoleDeInventario : MonoBehaviour
 
                     PlayerItensController aux;
                     SlotEquipavel auxInventory = PlayerItensController.instance.bota;
+                    auxInventory.currentItem.StatusArmaD();
                     aux = Equipavel;
                     Equipavel.item = selectedSlot.currentItem;
                     Equipavel.EquipItem();

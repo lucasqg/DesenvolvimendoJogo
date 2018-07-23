@@ -21,17 +21,17 @@ public class BotaGuerreiro : ArmaduraBase {
         {
             BotaInicial();
         }
-        else if (qualidadeDoItem < 0 && qualidadeDoItem < 3)
+        else if (qualidadeDoItem == 1)
         {
             BotaRuim();
             AtributosAdicionais();
         }
-        else if (qualidadeDoItem >= 3 && qualidadeDoItem <= 6)
+        else if (qualidadeDoItem == 2)
         {
             BotaBoa();
             AtributosAdicionais();
         }
-        if (qualidadeDoItem <= 10 && qualidadeDoItem > 6)
+        if (qualidadeDoItem >= 3)
         {
             BotaMuitoBoa();
             AtributosAdicionais();

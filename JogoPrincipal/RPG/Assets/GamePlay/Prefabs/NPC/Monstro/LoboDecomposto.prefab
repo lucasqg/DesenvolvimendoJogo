@@ -165,7 +165,10 @@ MonoBehaviour:
   nameNPC: 
   moeda: {fileID: 1252179299354272, guid: bc31109a49cd2d942b401798bd2a6bf9, type: 2}
   potionHP: {fileID: 1472684276487144, guid: 14b0fb9550428e54b9d05a2d27fa2931, type: 2}
+  potionStamina: {fileID: 1045196177901884, guid: f8d93eb97a4821b498581f020cc51539,
+    type: 2}
   player: {fileID: 0}
+  explosionIsActive: 0
   peito: {fileID: 1371843549754502, guid: 3d1b08b42611fdc44b4b5a12b7c1b1bf, type: 2}
   luva: {fileID: 1032894057585352, guid: 7b59d7550b60a5740a63e5cf534c0057, type: 2}
 --- !u!114 &114741183986026754

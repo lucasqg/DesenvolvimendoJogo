@@ -22,9 +22,10 @@ public class MovimentacaoLoboDecomposto : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        bandeira = (FindObjectOfType(typeof(SpawnLoboMissao2)) as SpawnLoboMissao2).gameObject;
+
+        ArmazenarCoordenadasX = this.transform.position.x;
+        ArmazenarCoordenadasY = this.transform.position.y;
         anim = GetComponent<Animator>();
-        lobo = GetComponent<Transform>();
         ArmazenarCoordenadasX = this.transform.position.x;
         ArmazenarCoordenadasY = this.transform.position.y;
     }
@@ -51,22 +52,12 @@ public class MovimentacaoLoboDecomposto : MonoBehaviour {
             Hero = outro.transform;
             perseguindo = true;
         }
-        else if (outro.tag == "Carroceiro")
-        {
-            Hero = outro.transform;
-            perseguindo = true;
-        }
     }
 
     public void OnTriggerExit2D(Collider2D outro)
     {
 
         if (outro.gameObject.CompareTag("Player"))
-        {
-            VoltaPosicaoInicial();
-            perseguindo = false;
-        }
-        else if (outro.tag == "Carroceiro")
         {
             VoltaPosicaoInicial();
             perseguindo = false;

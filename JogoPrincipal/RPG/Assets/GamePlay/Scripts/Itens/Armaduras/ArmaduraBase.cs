@@ -35,6 +35,12 @@ public class ArmaduraBase : ItensBase {
         player.defTotal += defesaBase + adicionalDefesa;
         player.totalLife += adicionalHP + HPbase;
     }
+    public override void StatusArmaD()
+    {
+        player.danoTotal -= adicionalDano;
+        player.defTotal += defesaBase - adicionalDefesa;
+        player.totalLife += adicionalHP - HPbase;
+    }
 
     public virtual string TipoDeArmadura()
     {

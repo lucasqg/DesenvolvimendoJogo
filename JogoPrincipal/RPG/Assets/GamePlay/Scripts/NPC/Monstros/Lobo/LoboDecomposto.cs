@@ -8,7 +8,7 @@ public class LoboDecomposto : NpcBase {
     public override void InicializacaoDeStatus()
     {
         velTotal = 1000;
-        danoTotal = 6;
+        danoTotal = 8;
         defesaTotal = 4;
         totalLife = 20;
         currentLife = totalLife;
@@ -39,13 +39,13 @@ public class LoboDecomposto : NpcBase {
         if (random == 2) //10% chance de acertar o valor
         {
             GameObject peitoInstanciado = Instantiate(peito, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity);
-            peitoInstanciado.GetComponent<PeitoGuerreiro>().GerarAleatorio(player.GetNivelDeMissao("missãoprincipal"));
+            peitoInstanciado.GetComponent<PeitoGuerreiro>().GerarAleatorio(player.GetNivelDeMissao("missãoprincipal")+1);
         }
         int randomico = Random.Range(1, 10);
         if (randomico == 1) //10% chance de acertar o valor
         {
             GameObject luvaInstanciada = Instantiate(luva, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity);
-            luvaInstanciada.GetComponent<LuvaGuerreiro>().GerarAleatorio(player.GetNivelDeMissao("missãoprincipal"));
+            luvaInstanciada.GetComponent<LuvaGuerreiro>().GerarAleatorio(player.GetNivelDeMissao("missãoprincipal")+1);
         }
         base.DropItem();
     }

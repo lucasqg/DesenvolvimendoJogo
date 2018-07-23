@@ -31,21 +31,21 @@ public class Damage : MonoBehaviour {
     public void OnTriggerExit2D(Collider2D collision)
     {
        
-        if (collision.tag == "CidadaoMutante")
+        if (collision.tag == "CidadaoMutante" && collision.GetComponent<BoxCollider2D>() == collision)
             {
                 Debug.Log("Cidadao Mutante levando DAMAGE");
                 player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
                 applyDamageMonster(collision.GetComponent<NpcBase>());
             }
-        else if (collision.tag == "Esqueleto")
+        else if (collision.tag == "Esqueleto" && collision.GetComponent<BoxCollider2D>() == collision)
             {
                 applyDamageMonster(collision.GetComponent<NpcBase>());
             }
-        else if (collision.tag == "LoboDecomposto")
+        else if (collision.tag == "LoboDecomposto" && collision.GetComponent<BoxCollider2D>() == collision)
             {
                 applyDamageMonster(collision.GetComponent<NpcBase>());
             }
-        else if(collision.tag == "LoboSelvagem")
+        else if(collision.tag == "LoboSelvagem" && collision.GetComponent<BoxCollider2D>() == collision)
             {
                 applyDamageMonster(collision.GetComponent<NpcBase>());
             }
@@ -55,11 +55,11 @@ public class Damage : MonoBehaviour {
             player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
             applyDamageMonster(collision.GetComponent<NpcBase>());
         }
-        else if (collision.tag == "RatoMutado")
+        else if (collision.tag == "RatoMutado" && collision.GetComponent<BoxCollider2D>() == collision)
         {
             applyDamageMonster(monstro);
         }
-        else if(collision.tag == "BonecoDeTreino")
+        else if(collision.tag == "BonecoDeTreino" && collision.GetComponent<BoxCollider2D>() == collision)
         {
             Debug.Log("Saco de pancadas levando DANO");
             player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;

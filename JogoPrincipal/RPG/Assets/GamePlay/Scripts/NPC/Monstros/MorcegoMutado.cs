@@ -21,9 +21,9 @@ public class MorcegoMutado : NpcBase {
     public override void InicializacaoDeStatus()
     {
         velTotal = 1500;
-        danoTotal = 5;
+        danoTotal = 7;
         defesaTotal = 1;
-        totalLife = 20;
+        totalLife = 15;
         currentLife = totalLife;
         nameNPC = "Morcego";
         xp = 30;
@@ -46,13 +46,13 @@ public class MorcegoMutado : NpcBase {
         if (random == 2) //10% chance de acertar o valor
         {
             GameObject calcaInstanciada =  Instantiate(calca, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity);
-            calcaInstanciada.GetComponent<CalçaGuerreiro>().GerarAleatorio(player.GetNivelDeMissao("missão1"));
+            calcaInstanciada.GetComponent<CalçaGuerreiro>().GerarAleatorio(player.GetNivelDeMissao("missão1")+1);
         }
         int randomico = Random.Range(1, 10);
         if (randomico == 1) //10% chance de acertar o valor
         {
             GameObject luvaInstanciada = Instantiate(luva, new Vector3(player.transform.position.x, player.transform.position.y, -1), Quaternion.identity);
-            luvaInstanciada.GetComponent<LuvaGuerreiro>().GerarAleatorio(player.GetNivelDeMissao("missão1"));
+            luvaInstanciada.GetComponent<LuvaGuerreiro>().GerarAleatorio(player.GetNivelDeMissao("missão1")+1);
         }
         base.DropItem();
     }

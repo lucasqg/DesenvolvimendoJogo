@@ -51,7 +51,7 @@ public class SkillBehaviour : MonoBehaviour {
             }
             else if(tipoDeSkill.code == 1)
             {
-                descricao.text = "Explode o campo em que a espada passar, causando o dobro de dano";
+                descricao.text = "Explode o monstro em que a espada tocar, causando um certo dano adicional";
             }
             else if (tipoDeSkill.code == 2)
             {
@@ -59,7 +59,7 @@ public class SkillBehaviour : MonoBehaviour {
             }
             else if (tipoDeSkill.code == 3)
             {
-                descricao.text = "Libera um spray reveitalizante que lhe permite ganhar defesa por um determinado tempo";
+                descricao.text = "Libera um spray reveitalizante que lhe permite ganhar defesa para sempre";
             }
             else if (tipoDeSkill.code == 4)
             {
@@ -67,11 +67,11 @@ public class SkillBehaviour : MonoBehaviour {
             }
             else if (tipoDeSkill.code == 5)
             {
-                descricao.text = "Por que ficar atacando de perto se posso jogar a espada?\n Atira a espada para sua frente, causando dano na área em que passar";
+                descricao.text = "Sua espada gira ao seu redor causando dano a quem estiver por perto";
             }
             else if (tipoDeSkill.code == 6)
             {
-                descricao.text = "Parece que isto funciona como uma academia sem esteroides, ao ativa-lá você ganha força permanentemente";
+                descricao.text = "Parece que isto funciona mesmo, ao ativa-lá você ganha dano permanentemente";
             }
             else if (tipoDeSkill.code == 7)
             {
@@ -80,11 +80,11 @@ public class SkillBehaviour : MonoBehaviour {
             else if (tipoDeSkill.code == 8)
             {
                 descricao.text = "Seu sangue ferve no campo de batalha." +
-                    "\nApartir daqui, você recebe um pouco de Vida e Stamina a cada 5 segundo";
+                    "\nApartir daqui, você recebe um pouco de Vida e Stamina a cada intervalo de um certo tempo";
             }
             else if (tipoDeSkill.code == 9)
             {
-                descricao.text = "Sua espada gira em seu redor por 3 segundos causando dano a quem estiver perto";
+                descricao.text = "Sua espada chama suas amigas que giram em seu redor por determinado tempo causando dano a quem encostar nelas";
             }
         }
 
@@ -101,8 +101,7 @@ public class SkillBehaviour : MonoBehaviour {
                 if (hitDuplo == false)
                 {
                     HitDuplo();
-                    tipoDeSkill.ativaImagemSemCadeado(DH, true);
-                    tipoDeSkill = null;
+                    
                 }
             }
             else if( tipoDeSkill.code == 1)
@@ -111,8 +110,7 @@ public class SkillBehaviour : MonoBehaviour {
                 if(explosion == false)
                 {
                     Explosion();
-                    tipoDeSkill.ativaImagemSemCadeado(EX, true);
-                    tipoDeSkill = null;
+                    
                 }
             }
             else if (tipoDeSkill.code == 2)
@@ -121,8 +119,6 @@ public class SkillBehaviour : MonoBehaviour {
                 if (hitTriplo == false)
                 {
                     HitTriplo();
-                    tipoDeSkill.ativaImagemSemCadeado(TH, true);
-                    tipoDeSkill = null;
                 }
             }
             else if (tipoDeSkill.code == 3)
@@ -131,9 +127,6 @@ public class SkillBehaviour : MonoBehaviour {
                 if (buffDefesa == false)
                 {
                     BuffDefesa();
-                    player.defTotal += 4;
-                    tipoDeSkill.ativaImagemSemCadeado(BD, false);
-                    tipoDeSkill = null;
                 }
             }
             else if (tipoDeSkill.code == 4)
@@ -142,9 +135,6 @@ public class SkillBehaviour : MonoBehaviour {
                 if (aumentoHP == false)
                 {
                     AumentoHP();
-                    player.totalLife += 20;
-                    tipoDeSkill.ativaImagemSemCadeado(AH, false);
-                    tipoDeSkill = null;
                 }
             }
             else if (tipoDeSkill.code == 5)
@@ -153,8 +143,6 @@ public class SkillBehaviour : MonoBehaviour {
                 if (lançarEspada == false)
                 {
                     LançarEspada();
-                    tipoDeSkill.ativaImagemSemCadeado(LE, true);
-                    tipoDeSkill = null;
                 }
             }
             else if (tipoDeSkill.code == 6)
@@ -163,9 +151,6 @@ public class SkillBehaviour : MonoBehaviour {
                 if (aumentoAtackGuerreiro == false)
                 {
                     AumentoAtackGuerreiro();
-                    player.danoTotal += 3;
-                    tipoDeSkill.ativaImagemSemCadeado(AAG, false);
-                    tipoDeSkill = null;
                 }
             }
             else if (tipoDeSkill.code == 7)
@@ -174,8 +159,6 @@ public class SkillBehaviour : MonoBehaviour {
                 if (passivaIvulnerabilidade == false)
                 {
                     PassivaIvulnerabilidade();
-                    tipoDeSkill.ativaImagemSemCadeado(PIB, false);
-                    tipoDeSkill = null;
                 }
             }
             else if (tipoDeSkill.code == 8)
@@ -184,8 +167,6 @@ public class SkillBehaviour : MonoBehaviour {
                 if (regeneracaoHPStamina == false)
                 {
                     RegeneraçãoHPStamina();
-                    tipoDeSkill.ativaImagemSemCadeado(RH, false);
-                    tipoDeSkill = null;
                 }
             }
             else if (tipoDeSkill.code == 9)
@@ -194,8 +175,6 @@ public class SkillBehaviour : MonoBehaviour {
                 if (giroDoInfinito == false)
                 {
                     GiroDoInfinito();
-                    tipoDeSkill.ativaImagemSemCadeado(GI, true);
-                    tipoDeSkill = null;
                 }
             }
         }
@@ -211,6 +190,8 @@ public class SkillBehaviour : MonoBehaviour {
             hitDuplo = true;
             //habilita animação skill ativada
             //um.ativaImagem(iconGuerreiro1);
+            tipoDeSkill.ativaImagemSemCadeado(DH, true);
+            tipoDeSkill = null;
         }
         else  
         {
@@ -227,6 +208,8 @@ public class SkillBehaviour : MonoBehaviour {
             skillType.Add("Explosion");
             explosion = true; //ativa a skill 
             //habilita animação skill ativada
+            tipoDeSkill.ativaImagemSemCadeado(EX, true);
+            tipoDeSkill = null;
         }
         else
         {
@@ -243,7 +226,9 @@ public class SkillBehaviour : MonoBehaviour {
             player.currentSkills -= 2;
             skillType.Add("HitTriplo");
             hitTriplo = true;
-  
+
+            tipoDeSkill.ativaImagemSemCadeado(TH, true);
+            tipoDeSkill = null;
             //habilita animação skill ativada
         }
         else
@@ -259,6 +244,10 @@ public class SkillBehaviour : MonoBehaviour {
             player.currentSkills -= 2;
             skillType.Add("BuffDefesa");
             buffDefesa = true;
+
+            player.defTotal += 4;
+            tipoDeSkill.ativaImagemSemCadeado(BD, false);
+            tipoDeSkill = null;
             //habilita animação skill ativada
         }
         else
@@ -274,6 +263,10 @@ public class SkillBehaviour : MonoBehaviour {
             player.currentSkills -= 2;
             skillType.Add("AumentoHP");
             aumentoHP = true;
+
+            player.totalLife += 20;
+            tipoDeSkill.ativaImagemSemCadeado(AH, false);
+            tipoDeSkill = null;
             //habilita animação skill ativada
         }
         else
@@ -289,6 +282,9 @@ public class SkillBehaviour : MonoBehaviour {
             player.currentSkills -= 3;
             skillType.Add("LançarEspada");
             lançarEspada = true;
+
+            tipoDeSkill.ativaImagemSemCadeado(LE, true);
+            tipoDeSkill = null;
             //habilita animação skill ativada
         }
         else
@@ -303,6 +299,10 @@ public class SkillBehaviour : MonoBehaviour {
             player.currentSkills -= 3;
             skillType.Add("AumentoAtack");
             aumentoAtackGuerreiro = true;
+
+            player.danoTotal += 3;
+            tipoDeSkill.ativaImagemSemCadeado(AAG, false);
+            tipoDeSkill = null;
             //habilita animação skill ativada
         }
         else
@@ -319,6 +319,9 @@ public class SkillBehaviour : MonoBehaviour {
             player.currentSkills -= 3;
             skillType.Add("Ivulnerabilidade");
             passivaIvulnerabilidade = true;
+
+            tipoDeSkill.ativaImagemSemCadeado(PIB, false);
+            tipoDeSkill = null;
             //habilita animação skill ativada
         }
         else
@@ -334,6 +337,9 @@ public class SkillBehaviour : MonoBehaviour {
             player.currentSkills -= 3;
             skillType.Add("RegeneraçãoHPStamina");
             regeneracaoHPStamina = true;
+
+            tipoDeSkill.ativaImagemSemCadeado(RH, false);
+            tipoDeSkill = null;
             //habilita animação skill ativada
         }
         else
@@ -349,6 +355,9 @@ public class SkillBehaviour : MonoBehaviour {
             player.currentSkills -= 3;
             skillType.Add("GiroDoInfinito");
             giroDoInfinito = true;
+
+            tipoDeSkill.ativaImagemSemCadeado(GI, true);
+            tipoDeSkill = null;
             //habilita animação skill ativada
         }
         else
