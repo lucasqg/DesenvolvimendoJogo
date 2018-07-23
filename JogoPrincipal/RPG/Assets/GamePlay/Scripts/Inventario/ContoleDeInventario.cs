@@ -284,13 +284,14 @@ public class ContoleDeInventario : MonoBehaviour
                     
                     PlayerItensController aux;
                     SlotEquipavel auxInventory = PlayerItensController.instance.arma;
+                    AddItemToInventory(auxInventory.currentItem);
                     auxInventory.currentItem.StatusArmaD();
                     aux = Equipavel;
                     Equipavel.item = selectedSlot.currentItem;
                     Equipavel.EquipItem();
                     selectedSlot.currentItem = null;
                     item.slot.SetupSlot();
-                    AddItemToInventory(auxInventory.currentItem);
+                    
                 }
             
             }

@@ -16,7 +16,6 @@ public class PlayerItensController : MonoBehaviour {
     public GameObject teste;
     void Start () {
         instance = this;
-        AddEquipSave(teste);
     }
 	
 	// Update is called once per frame
