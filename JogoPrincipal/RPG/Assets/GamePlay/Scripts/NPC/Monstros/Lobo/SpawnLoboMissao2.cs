@@ -17,7 +17,7 @@ public class SpawnLoboMissao2 : NpcBase {
         inicialization();
         iniciarMissao = true;
         tempoSpawn1 = 1500;
-        tempoSpawn2 = 1000;
+        tempoSpawn2 = 1500;
         tempoSpawn3 = 700;
         //linha de codigo abaixo ja está implementada no script da boneca
         //boneca = FindObjectOfType(typeof(CabeloVerde)) as CabeloVerde; // ENCONTRA O SCRIPT DA CABELO VERDE NA CENA
@@ -37,8 +37,8 @@ public class SpawnLoboMissao2 : NpcBase {
     public void inicialization()
     {
         danoTotal = 10;
-        defesaTotal = 5;
-        totalLife = 30;
+        defesaTotal = 2;
+        totalLife = 10;
         currentLife = totalLife;
         nameNPC = "Ovelha";;
     }
@@ -51,7 +51,7 @@ public class SpawnLoboMissao2 : NpcBase {
             contadorDeTempo2 += 1;
             contadorDeTempo3 += 1;
             contadorFimMissao += 1;
-            if (contadorFimMissao >= 15000) //spawn 15X
+            if (contadorFimMissao >= 10000) //spawn 15X
                 boneca.FinalizarMissao();
             if (iniciarMissao == true)
             {
@@ -66,26 +66,26 @@ public class SpawnLoboMissao2 : NpcBase {
     {
         if (tempoSpawn2 <= 0)
         {
-            FimDeMissão();
+            //FimDeMissão();
         }
         if (contadorDeTempo1 >= tempoSpawn1)
         {
             contadorDeTempo1 = 0; //reseta o contador para reiniciar o spawn
-            tempoSpawn1 -= 100;
+            tempoSpawn1 -= 50;
             conjuntoDeMonstros.Add(SpawnMonster(positionX[0], positionY[0], lobo));
 
         }
         if (contadorDeTempo2 >= tempoSpawn2 && tempoSpawn2 >= -100)
         {
             contadorDeTempo2 = 0; //reseta o contador para reiniciar o spawn
-            tempoSpawn2 -= 150;
+            tempoSpawn2 -= 30;
             conjuntoDeMonstros.Add(SpawnMonster(positionX[1], positionY[1], lobo));
 
         }
         if (contadorDeTempo3 >= tempoSpawn3)
         {
             contadorDeTempo3 = 0; //reseta o contador para reiniciar o spawn
-            tempoSpawn3 += 100;
+            tempoSpawn3 += 200;
             conjuntoDeMonstros.Add(SpawnMonster(positionX[2], positionY[2], lobo));
 
         }
@@ -101,6 +101,8 @@ public class SpawnLoboMissao2 : NpcBase {
     {
         GameObject monster = Instantiate(monstro, new Vector3(x, y, -1), Quaternion.identity);
         monster.GetComponent<MovimentacaoLobo>().LoboDeMissao = true;
+        monster.GetComponent<MovimentacaoLobo>().bandeira = this.gameObject;
+        monster.GetComponent<MovimentacaoLobo>().perseguirBandeira();
         monster.transform.parent = this.transform;
         return monster;
     }

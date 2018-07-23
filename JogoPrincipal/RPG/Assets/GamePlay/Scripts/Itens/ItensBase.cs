@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItensBase : MonoBehaviour {
+public class ItensBase : MonoBehaviour
+{
     public int identificacao;
     public string nameItem;
     public Sprite icon;
     public bool isStacklabe;
-    protected int amount = 1 ;
+    protected int amount = 1;
     private bool canTakeItem;
     public bool canEquip;
     public SlotInventarioBehaviour slot;
@@ -38,7 +39,7 @@ public class ItensBase : MonoBehaviour {
     public void RemoveItem(int amountToRemove = 1)
     {
         amount -= amountToRemove;
-        if(amount <= 0)
+        if (amount <= 0)
         {
             Destroy(gameObject);
         }
@@ -78,20 +79,20 @@ public class ItensBase : MonoBehaviour {
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        
+
         if (collision.gameObject.CompareTag("Player"))
         {
             canTakeItem = true;
             UIController.instancer.ShowMessageTakeItem();
         }
-        
+
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             canTakeItem = false;
-            
+
         }
     }
     public void NaoUtilizavel() // mostra a mensagem de nao utilizavel
@@ -106,7 +107,7 @@ public class ItensBase : MonoBehaviour {
     }
     public virtual void StatusArma()
     {
-        
+
     }
     public virtual void StatusArmaD()
     {

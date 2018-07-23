@@ -178,7 +178,8 @@ public class FalaNpcs : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if (carroca.mochilaEncontrada) foreach (SlotInventarioBehaviour slot in ContoleDeInventario.instance.InventarioSlots)
+            if (carroca.mochilaEncontrada) 
+            foreach (SlotInventarioBehaviour slot in ContoleDeInventario.instance.InventarioSlots)
                 {
                     if (slot.currentItem != null && slot.currentItem.identificacao == 23)
                     {

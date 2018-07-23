@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
     public GameObject TexTMissao, HUD, miniMapa, pause;
+    public Text nome, nivel;
+    public Slider sliderReputation;
     public Slider sliderLife;
     public Slider sliderStamina;
     public Slider sliderMana;
@@ -32,7 +34,9 @@ public class UIController : MonoBehaviour {
         messageItemToTake.gameObject.SetActive(false);
         instancer = this;
         objectSliderMonster.SetActive(false);
-	}
+        nome.text = PlayerPrefs.GetString("CharNome");
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -76,7 +80,11 @@ public class UIController : MonoBehaviour {
             Time.timeScale = defaultTimeScale;
         }
         testaPotion();
+
+        nivel.text = PlayerPrefs.GetInt("currentLevel").ToString();
+        SetReputation(100, PlayerStatsController.GetCurrentReputation());
     }
+
     public void testaPotion()
     {
         if (Input.GetKeyDown(KeyCode.C))
@@ -129,6 +137,12 @@ public class UIController : MonoBehaviour {
             messageItemToTake.gameObject.SetActive(true);
             currentTimeToShowMessage = 0;
         }
+    }
+    public void SetReputation(float maxReput, float currentReput)
+    {
+        float newPositionSlider = (currentReput * 1) / maxReput;
+        sliderReputation.value = newPositionSlider;
+
     }
     public void SetLife(float maxLife, float currentLife)
     {

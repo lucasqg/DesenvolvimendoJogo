@@ -311,13 +311,13 @@ public class ContoleDeInventario : MonoBehaviour
 
                     PlayerItensController aux;
                     SlotEquipavel auxInventory = PlayerItensController.instance.elmo;
+                    AddItemToInventory(auxInventory.currentItem);
                     auxInventory.currentItem.StatusArmaD();
                     aux = Equipavel;
                     Equipavel.item = selectedSlot.currentItem;
                     Equipavel.EquipItem();
                     selectedSlot.currentItem = null;
                     item.slot.SetupSlot();
-                    AddItemToInventory(auxInventory.currentItem);
                 }
             }
             if (item.nameItem == "peito")
@@ -336,13 +336,13 @@ public class ContoleDeInventario : MonoBehaviour
 
                     PlayerItensController aux;
                     SlotEquipavel auxInventory = PlayerItensController.instance.peito;
+                    AddItemToInventory(auxInventory.currentItem);
                     auxInventory.currentItem.StatusArmaD();
                     aux = Equipavel;
                     Equipavel.item = selectedSlot.currentItem;
                     Equipavel.EquipItem();
                     selectedSlot.currentItem = null;
                     item.slot.SetupSlot();
-                    AddItemToInventory(auxInventory.currentItem);
                 }
             }
             if (item.nameItem == "calça")
@@ -361,13 +361,13 @@ public class ContoleDeInventario : MonoBehaviour
 
                     PlayerItensController aux;
                     SlotEquipavel auxInventory = PlayerItensController.instance.calça;
+                    AddItemToInventory(auxInventory.currentItem);
                     auxInventory.currentItem.StatusArmaD();
                     aux = Equipavel;
                     Equipavel.item = selectedSlot.currentItem;
                     Equipavel.EquipItem();
                     selectedSlot.currentItem = null;
                     item.slot.SetupSlot();
-                    AddItemToInventory(auxInventory.currentItem);
                 }
             }
             if (item.nameItem == "luva")
@@ -386,13 +386,13 @@ public class ContoleDeInventario : MonoBehaviour
 
                     PlayerItensController aux;
                     SlotEquipavel auxInventory = PlayerItensController.instance.luva;
+                    AddItemToInventory(auxInventory.currentItem);
                     auxInventory.currentItem.StatusArmaD();
                     aux = Equipavel;
                     Equipavel.item = selectedSlot.currentItem;
                     Equipavel.EquipItem();
                     selectedSlot.currentItem = null;
                     item.slot.SetupSlot();
-                    AddItemToInventory(auxInventory.currentItem);
                 }
             }
             if (item.nameItem == "bota")
@@ -411,13 +411,13 @@ public class ContoleDeInventario : MonoBehaviour
 
                     PlayerItensController aux;
                     SlotEquipavel auxInventory = PlayerItensController.instance.bota;
+                    AddItemToInventory(auxInventory.currentItem);
                     auxInventory.currentItem.StatusArmaD();
                     aux = Equipavel;
                     Equipavel.item = selectedSlot.currentItem;
                     Equipavel.EquipItem();
                     selectedSlot.currentItem = null;
                     item.slot.SetupSlot();
-                    AddItemToInventory(auxInventory.currentItem);
                 }
             }
         }

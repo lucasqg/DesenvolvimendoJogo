@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damage : MonoBehaviour {
+public class Damage : MonoBehaviour
+{
     public PolygonCollider2D colisor;
     public NpcBase monstro;
     public CidadãoMutante cidadao;
@@ -12,7 +13,8 @@ public class Damage : MonoBehaviour {
     public bool explosionActivation;
     public GameObject explosion;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
     }
 
@@ -27,30 +29,30 @@ public class Damage : MonoBehaviour {
         else
             monster.applyDamage(player.danoTotal, player.danoTotal);
     }
-   
+
     public void OnTriggerExit2D(Collider2D collision)
     {
-       
+
         if (collision.tag == "CidadaoMutante" && collision.GetComponent<BoxCollider2D>() == collision)
-            {
-                Debug.Log("Cidadao Mutante levando DAMAGE");
-                player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
-                applyDamageMonster(collision.GetComponent<NpcBase>());
-            }
+        {
+            Debug.Log("Cidadao Mutante levando DAMAGE");
+            player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
+            applyDamageMonster(collision.GetComponent<NpcBase>());
+        }
         else if (collision.tag == "Esqueleto" && collision.GetComponent<BoxCollider2D>() == collision)
-            {
-                applyDamageMonster(collision.GetComponent<NpcBase>());
-            }
+        {
+            applyDamageMonster(collision.GetComponent<NpcBase>());
+        }
         else if (collision.tag == "LoboDecomposto" && collision.GetComponent<BoxCollider2D>() == collision)
-            {
-                applyDamageMonster(collision.GetComponent<NpcBase>());
-            }
-        else if(collision.tag == "LoboSelvagem" && collision.GetComponent<BoxCollider2D>() == collision)
-            {
-                applyDamageMonster(collision.GetComponent<NpcBase>());
-            }
-        else if(collision.tag == "Morcego" && collision.GetComponent<BoxCollider2D>() == collision)
-            {
+        {
+            applyDamageMonster(collision.GetComponent<NpcBase>());
+        }
+        else if (collision.tag == "LoboSelvagem" && collision.GetComponent<BoxCollider2D>() == collision)
+        {
+            applyDamageMonster(collision.GetComponent<NpcBase>());
+        }
+        else if (collision.tag == "Morcego" && collision.GetComponent<BoxCollider2D>() == collision)
+        {
             Debug.Log("Morcego levando DANO");
             player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
             applyDamageMonster(collision.GetComponent<NpcBase>());
@@ -59,7 +61,7 @@ public class Damage : MonoBehaviour {
         {
             applyDamageMonster(monstro);
         }
-        else if(collision.tag == "BonecoDeTreino" && collision.GetComponent<BoxCollider2D>() == collision)
+        else if (collision.tag == "BonecoDeTreino" && collision.GetComponent<BoxCollider2D>() == collision)
         {
             Debug.Log("Saco de pancadas levando DANO");
             player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;

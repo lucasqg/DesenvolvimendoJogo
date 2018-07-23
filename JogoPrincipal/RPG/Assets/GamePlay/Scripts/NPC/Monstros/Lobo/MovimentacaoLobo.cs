@@ -1,8 +1,9 @@
-﻿ using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovimentacaoLobo : MonoBehaviour {
+public class MovimentacaoLobo : MonoBehaviour
+{
 
     private float ArmazenarCoordenadasX, ArmazenarCoordenadasY;
     private float vel = 0.5f;
@@ -23,7 +24,6 @@ public class MovimentacaoLobo : MonoBehaviour {
     {
         ArmazenarCoordenadasX = this.transform.position.x;
         ArmazenarCoordenadasY = this.transform.position.y;
-        bandeira = (FindObjectOfType(typeof(SpawnLoboMissao2)) as SpawnLoboMissao2).gameObject;
         anim = GetComponent<Animator>();
         lobo = GetComponent<Transform>();
         ArmazenarCoordenadasX = this.transform.position.x;
@@ -64,21 +64,32 @@ public class MovimentacaoLobo : MonoBehaviour {
             Hero = outro.transform;
             perseguindo = true;
         }
-        else if(LoboDeMissao)
+        else if (LoboDeMissao)
         {
             Hero = bandeira.transform; // passa para perseguir a coordenada da bandeira;
             perseguindo = true;
         }
     }
+    public void perseguirBandeira()
+    {
+        Hero = bandeira.transform; // passa para perseguir a coordenada da bandeira;
+        perseguindo = true;
+    }
 
     public void OnTriggerExit2D(Collider2D outro)
     {
-        
+
         if (outro.gameObject.CompareTag("Player"))
         {
             Hero = null;
             perseguindo = true;
+            if (LoboDeMissao)
+            {
+                Hero = bandeira.transform; // passa para perseguir a coordenada da bandeira;
+                perseguindo = true;
+            }
         }
+
 
 
     }

@@ -9,18 +9,19 @@ public class DamageMonster : MonoBehaviour
     public int ContadorDeTempo = 0;
     // Use this for initialization
 
-    void Start () {
+    void Start()
+    {
         monstro = this.GetComponent<NpcBase>();
-	}
+    }
 
     public void applyDamagePlayer(int dano)
     {
-        if(((int)player.defTotal - dano) < 0)
+        if (((int)player.defTotal - dano) < 0)
             player.addLife((int)player.defTotal - dano);
     }
     public void applyDamageNPC(int dano, Carroceiro carroceiro)
     {
-            carroceiro.addLife(- dano);
+        carroceiro.addLife(-dano);
     }
     public void applyDamageOvelha(int dano, SpawnLoboMissao2 ovelha)
     {
@@ -37,19 +38,20 @@ public class DamageMonster : MonoBehaviour
             applyDamagePlayer(monstro.danoTotal);
             ContadorDeTempo = 0;
         }
-        else if (collision.tag == "Carroceiro" && ContadorDeTempo > monstro.velTotal)
+        else if (collision.tag == "Carroceiro" && ContadorDeTempo > monstro.velTotal && collision.GetComponent<BoxCollider2D>() == collision)
         {
             applyDamageNPC(monstro.danoTotal, collision.GetComponent<Carroceiro>());
             ContadorDeTempo = 0;
         }
-        else if (this.gameObject.tag == "LoboSelvagem" && collision.tag == "Ovelha")
+        else if ((collision.tag == "Ovelha") && collision.GetComponent<BoxCollider2D>() == collision && ContadorDeTempo > monstro.velTotal)
         {
             applyDamageOvelha(monstro.danoTotal, collision.GetComponent<SpawnLoboMissao2>());
             ContadorDeTempo = 0;
         }
     }
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update()
+    {
+
+    }
 }

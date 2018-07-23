@@ -9,8 +9,8 @@ public class LoboSelvagem : NpcBase {
     {
         velTotal = 1000;
         danoTotal = 8;
-        defesaTotal = 3;
-        totalLife = 13;
+        defesaTotal = 2;
+        totalLife = 8;
         currentLife = totalLife;
         nameNPC = "LoboSelvagem";
         xp = 40;

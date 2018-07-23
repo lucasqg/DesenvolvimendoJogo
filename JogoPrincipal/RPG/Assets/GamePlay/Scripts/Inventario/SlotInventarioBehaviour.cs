@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SlotInventarioBehaviour : MonoBehaviour {
+public class SlotInventarioBehaviour : MonoBehaviour
+{
 
     public ItensBase currentItem;
     public Image iconItemSlot;
@@ -15,14 +16,15 @@ public class SlotInventarioBehaviour : MonoBehaviour {
     public Color unselectedColor;
     public Color selectedColor;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         SetupSlot();
     }
-	
+
     public void SetupSlot()
     {
-        if(currentItem != null && currentItem.getAmount()> 0)
+        if (currentItem != null && currentItem.getAmount() >= 0)
         {
             SetActiveSlot(true);
             iconItemSlot.sprite = currentItem.icon;
@@ -31,7 +33,7 @@ public class SlotInventarioBehaviour : MonoBehaviour {
 
             if (currentItem.isStacklabe)
             {
-                amountText.text = currentItem.getAmount().ToString(); 
+                amountText.text = currentItem.getAmount().ToString();
             }
             else
             {
@@ -44,18 +46,19 @@ public class SlotInventarioBehaviour : MonoBehaviour {
         }
     }
 
-    public void SetActiveSlot(bool isActive=true)
+    public void SetActiveSlot(bool isActive = true)
     {
         AmountIndicator.SetActive(isActive);
         nameItem.gameObject.SetActive(isActive);
         iconItemSlot.gameObject.SetActive(isActive);
     }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
         isSelected = ContoleDeInventario.instance.selectedSlot == this;
         background.color = isSelected ? selectedColor : unselectedColor;
-	}
+    }
 
     public void onClick()
     {
@@ -63,13 +66,13 @@ public class SlotInventarioBehaviour : MonoBehaviour {
         {
             ContoleDeInventario.instance.selectedSlot = null;
             currentItem.TxtAtributosLimpa();
-            
+
         }
         else
         {
             ContoleDeInventario.instance.selectedSlot = this;
             currentItem.TxtAtributos();
-            
+
         }
     }
 

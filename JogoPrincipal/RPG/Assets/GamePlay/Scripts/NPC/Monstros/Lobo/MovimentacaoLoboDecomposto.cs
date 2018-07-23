@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovimentacaoLoboDecomposto : MonoBehaviour {
+public class MovimentacaoLoboDecomposto : MonoBehaviour
+{
 
 
     private float ArmazenarCoordenadasX, ArmazenarCoordenadasY;
@@ -45,7 +46,7 @@ public class MovimentacaoLoboDecomposto : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D outro)
     {
-         if (outro.gameObject.CompareTag("Player"))
+        if (outro.gameObject.CompareTag("Player"))
         {
 
             //Hero.position = new Vector3(positionX, positionY, -1.1f);

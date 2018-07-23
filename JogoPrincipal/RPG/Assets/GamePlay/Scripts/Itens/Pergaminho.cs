@@ -20,7 +20,7 @@ public class Pergaminho : ItensBase {
 
     private void Teletransporte()
     {
-        player.gameObject.transform.position = new Vector3(-0.78f,-30f, -0.28f);
+        player.gameObject.transform.position = new Vector3(-193.5f, -216f, -1.12f);
 
     }
 

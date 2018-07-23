@@ -9,7 +9,7 @@ public class Esqueleto : NpcBase {
     public override void InicializacaoDeStatus()
     {
         velTotal = 900;
-        danoTotal = 5;
+        danoTotal = 8;
         defesaTotal = 3;
         totalLife = 17;
         currentLife = totalLife;

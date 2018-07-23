@@ -32,8 +32,6 @@ public class Cientista : MonoBehaviour {
         {
             TentaConversar();
             Conversando(i);
-            PLAYER = player1;
-            NPC.sprite = npc;
         }
 
         if (missaoAtiva && falando)
@@ -43,8 +41,6 @@ public class Cientista : MonoBehaviour {
             */
             TentaConversar();
             ConversandoPosMissao(i);
-            PLAYER = player1;
-            NPC.sprite = npc;
         }
     }
 
@@ -91,6 +87,9 @@ public class Cientista : MonoBehaviour {
             //nivelDeMissao += 1;
             switch (op)
         {
+            case 0:
+                conversa.text = "";
+                break;
             case 1:
                 conversa.text = "Olá companheiro, estou feliz em ver você por aqui";
                 break;
@@ -99,7 +98,7 @@ public class Cientista : MonoBehaviour {
                 break;
             case 3:
                // if (nivelDeMissao == 1 || nivelDeMissao > 3) {
-                    conversa.text = "Vá pela estrada da esquerda e mate os esqueletos até encontrar alguns ossos bem fortes para que eu possa queimar e o transformar em carvão para o filtro!\n Vou precisar de muitos, mas por hora... Só quero um :";
+                    conversa.text = "Vá pela estrada da direita e mate os esqueletos até encontrar alguns ossos bem fortes para que eu possa queimar e o transformar em carvão para o filtro!\n Vou precisar de muitos, mas por hora... Só quero um :";
                 /*  }
                   else if (nivelDeMissao ==2)
                   {
@@ -109,7 +108,7 @@ public class Cientista : MonoBehaviour {
                   {
                       conversa.text = "Vá pela estrada a esquerda, em um lugar não tão distante existe um homem que carrega uma engrenagem, não sei para que ele carrega isso, mas, ME TRAGA!!! ";
                   }*/
-                texto.text = "Mate os esqueletos até encontrar ossos";
+                //texto.text = "Mate os esqueletos até encontrar ossos";
                 break;
             case 4:
                 IniciarMissao(); // inicia a missao
@@ -131,6 +130,9 @@ public class Cientista : MonoBehaviour {
         }
         switch (op)
         {
+            case 0:
+                conversa.text = "";
+                break;
             case 1:
                 conversa.text = "Você conseguiu??";
                 break;
@@ -138,13 +140,23 @@ public class Cientista : MonoBehaviour {
                 if (verificaSlot) {
                     conversa.text = "Obrigado, tome aqui sua recompensa..";
                     FinalizarMissao();
+                    verificaSlot = false;
+                    falando = false;
+                    fala.gameObject.SetActive(false);
+                    Time.timeScale = defaultTimeScale;
+
                 }
                 else
                 {
                     conversa.text = "Volte quando acabar..";
+                    falando = false;
+                    fala.gameObject.SetActive(false);
+
+                    Debug.Log("Janelation");
+                    i = 0;
+                    Time.timeScale = defaultTimeScale;
                 }
                 break;
-            
         }
 
     }
