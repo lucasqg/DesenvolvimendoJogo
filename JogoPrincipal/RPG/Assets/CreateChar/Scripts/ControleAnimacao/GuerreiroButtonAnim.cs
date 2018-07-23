@@ -7,7 +7,9 @@ public class GuerreiroButtonAnim : MonoBehaviour {
     public Animator BotãoGuerreiro;
     public Animator SobreGuerreiro;
     public GameObject SobreGuerreiroObj;
-    public bool Ativado = true;
+    public GameObject ButtonPitoleiro;
+    public GameObject ButtonBomber;
+    private bool Ativado;
 	// Use this for initialization
 	void Start () {
 		
@@ -19,19 +21,22 @@ public class GuerreiroButtonAnim : MonoBehaviour {
 	}
 
     public void OnBotãoGuerreiro()
-    {
-        if (Ativado)
-        {
-            Ativado = false;
-            BotãoGuerreiro.SetBool("AtivaAnim", true);
-            SobreGuerreiroObj.gameObject.SetActive(true);
-            SobreGuerreiro.SetBool("AtivaSobreGuerreiro", true);
-        }else if (!Ativado)
+    {   
+        
+        if (!Ativado)
         {
             Ativado = true;
-            BotãoGuerreiro.SetBool("AtivaAnim", false);
-            SobreGuerreiro.SetBool("AtivaSobreGuerreiro", false);
+            BotãoGuerreiro.SetBool("Ativa", false);
+            SobreGuerreiroObj.gameObject.SetActive(true);
+            SobreGuerreiro.SetBool("AtivaSobre", true);
+        }else if (Ativado)
+        {
+            Ativado = false;
+            BotãoGuerreiro.SetBool("Ativa", true);
+            SobreGuerreiro.SetBool("AtivaSobre", false);
             SobreGuerreiroObj.gameObject.SetActive(false);
+            ButtonPitoleiro.gameObject.SetActive(true);
+            ButtonBomber.gameObject.SetActive(true);
         }
     }
 

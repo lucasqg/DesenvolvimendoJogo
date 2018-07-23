@@ -7,20 +7,27 @@ public class PauseMenu : MonoBehaviour {
 
     public static bool JogoPause = false;
     public GameObject pauseMenu;
-    public GameObject popUpDie;
+    public GameObject inventario;
+    public GameObject arvoreSkill;
+    public GameObject falas;
 
     public PlayerBehaviour player;
 
+    public bool arvore, inv, fala; 
 
     // Use this for initialization
     void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        inv = inventario.gameObject.activeSelf;
+        arvore = arvoreSkill.gameObject.activeSelf;
+        fala = falas.gameObject.activeSelf;
+
+        if ( Input.GetKeyDown(KeyCode.Escape) && !inventario.gameObject.activeSelf && !arvoreSkill.gameObject.activeSelf && !falas.gameObject.activeSelf)
         {
             if (JogoPause)
             {
@@ -64,6 +71,6 @@ public class PauseMenu : MonoBehaviour {
 
         player.addLife(30);
 
-        popUpDie.gameObject.SetActive(false);
+        //popUpDie.gameObject.SetActive(false);
     }
 }

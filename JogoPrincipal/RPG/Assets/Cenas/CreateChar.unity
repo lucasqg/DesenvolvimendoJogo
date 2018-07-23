@@ -321,7 +321,8 @@ MonoBehaviour:
   "Bot\xE3oGuerreiro": {fileID: 1110792791}
   SobreGuerreiro: {fileID: 508343122}
   SobreGuerreiroObj: {fileID: 508343118}
-  Ativado: 0
+  ButtonPitoleiro: {fileID: 500642448}
+  ButtonBomber: {fileID: 1455612155}
 --- !u!1 &76944422
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,8 +539,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 149824412}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -508.01123, y: -329.61472, z: 14.875}
-  m_LocalScale: {x: 14.288562, y: 10.044382, z: 1}
+  m_LocalPosition: {x: -508.01123, y: -329.61472, z: 25.394}
+  m_LocalScale: {x: 154.75941, y: 108.7907, z: 10.831}
   m_Children:
   - {fileID: 1905446213}
   m_Father: {fileID: 1044200491}
@@ -4117,8 +4118,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3.8
-  m_Range: 237.3
+  m_Intensity: 20
+  m_Range: 875.83
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
