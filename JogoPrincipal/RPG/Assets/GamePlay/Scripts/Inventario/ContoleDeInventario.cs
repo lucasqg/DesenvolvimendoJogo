@@ -42,7 +42,7 @@ public class ContoleDeInventario : MonoBehaviour
                 buttonUse.SetActive(false);
                 buttonEquip.SetActive(true);
                 buttonComprar.SetActive(false);
-                buttonRemover.SetActive(false);
+                buttonRemover.SetActive(true);
                 
             }
             else
@@ -268,23 +268,150 @@ public class ContoleDeInventario : MonoBehaviour
         {
             ItensBase item = selectedSlot.currentItem;
             // coloca o item no equipavel, mas verifica se ja há um item ocupando o slot
-            if (Equipavel.item != null)
-            {
-                PlayerItensController aux;
-                aux = Equipavel;
-                Equipavel.item = selectedSlot.currentItem;
-                Equipavel.EquipItem();
-                selectedSlot.currentItem = null;
-                item.slot.SetupSlot();
+            if (item.nameItem == "Espada")
+            { 
+                if(PlayerItensController.instance.arma == null)
+                {
+                    PlayerItensController aux;
+                    aux = Equipavel;
+                    Equipavel.item = selectedSlot.currentItem;
+                    Equipavel.EquipItem();
+                    selectedSlot.currentItem = null;
+                    item.slot.SetupSlot();
+                }
+                else
+                {
+                    
+                    PlayerItensController aux;
+                    SlotEquipavel auxInventory = PlayerItensController.instance.arma;
+                    aux = Equipavel;
+                    Equipavel.item = selectedSlot.currentItem;
+                    Equipavel.EquipItem();
+                    selectedSlot.currentItem = null;
+                    item.slot.SetupSlot();
+                    AddItemToInventory(auxInventory.currentItem);
+                }
+            
             }
-            else
+            if (item.nameItem == "elmo")
             {
-                Equipavel.item = selectedSlot.currentItem;
-                Equipavel.EquipItem();
-                //retira o item do inventario
-                item.slot.currentItem = null;
-                item.slot.SetupSlot();  // método para retirar o icone do inventario
-                item.slot = null;
+                if (PlayerItensController.instance.elmo == null)
+                {
+                    PlayerItensController aux;
+                    aux = Equipavel;
+                    Equipavel.item = selectedSlot.currentItem;
+                    Equipavel.EquipItem();
+                    selectedSlot.currentItem = null;
+                    item.slot.SetupSlot();
+                }
+                else
+                {
+
+                    PlayerItensController aux;
+                    SlotEquipavel auxInventory = PlayerItensController.instance.elmo;
+                    aux = Equipavel;
+                    Equipavel.item = selectedSlot.currentItem;
+                    Equipavel.EquipItem();
+                    selectedSlot.currentItem = null;
+                    item.slot.SetupSlot();
+                    AddItemToInventory(auxInventory.currentItem);
+                }
+            }
+            if (item.nameItem == "peito")
+            {
+                if (PlayerItensController.instance.peito == null)
+                {
+                    PlayerItensController aux;
+                    aux = Equipavel;
+                    Equipavel.item = selectedSlot.currentItem;
+                    Equipavel.EquipItem();
+                    selectedSlot.currentItem = null;
+                    item.slot.SetupSlot();
+                }
+                else
+                {
+
+                    PlayerItensController aux;
+                    SlotEquipavel auxInventory = PlayerItensController.instance.peito;
+                    aux = Equipavel;
+                    Equipavel.item = selectedSlot.currentItem;
+                    Equipavel.EquipItem();
+                    selectedSlot.currentItem = null;
+                    item.slot.SetupSlot();
+                    AddItemToInventory(auxInventory.currentItem);
+                }
+            }
+            if (item.nameItem == "calça")
+            {
+                if (PlayerItensController.instance.calça == null)
+                {
+                    PlayerItensController aux;
+                    aux = Equipavel;
+                    Equipavel.item = selectedSlot.currentItem;
+                    Equipavel.EquipItem();
+                    selectedSlot.currentItem = null;
+                    item.slot.SetupSlot();
+                }
+                else
+                {
+
+                    PlayerItensController aux;
+                    SlotEquipavel auxInventory = PlayerItensController.instance.calça;
+                    aux = Equipavel;
+                    Equipavel.item = selectedSlot.currentItem;
+                    Equipavel.EquipItem();
+                    selectedSlot.currentItem = null;
+                    item.slot.SetupSlot();
+                    AddItemToInventory(auxInventory.currentItem);
+                }
+            }
+            if (item.nameItem == "luva")
+            {
+                if (PlayerItensController.instance.luva == null)
+                {
+                    PlayerItensController aux;
+                    aux = Equipavel;
+                    Equipavel.item = selectedSlot.currentItem;
+                    Equipavel.EquipItem();
+                    selectedSlot.currentItem = null;
+                    item.slot.SetupSlot();
+                }
+                else
+                {
+
+                    PlayerItensController aux;
+                    SlotEquipavel auxInventory = PlayerItensController.instance.luva;
+                    aux = Equipavel;
+                    Equipavel.item = selectedSlot.currentItem;
+                    Equipavel.EquipItem();
+                    selectedSlot.currentItem = null;
+                    item.slot.SetupSlot();
+                    AddItemToInventory(auxInventory.currentItem);
+                }
+            }
+            if (item.nameItem == "bota")
+            {
+                if (PlayerItensController.instance.bota == null)
+                {
+                    PlayerItensController aux;
+                    aux = Equipavel;
+                    Equipavel.item = selectedSlot.currentItem;
+                    Equipavel.EquipItem();
+                    selectedSlot.currentItem = null;
+                    item.slot.SetupSlot();
+                }
+                else
+                {
+
+                    PlayerItensController aux;
+                    SlotEquipavel auxInventory = PlayerItensController.instance.bota;
+                    aux = Equipavel;
+                    Equipavel.item = selectedSlot.currentItem;
+                    Equipavel.EquipItem();
+                    selectedSlot.currentItem = null;
+                    item.slot.SetupSlot();
+                    AddItemToInventory(auxInventory.currentItem);
+                }
             }
         }
     }
