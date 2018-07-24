@@ -12,7 +12,7 @@ public class BasicInfoChars
 public class PlayerStatsController : MonoBehaviour{
     public static PlayerStatsController instance;
     public int level;
-    public int xpMultiply = 1;
+    public int xpMultiply = 3;
     public int pontosSkill;
     public int pontosAtributos;
     public float xpFirstLevel = 100;
@@ -57,7 +57,7 @@ public class PlayerStatsController : MonoBehaviour{
     public static void AddXp(float xpAdd)
     {
         float newXp = (GetCurrentXp() + xpAdd) * PlayerStatsController.instance.xpMultiply;
-        int pSkill = (GetCurrentPontosSkill() + 1);
+        int pSkill = (GetCurrentPontosSkill() + 5);
         while (newXp >= GetNextXp())
         {
             newXp -= GetNextXp();
@@ -84,7 +84,7 @@ public class PlayerStatsController : MonoBehaviour{
     public static void addLevel()
     {
         int newLevel = GetCurrentLevel() + 1;
-        instance.player.currentSkills += 1;
+        instance.player.currentSkills += 5;
         instance.player.currentPontos += 5;
         PlayerPrefs.SetInt("currentLevel", newLevel);
     }
