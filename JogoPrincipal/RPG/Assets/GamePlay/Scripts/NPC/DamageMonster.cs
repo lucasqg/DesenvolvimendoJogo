@@ -6,7 +6,8 @@ public class DamageMonster : MonoBehaviour
 {
     public PlayerBehaviour player;
     public NpcBase monstro;
-    public int ContadorDeTempo = 0;
+    public float vel = 8;
+    public float ContadorDeTempo = 0;
     // Use this for initialization
 
     void Start()
@@ -30,20 +31,20 @@ public class DamageMonster : MonoBehaviour
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
-        ContadorDeTempo += 1;
+        ContadorDeTempo +=Time.deltaTime;
 
-        if (collision.tag == "Player" && ContadorDeTempo > monstro.velTotal)
+        if (collision.tag == "Player" && ContadorDeTempo > vel)
         {
             player = FindObjectOfType(typeof(PlayerBehaviour)) as PlayerBehaviour;
             applyDamagePlayer(monstro.danoTotal);
             ContadorDeTempo = 0;
         }
-        else if (collision.tag == "Carroceiro" && ContadorDeTempo > monstro.velTotal && collision.GetComponent<BoxCollider2D>() == collision)
+        else if (collision.tag == "Carroceiro" && ContadorDeTempo > vel && collision.GetComponent<BoxCollider2D>() == collision)
         {
             applyDamageNPC(monstro.danoTotal, collision.GetComponent<Carroceiro>());
             ContadorDeTempo = 0;
         }
-        else if ((collision.tag == "Ovelha") && collision.GetComponent<BoxCollider2D>() == collision && ContadorDeTempo > monstro.velTotal)
+        else if ((collision.tag == "Ovelha") && collision.GetComponent<BoxCollider2D>() == collision && ContadorDeTempo > vel)
         {
             applyDamageOvelha(monstro.danoTotal, collision.GetComponent<SpawnLoboMissao2>());
             ContadorDeTempo = 0;

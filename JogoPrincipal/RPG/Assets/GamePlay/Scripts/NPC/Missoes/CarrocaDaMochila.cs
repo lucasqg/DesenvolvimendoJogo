@@ -26,7 +26,7 @@ public class CarrocaDaMochila : MonoBehaviour {
             if (ativarMissao)
             {
                 GameObject mochileti = Instantiate(mochila, new Vector3(-242.99f, -64.56f, -1.12f), Quaternion.identity);
-                texto.text = "Mochila encontrada\nLeve a mochila ao Mestre !";
+                collision.GetComponent<PlayerBehaviour>().SetNivelDeMissao("missaoPrincipal");
                 mochilaEncontrada = true;
                 ativarMissao = false;
             }

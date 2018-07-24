@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class AtivadorEspada : MonoBehaviour {
+    
     public GameObject Espada__costas;
     public GameObject Espada__Frente;
     public GameObject Espada__Esquerda;
@@ -15,21 +16,28 @@ public class AtivadorEspada : MonoBehaviour {
     public GameObject tPersonagem;
     public int posicao = 4;
     public bool espadaActive = false;
-    public int velAtack = 100;
+    public float velAtack = 3.0f;
     public int quantidadeDeHits=1;
     public GameObject explosion;
     public SkillBehaviour skill;
-    public int ContadorDeTempo1=0, ContadorDeTempo7=0;
-    public int ContadorDeTempo2=350;
-    public int ContadorDeTempo3=400;
-    public int ContadorDeTempo4=500;
-    public int ContadorDeTempo5=1000;
-    public int ContadorDeTempo6=2000;
+    public float ContadorDeTempo1=0, ContadorDeTempo7=0;
+    public float ContadorDeTempo2 =5.0f;
+    public float ContadorDeTempo3 = 7.0f;
+    public float ContadorDeTempo4 = 10.0f;
+    public float ContadorDeTempo5 = 15.0f;
+    public float ContadorDeTempo6 = 20.0f;
 
     void Start()
     {
-
-    }
+        velAtack = 3.0f;
+        ContadorDeTempo1 = 0;
+        ContadorDeTempo7 = 0;
+   ContadorDeTempo2 = 5.0f;
+     ContadorDeTempo3 = 7.0f;
+     ContadorDeTempo4 = 10.0f;
+     ContadorDeTempo5 = 15.0f;
+    ContadorDeTempo6 = 20.0f;
+}
 
     // Update is called once per frame
     void Update()
@@ -37,8 +45,8 @@ public class AtivadorEspada : MonoBehaviour {
             posicaoPlayer();
             PosicaoDeAtack();
             AtivadorSkill();
-        ContadorDeTempo7 += 1;
-        if (ContadorDeTempo7 >= 500)
+        ContadorDeTempo7 += Time.deltaTime;
+        if (ContadorDeTempo7 >= 15)
         {
             RecuperaHpStamina();
             ContadorDeTempo7 = 0;
@@ -67,35 +75,34 @@ public class AtivadorEspada : MonoBehaviour {
 
     public void PosicaoDeAtack()
     {
-        ContadorDeTempo1 += 1;
+        ContadorDeTempo1 += Time.deltaTime;
         if ((Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1)) && ContadorDeTempo1 >= velAtack)
         {
-            for (int i = 1; i <= quantidadeDeHits; i++)
+            //for (int i = 1; i <= quantidadeDeHits; i++)
+           // {
+            ContadorDeTempo1 = 0;
+            if (posicao == 3)
             {
-                ContadorDeTempo1 = 0;
-                if (posicao == 3)
-                {
-                    GameObject espada = Instantiate(Espada__costas, transform.position, transform.rotation, Personagem);
-                    espada.transform.parent = tPersonagem.transform;
-                }
-                else if (posicao == 1)
-                {
-                    GameObject espada = Instantiate(Espada__Direita, transform.position, transform.rotation, Personagem);
-                    espada.transform.parent = tPersonagem.transform;
-                }
-                else if (posicao == 2)
-                {
-                    GameObject espada = Instantiate(Espada__Esquerda, transform.position, transform.rotation, Personagem);
-                    espada.transform.parent = tPersonagem.transform;
-                }
-                else if (posicao == 4)
-                {
-                    GameObject espada =  Instantiate(Espada__Frente, transform.position, transform.rotation, Personagem);
-                    espada.transform.parent = tPersonagem.transform;
-                }
-                ContadorDeTempo1 = 0;
+                GameObject espada = Instantiate(Espada__costas, transform.position, transform.rotation, Personagem);
+                espada.transform.parent = tPersonagem.transform;
             }
-            quantidadeDeHits = 1;
+            else if (posicao == 1)
+            {
+                GameObject espada = Instantiate(Espada__Direita, transform.position, transform.rotation, Personagem);
+                espada.transform.parent = tPersonagem.transform;
+            }
+            else if (posicao == 2)
+            {
+                GameObject espada = Instantiate(Espada__Esquerda, transform.position, transform.rotation, Personagem);
+                espada.transform.parent = tPersonagem.transform;
+            }
+            else if (posicao == 4)
+            {
+                GameObject espada = Instantiate(Espada__Frente, transform.position, transform.rotation, Personagem);
+                espada.transform.parent = tPersonagem.transform;
+            }
+           // }
+           // quantidadeDeHits = 1;
         }
     }
 
@@ -108,16 +115,16 @@ public class AtivadorEspada : MonoBehaviour {
     public void AtivadorSkill()
     {
         
-        ContadorDeTempo2 -= 1;
-        ContadorDeTempo3 -= 1;
-        ContadorDeTempo4 -= 1;
-        ContadorDeTempo5 -= 1;
-        ContadorDeTempo6 -= 1;
-        UIController.instancer.SetSkill2(350, ContadorDeTempo2);
-        UIController.instancer.SetSkill3(400, ContadorDeTempo3);
-        UIController.instancer.SetSkill4(500, ContadorDeTempo4);
-        UIController.instancer.SetSkill5(1000, ContadorDeTempo5);
-        UIController.instancer.SetSkill6(2000, ContadorDeTempo6);
+        ContadorDeTempo2 -= Time.deltaTime;
+        ContadorDeTempo3 -= Time.deltaTime;
+        ContadorDeTempo4 -= Time.deltaTime;
+        ContadorDeTempo5 -= Time.deltaTime;
+        ContadorDeTempo6 -= Time.deltaTime;
+        UIController.instancer.SetSkill2(5, ContadorDeTempo2);
+        UIController.instancer.SetSkill3(7, ContadorDeTempo3);
+        UIController.instancer.SetSkill4(10, ContadorDeTempo4);
+        UIController.instancer.SetSkill5(15, ContadorDeTempo5);
+        UIController.instancer.SetSkill6(20, ContadorDeTempo6);
         if (Input.GetKeyDown(KeyCode.Alpha1)) // ataque básico
         {
 
@@ -128,7 +135,7 @@ public class AtivadorEspada : MonoBehaviour {
             {
                 player.addStamina(-15);
                 HitDuplo();
-                ContadorDeTempo2 = 350;
+                ContadorDeTempo2 = 5;
             }
         }
         if ((Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3)) && skill.explosion == true && ContadorDeTempo3 <= 0)
@@ -137,7 +144,7 @@ public class AtivadorEspada : MonoBehaviour {
             {
                 player.addStamina(-20);
                 Explosion();
-                ContadorDeTempo3 = 400;
+                ContadorDeTempo3 = 7;
             }
         }
         if ((Input.GetKeyDown(KeyCode.Keypad4) || Input.GetKeyDown(KeyCode.Alpha4)) && skill.hitTriplo == true && ContadorDeTempo4 <= 0)
@@ -146,7 +153,7 @@ public class AtivadorEspada : MonoBehaviour {
             {
                 player.addStamina(-20);
                 HitTriplo();
-                ContadorDeTempo4 = 500;
+                ContadorDeTempo4 = 10;
             }
         }
         if ((Input.GetKeyDown(KeyCode.Keypad5) || Input.GetKeyDown(KeyCode.Alpha5)) && skill.lançarEspada == true && ContadorDeTempo5 <= 0)
@@ -155,7 +162,7 @@ public class AtivadorEspada : MonoBehaviour {
             {
                 player.addStamina(-30);
                 LançarEspada();
-                ContadorDeTempo5 = 1000;
+                ContadorDeTempo5 = 15;
             }
         }
         if ((Input.GetKeyDown(KeyCode.Keypad6) || Input.GetKeyDown(KeyCode.Alpha6)) && skill.giroDoInfinito == true && ContadorDeTempo6 <= 0)
@@ -164,7 +171,7 @@ public class AtivadorEspada : MonoBehaviour {
             {
                 player.addStamina(-40);
                 GiroDoInfinito();
-                ContadorDeTempo6 = 2000;
+                ContadorDeTempo6 = 20;
             }
         }
     }

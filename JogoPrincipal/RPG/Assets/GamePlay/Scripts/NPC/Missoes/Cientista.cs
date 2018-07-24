@@ -49,8 +49,8 @@ public class Cientista : MonoBehaviour {
         ContadorDeTempo += 1;
         if (ContadorDeTempo >= tempoMaximoMissao)
         {
-            FinalizarMissao();
-            missaoAtiva = false;
+            //FinalizarMissao();
+           // missaoAtiva = false;
         }
     }
 

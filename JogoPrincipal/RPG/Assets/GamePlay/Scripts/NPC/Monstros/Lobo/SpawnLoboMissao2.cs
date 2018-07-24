@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnLoboMissao2 : NpcBase {
-
+    
     public bool iniciarMissao = true;
     public int contadorDeTempo1, contadorDeTempo2, contadorDeTempo3 = 0, contadorFimMissao;
     public int tempoSpawn1, tempoSpawn2, tempoSpawn3;

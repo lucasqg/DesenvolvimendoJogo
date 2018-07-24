@@ -16,7 +16,7 @@ public class PlayerStatsController : MonoBehaviour{
     public int pontosSkill;
     public int pontosAtributos;
     public float xpFirstLevel = 100;
-    public float difficultFactor = 1.5f;
+    public float difficultFactor = 4f;
     public PlayerBehaviour player;
     public List<BasicInfoChars> baseInfoChars;
 
